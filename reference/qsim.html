@@ -18,13 +18,25 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="A quick simulation function — qsim" />
+
+<meta property="og:description" content="A quick simulation function" />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +59,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">mrgsolve</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">mrgsolve</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.12.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,7 +77,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -73,6 +89,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -80,22 +97,26 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>A quick simulation function</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/qsim.R'><code>R/qsim.R</code></a></small>
+    <div class="hidden name"><code>qsim.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>A quick simulation function</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>qsim</span>(<span class='no'>x</span>, <span class='kw'>e</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>idata</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>req</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tgrid</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>skip_init_calc</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='fu'>qsim_df</span>(<span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -147,7 +168,7 @@ use <code><a href='mrgsim.html'>mrgsim</a></code>.</p>
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open compressed file '/Users/kyleb/git/m4solve/pkg/project/housemodel.RDS', probable reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='error'>Error in gzfile(file, "rb"): cannot open the connection</span></div><div class='input'>
 <span class='no'>des</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tgrid.html'>tgrid</a></span>(<span class='fl'>0</span>,<span class='fl'>2400</span>,<span class='fl'>1</span>)
 
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='recmatrix.html'>recmatrix</a></span>(<span class='fu'><a href='events.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>24</span>, <span class='kw'>addl</span><span class='kw'>=</span><span class='fl'>100</span>),<span class='no'>des</span>)
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='recmatrix.html'>recmatrix</a></span>(<span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>24</span>, <span class='kw'>addl</span><span class='kw'>=</span><span class='fl'>100</span>),<span class='no'>des</span>)
 
 <span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>qsim</span>(<span class='no'>data</span>)</div><div class='output co'>#&gt; <span class='error'>Error in Init(x): no slot of name "init" for this object of class "standardGeneric"</span></div><div class='input'>
 </div></pre>
@@ -177,5 +198,8 @@ use <code><a href='mrgsim.html'>mrgsim</a></code>.</p>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

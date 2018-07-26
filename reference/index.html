@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Function reference" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +56,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">mrgsolve</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">mrgsolve</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.12.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,7 +74,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -73,6 +86,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -80,695 +94,733 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;0.8.10.9007</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    <table class="ref-index">
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <colgroup>
+      
+      <col class="alias" />
+      <col class="title" />
+    </colgroup>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="aboutsolver.html">aboutsolver</a></code> </p>
-          </td>
-          <td><p>About the ODEPACK differential equation solver used by mrgsolve</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="as_bmat.html">as_bmat</a></code> <code><a href="as_bmat.html">as_dmat</a></code> </p>
-          </td>
-          <td><p>Coerce R objects to block or diagonal matrices.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="as_data_set.html">as_data_set</a></code> </p>
-          </td>
-          <td><p>Create a simulatinon data set from ev objects</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="as_deslist.html">as_deslist</a></code> </p>
-          </td>
-          <td><p>Create a list of designs from a data frame.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="as.list_mrgmod.html">as.list</a></code> </p>
-          </td>
-          <td><p>Coerce a model object to list.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="as.list-mrgsims-method.html">as.list</a></code> </p>
-          </td>
-          <td><p>Corece an mrgsims object to list</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="BLOCK_PARSE.html">PARAM</a></code> <code><a href="BLOCK_PARSE.html">FIXED</a></code> <code><a href="BLOCK_PARSE.html">THETA</a></code> <code><a href="BLOCK_PARSE.html">INIT</a></code> <code><a href="BLOCK_PARSE.html">CMT</a></code> <code><a href="BLOCK_PARSE.html">CAPTURE</a></code> </p>
-          </td>
-          <td><p>Functions to parse code blocks.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="blocks.html">blocks</a></code> </p>
-          </td>
-          <td><p>Return the code blocks from a model specification file.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="bmat.html">bmat</a></code> <code><a href="bmat.html">cmat</a></code> <code><a href="bmat.html">dmat</a></code> </p>
-          </td>
-          <td><p>Create matrices from vector input.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="cama.html">cama</a></code> </p>
-          </td>
-          <td><p>Run the model cama function</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="carry_out.html">carry_out</a></code> <code><a href="carry_out.html">carry.out</a></code> </p>
-          </td>
-          <td><p>Select items to carry into simulated output</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="chain.html">chain</a></code> </p>
-          </td>
-          <td><p>Functions for chaining commands together</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="cmt_list-class.html">cmt_list-class</a></code> </p>
-          </td>
-          <td><p>S4 cmt_list class</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="cmtn.html">cmtn</a></code> </p>
-          </td>
-          <td><p>Get the compartment number from a compartment name.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="code.html">code</a></code> </p>
-          </td>
-          <td><p>Extract the code from a model</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="cvec.html">cvec</a></code> <code><a href="cvec.html">ch</a></code> <code><a href="cvec.html">s</a></code> </p>
-          </td>
-          <td><p>Create create character vectors</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="data_set.html">data_set</a></code> </p>
-          </td>
-          <td><p>Select and modify a data set for simulation.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="design.html">design</a></code> </p>
-          </td>
-          <td><p>Set observation designs for the simulation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="details.html">details</a></code> </p>
-          </td>
-          <td><p>Extract model details.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="do_mrgsim.html">do_mrgsim</a></code> </p>
-          </td>
-          <td><p>Do an mrgsim run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="env_eval.html">env_eval</a></code> </p>
-          </td>
-          <td><p>Re-evaluate the code in the ENV block</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="env_get.html">env_get</a></code> <code><a href="env_get.html">env_get_env</a></code> </p>
-          </td>
-          <td><p>Return model environment</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="env_ls.html">env_ls</a></code> </p>
-          </td>
-          <td><p>List objects in the model environment</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="env_update.html">env_update</a></code> </p>
-          </td>
-          <td><p>Update objects in model environment</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ev_assign.html">ev_assign</a></code> <code><a href="ev_assign.html">assign_ev</a></code> </p>
-          </td>
-          <td><p>Replicate a list of events into a data set</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ev_days.html">ev_days</a></code> </p>
-          </td>
-          <td><p>Schedule dosing events on days of the week</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ev_ops.html">ev_ops</a></code> </p>
-          </td>
-          <td><p>Operations for ev objects</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ev_rep.html">ev_rep</a></code> </p>
-          </td>
-          <td><p>Replicate an event object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ev_repeat.html">ev_repeat</a></code> </p>
-          </td>
-          <td><p>Repeat a block of dosing events</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ev_seq.html">ev_seq</a></code> <code><a href="ev_seq.html">seq</a></code> </p>
-          </td>
-          <td><p>Schedule a series of event objects</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ev-class.html">ev-class</a></code> </p>
-          </td>
-          <td><p>S4 events class</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="events.html">events</a></code> <code><a href="events.html">ev</a></code> <code><a href="events.html">as.ev</a></code> <code><a href="events.html">names</a></code> <code><a href="events.html">mutate</a></code> <code><a href="events.html">nrow.ev</a></code> <code><a href="events.html">as.matrix</a></code> <code><a href="events.html">as.data.frame</a></code> <code><a href="events.html">show</a></code> </p>
-          </td>
-          <td><p>Event objects for simulating PK and other interventions.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="exdatasets.html">data</a></code> </p>
-          </td>
-          <td><p>Example input data sets.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="expand.idata.html">expand.idata</a></code> <code><a href="expand.idata.html">expand.ev</a></code> </p>
-          </td>
-          <td><p>Create template data sets for simulation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="file_show.html">file_show</a></code> </p>
-          </td>
-          <td><p>Show model specification and C++ files.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="house.html">house</a></code> </p>
-          </td>
-          <td><p>Return a pre-compiled, PK/PD model</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="idata_set.html">idata_set</a></code> </p>
-          </td>
-          <td><p>Select and modify a idata set for simulation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="init.html">init</a></code> <code><a href="init.html">as.init</a></code> <code><a href="init.html">show</a></code> </p>
-          </td>
-          <td><p>Methods for working with the model compartment list.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="inventory.html">inventory</a></code> </p>
-          </td>
-          <td><p>Check whether all required parameters needed in a model are present in an object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="is.mrgmod.html">is.mrgmod</a></code> </p>
-          </td>
-          <td><p>Check if an object is a model object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="is.mrgsims.html">is.mrgsims</a></code> </p>
-          </td>
-          <td><p>Check if an object is mrgsim output.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="knobs.html">knobs</a></code> <code><a href="knobs.html">as.data.frame</a></code> <code><a href="knobs.html">show</a></code> </p>
-          </td>
-          <td><p>Run sensitivity analysis on model settings.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="lctran.html">lctran</a></code> </p>
-          </td>
-          <td><p>Convert select upper case column names to lower case to conform 
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="BLOCK_PARSE.html">PARAM()</a></code> <code><a href="BLOCK_PARSE.html">FIXED()</a></code> <code><a href="BLOCK_PARSE.html">THETA()</a></code> <code><a href="BLOCK_PARSE.html">INIT()</a></code> <code><a href="BLOCK_PARSE.html">CMT()</a></code> <code><a href="BLOCK_PARSE.html">CAPTURE()</a></code> </p>
+        </td>
+        <td><p>Functions to parse code blocks</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="PKMODEL.html">PKMODEL()</a></code> </p>
+        </td>
+        <td><p>Parse PKMODEL BLOCK data.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Req.html">Req()</a></code> <code><a href="Req.html">req()</a></code> </p>
+        </td>
+        <td><p>Request simulated output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="aboutsolver.html">aboutsolver</a></code> </p>
+        </td>
+        <td><p>About the ODEPACK differential equation solver used by mrgsolve</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="as.ev.html">as.ev()</a></code> </p>
+        </td>
+        <td><p>Coerce an object to class ev</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="as.list-mrgsims-method.html">as.list(<i>&lt;mrgsims&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Corece an mrgsims object to list</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="as.list_mrgmod.html">as.list(<i>&lt;mrgmod&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Coerce a model object to list.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="as_bmat.html">as_bmat()</a></code> <code><a href="as_bmat.html">as_dmat()</a></code> </p>
+        </td>
+        <td><p>Coerce R objects to block or diagonal matrices</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="as_data_set.html">as_data_set()</a></code> </p>
+        </td>
+        <td><p>Create a simulatinon data set from ev objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="as_deslist.html">as_deslist()</a></code> </p>
+        </td>
+        <td><p>Create a list of designs from a data frame</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="blocks.html">blocks()</a></code> </p>
+        </td>
+        <td><p>Return the code blocks from a model specification file</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bmat.html">bmat()</a></code> <code><a href="bmat.html">cmat()</a></code> <code><a href="bmat.html">dmat()</a></code> </p>
+        </td>
+        <td><p>Create matrices from vector input</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cama.html">cama()</a></code> </p>
+        </td>
+        <td><p>Run the model cama function</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="carry_out.html">carry_out()</a></code> <code><a href="carry_out.html">carry.out()</a></code> </p>
+        </td>
+        <td><p>Select items to carry into simulated output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="chain.html">chain</a></code> </p>
+        </td>
+        <td><p>Functions for chaining commands together</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cmt_list-class.html">cmt_list-class</a></code> </p>
+        </td>
+        <td><p>S4 cmt_list class</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cmtn.html">cmtn()</a></code> </p>
+        </td>
+        <td><p>Get the compartment number from a compartment name</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="code.html">code()</a></code> </p>
+        </td>
+        <td><p>Extract the code from a model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="cvec.html">cvec()</a></code> <code><a href="cvec.html">s_()</a></code> </p>
+        </td>
+        <td><p>Create create character vectors</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="data_qsim.html">data_qsim()</a></code> </p>
+        </td>
+        <td><p>Create a matrix of events and observations for simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="data_set.html">data_set()</a></code> </p>
+        </td>
+        <td><p>Select and modify a data set for simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="design.html">design()</a></code> </p>
+        </td>
+        <td><p>Set observation designs for the simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="details.html">details()</a></code> </p>
+        </td>
+        <td><p>Extract model details.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="do_mrgsim.html">do_mrgsim()</a></code> </p>
+        </td>
+        <td><p>Do an mrgsim run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="env_eval.html">env_eval()</a></code> </p>
+        </td>
+        <td><p>Re-evaluate the code in the ENV block</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="env_get.html">env_get()</a></code> <code><a href="env_get.html">env_get_env()</a></code> </p>
+        </td>
+        <td><p>Return model environment</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="env_ls.html">env_ls()</a></code> </p>
+        </td>
+        <td><p>List objects in the model environment</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="env_update.html">env_update()</a></code> </p>
+        </td>
+        <td><p>Update objects in model environment</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev-class.html">ev-class</a></code> </p>
+        </td>
+        <td><p>S4 events class</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev.html">ev()</a></code> </p>
+        </td>
+        <td><p>Event objects for simulating PK and other interventions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev_assign.html">ev_assign()</a></code> <code><a href="ev_assign.html">assign_ev()</a></code> </p>
+        </td>
+        <td><p>Replicate a list of events into a data set</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev_days.html">ev_days()</a></code> </p>
+        </td>
+        <td><p>Schedule dosing events on days of the week</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev_dplyr.html">mutate(<i>&lt;ev&gt;</i>)</a></code> <code><a href="ev_dplyr.html">select(<i>&lt;ev&gt;</i>)</a></code> <code><a href="ev_dplyr.html">filter_(<i>&lt;ev&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>dplyr verbs for event objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev_methods.html">nrow(<i>&lt;ev&gt;</i>)</a></code> <code><a href="ev_methods.html">names(<i>&lt;ev&gt;</i>)</a></code> <code><a href="ev_methods.html">as.matrix(<i>&lt;ev&gt;</i>)</a></code> <code><a href="ev_methods.html">as.data.frame(<i>&lt;ev&gt;</i>)</a></code> <code><a href="ev_methods.html">show(<i>&lt;ev&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Various methods for event objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev_ops.html">`+`(<i>&lt;ev&gt;</i>,<i>&lt;ev&gt;</i>)</a></code> <code><a href="ev_ops.html">`%then%`</a></code> <code><a href="ev_ops.html">`+`(<i>&lt;ev&gt;</i>,<i>&lt;numeric&gt;</i>)</a></code> <code><a href="ev_ops.html">c(<i>&lt;ev&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Operations for ev objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev_rep.html">ev_rep()</a></code> </p>
+        </td>
+        <td><p>Replicate an event object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev_repeat.html">ev_repeat()</a></code> </p>
+        </td>
+        <td><p>Repeat a block of dosing events</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ev_seq.html">ev_seq()</a></code> <code><a href="ev_seq.html">seq(<i>&lt;ev&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Schedule a series of event objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="events.html">events()</a></code> </p>
+        </td>
+        <td><p>DEPRECATED: get an events object from a model object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="exdatasets.html">exidata</a></code> <code><a href="exdatasets.html">extran1</a></code> <code><a href="exdatasets.html">extran2</a></code> <code><a href="exdatasets.html">extran3</a></code> <code><a href="exdatasets.html">exTheoph</a></code> <code><a href="exdatasets.html">exBoot</a></code> </p>
+        </td>
+        <td><p>Example input data sets.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="expand.idata.html">expand.idata()</a></code> <code><a href="expand.idata.html">expand.ev()</a></code> </p>
+        </td>
+        <td><p>Create template data sets for simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="file_show.html">file_show()</a></code> </p>
+        </td>
+        <td><p>Show model specification and C++ files.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="house.html">house()</a></code> </p>
+        </td>
+        <td><p>Return a pre-compiled, PK/PD model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="idata_set.html">idata_set()</a></code> </p>
+        </td>
+        <td><p>Select and modify a idata set for simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="init.html">init()</a></code> <code><a href="init.html">as.init()</a></code> <code><a href="init.html">show(<i>&lt;cmt_list&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Methods for working with the model compartment list</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="inventory.html">inventory()</a></code> </p>
+        </td>
+        <td><p>Check whether all required parameters needed in a model are present in an object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="is.mrgmod.html">is.mrgmod()</a></code> </p>
+        </td>
+        <td><p>Check if an object is a model object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="is.mrgsims.html">is.mrgsims()</a></code> </p>
+        </td>
+        <td><p>Check if an object is mrgsim output.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="knobs.html">knobs()</a></code> <code><a href="knobs.html">as.data.frame(<i>&lt;batch_mrgsims&gt;</i>)</a></code> <code><a href="knobs.html">show(<i>&lt;batch_mrgsims&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Run sensitivity analysis on model settings.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lctran.html">lctran()</a></code> </p>
+        </td>
+        <td><p>Convert select upper case column names to lower case to conform 
 to mrgsolve data expectations</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="loadso.html">loadso</a></code> </p>
-          </td>
-          <td><p>Load the model shared object.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="lower2matrix.html">lower2matrix</a></code> </p>
-          </td>
-          <td><p>Create a square numeric matrix from the lower-triangular elements.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="matlist_ops.html">c</a></code> </p>
-          </td>
-          <td><p>Operations with matlist objects.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="matlist-class.html">matlist-class</a></code> </p>
-          </td>
-          <td><p>S4 class matlist.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="matlist.html">zero.re</a></code> <code><a href="matlist.html">zero_re</a></code> <code><a href="matlist.html">drop.re</a></code> <code><a href="matlist.html">drop_re</a></code> <code><a href="matlist.html">as.list</a></code> <code><a href="matlist.html">as.matrix</a></code> <code><a href="matlist.html">names</a></code> <code><a href="matlist.html">length</a></code> <code><a href="matlist.html">labels</a></code> <code><a href="matlist.html">dim</a></code> <code><a href="matlist.html">nrow</a></code> <code><a href="matlist.html">show</a></code> </p>
-          </td>
-          <td><p>Methods for working with matrix-list objects.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mcode.html">mcode_cache</a></code> <code><a href="mcode.html">mcode</a></code> </p>
-          </td>
-          <td><p>Write, compile, and load model code</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mcRNG.html">mcRNG</a></code> </p>
-          </td>
-          <td><p>Set RNG to use L'Ecuyer-CMRG</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="merge.html">merge</a></code> </p>
-          </td>
-          <td><p>Merge two lists</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mod.html">mod</a></code> </p>
-          </td>
-          <td><p>Return the model object.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modelparse.html">modelparse</a></code> </p>
-          </td>
-          <td><p>Parse model specification text.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modlib_details.html">modlib_details</a></code> </p>
-          </td>
-          <td><p>modlib: PK/PD Model parameters, compartments, and output variables</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modlib_pk.html">modlib_pk</a></code> </p>
-          </td>
-          <td><p>modlib: Pharmacokinetic models</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modlib_pkpd.html">modlib_pkpd</a></code> </p>
-          </td>
-          <td><p>modlib: Pharmacokinetic / pharmacodynamic models</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modlib_tmdd.html">modlib_tmdd</a></code> </p>
-          </td>
-          <td><p>modlib: Target mediated disposition model</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modlib_viral.html">modlib_viral</a></code> </p>
-          </td>
-          <td><p>modlib: HCV viral dynamics models</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modlib.html">modlib</a></code> </p>
-          </td>
-          <td><p>Internal model library.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modlist-class.html">modlist-class</a></code> </p>
-          </td>
-          <td><p>S4 class matlist.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modlist.html">modlist</a></code> </p>
-          </td>
-          <td><p>Create a modlist object.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="modMATRIX.html">modMATRIX</a></code> </p>
-          </td>
-          <td><p>Create a matrix.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mread.html">mread_cache</a></code> <code><a href="mread.html">mread</a></code> <code><a href="mread.html">mread_file</a></code> </p>
-          </td>
-          <td><p>Read a model specification file</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mrgmod-class.html">mrgmod-class</a></code> </p>
-          </td>
-          <td><p>S4 class for mrgsolve model object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mrgsim_variants.html">mrgsim_e</a></code> <code><a href="mrgsim_variants.html">mrgsim_d</a></code> <code><a href="mrgsim_variants.html">mrgsim_ei</a></code> <code><a href="mrgsim_variants.html">mrgsim_di</a></code> <code><a href="mrgsim_variants.html">mrgsim_i</a></code> <code><a href="mrgsim_variants.html">mrgsim_0</a></code> </p>
-          </td>
-          <td><p>mrgsim variant functions</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mrgsim.html">mrgsim</a></code> <code><a href="mrgsim.html">mrgsim_df</a></code> </p>
-          </td>
-          <td><p>Simulate from a model object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mrgsims_dplyr.html">as.tbl</a></code> <code><a href="mrgsims_dplyr.html">pull</a></code> <code><a href="mrgsims_dplyr.html">filter_.mrgsims</a></code> <code><a href="mrgsims_dplyr.html">group_by</a></code> <code><a href="mrgsims_dplyr.html">distinct</a></code> <code><a href="mrgsims_dplyr.html">mutate</a></code> <code><a href="mrgsims_dplyr.html">summarise</a></code> <code><a href="mrgsims_dplyr.html">do</a></code> <code><a href="mrgsims_dplyr.html">select</a></code> <code><a href="mrgsims_dplyr.html">slice</a></code> <code><a href="mrgsims_dplyr.html">as_data_frame</a></code> </p>
-          </td>
-          <td><p>Methods for handling output with dplyr verbs</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mrgsims-class.html">mrgsims-class</a></code> </p>
-          </td>
-          <td><p>S4 class for mrgsolve simulation output.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mrgsims.html">mrgsims</a></code> </p>
-          </td>
-          <td><p>Methods for working with <code>mrgsims</code> objects.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mrgsolve_package.html">mrgsolve</a></code> </p>
-          </td>
-          <td><p>mrgsolve</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="mvgauss.html">mvgauss</a></code> </p>
-          </td>
-          <td><p>Simulate from a multivariate normal distribution with mean zero</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="names-mrgmod-method.html">names</a></code> </p>
-          </td>
-          <td><p>Get all names from a model object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="nmxml.html">nmxml</a></code> </p>
-          </td>
-          <td><p>Get THETA, OMEGA and SIGMA from a completed NONMEM run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="numeric2diag.html">numeric2diag</a></code> </p>
-          </td>
-          <td><p>Create a diagonal numeric matrix from diagonal elements.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="numericlist-class.html">numericlist-class</a></code> </p>
-          </td>
-          <td><p>S4 class numeric list</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="numericlist.html">numericlist</a></code> </p>
-          </td>
-          <td><p>Methods for numericlist</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="obsaug.html">obsaug</a></code> </p>
-          </td>
-          <td><p>Augment observations in the simulated output</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="obsonly.html">obsonly</a></code> </p>
-          </td>
-          <td><p>Collect only observations in the simulated output</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="omega.html">omat</a></code> </p>
-          </td>
-          <td><p>Manipulate OMEGA matrices.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="param.html">$,mrgmod-method</a></code> </p>
-          </td>
-          <td><p>Create and work with parameter objects</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="parameter_list-class.html">parameter_list-class</a></code> </p>
-          </td>
-          <td><p>S4 parameter_list class</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="PKMODEL.html">PKMODEL</a></code> </p>
-          </td>
-          <td><p>Parse PKMODEL BLOCK data.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="plot_batch_mrgsims.html">plot</a></code> </p>
-          </td>
-          <td><p>Plot method for mrgsims objects.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="plot_mrgsims.html">plot</a></code> </p>
-          </td>
-          <td><p>Generate a quick plot of simulated data</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="qsim.html">qsim</a></code> <code><a href="qsim.html">qsim_df</a></code> </p>
-          </td>
-          <td><p>A quick simulation function</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="realize_addl.html">realize_addl</a></code> </p>
-          </td>
-          <td><p>Make addl doses explicit in an event object or data set</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="recmatrix.html">recmatrix</a></code> </p>
-          </td>
-          <td><p>Create a matrix of events for simulation.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="relocate.html">relocate</a></code> </p>
-          </td>
-          <td><p>Update model or project in an model object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="rename_cols.html">rename_cols</a></code> </p>
-          </td>
-          <td><p>rename columns from vector for new names</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="render.html">render</a></code> <code><a href="render.html">dorender</a></code> </p>
-          </td>
-          <td><p>Render a model to a document</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="Req.html">Req</a></code> <code><a href="Req.html">req</a></code> </p>
-          </td>
-          <td><p>Request simulated output</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="reserved.html">reserved</a></code> </p>
-          </td>
-          <td><p>Reserved words.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="revar.html">revar</a></code> </p>
-          </td>
-          <td><p>Get model random effect variances and covariances.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="scrape_and_call.html">scrape_and_call</a></code> </p>
-          </td>
-          <td><p>Scrape options and pass to function.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="scrape_opts.html">scrape_opts</a></code> </p>
-          </td>
-          <td><p>Scrape options from a code block.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="see.html">see</a></code> </p>
-          </td>
-          <td><p>Print model code to the console.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="show-modlist-method.html">show</a></code> </p>
-          </td>
-          <td><p>Show a modlist object.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="show-mrgmod-method.html">show</a></code> </p>
-          </td>
-          <td><p>Print model details</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="sigma.html">smat</a></code> </p>
-          </td>
-          <td><p>Manipulate SIGMA matrices.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="simargs.html">simargs</a></code> </p>
-          </td>
-          <td><p>Access or clear arguments for calls to mrgsim</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="soloc.html">soloc</a></code> </p>
-          </td>
-          <td><p>Return the location of the model shared object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="solversettings.html">solversettings</a></code> </p>
-          </td>
-          <td><p>Optional inputs for DLSODA</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="stime.html">stime</a></code> </p>
-          </td>
-          <td><p>Get the times at which the model will be evaluated.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="tgrid_ops.html">c,tgrid-method</a></code> </p>
-          </td>
-          <td><p>Operations with tgrid objects</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="tgrid.html">tgrid</a></code> <code><a href="tgrid.html">stime</a></code> <code><a href="tgrid.html">show</a></code> </p>
-          </td>
-          <td><p>Create a simtime object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="touch_funs.html">touch_funs</a></code> </p>
-          </td>
-          <td><p>Get inits from compiled function</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="tscale.html">tscale</a></code> </p>
-          </td>
-          <td><p>Rescale time in the simulated output</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="update.html">update</a></code> </p>
-          </td>
-          <td><p>Update the model object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="valid_data.html">valid_data_set</a></code> <code><a href="valid_data.html">valid_idata_set</a></code> <code><a href="valid_data.html">valid_data_set.matrix</a></code> </p>
-          </td>
-          <td><p>Validate and prepare data sets for simulation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="zchain.html">%>%</a></code> </p>
-          </td>
-          <td><p>Forward pipe.</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="loadso.html">loadso()</a></code> </p>
+        </td>
+        <td><p>Load the model shared object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lower2matrix.html">lower2matrix()</a></code> </p>
+        </td>
+        <td><p>Create a square numeric matrix from the lower-triangular elements</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="matlist-class.html">matlist-class</a></code> </p>
+        </td>
+        <td><p>S4 class matlist</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="matlist.html">zero.re()</a></code> <code><a href="matlist.html">zero_re()</a></code> <code><a href="matlist.html">drop.re()</a></code> <code><a href="matlist.html">drop_re()</a></code> <code><a href="matlist.html">as.list(<i>&lt;matlist&gt;</i>)</a></code> <code><a href="matlist.html">as.matrix(<i>&lt;matlist&gt;</i>)</a></code> <code><a href="matlist.html">names(<i>&lt;matlist&gt;</i>)</a></code> <code><a href="matlist.html">length(<i>&lt;matlist&gt;</i>)</a></code> <code><a href="matlist.html">labels(<i>&lt;matlist&gt;</i>)</a></code> <code><a href="matlist.html">dim(<i>&lt;matlist&gt;</i>)</a></code> <code><a href="matlist.html">nrow(<i>&lt;matlist&gt;</i>)</a></code> <code><a href="matlist.html">show(<i>&lt;matlist&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Methods for working with matrix-list objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="matlist_ops.html">c(<i>&lt;matlist&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Operations with matlist objects.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mcRNG.html">mcRNG()</a></code> </p>
+        </td>
+        <td><p>Set RNG to use L'Ecuyer-CMRG</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mcode.html">mcode()</a></code> <code><a href="mcode.html">mcode_cache()</a></code> </p>
+        </td>
+        <td><p>Write, compile, and load model code</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="merge.html">merge(<i>&lt;list&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Merge two lists</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mod.html">mod()</a></code> </p>
+        </td>
+        <td><p>Return the model object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modMATRIX.html">modMATRIX()</a></code> </p>
+        </td>
+        <td><p>Create a matrix</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modelparse.html">modelparse()</a></code> </p>
+        </td>
+        <td><p>Parse model specification text.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modlib.html">modlib()</a></code> </p>
+        </td>
+        <td><p>Internal model library.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modlib_details.html">modlib_details</a></code> </p>
+        </td>
+        <td><p>modlib: PK/PD Model parameters, compartments, and output variables</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modlib_pk.html">modlib_pk</a></code> </p>
+        </td>
+        <td><p>modlib: Pharmacokinetic models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modlib_pkpd.html">modlib_pkpd</a></code> </p>
+        </td>
+        <td><p>modlib: Pharmacokinetic / pharmacodynamic models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modlib_tmdd.html">modlib_tmdd</a></code> </p>
+        </td>
+        <td><p>modlib: Target mediated disposition model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modlib_viral.html">modlib_viral</a></code> </p>
+        </td>
+        <td><p>modlib: HCV viral dynamics models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modlist-class.html">`$`(<i>&lt;modlist&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>S4 class matlist.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="modlist.html">modlist()</a></code> </p>
+        </td>
+        <td><p>Create a modlist object.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mread.html">mread()</a></code> <code><a href="mread.html">mread_cache()</a></code> <code><a href="mread.html">mread_file()</a></code> </p>
+        </td>
+        <td><p>Read a model specification file</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mrgmod-class.html">mrgmod-class</a></code> </p>
+        </td>
+        <td><p>S4 class for mrgsolve model object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mrgsim.html">mrgsim()</a></code> <code><a href="mrgsim.html">mrgsim_df()</a></code> </p>
+        </td>
+        <td><p>Simulate from a model object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mrgsim_variants.html">mrgsim_e()</a></code> <code><a href="mrgsim_variants.html">mrgsim_d()</a></code> <code><a href="mrgsim_variants.html">mrgsim_ei()</a></code> <code><a href="mrgsim_variants.html">mrgsim_di()</a></code> <code><a href="mrgsim_variants.html">mrgsim_i()</a></code> <code><a href="mrgsim_variants.html">mrgsim_0()</a></code> </p>
+        </td>
+        <td><p>mrgsim variant functions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mrgsims-class.html">mrgsims-class</a></code> </p>
+        </td>
+        <td><p>S4 class for mrgsolve simulation output.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mrgsims.html">`$`(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">tail(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">head(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">dim(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">names(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">as.data.frame(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">as.matrix(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">subset(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">summary(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims.html">show(<i>&lt;mrgsims&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Methods for working with <code>mrgsims</code> objects.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mrgsims_dplyr.html">as.tbl(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">pull(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">filter_(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">filter_sims()</a></code> <code><a href="mrgsims_dplyr.html">group_by(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">distinct(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">mutate(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">mutate_sims()</a></code> <code><a href="mrgsims_dplyr.html">summarise(<i>&lt;each&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">summarise(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">do(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">select(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">slice(<i>&lt;mrgsims&gt;</i>)</a></code> <code><a href="mrgsims_dplyr.html">as_data_frame(<i>&lt;mrgsims&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Methods for handling output with dplyr verbs</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mrgsolve_package.html">mrgsolve</a></code> </p>
+        </td>
+        <td><p>mrgsolve</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="mvgauss.html">mvgauss()</a></code> </p>
+        </td>
+        <td><p>Simulate from a multivariate normal distribution with mean zero</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="names-mrgmod-method.html">names(<i>&lt;mrgmod&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Get all names from a model object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="nmxml.html">nmxml()</a></code> </p>
+        </td>
+        <td><p>Get THETA, OMEGA and SIGMA from a completed NONMEM run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="numeric2diag.html">numeric2diag()</a></code> </p>
+        </td>
+        <td><p>Create a diagonal numeric matrix from diagonal elements</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="numericlist-class.html">numericlist-class</a></code> </p>
+        </td>
+        <td><p>S4 class numeric list</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="numericlist.html">as.list(<i>&lt;numericlist&gt;</i>)</a></code> <code><a href="numericlist.html">as.numeric(<i>&lt;numericlist&gt;</i>)</a></code> <code><a href="numericlist.html">as.data.frame(<i>&lt;numericlist&gt;</i>)</a></code> <code><a href="numericlist.html">length(<i>&lt;numericlist&gt;</i>)</a></code> <code><a href="numericlist.html">names(<i>&lt;numericlist&gt;</i>)</a></code> <code><a href="numericlist.html">`$`(<i>&lt;numericlist&gt;</i>)</a></code> <code><a href="numericlist.html">`[`(<i>&lt;numericlist&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Methods for numericlist</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="obsaug.html">obsaug()</a></code> </p>
+        </td>
+        <td><p>Augment observations in the simulated output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="obsonly.html">obsonly()</a></code> </p>
+        </td>
+        <td><p>Collect only observations in the simulated output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="omega.html">omat()</a></code> </p>
+        </td>
+        <td><p>Manipulate OMEGA matrices</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="param.html">param()</a></code> <code><a href="param.html">show(<i>&lt;parameter_list&gt;</i>)</a></code> <code><a href="param.html">allparam()</a></code> <code><a href="param.html">as.param()</a></code> <code><a href="param.html">`$`(<i>&lt;mrgmod&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Create and work with parameter objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parameter_list-class.html">parameter_list-class</a></code> </p>
+        </td>
+        <td><p>S4 parameter_list class</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_batch_mrgsims.html">plot(<i>&lt;batch_mrgsims&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> <code><a href="plot_batch_mrgsims.html">plot(<i>&lt;batch_mrgsims&gt;</i>,<i>&lt;formula&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Plot method for mrgsims objects.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_mrgsims.html">plot(<i>&lt;mrgsims&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> <code><a href="plot_mrgsims.html">plot(<i>&lt;mrgsims&gt;</i>,<i>&lt;formula&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Generate a quick plot of simulated data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_sims.html">plot_sims()</a></code> </p>
+        </td>
+        <td><p>Plot data as an mrgsims object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="qsim.html">qsim()</a></code> <code><a href="qsim.html">qsim_df()</a></code> </p>
+        </td>
+        <td><p>A quick simulation function</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="read_nmext.html">read_nmext()</a></code> </p>
+        </td>
+        <td><p>Extract estimates from NONMEM ext file</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="realize_addl.html">realize_addl()</a></code> </p>
+        </td>
+        <td><p>Make addl doses explicit in an event object or data set</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="recmatrix.html">recmatrix()</a></code> </p>
+        </td>
+        <td><p>Create a matrix of events for simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="relocate.html">relocate()</a></code> </p>
+        </td>
+        <td><p>Update model or project in an model object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="rename_cols.html">rename_cols()</a></code> </p>
+        </td>
+        <td><p>rename columns from vector for new names</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="render.html">render()</a></code> <code><a href="render.html">dorender()</a></code> </p>
+        </td>
+        <td><p>Render a model to a document</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="reserved.html">reserved()</a></code> </p>
+        </td>
+        <td><p>Reserved words.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="revar.html">revar()</a></code> </p>
+        </td>
+        <td><p>Get model random effect variances and covariances</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="scrape_and_call.html">scrape_and_call()</a></code> </p>
+        </td>
+        <td><p>Scrape options and pass to function.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="scrape_opts.html">scrape_opts()</a></code> </p>
+        </td>
+        <td><p>Scrape options from a code block.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="see.html">see()</a></code> </p>
+        </td>
+        <td><p>Print model code to the console</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="show-modlist-method.html">show(<i>&lt;modlist&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Show a modlist object.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="show-mrgmod-method.html">show(<i>&lt;mrgmod&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Print model details</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sigma.html">smat()</a></code> </p>
+        </td>
+        <td><p>Manipulate SIGMA matrices</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="simargs.html">simargs()</a></code> </p>
+        </td>
+        <td><p>Access or clear arguments for calls to mrgsim</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="soloc.html">soloc()</a></code> </p>
+        </td>
+        <td><p>Return the location of the model shared object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="solversettings.html">solversettings</a></code> </p>
+        </td>
+        <td><p>Optional inputs for DLSODA</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="stime.html">stime()</a></code> </p>
+        </td>
+        <td><p>Get the times at which the model will be evaluated</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tgrid.html">tgrid()</a></code> <code><a href="tgrid.html">stime(<i>&lt;tgrid&gt;</i>)</a></code> <code><a href="tgrid.html">stime(<i>&lt;tgrids&gt;</i>)</a></code> <code><a href="tgrid.html">stime(<i>&lt;numeric&gt;</i>)</a></code> <code><a href="tgrid.html">show(<i>&lt;tgrid&gt;</i>)</a></code> <code><a href="tgrid.html">show(<i>&lt;tgrids&gt;</i>)</a></code> <code><a href="tgrid.html">stime(<i>&lt;mrgmod&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Create a simtime object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tgrid_ops.html">c(<i>&lt;tgrid&gt;</i>)</a></code> <code><a href="tgrid_ops.html">c(<i>&lt;tgrids&gt;</i>)</a></code> <code><a href="tgrid_ops.html">`+`(<i>&lt;tgrid&gt;</i>,<i>&lt;numeric&gt;</i>)</a></code> <code><a href="tgrid_ops.html">`*`(<i>&lt;tgrid&gt;</i>,<i>&lt;numeric&gt;</i>)</a></code> <code><a href="tgrid_ops.html">`+`(<i>&lt;tgrids&gt;</i>,<i>&lt;numeric&gt;</i>)</a></code> <code><a href="tgrid_ops.html">`*`(<i>&lt;tgrids&gt;</i>,<i>&lt;numeric&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Operations with tgrid objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="touch_funs.html">touch_funs()</a></code> </p>
+        </td>
+        <td><p>Get inits from compiled function</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tscale.html">tscale()</a></code> </p>
+        </td>
+        <td><p>Rescale time in the simulated output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update.html">update(<i>&lt;mrgmod&gt;</i>)</a></code> <code><a href="update.html">update(<i>&lt;omegalist&gt;</i>)</a></code> <code><a href="update.html">update(<i>&lt;sigmalist&gt;</i>)</a></code> <code><a href="update.html">update(<i>&lt;parameter_list&gt;</i>)</a></code> <code><a href="update.html">update(<i>&lt;ev&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Update the model object</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="valid_data.html">valid_data_set()</a></code> <code><a href="valid_data.html">valid_idata_set()</a></code> <code><a href="valid_data.html">valid_data_set.matrix()</a></code> </p>
+        </td>
+        <td><p>Validate and prepare data sets for simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="zchain.html">%>%</a></code> </p>
+        </td>
+        <td><p>Forward pipe.</p></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -791,5 +843,8 @@ to mrgsolve data expectations</p></td>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

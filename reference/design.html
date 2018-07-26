@@ -18,13 +18,26 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Set observation designs for the simulation — design" />
+
+<meta property="og:description" content="This function also allows you to assign different designs to different
+groups or individuals in a population." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +60,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">mrgsolve</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">mrgsolve</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.12.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,7 +78,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -73,6 +90,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -80,20 +98,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Set observation designs for the simulation</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/chain.R'><code>R/chain.R</code></a></small>
+    <div class="hidden name"><code>design.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>This function also allows you to assign different designs to different
 groups or individuals in a population.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>design</span>(<span class='no'>x</span>, <span class='kw'>deslist</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>descol</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>), <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -149,7 +171,7 @@ command chain (see the example below).</p>
   <span class='fu'>design</span>(<span class='fu'>list</span>(<span class='no'>des1</span>, <span class='no'>des2</span>),<span class='st'>"amt"</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='data_set.html'>data_set</a></span>(<span class='no'>data</span>) <span class='kw'>%&gt;%</span>
   <span class='no'>mrgsim</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'>plot</span>(<span class='no'>RESP</span>~<span class='no'>time</span><span class='kw'>|</span><span class='no'>GRP</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list(structure("standardGeneric", package = "methods")), structure(function (.x,     ...) standardGeneric("omat"), generic = structure("omat", package = "mrgsolve"), package = "mrgsolve", group = list(), valueClass = character(0), signature = ".x", default = `\001NULL\001`, skeleton = (function (.x,     ...) stop("invalid call in method dispatch to 'omat' (no default method)",     domain = NA))(.x, ...), class = structure("standardGeneric", package = "methods")),     &lt;environment&gt;): unable to find an inherited method for function ‘omat’ for signature ‘"standardGeneric"’</span></div></pre>
+  <span class='fu'>plot</span>(<span class='no'>RESP</span>~<span class='no'>time</span><span class='kw'>|</span><span class='no'>GRP</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list(structure("standardGeneric", package = "methods")), new("standardGeneric",     .Data = function (.x, ...)     standardGeneric("omat"), generic = structure("omat", package = "mrgsolve"),     package = "mrgsolve", group = list(), valueClass = character(0),     signature = ".x", default = NULL, skeleton = (function (.x,         ...)     stop("invalid call in method dispatch to 'omat' (no default method)",         domain = NA))(.x, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘omat’ for signature ‘"standardGeneric"’</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -176,5 +198,8 @@ command chain (see the example below).</p>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

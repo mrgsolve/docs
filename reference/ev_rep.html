@@ -18,13 +18,26 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Replicate an event object — ev_rep" />
+
+<meta property="og:description" content="An event sequence can be replicated a certain number of
+times in a certain number of IDs." />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +60,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">mrgsolve</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">mrgsolve</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.12.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,7 +78,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -73,6 +90,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -80,20 +98,24 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Replicate an event object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/events.R'><code>R/events.R</code></a></small>
+    <div class="hidden name"><code>ev_rep.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>An event sequence can be replicated a certain number of
 times in a certain number of IDs.</p>
     
+    </div>
 
-    <pre class="usage"><span class='fu'>ev_rep</span>(<span class='no'>x</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>wait</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>as.ev</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>ev_rep</span>(<span class='no'>x</span>, <span class='kw'>ID</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>wait</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>as.ev</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -101,7 +123,7 @@ times in a certain number of IDs.</p>
       <td><p>event object</p></td>
     </tr>
     <tr>
-      <th>id</th>
+      <th>ID</th>
       <td><p>numeric vector if IDs</p></td>
     </tr>
     <tr>
@@ -116,6 +138,10 @@ times in a certain number of IDs.</p>
       <th>as.ev</th>
       <td><p>if <code>TRUE</code> an event object is returned</p></td>
     </tr>
+    <tr>
+      <th>id</th>
+      <td><p>deprecated; use <code>ID</code> instead</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -125,12 +151,12 @@ determined by the value of <code>as.ev</code>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='ev_repeat.html'>ev_repeat</a></code></p>
+    <div class='dont-index'><p><code><a href='ev_repeat.html'>ev_repeat</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>e1</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fu'><a href='events.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>100</span>), <span class='fu'><a href='events.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>200</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>24</span>, <span class='kw'>addl</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>time</span><span class='kw'>=</span><span class='fl'>72</span>))
+<span class='no'>e1</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>100</span>), <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>200</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>24</span>, <span class='kw'>addl</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>time</span><span class='kw'>=</span><span class='fl'>72</span>))
 
 <span class='fu'>ev_rep</span>(<span class='no'>e1</span>, <span class='fl'>1</span>:<span class='fl'>5</span>)</div><div class='output co'>#&gt;    time cmt amt evid ii addl ID
 #&gt; 1     0   1 100    1  0    0  1
@@ -172,5 +198,8 @@ determined by the value of <code>as.ev</code>.</p>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

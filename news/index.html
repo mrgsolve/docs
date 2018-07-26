@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All news • mrgsolve</title>
+<title>Changelog • mrgsolve</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Changelog" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +56,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">mrgsolve</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">mrgsolve</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.12.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,7 +74,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -73,6 +86,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -80,17 +94,125 @@
       
       </header>
 
-      <div class="row">
-
-  <div class="col-md-9">
+<div class="row">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Change log <small>All releases</small></h1>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="contents">
+    <div id="mrgsolve-0-8-12-9000" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-12-9000" class="anchor"></a>mrgsolve 0.8.12.9000<small> Unreleased </small>
+</h1>
+</div>
+    <div id="mrgsolve-0-8-12" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-12" class="anchor"></a>mrgsolve 0.8.12<small> 2018-04-27 </small>
+</h1>
+<ul>
+<li>
+<p>Minor changes to namespace for CRAN</p>
+<h1 id="mrgsove-0.8.11" class="page-header">mrgsove 0.8.11<small> 2018-04-27 </small>
+</h1>
+</li>
+<li>Internal release</li>
+<li><p>Removed the function <code>s</code> and replaced with <code>s_</code>; this was not a problem created by mrgsolve but rather by ggplot2, which calls <code><a href="http://www.rdocumentation.org/packages/mgcv/topics/s">mgcv::s</a></code> via <code>geom_smooth</code> under certian circumstances</p></li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9015" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9015" class="anchor"></a>mrgsolve 0.8.10.9015<small> Unreleased </small>
+</h1>
+<ul>
+<li>Re-configured the list of data coming from <code>as.list.mrgmod</code> so that the names match the names that you would pass to <code>update.mrgmod</code>; also added some items so that all updateable slots in the model object are exported by calling <code>as.list</code> <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/354'>#354</a></li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9014" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9014" class="anchor"></a>mrgsolve 0.8.10.9014<small> Unreleased </small>
+</h1>
+<ul>
+<li>Add OMEGA and SIGMA matrices to <code>as.list.mrgmod</code> output under the names omat and smat, respectively</li>
+<li>It is no longer an error to attempt to update slots for OMEGA and SIGMA matrices when there is no matrices in the slot as long as the update is with an empty list or a matrix with zero rows</li>
+<li>Fix segmentation fault when both data set and idata set are used in a simulation with certain mis-matches in the ID content between the two <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/352'>#352</a></li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9013" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9013" class="anchor"></a>mrgsolve 0.8.10.9013<small> Unreleased </small>
+</h1>
+<ul>
+<li>Removes more mtime code (wasn’t in use)</li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9012" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9012" class="anchor"></a>mrgsolve 0.8.10.9012<small> Unreleased </small>
+</h1>
+<ul>
+<li>Use <code><a href="http://dplyr.tidyverse.org/reference/se-deprecated.html">dplyr::filter_</a></code> for <code>filter_.ev</code>
+</li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9011" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9011" class="anchor"></a>mrgsolve 0.8.10.9011<small> Unreleased </small>
+</h1>
+<ul>
+<li>mtime clear bug</li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9010" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9010" class="anchor"></a>mrgsolve 0.8.10.9010<small> Unreleased </small>
+</h1>
+<ul>
+<li>Fixed bug in <code>filter.ev</code> method</li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9009" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9009" class="anchor"></a>mrgsolve 0.8.10.9009<small> Unreleased </small>
+</h1>
+<ul>
+<li>Added <code>mutate_sims</code> and <code>filter_sims</code> that work on <code>mrgsims</code> (output) objects, modifying the <code>data</code> slot and returning a modified <code>mrgsims</code> object rather than <code>data.frame</code>
+</li>
+<li>Added <code>plot_sims</code> function that takes a data frame of simulated output and generates a plot using the <code>mrgsims</code> method</li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9008" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9008" class="anchor"></a>mrgsolve 0.8.10.9008<small> Unreleased </small>
+</h1>
+<ul>
+<li>Changed <code>id</code> argument to <code>ID</code> in <code>ev_rep</code> and <code>ev_seq</code>; a warning is issued if <code>id</code> is used</li>
+<li>Added <code>data_qsim</code> for creating input data sets to use with <code>qsim</code>
+</li>
+<li>Fixed a bug where time after dose was not correctly calculated for additional doses with a lag time <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/327'>#327</a></li>
+<li>Added <code>read_nmext</code> to read in nonmem model output from the .ext file</li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9007" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9007" class="anchor"></a>mrgsolve 0.8.10.9007<small> Unreleased </small>
+</h1>
+<ul>
+<li>Clean up and re-organize Rd files; more-logical grouping and ordering</li>
+</ul>
+</div>
+    <div id="mrgsolve-0-8-10-9006" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9006" class="anchor"></a>mrgsolve 0.8.10.9006<small> Unreleased </small>
+</h1>
+<ul>
+<li>Stop importing assertthat and lazyeval</li>
+</ul>
+</div>
     <div id="mrgsolve-0-8-10-9005" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-10-9005" class="anchor"></a>mrgsolve 0.8.10.9005</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9005" class="anchor"></a>mrgsolve 0.8.10.9005<small> Unreleased </small>
+</h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New Features</h2>
@@ -102,7 +224,7 @@
 <h2 class="hasAnchor">
 <a href="#bug-fixes" class="anchor"></a>Bug Fixes</h2>
 <ul>
-<li>Fixed bug where the md5 value on the model file cound not be calculated under certain <code>project</code> path formulations #315</li>
+<li>Fixed bug where the md5 value on the model file cound not be calculated under certain <code>project</code> path formulations <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/315'>#315</a></li>
 </ul>
 </div>
 <div id="important-changes" class="section level2">
@@ -125,8 +247,9 @@
 </div>
 </div>
     <div id="mrgsolve-0-8-10-9003" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-10-9003" class="anchor"></a>mrgsolve 0.8.10.9003</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9003" class="anchor"></a>mrgsolve 0.8.10.9003<small> Unreleased </small>
+</h1>
 <div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features-1" class="anchor"></a>New Features</h2>
@@ -161,51 +284,57 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 </div>
 </div>
     <div id="mrgsolve-0-8-10-9002" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-10-9002" class="anchor"></a>mrgsolve 0.8.10.9002</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9002" class="anchor"></a>mrgsolve 0.8.10.9002<small> Unreleased </small>
+</h1>
 <ul>
 <li>Added <code>mrgsim_df</code> function to return data frame rather than <code>mrgsims</code> object</li>
 </ul>
 </div>
     <div id="mrgsolve-0-8-10-9001" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-10-9001" class="anchor"></a>mrgsolve 0.8.10.9001</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10-9001" class="anchor"></a>mrgsolve 0.8.10.9001<small> Unreleased </small>
+</h1>
 <ul>
 <li>The model environment is automatically imported as <code>_env</code> when <code>mrgx</code> plugin is invoked</li>
 </ul>
 </div>
     <div id="mrgsolve-0-8-10" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-10" class="anchor"></a>mrgsolve 0.8.10</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-10" class="anchor"></a>mrgsolve 0.8.10<small> 2017-11-01 </small>
+</h1>
 <ul>
 <li>Release to CRAN</li>
 </ul>
 </div>
     <div id="mrgsolve-0-8-9-9004" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-9-9004" class="anchor"></a>mrgsolve 0.8.9.9004</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-9-9004" class="anchor"></a>mrgsolve 0.8.9.9004<small> Unreleased </small>
+</h1>
 <ul>
 <li><p>Added <code>file</code> argument to <code>mread</code> to allow coding model specification files with any extension. The current behavior continues to be assuming that the model is in a <code>.cpp</code> file, but using the <code>file</code> argument allows any file name for model specification.</p></li>
 <li><p>Added <code>nocb</code> argument to <code>mrgsim</code>. If <code>nobc</code> is <code>TRUE</code> (default), <code>mrgsim</code> continues to use next observation carried forward to advance the system when there are time-varying parameters (including covariates). If <code>nocb</code> is <code>FALSE</code>, <code>mrgsim</code> will use last observation carried forward (<code>locf</code>) to advance the system when there are time-varying parameters.</p></li>
 </ul>
 </div>
     <div id="mrgsolve-0-8-9-9003" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-9-9003" class="anchor"></a>mrgsolve 0.8.9.9003</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-9-9003" class="anchor"></a>mrgsolve 0.8.9.9003<small> Unreleased </small>
+</h1>
 <ul>
 <li>Minor improvements to documentation</li>
 </ul>
 </div>
     <div id="mrgsolve-0-8-9-9002" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-9-9002" class="anchor"></a>mrgsolve 0.8.9.9002</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-9-9002" class="anchor"></a>mrgsolve 0.8.9.9002<small> Unreleased </small>
+</h1>
 <div id="bug-fix" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bug-fix" class="anchor"></a>Bug Fix</h2>
 <ul>
 <li>Fixed bug where deslist was created in the wrong order</li>
 <li>Fixed bug where infusion duration was incorrect when paired with non-zero lag time (test added)</li>
-<li>Fixed bug where <code>self</code> object was not correctly updated for the first record for an individual (#273)</li>
+<li>Fixed bug where <code>self</code> object was not correctly updated for the first record for an individual (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/273'>#273</a>)</li>
 </ul>
 </div>
 <div id="important-changes-1" class="section level2">
@@ -218,8 +347,9 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 </div>
 </div>
     <div id="mrgsolve-0-8-6-9000" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-6-9000" class="anchor"></a>mrgsolve 0.8.6.9000</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-6-9000" class="anchor"></a>mrgsolve 0.8.6.9000<small> Unreleased </small>
+</h1>
 <div id="important-changes-2" class="section level2">
 <h2 class="hasAnchor">
 <a href="#important-changes-2" class="anchor"></a>Important changes</h2>
@@ -233,7 +363,7 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 <h2 class="hasAnchor">
 <a href="#new-features-2" class="anchor"></a>New Features</h2>
 <ul>
-<li>Dosing records with <code>ss=2</code> are recognized, allowing combining of steady-state dosing regimens under linear kinetics (e.g. 10 mg QAM and 20 mg QPM) (#221)</li>
+<li>Dosing records with <code>ss=2</code> are recognized, allowing combining of steady-state dosing regimens under linear kinetics (e.g. 10 mg QAM and 20 mg QPM) (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/221'>#221</a>)</li>
 <li>Added function (<code>inventory</code>) that reconciles model parameters with names in an object (e.g. a simulation data set) verify that required parameters can be found in the data object.</li>
 </ul>
 </div>
@@ -241,37 +371,41 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 <h2 class="hasAnchor">
 <a href="#bugs-fixed" class="anchor"></a>Bugs fixed</h2>
 <ul>
-<li>PR #214 from @dastoor fixes compatibility issue with new <code>dplyr</code>
+<li>PR <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/214'>#214</a> from <a href='http://github.com/dastoor'>@dastoor</a> fixes compatibility issue with new <code>dplyr</code>
 </li>
-<li>Fixed bug in <code>deslist</code> implementation #222</li>
-<li>PR #238 fixes incorrect steady-state values when dose is associated with lagtime (#239)</li>
+<li>Fixed bug in <code>deslist</code> implementation <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/222'>#222</a></li>
+<li>PR <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/238'>#238</a> fixes incorrect steady-state values when dose is associated with lagtime (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/239'>#239</a>)</li>
 </ul>
 </div>
 </div>
     <div id="mrgsolve-0-8-4" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-4" class="anchor"></a>mrgsolve 0.8.4</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-4" class="anchor"></a>mrgsolve 0.8.4<small> Unreleased </small>
+</h1>
 <ul>
 <li>Reconfigure use of function pointer in unit tests</li>
 </ul>
 </div>
     <div id="mrgsolve-0-8-3" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-3" class="anchor"></a>mrgsolve 0.8.3</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-3" class="anchor"></a>mrgsolve 0.8.3<small> Unreleased </small>
+</h1>
 <ul>
 <li>Bug fix that prevented installation on Solaris</li>
 </ul>
 </div>
     <div id="mrgsolve-0-8-2" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-8-2" class="anchor"></a>mrgsolve 0.8.2</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-8-2" class="anchor"></a>mrgsolve 0.8.2<small> 2017-03-11 </small>
+</h1>
 <ul>
 <li>The first release on CRAN</li>
 </ul>
 </div>
     <div id="mrgsolve-0-7-7" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-7-7" class="anchor"></a>mrgsolve 0.7.7</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-7-7" class="anchor"></a>mrgsolve 0.7.7<small> Unreleased </small>
+</h1>
 <div id="new-authors" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-authors" class="anchor"></a>New Authors</h2>
@@ -301,8 +435,9 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 </div>
 </div>
     <div id="mrgsolve-0-7-6" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-7-6" class="anchor"></a>mrgsolve 0.7.6</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-7-6" class="anchor"></a>mrgsolve 0.7.6<small> Unreleased </small>
+</h1>
 <div id="important-changes-3" class="section level2">
 <h2 class="hasAnchor">
 <a href="#important-changes-3" class="anchor"></a>Important changes</h2>
@@ -310,8 +445,8 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 <li>The <code>table()</code> macro in <code>$TABLE</code> is now deprecated (<a href="https://github.com/metrumresearchgroup/mrgsolve/pull/129" class="uri">https://github.com/metrumresearchgroup/mrgsolve/pull/129</a>). To get derived values into the simulated output, users should assign to type <code>double</code> and list that variable name in <code>$CAPTURE</code>. See also the <code>capture</code> typedef introduced below.</li>
 <li>The <code>mrgx</code> plugin was completely removed.<br>
 </li>
-<li>Parameter updates via <code>param</code> method with signature <code>missing</code> will check names of input parameters against names of existing parameters. An error is generated if a user attempts to update a parameter that doesn’t exist. Note that this does not apply for the <code>param</code> method with signature <code>list</code> (#144).</li>
-<li>The git repository was re-organized so that the package lives in the base directory (PR #171).</li>
+<li>Parameter updates via <code>param</code> method with signature <code>missing</code> will check names of input parameters against names of existing parameters. An error is generated if a user attempts to update a parameter that doesn’t exist. Note that this does not apply for the <code>param</code> method with signature <code>list</code> (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/144'>#144</a>).</li>
+<li>The git repository was re-organized so that the package lives in the base directory (PR <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/171'>#171</a>).</li>
 </ul>
 </div>
 <div id="features" class="section level2">
@@ -328,12 +463,12 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 The <code>capture</code> typedef is not allowed in <code>$ODE</code> and probably should be reserved for <code>$TABLE</code>.</li>
 <li>
 <code>simeta</code> is available in <code>$MAIN</code> and <code>simeps</code> is available in <code>$TABLE</code> by default, no <code>$PLUGIN</code> is required.</li>
-<li>Better support for including <code>R</code> objects in the model via <code>$ENV</code> (#158).</li>
+<li>Better support for including <code>R</code> objects in the model via <code>$ENV</code> (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/158'>#158</a>).</li>
 <li>Added <code>assign_ev</code> function to help build simulation data sets from event objects (<a href="https://github.com/metrumresearchgroup/mrgsolve/pull/164" class="uri">https://github.com/metrumresearchgroup/mrgsolve/pull/164</a>).</li>
-<li>Added <code>as_data_frame</code> method from the <code>tibble</code> package (#166).</li>
+<li>Added <code>as_data_frame</code> method from the <code>tibble</code> package (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/166'>#166</a>).</li>
 <li>When annotating model blocks, mrgsolve takes the <strong>last</strong> parens item as the “units” and the <strong>last</strong> bracketed item as “options”</li>
 <li>Added <code>$</code> operator for <code>mrgmod</code> objects to return the value of a parameter (99748d8a7e4976fc710152c2dfc82da9b059a852).</li>
-<li>Added <code>mread_cache</code> and <code>mcode_cache</code> functions to build and cache a model (#143).</li>
+<li>Added <code>mread_cache</code> and <code>mcode_cache</code> functions to build and cache a model (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/143'>#143</a>).</li>
 </ul>
 </div>
 <div id="bugs-fixed-1" class="section level2">
@@ -352,24 +487,25 @@ The <code>capture</code> typedef is not allowed in <code>$ODE</code> and probabl
 <li>User-declared <code>double/int/bool</code> in <code>$MAIN</code>, <code>$ODE</code>, <code>$TABLE</code> are kept in unnamed namespace and are local to the file.</li>
 <li>Started to re-organize the <code>.R</code> files.</li>
 <li>
-<code>mrgsolve:::details</code> returns a data frame of information regardless of whether the model was annotated or not (#165).</li>
+<code>mrgsolve:::details</code> returns a data frame of information regardless of whether the model was annotated or not (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/165'>#165</a>).</li>
 <li>
-<code><a href="http://www.rdocumentation.org/packages/mrgsolve/topics/details">mrgsolve::details</a></code> has additional arguments to help control output.</li>
+<code><a href="../reference/details.html">mrgsolve::details</a></code> has additional arguments to help control output.</li>
 <li>Removed <code>pkevent</code> class; all records are <code>datarecord</code>.</li>
 </ul>
 </div>
 </div>
     <div id="mrgsolve-0-7-5" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-7-5" class="anchor"></a>mrgsolve 0.7.5</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-7-5" class="anchor"></a>mrgsolve 0.7.5<small> Unreleased </small>
+</h1>
 <div id="features-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#features-1" class="anchor"></a>Features</h2>
 <ul>
-<li>Added annotated code blocks for <code>$PARAM</code>, <code>$FIXED</code>, <code>$THETA</code>, <code>$CMT</code>, <code>$INIT</code>, and <code>$VCMT</code>. (#107)</li>
+<li>Added annotated code blocks for <code>$PARAM</code>, <code>$FIXED</code>, <code>$THETA</code>, <code>$CMT</code>, <code>$INIT</code>, and <code>$VCMT</code>. (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/107'>#107</a>)</li>
 <li>
 <code>mrgsolve:::house()</code> model re-coded as an annotated model.</li>
-<li>Re-implemented <code>$ENV</code> to allow users to create <code>R</code> objects that can be used at certain points when parsing the model. (#115)</li>
+<li>Re-implemented <code>$ENV</code> to allow users to create <code>R</code> objects that can be used at certain points when parsing the model. (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/115'>#115</a>)</li>
 <li>Added <code>&gt;&gt;</code> signifier to code blocks that allow options; <code>&gt;&gt;</code> at the beginning of the line indicates that the <code>name=value</code> statements that follow are to be parsed as block options.</li>
 <li>Added <code>object</code> argument for the following blocks: <code>$PARAM</code>, <code>$OMEGA</code>, <code>$SIGMA</code>, <code>$FIXED</code>, <code>$CMT</code>. When <code>object</code> is set to a character string naming an object in <code>$ENV</code>, that object will be used to form the output from the block.</li>
 </ul>
@@ -378,7 +514,7 @@ The <code>capture</code> typedef is not allowed in <code>$ODE</code> and probabl
 <h2 class="hasAnchor">
 <a href="#bugs-fixed-2" class="anchor"></a>Bugs fixed</h2>
 <ul>
-<li>Fixed a bug which caused simulation run to hang when implementing a dose with a <strong>very</strong> small lag time. (#109)</li>
+<li>Fixed a bug which caused simulation run to hang when implementing a dose with a <strong>very</strong> small lag time. (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/109'>#109</a>)</li>
 <li>Fixed a bug where <code>valid.numericlist</code> wasn’t returning <code>FALSE</code> for improperly-formed objects.</li>
 </ul>
 </div>
@@ -392,48 +528,54 @@ The <code>capture</code> typedef is not allowed in <code>$ODE</code> and probabl
 </div>
 </div>
     <div id="mrgsolve-0-7-4" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-7-4" class="anchor"></a>mrgsolve 0.7.4</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-7-4" class="anchor"></a>mrgsolve 0.7.4<small> Unreleased </small>
+</h1>
 <ul>
 <li>The <code>modmrg</code> package was discontinued. All of the pre-coded models are now available in mrgsolve. Simply call <code>mread</code> with the model stem (e.g. <code>pk1cmt</code>, <code>irm3</code>, etc …) and call <code><a href="../reference/modlib.html">modlib()</a></code> as the <code>project</code> argument.<br>
 For example: <code>mod &lt;- mread("emax", modlib())</code> will compile the <code>emax</code> model and return the model object.</li>
 </ul>
 </div>
     <div id="mrgsolve-0-7-3" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-7-3" class="anchor"></a>mrgsolve 0.7.3</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-7-3" class="anchor"></a>mrgsolve 0.7.3<small> Unreleased </small>
+</h1>
 <ul>
 <li>Tests re-configured</li>
-<li>Fixed issue with record sorting for lagged doses when using full <code>data_set</code>and <code>obsaug=TRUE</code> (#102)</li>
-<li>Fixed issue where <code>idata_set</code> wasn’t handled properly when it was passed in as <code>tbl</code> (#100)</li>
+<li>Fixed issue with record sorting for lagged doses when using full <code>data_set</code>and <code>obsaug=TRUE</code> (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/102'>#102</a>)</li>
+<li>Fixed issue where <code>idata_set</code> wasn’t handled properly when it was passed in as <code>tbl</code> (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/100'>#100</a>)</li>
 </ul>
 </div>
     <div id="mrgsolve-0-7-2" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-7-2" class="anchor"></a>mrgsolve 0.7.2</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-7-2" class="anchor"></a>mrgsolve 0.7.2<small> Unreleased </small>
+</h1>
 <ul>
-<li>Addressed an issue where model compilation on <code>Windows</code> systems failed when certain symbol names were used in the model (#97). In this release, a <code>dllname-win.def</code> file is created in <code>soloc</code> to export only the functions that mrgsolve needs to use. This is <em>only</em> relevant to <code>Windows</code> platform.</li>
+<li>Addressed an issue where model compilation on <code>Windows</code> systems failed when certain symbol names were used in the model (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/97'>#97</a>). In this release, a <code>dllname-win.def</code> file is created in <code>soloc</code> to export only the functions that mrgsolve needs to use. This is <em>only</em> relevant to <code>Windows</code> platform.</li>
 <li>Added a check on the <code>project</code> argument to <code>mread</code>: if newline(s) are found, an error is generated and the user is prompted to use <code>mcode</code> instead.</li>
 <li>Several changes under the hood (<a href="https://github.com/metrumresearchgroup/mrgsolve/pull/99" class="uri">https://github.com/metrumresearchgroup/mrgsolve/pull/99</a>)</li>
 </ul>
 </div>
     <div id="mrgsolve-0-7-1" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-7-1" class="anchor"></a>mrgsolve 0.7.1</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-7-1" class="anchor"></a>mrgsolve 0.7.1<small> Unreleased </small>
+</h1>
 <ul>
-<li>Fixed bug where requested columns were not properly named in certain circumstances (#86).</li>
+<li>Fixed bug where requested columns were not properly named in certain circumstances (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/86'>#86</a>).</li>
 </ul>
 </div>
     <div id="mrgsolve-0-7-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-7-0" class="anchor"></a>mrgsolve 0.7.0</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-7-0" class="anchor"></a>mrgsolve 0.7.0<small> Unreleased </small>
+</h1>
 <ul>
 <li>Revert back to previous behavior where <code>cwd</code> to <code>soloc</code> is not required to build the model. This was only required on <code>Windows</code> systems where there was a space in the file name. Correctly rendering the path for the build directory now.</li>
 </ul>
 </div>
     <div id="mrgsolve-0-6-1" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-6-1" class="anchor"></a>mrgsolve 0.6.1</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-6-1" class="anchor"></a>mrgsolve 0.6.1<small> Unreleased </small>
+</h1>
 <div id="features-2" class="section level2">
 <h2 class="hasAnchor">
 <a href="#features-2" class="anchor"></a>Features</h2>
@@ -447,9 +589,9 @@ For example: <code>mod &lt;- mread("emax", modlib())</code> will compile the <co
 <h2 class="hasAnchor">
 <a href="#bugs-fixed-3" class="anchor"></a>Bugs fixed</h2>
 <ul>
-<li>Fixed issue with <code>ev</code> where no rows were returned if <code>amt</code> wasn’t supplied (#44).</li>
+<li>Fixed issue with <code>ev</code> where no rows were returned if <code>amt</code> wasn’t supplied (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/44'>#44</a>).</li>
 <li>Shortened the path for both the shared object and the name of the <code>.cpp.cpp</code> file when compiling.</li>
-<li>Fixed bug in <code>touch_funs</code> when large number (<code>&gt; 25</code>) of ETAs in the model (#68).</li>
+<li>Fixed bug in <code>touch_funs</code> when large number (<code>&gt; 25</code>) of ETAs in the model (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/68'>#68</a>).</li>
 </ul>
 </div>
 <div id="important-changes-4" class="section level2">
@@ -461,7 +603,7 @@ This is a change where the previous volumes were <code>V2</code> (central) and <
 <li>
 <code>$CAPTURE</code> now saves output items to slots in <code>std::vector&lt;double&gt;</code>, rather than <code>std::map&lt;std::string,double&gt;</code>. We’ve known for a while that the <code>std::map</code> wasn’t very efficient especially with large simulations.<br>
 Currently, items in <code>$TABLE</code> are still saved into <code>std::map</code> with <code>table()</code> macro. The plan going forward is to eliminate that <code>table</code> <code>map</code> and force output variables into <code>$CAPTURE</code>.</li>
-<li>Due to major changes to <code>dplyr</code>, now requiring <code>dplyr &gt;= 0.5.0</code> (#69)</li>
+<li>Due to major changes to <code>dplyr</code>, now requiring <code>dplyr &gt;= 0.5.0</code> (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/69'>#69</a>)</li>
 <li>The <code>data</code> slot in <code>mrgsims</code> objects is now <code>data.frame</code>
 </li>
 <li>The <code>knobs</code> function and <code>plot</code> method has been re-written. Overall behavior for most applications should be the same.</li>
@@ -509,8 +651,9 @@ The working directory is restored on exit from <code>mread</code>.</li>
 </div>
 </div>
     <div id="mrgsolve-0-6-0" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-6-0" class="anchor"></a>mrgsolve 0.6.0</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-6-0" class="anchor"></a>mrgsolve 0.6.0<small> Unreleased </small>
+</h1>
 <div id="bugs-fixed-4" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bugs-fixed-4" class="anchor"></a>Bugs fixed</h2>
@@ -521,8 +664,9 @@ Additionally, an error is generated when an infusion is attempted with zero <cod
 </div>
 </div>
     <div id="mrgsolve-0-5-12" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-5-12" class="anchor"></a>mrgsolve 0.5.12</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-5-12" class="anchor"></a>mrgsolve 0.5.12<small> Unreleased </small>
+</h1>
 <div id="bugs-fixed-5" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bugs-fixed-5" class="anchor"></a>Bugs fixed</h2>
@@ -548,21 +692,22 @@ Use this syntax in <code>Req</code> when you want to change the names of compart
 <h2 class="hasAnchor">
 <a href="#under-the-hood-3" class="anchor"></a>Under the hood</h2>
 <ul>
-<li>Added <code>code</code> attribute to <code>mrgmod</code> objects. The actual source code stays with the model object. <code>see</code> was modified to look at <code>x@code</code> first when showing the model code.</li>
+<li>Added <code>code</code> attribute to <code>mrgmod</code> objects. The actual source code stays with the model object. <code>see</code> was modified to look at <code>x<a href='http://github.com/code'>@code</a></code> first when showing the model code.</li>
 <li>Added a tokenizer function (<code>get_tokens</code>), a wrapper for the boost tokenizer) to help checking the model specification file.</li>
-<li>Data items entered in <code>$FIXED</code> are now implemented as C++ preprocessor directives by default rather than <code>const double</code> variables. Use <code>$SET  fixed_type = "define"</code> or <code>$SET fixed_type = "const"</code> to select between the approaches.</li>
+<li>Data items entered in <code>$FIXED</code> are now implemented as C++ preprocessor directives by default rather than <code>const double</code> variables. Use <code>$SET fixed_type = "define"</code> or <code>$SET fixed_type = "const"</code> to select between the approaches.</li>
 </ul>
 </div>
 </div>
     <div id="mrgsolve-0-5-11" class="section level1">
-<h1 class="hasAnchor">
-<a href="#mrgsolve-0-5-11" class="anchor"></a>mrgsolve 0.5.11</h1>
+<h1 class="page-header">
+<a href="#mrgsolve-0-5-11" class="anchor"></a>mrgsolve 0.5.11<small> Unreleased </small>
+</h1>
 <div id="bugs-fixed-6" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bugs-fixed-6" class="anchor"></a>Bugs fixed</h2>
 <ul>
 <li>Added missing example model specification files (popExample, viralExample, others)</li>
-<li>Added <code>mindt</code> attribute to <code>mrgmod</code> objects with default value of <code>.Machine$double.eps*10</code>. When the problem includes an infusion, the calculated end of the infusion may come too close to another record. Usually the solver will fail with the message <code>DLSODA- TOUT(=R1) too close to T(=R2)  to start integration.</code>. To fix this, set <code>mindt</code> to be greater than zero but small … maybe 1E-12. When <code>mindt</code> is greater than zero and <code>tto - tfrom</code> (the times of two adjacent records) is less than <code>mindt</code>, mrgsolve will set <code>tto</code> equal to <code>tfrom</code> (<a href="../../issues/9">issue 9</a>).</li>
+<li>Added <code>mindt</code> attribute to <code>mrgmod</code> objects with default value of <code>.Machine$double.eps*10</code>. When the problem includes an infusion, the calculated end of the infusion may come too close to another record. Usually the solver will fail with the message <code>DLSODA- TOUT(=R1) too close to T(=R2) to start integration.</code>. To fix this, set <code>mindt</code> to be greater than zero but small … maybe 1E-12. When <code>mindt</code> is greater than zero and <code>tto - tfrom</code> (the times of two adjacent records) is less than <code>mindt</code>, mrgsolve will set <code>tto</code> equal to <code>tfrom</code> (<a href="../../issues/9">issue 9</a>).</li>
 <li>
 <code>zero.re</code> didn’t properly update the <code>$SIGMA</code> list when one matrix was named and another was unnamed. This has been fixed.<br>
 (<a href="../../issues/16">issue 16</a>)</li>
@@ -594,14 +739,24 @@ Specifying character names <code>tname</code>, <code>oname</code>, and <code>sna
 </ul>
 </div>
 </div>
-    NA
-    </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#mrgsolve-0-8-12-9000">0.8.12.9000</a></li>
+        <li><a href="#mrgsolve-0-8-12">0.8.12</a></li>
+        <li><a href="#mrgsolve-0-8-10-9015">0.8.10.9015</a></li>
+        <li><a href="#mrgsolve-0-8-10-9014">0.8.10.9014</a></li>
+        <li><a href="#mrgsolve-0-8-10-9013">0.8.10.9013</a></li>
+        <li><a href="#mrgsolve-0-8-10-9012">0.8.10.9012</a></li>
+        <li><a href="#mrgsolve-0-8-10-9011">0.8.10.9011</a></li>
+        <li><a href="#mrgsolve-0-8-10-9010">0.8.10.9010</a></li>
+        <li><a href="#mrgsolve-0-8-10-9009">0.8.10.9009</a></li>
+        <li><a href="#mrgsolve-0-8-10-9008">0.8.10.9008</a></li>
+        <li><a href="#mrgsolve-0-8-10-9007">0.8.10.9007</a></li>
+        <li><a href="#mrgsolve-0-8-10-9006">0.8.10.9006</a></li>
         <li><a href="#mrgsolve-0-8-10-9005">0.8.10.9005</a></li>
         <li><a href="#mrgsolve-0-8-10-9003">0.8.10.9003</a></li>
         <li><a href="#mrgsolve-0-8-10-9002">0.8.10.9002</a></li>
@@ -626,7 +781,6 @@ Specifying character names <code>tname</code>, <code>oname</code>, and <code>sna
         <li><a href="#mrgsolve-0-6-0">0.6.0</a></li>
         <li><a href="#mrgsolve-0-5-12">0.5.12</a></li>
         <li><a href="#mrgsolve-0-5-11">0.5.11</a></li>
-        <li><a href="#NA">NA</a></li>
       </ul>
     </div>
   </div>
@@ -645,5 +799,8 @@ Specifying character names <code>tname</code>, <code>oname</code>, and <code>sna
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
