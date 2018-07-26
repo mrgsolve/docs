@@ -165,13 +165,13 @@ use <code><a href='mrgsim.html'>mrgsim</a></code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open compressed file '/Users/kyleb/git/m4solve/pkg/project/housemodel.RDS', probable reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='error'>Error in gzfile(file, "rb"): cannot open the connection</span></div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
+
 <span class='no'>des</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tgrid.html'>tgrid</a></span>(<span class='fl'>0</span>,<span class='fl'>2400</span>,<span class='fl'>1</span>)
 
 <span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='recmatrix.html'>recmatrix</a></span>(<span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>24</span>, <span class='kw'>addl</span><span class='kw'>=</span><span class='fl'>100</span>),<span class='no'>des</span>)
 
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>qsim</span>(<span class='no'>data</span>)</div><div class='output co'>#&gt; <span class='error'>Error in Init(x): no slot of name "init" for this object of class "standardGeneric"</span></div><div class='input'>
-</div></pre>
+<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>qsim</span>(<span class='no'>data</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

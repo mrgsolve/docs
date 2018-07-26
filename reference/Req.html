@@ -151,8 +151,21 @@ strictly for compartments.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open compressed file '/Users/kyleb/git/m4solve/pkg/project/housemodel.RDS', probable reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='error'>Error in gzfile(file, "rb"): cannot open the connection</span></div><div class='input'>
-<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>Req</span>(<span class='no'>CP</span>,<span class='no'>RESP</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>) <span class='kw'>%&gt;%</span>  <span class='no'>mrgsim</span></div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list(structure("standardGeneric", package = "methods")), new("standardGeneric",     .Data = function (x, ...)     standardGeneric("Req"), generic = structure("Req", package = "mrgsolve"),     package = "mrgsolve", group = list(), valueClass = character(0),     signature = "x", default = NULL, skeleton = (function (x,         ...)     stop("invalid call in method dispatch to 'Req' (no default method)",         domain = NA))(x, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘Req’ for signature ‘"standardGeneric"’</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
+
+<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>Req</span>(<span class='no'>CP</span>,<span class='no'>RESP</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>) <span class='kw'>%&gt;%</span>  <span class='no'>mrgsim</span></div><div class='output co'>#&gt; Model:  housemodel 
+#&gt; Dim:    482 x 4 
+#&gt; Time:   0 to 120 
+#&gt; ID:     1 
+#&gt;      ID time  RESP    CP
+#&gt; [1,]  1 0.00 50.00  0.00
+#&gt; [2,]  1 0.00 50.00  0.00
+#&gt; [3,]  1 0.25 42.29 12.87
+#&gt; [4,]  1 0.50 32.69 22.25
+#&gt; [5,]  1 0.75 25.29 29.04
+#&gt; [6,]  1 1.00 20.05 33.91
+#&gt; [7,]  1 1.25 16.45 37.37
+#&gt; [8,]  1 1.50 14.01 39.78</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

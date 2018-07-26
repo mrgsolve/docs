@@ -125,7 +125,30 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open compressed file '/Users/kyleb/git/m4solve/pkg/project/housemodel.RDS', probable reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='error'>Error in gzfile(file, "rb"): cannot open the connection</span></div><div class='input'><span class='fu'>names</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
+<span class='fu'>names</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; $param
+#&gt;  [1] "CL"    "VC"    "KA"    "F1"    "WT"    "SEX"   "WTCL"  "WTVC"  "SEXCL"
+#&gt; [10] "SEXVC" "KIN"   "KOUT"  "IC50" 
+#&gt; 
+#&gt; $init
+#&gt; [1] "GUT"  "CENT" "RESP"
+#&gt; 
+#&gt; $omega
+#&gt; $omega[[1]]
+#&gt; [1] "..."
+#&gt; 
+#&gt; $omega[[2]]
+#&gt; [1] "ECL"   "EVC"   "EKA"   "EKOUT"
+#&gt; 
+#&gt; 
+#&gt; $sigma
+#&gt; $sigma[[1]]
+#&gt; [1] "..."
+#&gt; 
+#&gt; $sigma[[2]]
+#&gt; [1] "EXPO"
+#&gt; 
+#&gt; </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

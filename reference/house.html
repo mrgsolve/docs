@@ -129,9 +129,84 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open compressed file '/Users/kyleb/git/m4solve/pkg/project/housemodel.RDS', probable reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='error'>Error in gzfile(file, "rb"): cannot open the connection</span></div><div class='input'>
-<span class='fu'><a href='see.html'>see</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list(structure("standardGeneric", package = "methods")), new("standardGeneric",     .Data = function (x, ...)     standardGeneric("see"), generic = structure("see", package = "mrgsolve"),     package = "mrgsolve", group = list(), valueClass = character(0),     signature = "x", default = NULL, skeleton = (function (x,         ...)     stop("invalid call in method dispatch to 'see' (no default method)",         domain = NA))(x, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘see’ for signature ‘"standardGeneric"’</span></div><div class='input'>
-<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>100</span>) <span class='kw'>%&gt;%</span> <span class='no'>mrgsim</span> <span class='kw'>%&gt;%</span> <span class='no'>plot</span></div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list(structure("standardGeneric", package = "methods")), new("nonstandardGenericFunction",     .Data = function (x, ...)     {        standardGeneric("ev")    }, generic = structure("ev", package = "mrgsolve"), package = "mrgsolve",     group = list(), valueClass = character(0), signature = "x",     default = NULL, skeleton = (function (x, ...)     stop("invalid call in method dispatch to 'ev' (no default method)",         domain = NA))(x, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘ev’ for signature ‘"standardGeneric"’</span></div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
+
+<span class='fu'><a href='see.html'>see</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
+#&gt; Model file:  housemodel.cpp 
+#&gt; $PROB 
+#&gt; 
+#&gt; # `mrgsolve` housemodel
+#&gt; 
+#&gt; This model is compiled with `mrgsolve`.
+#&gt; 
+#&gt;   - Author: Metrum Research Group, LLC
+#&gt;   - Description: Generic indirect response PK/PD model
+#&gt;   - Covariates: Weight, female sex
+#&gt;   - Random effects: CL, VC, KA, KOUT
+#&gt;   - Error model: exponential
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; $PLUGIN base
+#&gt; 
+#&gt; $PARAM @annotated
+#&gt; CL   : 1    : Clearance  (L/hr)
+#&gt; VC   : 20   : Volume of distribution (L)
+#&gt; KA   : 1.2  : Absorption rate constant (1/hr)
+#&gt; F1   : 1.0  : Bioavailability fraction (.)
+#&gt; WT   : 70   : Weight (kg)
+#&gt; SEX  : 0    : Covariate female sex
+#&gt; WTCL : 0.75 : Exponent WT on CL
+#&gt; WTVC : 1.00 : Exponent WT on VC
+#&gt; SEXCL: 0.7  : Prop cov effect on CL
+#&gt; SEXVC: 0.85 : Prop cov effect on VC
+#&gt; KIN  : 100  : Resp prod rate constant (1/hr)
+#&gt; KOUT : 2    : Resp elim rate constant (1/hr)
+#&gt; IC50 : 10   : Conc giving 50% max resp (ng/ml)
+#&gt; 
+#&gt; $CMT @annotated
+#&gt; GUT  : Dosing compartment (mg)
+#&gt; CENT : Central compartment (mg)
+#&gt; RESP : Response (unitless)
+#&gt; 
+#&gt; $OMEGA @labels ECL EVC EKA EKOUT
+#&gt; 0 0 0 0
+#&gt; 
+#&gt; $SIGMA @labels EXPO
+#&gt; 0
+#&gt; 
+#&gt; $SET end=120, delta=0.25
+#&gt; 
+#&gt; 
+#&gt; $GLOBAL
+#&gt; #define CP (CENT/VCi)
+#&gt; #define INH (CP/(IC50+CP))
+#&gt; 
+#&gt; typedef double localdouble;
+#&gt; 
+#&gt; $MAIN
+#&gt; F_GUT = F1;
+#&gt; 
+#&gt; double CLi   = exp(log(CL)   + WTCL*log(WT/70) + log(SEXCL)*SEX + ECL);
+#&gt; double VCi   = exp(log(VC)   + WTVC*log(WT/70) + log(SEXVC)*SEX + EVC);
+#&gt; double KAi   = exp(log(KA)   + EKA);
+#&gt; double KOUTi = exp(log(KOUT) + EKOUT);
+#&gt; 
+#&gt; RESP_0 = KIN/KOUTi;
+#&gt; 
+#&gt; $ODE
+#&gt; dxdt_GUT = -KAi*GUT;
+#&gt; dxdt_CENT = KAi*GUT - (CLi/VCi)*CENT;
+#&gt; dxdt_RESP = KIN*(1-INH) - KOUTi*RESP;
+#&gt; 
+#&gt; $TABLE
+#&gt; double DV = CP*exp(EXPO);
+#&gt; 
+#&gt; $CAPTURE @annotated
+#&gt; DV: Dependent variable (ng/ml)
+#&gt; CP: Plasma concentration (ng/ml)
+#&gt; </div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>100</span>) <span class='kw'>%&gt;%</span> <span class='no'>mrgsim</span> <span class='kw'>%&gt;%</span> <span class='no'>plot</span></div><div class='img'><img src='house-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

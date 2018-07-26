@@ -203,10 +203,23 @@ Any non-numeric data columns will be dropped with warning.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open compressed file '/Users/kyleb/git/m4solve/pkg/project/housemodel.RDS', probable reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='error'>Error in gzfile(file, "rb"): cannot open the connection</span></div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
+
 <span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='expand.idata.html'>expand.ev</a></span>(<span class='kw'>ID</span><span class='kw'>=</span><span class='fl'>1</span>:<span class='fl'>3</span>, <span class='kw'>amt</span><span class='kw'>=</span><span class='fu'>c</span>(<span class='fl'>10</span>,<span class='fl'>20</span>))
 
-<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>data_set</span>(<span class='no'>data</span>, <span class='no'>ID</span> <span class='kw'>&gt;</span> <span class='fl'>1</span>) <span class='kw'>%&gt;%</span> <span class='no'>mrgsim</span></div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list(structure("standardGeneric", package = "methods"), "data.frame"),     new("nonstandardGenericFunction", .Data = function (x, data,         ...)     {        standardGeneric("data_set")    }, generic = structure("data_set", package = "mrgsolve"),         package = "mrgsolve", group = list(), valueClass = character(0),         signature = c("x", "data"), default = NULL, skeleton = (function (x,             data, ...)         stop("invalid call in method dispatch to 'data_set' (no default method)",             domain = NA))(x, data, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘data_set’ for signature ‘"standardGeneric", "data.frame"’</span></div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>data_set</span>(<span class='no'>data</span>, <span class='no'>ID</span> <span class='kw'>&gt;</span> <span class='fl'>1</span>) <span class='kw'>%&gt;%</span> <span class='no'>mrgsim</span></div><div class='output co'>#&gt; Model:  housemodel 
+#&gt; Dim:    2410 x 7 
+#&gt; Time:   0 to 120 
+#&gt; ID:     5 
+#&gt;      ID time    GUT  CENT  RESP     DV     CP
+#&gt; [1,]  2 0.00  0.000 0.000 50.00 0.0000 0.0000
+#&gt; [2,]  2 0.00 10.000 0.000 50.00 0.0000 0.0000
+#&gt; [3,]  2 0.25  7.408 2.575 49.86 0.1287 0.1287
+#&gt; [4,]  2 0.50  5.488 4.450 49.56 0.2225 0.2225
+#&gt; [5,]  2 0.75  4.066 5.808 49.23 0.2904 0.2904
+#&gt; [6,]  2 1.00  3.012 6.783 48.93 0.3391 0.3391
+#&gt; [7,]  2 1.25  2.231 7.474 48.67 0.3737 0.3737
+#&gt; [8,]  2 1.50  1.653 7.956 48.46 0.3978 0.3978</div><div class='input'>
 <span class='fu'>data</span>(<span class='no'>extran1</span>)
 <span class='fu'>head</span>(<span class='no'>extran1</span>)</div><div class='output co'>#&gt;   ID  amt cmt time addl ii rate evid
 #&gt; 1  1 1000   1    0    3 24    0    1
@@ -215,7 +228,31 @@ Any non-numeric data columns will be dropped with warning.</p>
 #&gt; 4  3  500   1   24    0  0    0    1
 #&gt; 5  3  500   1   48    0  0    0    1
 #&gt; 6  3 1000   1   72    0  0    0    1</div><div class='input'>
-<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>data_set</span>(<span class='no'>extran1</span>) <span class='kw'>%&gt;%</span> <span class='no'>mrgsim</span></div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list(structure("standardGeneric", package = "methods"), "data.frame"),     new("nonstandardGenericFunction", .Data = function (x, data,         ...)     {        standardGeneric("data_set")    }, generic = structure("data_set", package = "mrgsolve"),         package = "mrgsolve", group = list(), valueClass = character(0),         signature = c("x", "data"), default = NULL, skeleton = (function (x,             data, ...)         stop("invalid call in method dispatch to 'data_set' (no default method)",             domain = NA))(x, data, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘data_set’ for signature ‘"standardGeneric", "data.frame"’</span></div><div class='input'><span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='mrgsim.html'>mrgsim</a></span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>extran1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in mrgsim(., data = extran1): no slot of name "args" for this object of class "standardGeneric"</span></div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>data_set</span>(<span class='no'>extran1</span>) <span class='kw'>%&gt;%</span> <span class='no'>mrgsim</span></div><div class='output co'>#&gt; Model:  housemodel 
+#&gt; Dim:    2414 x 7 
+#&gt; Time:   0 to 120 
+#&gt; ID:     5 
+#&gt;      ID time    GUT  CENT  RESP    DV    CP
+#&gt; [1,]  1 0.00    0.0   0.0 50.00  0.00  0.00
+#&gt; [2,]  1 0.00 1000.0   0.0 50.00  0.00  0.00
+#&gt; [3,]  1 0.25  740.8 257.5 42.29 12.87 12.87
+#&gt; [4,]  1 0.50  548.8 445.0 32.69 22.25 22.25
+#&gt; [5,]  1 0.75  406.6 580.8 25.29 29.04 29.04
+#&gt; [6,]  1 1.00  301.2 678.3 20.05 33.91 33.91
+#&gt; [7,]  1 1.25  223.1 747.4 16.45 37.37 37.37
+#&gt; [8,]  1 1.50  165.3 795.6 14.01 39.78 39.78</div><div class='input'><span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='mrgsim.html'>mrgsim</a></span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>extran1</span>)</div><div class='output co'>#&gt; Model:  housemodel 
+#&gt; Dim:    2414 x 7 
+#&gt; Time:   0 to 120 
+#&gt; ID:     5 
+#&gt;      ID time    GUT  CENT  RESP    DV    CP
+#&gt; [1,]  1 0.00    0.0   0.0 50.00  0.00  0.00
+#&gt; [2,]  1 0.00 1000.0   0.0 50.00  0.00  0.00
+#&gt; [3,]  1 0.25  740.8 257.5 42.29 12.87 12.87
+#&gt; [4,]  1 0.50  548.8 445.0 32.69 22.25 22.25
+#&gt; [5,]  1 0.75  406.6 580.8 25.29 29.04 29.04
+#&gt; [6,]  1 1.00  301.2 678.3 20.05 33.91 33.91
+#&gt; [7,]  1 1.25  223.1 747.4 16.45 37.37 37.37
+#&gt; [8,]  1 1.50  165.3 795.6 14.01 39.78 39.78</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

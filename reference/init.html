@@ -198,35 +198,30 @@ to a list or numeric R object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## example("init")</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open compressed file '/Users/kyleb/git/m4solve/pkg/project/housemodel.RDS', probable reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='error'>Error in gzfile(file, "rb"): cannot open the connection</span></div><div class='input'>
-<span class='fu'>init</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; <span class='message'>Problem with names:</span></div><div class='output co'>#&gt; x,...,</div><div class='output co'>#&gt; <span class='message'>Parameter values without names:</span></div><div class='output co'>#&gt; [[1]]
-#&gt; standardGeneric("mod")
-#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in validObject(.Object): invalid class “cmt_list” object: 1: invalid names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 2: all parameters require names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 3: all parameters must be single numbers</span></div><div class='input'><span class='fu'>init</span>(<span class='no'>mod</span>, <span class='kw'>.pat</span><span class='kw'>=</span><span class='st'>"^C"</span>) <span class='co'>## may be useful for large models</span></div><div class='output co'>#&gt; <span class='message'>Problem with names:</span></div><div class='output co'>#&gt; x,...,</div><div class='output co'>#&gt; <span class='message'>Parameter values without names:</span></div><div class='output co'>#&gt; [[1]]
-#&gt; standardGeneric("mod")
-#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in validObject(.Object): invalid class “cmt_list” object: 1: invalid names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 2: all parameters require names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 3: all parameters must be single numbers</span></div><div class='input'>
-<span class='fu'>class</span>(<span class='fu'>init</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt; <span class='message'>Problem with names:</span></div><div class='output co'>#&gt; x,...,</div><div class='output co'>#&gt; <span class='message'>Parameter values without names:</span></div><div class='output co'>#&gt; [[1]]
-#&gt; standardGeneric("mod")
-#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in validObject(.Object): invalid class “cmt_list” object: 1: invalid names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 2: all parameters require names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 3: all parameters must be single numbers</span></div><div class='input'>
-<span class='fu'>init</span>(<span class='no'>mod</span>)$<span class='no'>CENT</span></div><div class='output co'>#&gt; <span class='message'>Problem with names:</span></div><div class='output co'>#&gt; x,...,</div><div class='output co'>#&gt; <span class='message'>Parameter values without names:</span></div><div class='output co'>#&gt; [[1]]
-#&gt; standardGeneric("mod")
-#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in validObject(.Object): invalid class “cmt_list” object: 1: invalid names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 2: all parameters require names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 3: all parameters must be single numbers</span></div><div class='input'>
-<span class='fu'>as.list</span>(<span class='fu'>init</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt; <span class='message'>Problem with names:</span></div><div class='output co'>#&gt; x,...,</div><div class='output co'>#&gt; <span class='message'>Parameter values without names:</span></div><div class='output co'>#&gt; [[1]]
-#&gt; standardGeneric("mod")
-#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in validObject(.Object): invalid class “cmt_list” object: 1: invalid names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 2: all parameters require names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 3: all parameters must be single numbers</span></div><div class='input'><span class='fu'>as.data.frame</span>(<span class='fu'>init</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt; <span class='message'>Problem with names:</span></div><div class='output co'>#&gt; x,...,</div><div class='output co'>#&gt; <span class='message'>Parameter values without names:</span></div><div class='output co'>#&gt; [[1]]
-#&gt; standardGeneric("mod")
-#&gt; </div><div class='output co'>#&gt; <span class='error'>Error in validObject(.Object): invalid class “cmt_list” object: 1: invalid names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 2: all parameters require names</span>
-#&gt; <span class='error'>invalid class “cmt_list” object: 3: all parameters must be single numbers</span></div></pre>
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
+
+<span class='fu'>init</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
+#&gt;  Model initial conditions (N=3):
+#&gt;  name       value . name       value
+#&gt;  CENT (2)   0     | RESP (3)   50   
+#&gt;  GUT (1)    0     | . ...      .    </div><div class='input'><span class='fu'>init</span>(<span class='no'>mod</span>, <span class='kw'>.pat</span><span class='kw'>=</span><span class='st'>"^C"</span>) <span class='co'>## may be useful for large models</span></div><div class='output co'>#&gt; 
+#&gt;  Model initial conditions (N=3):
+#&gt;  name       value . name    value
+#&gt;  CENT (2)   0     | . ...   .    </div><div class='input'>
+<span class='fu'>class</span>(<span class='fu'>init</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt; [1] "cmt_list"
+#&gt; attr(,"package")
+#&gt; [1] "mrgsolve"</div><div class='input'>
+<span class='fu'>init</span>(<span class='no'>mod</span>)$<span class='no'>CENT</span></div><div class='output co'>#&gt; [1] 0</div><div class='input'>
+<span class='fu'>as.list</span>(<span class='fu'>init</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt; $GUT
+#&gt; [1] 0
+#&gt; 
+#&gt; $CENT
+#&gt; [1] 0
+#&gt; 
+#&gt; $RESP
+#&gt; [1] 50
+#&gt; </div><div class='input'><span class='fu'>as.data.frame</span>(<span class='fu'>init</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt;   GUT CENT RESP
+#&gt; 1   0    0   50</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
