@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract model details. — details • mrgsolve</title>
+<title>Extract model details — details • mrgsolve</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Extract model details. — details" />
+<meta property="og:title" content="Extract model details — details" />
 
-<meta property="og:description" content="Extract model details." />
+<meta property="og:description" content="Extract model details" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,14 +100,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract model details.</h1>
+    <h1>Extract model details</h1>
     <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/annot.R'><code>R/annot.R</code></a></small>
     <div class="hidden name"><code>details.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Extract model details.</p>
+    <p>Extract model details</p>
     
     </div>
 
@@ -122,7 +122,8 @@
     </tr>
     <tr>
       <th>complete</th>
-      <td><p>logical; if <code>TRUE</code>, un-annotated parameters and compartments will be added to the output</p></td>
+      <td><p>logical; if <code>TRUE</code>, un-annotated parameters and \
+compartments will be added to the output</p></td>
     </tr>
     <tr>
       <th>values</th>
@@ -134,13 +135,45 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
+    <p>This function is not exported.  You will have to call it 
+with <code>mrgsolve:::details()</code>.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
+
+<span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/details'>details</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt;      block  name                    descr     unit options
+#&gt; 1    PARAM    CL                Clearance     L/hr       .
+#&gt; 2    PARAM    VC   Volume of distribution        L       .
+#&gt; 3    PARAM    KA Absorption rate constant     1/hr       .
+#&gt; 4    PARAM    F1 Bioavailability fraction        .       .
+#&gt; 5    PARAM    WT                   Weight       kg       .
+#&gt; 6    PARAM   SEX     Covariate female sex        .       .
+#&gt; 7    PARAM  WTCL        Exponent WT on CL        .       .
+#&gt; 8    PARAM  WTVC        Exponent WT on VC        .       .
+#&gt; 9    PARAM SEXCL    Prop cov effect on CL        .       .
+#&gt; 10   PARAM SEXVC    Prop cov effect on VC        .       .
+#&gt; 11   PARAM   KIN  Resp prod rate constant     1/hr       .
+#&gt; 12   PARAM  KOUT  Resp elim rate constant     1/hr       .
+#&gt; 13   PARAM  IC50 Conc giving 50% max resp    ng/ml       .
+#&gt; 14     CMT   GUT       Dosing compartment       mg       .
+#&gt; 15     CMT  CENT      Central compartment       mg       .
+#&gt; 16     CMT  RESP                 Response unitless       .
+#&gt; 17 CAPTURE    DV       Dependent variable    ng/ml       .
+#&gt; 18 CAPTURE    CP     Plasma concentration    ng/ml       .</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
