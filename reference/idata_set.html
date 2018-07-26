@@ -206,33 +206,40 @@ simulation.</p>
 #&gt; 8   8 1.440 31.20 0.0931 4.030 1.310   7
 #&gt; 9   9 2.570 18.20 0.0570 0.862 1.950   3
 #&gt; 10 10 2.000  6.51 0.1540 3.220 0.699   9</div><div class='input'>
-<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>idata_set</span>(<span class='no'>exidata</span>, <span class='no'>ID</span> <span class='kw'>&lt;=</span> <span class='fl'>2</span>) <span class='kw'>%&gt;%</span> <span class='no'>mrgsim</span> <span class='kw'>%&gt;%</span> <span class='no'>plot</span></div><div class='img'><img src='idata_set-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>idata_set</span>(<span class='no'>exidata</span>) <span class='kw'>%&gt;%</span> <span class='no'>mrgsim</span></div><div class='output co'>#&gt; Model:  housemodel 
-#&gt; Dim:    4810 x 7 
+<span class='no'>mod</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'>idata_set</span>(<span class='no'>exidata</span>, <span class='no'>ID</span> <span class='kw'>&lt;=</span> <span class='fl'>2</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>100</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='mrgsim.html'>mrgsim</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>plot</span>()</div><div class='img'><img src='idata_set-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'>idata_set</span>(<span class='no'>exidata</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>100</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='mrgsim.html'>mrgsim</a></span>()</div><div class='output co'>#&gt; Model:  housemodel 
+#&gt; Dim:    4820 x 7 
 #&gt; Time:   0 to 120 
 #&gt; ID:     10 
-#&gt;      ID time GUT CENT  RESP DV CP
-#&gt; [1,]  1 0.00   0    0 40.82  0  0
-#&gt; [2,]  1 0.25   0    0 40.82  0  0
-#&gt; [3,]  1 0.50   0    0 40.82  0  0
-#&gt; [4,]  1 0.75   0    0 40.82  0  0
-#&gt; [5,]  1 1.00   0    0 40.82  0  0
-#&gt; [6,]  1 1.25   0    0 40.82  0  0
-#&gt; [7,]  1 1.50   0    0 40.82  0  0
-#&gt; [8,]  1 1.75   0    0 40.82  0  0</div><div class='input'>
-<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='mrgsim.html'>mrgsim</a></span>(<span class='kw'>idata</span><span class='kw'>=</span><span class='no'>exidata</span>)</div><div class='output co'>#&gt; Model:  housemodel 
-#&gt; Dim:    4810 x 7 
+#&gt;      ID time    GUT  CENT  RESP     DV     CP
+#&gt; [1,]  1 0.00   0.00  0.00 40.82 0.0000 0.0000
+#&gt; [2,]  1 0.00 100.00  0.00 40.82 0.0000 0.0000
+#&gt; [3,]  1 0.25  81.08 18.87 38.12 0.3947 0.3947
+#&gt; [4,]  1 0.50  65.74 34.06 33.59 0.7126 0.7126
+#&gt; [5,]  1 0.75  53.30 46.28 29.41 0.9682 0.9682
+#&gt; [6,]  1 1.00  43.21 56.08 26.06 1.1733 1.1733
+#&gt; [7,]  1 1.25  35.04 63.93 23.53 1.3374 1.3374
+#&gt; [8,]  1 1.50  28.41 70.19 21.64 1.4684 1.4684</div><div class='input'>
+<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>100</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='mrgsim.html'>mrgsim</a></span>(<span class='kw'>idata</span><span class='kw'>=</span><span class='no'>exidata</span>)</div><div class='output co'>#&gt; Model:  housemodel 
+#&gt; Dim:    4820 x 7 
 #&gt; Time:   0 to 120 
 #&gt; ID:     10 
-#&gt;      ID time GUT CENT  RESP DV CP
-#&gt; [1,]  1 0.00   0    0 40.82  0  0
-#&gt; [2,]  1 0.25   0    0 40.82  0  0
-#&gt; [3,]  1 0.50   0    0 40.82  0  0
-#&gt; [4,]  1 0.75   0    0 40.82  0  0
-#&gt; [5,]  1 1.00   0    0 40.82  0  0
-#&gt; [6,]  1 1.25   0    0 40.82  0  0
-#&gt; [7,]  1 1.50   0    0 40.82  0  0
-#&gt; [8,]  1 1.75   0    0 40.82  0  0</div><div class='input'>
+#&gt;      ID time    GUT  CENT  RESP     DV     CP
+#&gt; [1,]  1 0.00   0.00  0.00 40.82 0.0000 0.0000
+#&gt; [2,]  1 0.00 100.00  0.00 40.82 0.0000 0.0000
+#&gt; [3,]  1 0.25  81.08 18.87 38.12 0.3947 0.3947
+#&gt; [4,]  1 0.50  65.74 34.06 33.59 0.7126 0.7126
+#&gt; [5,]  1 0.75  53.30 46.28 29.41 0.9682 0.9682
+#&gt; [6,]  1 1.00  43.21 56.08 26.06 1.1733 1.1733
+#&gt; [7,]  1 1.25  35.04 63.93 23.53 1.3374 1.3374
+#&gt; [8,]  1 1.50  28.41 70.19 21.64 1.4684 1.4684</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
