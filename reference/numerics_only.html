@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get all names from a model object — names,mrgmod-method • mrgsolve</title>
+<title>Prepare data.frame for input to mrgsim — numerics_only • mrgsolve</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Get all names from a model object — names,mrgmod-method" />
+<meta property="og:title" content="Prepare data.frame for input to mrgsim — numerics_only" />
 
-<meta property="og:description" content="Get all names from a model object" />
+<meta property="og:description" content="Prepare data.frame for input to mrgsim" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,64 +100,45 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get all names from a model object</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/class_mrgmod.R'><code>R/class_mrgmod.R</code></a></small>
-    <div class="hidden name"><code>names-mrgmod-method.Rd</code></div>
+    <h1>Prepare data.frame for input to mrgsim</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/mrgindata.R'><code>R/mrgindata.R</code></a></small>
+    <div class="hidden name"><code>numerics_only.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Get all names from a model object</p>
+    <p>Prepare data.frame for input to mrgsim</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S4 method for mrgmod</span>
-<span class='fu'>names</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>numerics_only</span>(<span class='no'>x</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>convert_lgl</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>the model object</p></td>
+      <td><p>a input data set</p></td>
+    </tr>
+    <tr>
+      <th>quiet</th>
+      <td><p>logical indicating whether or not warnings 
+should be printed</p></td>
+    </tr>
+    <tr>
+      <th>convert_lgl</th>
+      <td><p>by default, convert logical 
+columns with <code>as.integer</code></p></td>
     </tr>
     </table>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
-<span class='fu'>names</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; $param
-#&gt;  [1] "CL"    "VC"    "KA"    "F1"    "D1"    "WT"    "SEX"   "WTCL"  "WTVC" 
-#&gt; [10] "SEXCL" "SEXVC" "KIN"   "KOUT"  "IC50" 
-#&gt; 
-#&gt; $init
-#&gt; [1] "GUT"  "CENT" "RESP"
-#&gt; 
-#&gt; $omega
-#&gt; $omega[[1]]
-#&gt; [1] "..."
-#&gt; 
-#&gt; $omega[[2]]
-#&gt; [1] "ECL"   "EVC"   "EKA"   "EKOUT"
-#&gt; 
-#&gt; 
-#&gt; $sigma
-#&gt; $sigma[[1]]
-#&gt; [1] "..."
-#&gt; 
-#&gt; $sigma[[2]]
-#&gt; [1] "EXPO"
-#&gt; 
-#&gt; </div><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+                </ul>
 
   </div>
 </div>

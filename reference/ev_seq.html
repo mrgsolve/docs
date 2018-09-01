@@ -171,44 +171,44 @@ row of the event object.</p>
 <span class='no'>e2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>200</span>)
 
 <span class='fu'>seq</span>(<span class='no'>e1</span>, <span class='no'>e2</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt ii addl evid
-#&gt; 1    0   1 100 12    1    1
-#&gt; 2   24   1 200  0    0    1</div><div class='input'>
+#&gt;   time cmt amt evid ii addl
+#&gt; 1    0   1 100    1 12    1
+#&gt; 2   24   1 200    1  0    0</div><div class='input'>
 <span class='fu'>seq</span>(<span class='no'>e1</span>, <span class='kw'>wait</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='no'>e2</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt ii addl evid
-#&gt; 1    0   1 100 12    1    1
-#&gt; 2   32   1 200  0    0    1</div><div class='input'>
+#&gt;   time cmt amt evid ii addl
+#&gt; 1    0   1 100    1 12    1
+#&gt; 2   32   1 200    1  0    0</div><div class='input'>
 <span class='fu'>seq</span>(<span class='no'>e1</span>, <span class='kw'>wait</span> <span class='kw'>=</span> <span class='fl'>8</span>, <span class='no'>e2</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: id argument is deprecated; using ID instead</span></div><div class='output co'>#&gt; Events:
-#&gt;    time cmt amt ii addl evid ID
-#&gt; 1     0   1 100 12    1    1  1
-#&gt; 2    32   1 200  0    0    1  1
-#&gt; 3     0   1 100 12    1    1  2
-#&gt; 4    32   1 200  0    0    1  2
-#&gt; 5     0   1 100 12    1    1  3
-#&gt; 6    32   1 200  0    0    1  3
-#&gt; 7     0   1 100 12    1    1  4
-#&gt; 8    32   1 200  0    0    1  4
-#&gt; 9     0   1 100 12    1    1  5
-#&gt; 10   32   1 200  0    0    1  5
-#&gt; 11    0   1 100 12    1    1  6
-#&gt; 12   32   1 200  0    0    1  6
-#&gt; 13    0   1 100 12    1    1  7
-#&gt; 14   32   1 200  0    0    1  7
-#&gt; 15    0   1 100 12    1    1  8
-#&gt; 16   32   1 200  0    0    1  8
-#&gt; 17    0   1 100 12    1    1  9
-#&gt; 18   32   1 200  0    0    1  9
-#&gt; 19    0   1 100 12    1    1 10
-#&gt; 20   32   1 200  0    0    1 10</div><div class='input'>
+#&gt;    time cmt amt evid ii addl ID
+#&gt; 1     0   1 100    1 12    1  1
+#&gt; 2    32   1 200    1  0    0  1
+#&gt; 3     0   1 100    1 12    1  2
+#&gt; 4    32   1 200    1  0    0  2
+#&gt; 5     0   1 100    1 12    1  3
+#&gt; 6    32   1 200    1  0    0  3
+#&gt; 7     0   1 100    1 12    1  4
+#&gt; 8    32   1 200    1  0    0  4
+#&gt; 9     0   1 100    1 12    1  5
+#&gt; 10   32   1 200    1  0    0  5
+#&gt; 11    0   1 100    1 12    1  6
+#&gt; 12   32   1 200    1  0    0  6
+#&gt; 13    0   1 100    1 12    1  7
+#&gt; 14   32   1 200    1  0    0  7
+#&gt; 15    0   1 100    1 12    1  8
+#&gt; 16   32   1 200    1  0    0  8
+#&gt; 17    0   1 100    1 12    1  9
+#&gt; 18   32   1 200    1  0    0  9
+#&gt; 19    0   1 100    1 12    1 10
+#&gt; 20   32   1 200    1  0    0 10</div><div class='input'>
 <span class='fu'>ev_seq</span>(<span class='kw'>wait</span> <span class='kw'>=</span> <span class='fl'>12</span>, <span class='no'>e1</span>, <span class='kw'>wait</span> <span class='kw'>=</span> <span class='fl'>120</span>, <span class='no'>e2</span>, <span class='kw'>wait</span> <span class='kw'>=</span> <span class='fl'>120</span>, <span class='no'>e1</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt ii addl evid
-#&gt; 1   12   1 100 12    1    1
-#&gt; 2  156   1 200  0    0    1
-#&gt; 3  276   1 100 12    1    1</div><div class='input'>
+#&gt;   time cmt amt evid ii addl
+#&gt; 1   12   1 100    1 12    1
+#&gt; 2  156   1 200    1  0    0
+#&gt; 3  276   1 100    1 12    1</div><div class='input'>
 <span class='fu'>seq</span>(<span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>100</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>12</span>), <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>time</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>200</span>))</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt ii evid addl
-#&gt; 1    0   1 100 12    1    0
-#&gt; 2   20   1 200  0    1    0</div><div class='input'>
+#&gt;   time cmt amt evid ii addl
+#&gt; 1    0   1 100    1 12    0
+#&gt; 2   20   1 200    1  0    0</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

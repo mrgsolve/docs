@@ -214,16 +214,16 @@ be coreced to a list or numeric R object.</p>
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
 
 <span class='fu'>param</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
-#&gt;  Model parameters (N=13):
+#&gt;  Model parameters (N=14):
 #&gt;  name value . name  value
-#&gt;  CL   1     | SEXCL 0.7  
+#&gt;  CL   1     | SEX   0    
+#&gt;  D1   2     | SEXCL 0.7  
 #&gt;  F1   1     | SEXVC 0.85 
 #&gt;  IC50 10    | VC    20   
 #&gt;  KA   1.2   | WT    70   
 #&gt;  KIN  100   | WTCL  0.75 
-#&gt;  KOUT 2     | WTVC  1    
-#&gt;  SEX  0     | .     .    </div><div class='input'><span class='fu'>param</span>(<span class='no'>mod</span>, <span class='kw'>.pat</span><span class='kw'>=</span><span class='st'>"^(C|F)"</span>) <span class='co'>## may be useful when large number of parameters</span></div><div class='output co'>#&gt; 
-#&gt;  Model parameters (N=13):
+#&gt;  KOUT 2     | WTVC  1    </div><div class='input'><span class='fu'>param</span>(<span class='no'>mod</span>, <span class='kw'>.pat</span><span class='kw'>=</span><span class='st'>"^(C|F)"</span>) <span class='co'>## may be useful when large number of parameters</span></div><div class='output co'>#&gt; 
+#&gt;  Model parameters (N=14):
 #&gt;  name value . name value
 #&gt;  CL   1     | F1   1    </div><div class='input'>
 <span class='fu'>class</span>(<span class='fu'>param</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt; [1] "parameter_list"
@@ -241,6 +241,9 @@ be coreced to a list or numeric R object.</p>
 #&gt; 
 #&gt; $F1
 #&gt; [1] 1
+#&gt; 
+#&gt; $D1
+#&gt; [1] 2
 #&gt; 
 #&gt; $WT
 #&gt; [1] 70
@@ -268,8 +271,8 @@ be coreced to a list or numeric R object.</p>
 #&gt; 
 #&gt; $IC50
 #&gt; [1] 10
-#&gt; </div><div class='input'><span class='fu'>as.data.frame</span>(<span class='fu'>param</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt;   CL VC  KA F1 WT SEX WTCL WTVC SEXCL SEXVC KIN KOUT IC50
-#&gt; 1  1 20 1.2  1 70   0 0.75    1   0.7  0.85 100    2   10</div><div class='input'>
+#&gt; </div><div class='input'><span class='fu'>as.data.frame</span>(<span class='fu'>param</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt;   CL VC  KA F1 D1 WT SEX WTCL WTVC SEXCL SEXVC KIN KOUT IC50
+#&gt; 1  1 20 1.2  1  2 70   0 0.75    1   0.7  0.85 100    2   10</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

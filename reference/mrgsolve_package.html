@@ -168,8 +168,8 @@ See <code><a href='exdatasets.html'>exdatasets</a></code> for example input data
 <span class='no'>events</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>cmt</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>addl</span><span class='kw'>=</span><span class='fl'>5</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>24</span>)
 
 <span class='no'>events</span></div><div class='output co'>#&gt; Events:
-#&gt;   time cmt  amt addl ii evid
-#&gt; 1    0   1 1000    5 24    1</div><div class='input'>
+#&gt;   time cmt  amt evid addl ii
+#&gt; 1    0   1 1000    1    5 24</div><div class='input'>
 <span class='no'>mod</span></div><div class='output co'>#&gt; 
 #&gt; 
 #&gt; -------- mrgsolve model object (unix) --------
@@ -182,9 +182,9 @@ See <code><a href='exdatasets.html'>exdatasets</a></code> for example input data
 #&gt;   &gt;              tscale: 1
 #&gt; 
 #&gt;   Compartments:  GUT CENT RESP [3]
-#&gt;   Parameters:    CL VC KA F1 WT SEX
-#&gt;   &gt;              WTCL WTVC SEXCL SEXVC KIN KOUT
-#&gt;   &gt;              IC50 [13]
+#&gt;   Parameters:    CL VC KA F1 D1 WT
+#&gt;   &gt;              SEX WTCL WTVC SEXCL SEXVC KIN
+#&gt;   &gt;              KOUT IC50 [14]
 #&gt;   Omega:         4x4 
 #&gt;   Sigma:         1x1 
 #&gt; 
@@ -214,6 +214,7 @@ See <code><a href='exdatasets.html'>exdatasets</a></code> for example input data
 #&gt; VC   : 20   : Volume of distribution (L)
 #&gt; KA   : 1.2  : Absorption rate constant (1/hr)
 #&gt; F1   : 1.0  : Bioavailability fraction (.)
+#&gt; D1   : 2.0  : Infusion duration (hr)
 #&gt; WT   : 70   : Weight (kg)
 #&gt; SEX  : 0    : Covariate female sex
 #&gt; WTCL : 0.75 : Exponent WT on CL
@@ -246,6 +247,7 @@ See <code><a href='exdatasets.html'>exdatasets</a></code> for example input data
 #&gt; 
 #&gt; $MAIN
 #&gt; F_GUT = F1;
+#&gt; D_CENT = D1;
 #&gt; 
 #&gt; double CLi   = exp(log(CL)   + WTCL*log(WT/70) + log(SEXCL)*SEX + ECL);
 #&gt; double VCi   = exp(log(VC)   + WTVC*log(WT/70) + log(SEXVC)*SEX + EVC);
@@ -368,15 +370,15 @@ See <code><a href='exdatasets.html'>exdatasets</a></code> for example input data
 #&gt; [1189] 118.8 118.9 119.0 119.1 119.2 119.3 119.4 119.5 119.6 119.7 119.8 119.9
 #&gt; [1201] 120.0</div><div class='input'>
 <span class='fu'><a href='param.html'>param</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
-#&gt;  Model parameters (N=13):
+#&gt;  Model parameters (N=14):
 #&gt;  name value . name  value
-#&gt;  CL   0.5   | SEXCL 0.7  
+#&gt;  CL   0.5   | SEX   0    
+#&gt;  D1   2     | SEXCL 0.7  
 #&gt;  F1   1     | SEXVC 0.85 
 #&gt;  IC50 10    | VC    20   
 #&gt;  KA   1.2   | WT    70   
 #&gt;  KIN  100   | WTCL  0.75 
-#&gt;  KOUT 2     | WTVC  1    
-#&gt;  SEX  0     | .     .    </div><div class='input'><span class='fu'><a href='init.html'>init</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
+#&gt;  KOUT 2     | WTVC  1    </div><div class='input'><span class='fu'><a href='init.html'>init</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
 #&gt;  Model initial conditions (N=3):
 #&gt;  name       value . name       value
 #&gt;  CENT (2)   0     | RESP (3)   50   
@@ -443,9 +445,9 @@ See <code><a href='exdatasets.html'>exdatasets</a></code> for example input data
 <span class='no'>ev2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>100</span>, <span class='kw'>cmt</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>time</span><span class='kw'>=</span><span class='fl'>54</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>8</span>, <span class='kw'>addl</span><span class='kw'>=</span><span class='fl'>10</span>)
 <span class='no'>events</span> <span class='kw'>&lt;-</span> <span class='no'>ev1</span>+<span class='no'>ev2</span>
 <span class='no'>events</span></div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt rate evid ii addl
-#&gt; 1    0   2 500   10    1  0    0
-#&gt; 2   54   1 100    0    1  8   10</div><div class='input'>
+#&gt;   time cmt amt evid rate ii addl
+#&gt; 1    0   2 500    1   10  0    0
+#&gt; 2   54   1 100    1    0  8   10</div><div class='input'>
 <span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='no'>ev1</span>+<span class='no'>ev2</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='mrgsim.html'>mrgsim</a></span>(<span class='kw'>end</span><span class='kw'>=</span><span class='fl'>180</span>, <span class='kw'>req</span><span class='kw'>=</span><span class='st'>""</span>)
 <span class='fu'>plot</span>(<span class='no'>out</span>)</div><div class='img'><img src='mrgsolve_package-5.png' alt='' width='700' height='433' /></div><div class='input'>
 

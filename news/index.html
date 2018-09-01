@@ -105,6 +105,32 @@
 <h1 class="page-header">
 <a href="#mrgsolve-0-8-12-9000" class="anchor"></a>mrgsolve 0.8.12.9000<small> Unreleased </small>
 </h1>
+<div id="new-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-functions" class="anchor"></a>New functions</h2>
+<ul>
+<li>Added <code>numerics_only</code> function to drop non-numeric columns from the input data set after optionally converting logical columns to integer</li>
+</ul>
+</div>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li>Added <code>$PRED</code> block for models that don’t utilize any compartments</li>
+<li>Added <code>pred1</code> to the <code>modlib</code>
+</li>
+</ul>
+</div>
+<div id="new-behavior" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-behavior" class="anchor"></a>New behavior</h2>
+<ul>
+<li>
+<code>time/TIME</code> is no longer required in a data set when <code>$PRED</code> is in use</li>
+<li>
+<code>cmt/CMT</code> is no longer required in a data set; a default value of 0 will be assigned in case it is missing and an error will continue to be generated when dosing into an invalid compartment (0 is always an invalid index for dosing compartment)</li>
+</ul>
+</div>
 </div>
     <div id="mrgsolve-0-8-12" class="section level1">
 <h1 class="page-header">
@@ -213,9 +239,9 @@
 <h1 class="page-header">
 <a href="#mrgsolve-0-8-10-9005" class="anchor"></a>mrgsolve 0.8.10.9005<small> Unreleased </small>
 </h1>
-<div id="new-features" class="section level2">
+<div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features" class="anchor"></a>New Features</h2>
+<a href="#new-features-1" class="anchor"></a>New Features</h2>
 <ul>
 <li>Added better support for writing model files with any extension. For example, <code><a href="../reference/mread.html">mread("mymodel.txt")</a></code> will read from the file <code>mymodel.txt</code> if it exists. However, the default behavior remains unchanged so that <code><a href="../reference/mread.html">mread("mymodel")</a></code> will expect to find the model in the file <code>mymodel.cpp</code>.</li>
 </ul>
@@ -250,9 +276,9 @@
 <h1 class="page-header">
 <a href="#mrgsolve-0-8-10-9003" class="anchor"></a>mrgsolve 0.8.10.9003<small> Unreleased </small>
 </h1>
-<div id="new-features-1" class="section level2">
+<div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-1" class="anchor"></a>New Features</h2>
+<a href="#new-features-2" class="anchor"></a>New Features</h2>
 <ul>
 <li><p>Bioavability specified in <code>$MAIN</code> is accounted for when simulating with <code>qsim</code>; there is still no bioavability adjustment for infusions or lag times adjustments to doses</p></li>
 <li><p>Added capability to rename data items in <code>$CAPTURE</code>; also, names are partially sanitized, removing parens and brackets.<br>
@@ -359,9 +385,9 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 </li>
 </ul>
 </div>
-<div id="new-features-2" class="section level2">
+<div id="new-features-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-2" class="anchor"></a>New Features</h2>
+<a href="#new-features-3" class="anchor"></a>New Features</h2>
 <ul>
 <li>Dosing records with <code>ss=2</code> are recognized, allowing combining of steady-state dosing regimens under linear kinetics (e.g. 10 mg QAM and 20 mg QPM) (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/221'>#221</a>)</li>
 <li>Added function (<code>inventory</code>) that reconciles model parameters with names in an object (e.g. a simulation data set) verify that required parameters can be found in the data object.</li>
@@ -413,9 +439,9 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 <li>Devin Pastoor is now listed as a contributor. Thanks for all of your help!</li>
 </ul>
 </div>
-<div id="new-features-3" class="section level2">
+<div id="new-features-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-3" class="anchor"></a>New Features</h2>
+<a href="#new-features-4" class="anchor"></a>New Features</h2>
 <ul>
 <li>Added automatic, on-demand output of time-after-dose (<code>tad</code>) in the simulated output. Use <code><a href="../reference/mrgsim.html">mrgsim(tad=TRUE)</a></code>.</li>
 <li>Several new functions added to <code>$PLUGIN mrgx</code>, including <code>mrgx::get&lt;T&gt;</code> for getting objects out of <code>$ENV</code> or a package namespace and <code>mrgx::mt_fun()</code> that is just a function that you can assign when declaring <code>Rcpp::Function</code>.</li>
@@ -675,9 +701,9 @@ Additionally, an error is generated when an infusion is attempted with zero <cod
 <li>Removed NSE evaluation for arguments passed into <code>ev</code> to avoid unintended issues in evaluation (<a href="../../issues/29">issue 29</a>).</li>
 </ul>
 </div>
-<div id="new-features-4" class="section level2">
+<div id="new-features-5" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-4" class="anchor"></a>New features</h2>
+<a href="#new-features-5" class="anchor"></a>New features</h2>
 <ul>
 <li>Added <code>mcode</code> function as alternative to using <code>mread</code> when your model is written in an <code>R</code> string. Note the order of the arguments: first <code>model</code>, then <code>code</code>, then <code>project</code>. <code>project</code> defaults to <code>tempdir</code>.<br>
 So the call is: <code>mod &lt;- mcode("mymodel", code)</code>. The equivalent <code>mread</code> call is: <code>mod &lt;- mread("mymodel", tempdir(),code)</code>.</li>
@@ -726,9 +752,9 @@ and <code>addl &gt; 0</code> reset the system for all subsequent doses. Addition
 Specifying character names <code>tname</code>, <code>oname</code>, and <code>sname</code> will imply <code>theta=TRUE</code>, <code>omega=TRUE</code>, and <code>sigma=TRUE</code>, respectively.</li>
 </ul>
 </div>
-<div id="new-features-5" class="section level2">
+<div id="new-features-6" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-5" class="anchor"></a>New features</h2>
+<a href="#new-features-6" class="anchor"></a>New features</h2>
 <ul>
 <li>New aliases available for setting bioavailability, lag time and infusion duration and rate. For a compartment called <code>DEPOT</code> use: <code>F_DEPOT</code> (bioavailability), <code>ALAG_DEPOT</code> (dosing lag time), <code>D_DEPOT</code> (infusion duration), and / or <code>R_DEPOT</code> (infusion rate). (<a href="../../issues/13">issue 13</a>)</li>
 <li>Added <em>slightly</em> more informative messages when <code>DLSODA</code> fails, including clear identification if the value of <code>istate</code>, which is 2 when the solver succeeds and negative when the solver fails.</li>

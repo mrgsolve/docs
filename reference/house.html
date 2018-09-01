@@ -154,6 +154,7 @@
 #&gt; VC   : 20   : Volume of distribution (L)
 #&gt; KA   : 1.2  : Absorption rate constant (1/hr)
 #&gt; F1   : 1.0  : Bioavailability fraction (.)
+#&gt; D1   : 2.0  : Infusion duration (hr)
 #&gt; WT   : 70   : Weight (kg)
 #&gt; SEX  : 0    : Covariate female sex
 #&gt; WTCL : 0.75 : Exponent WT on CL
@@ -186,6 +187,7 @@
 #&gt; 
 #&gt; $MAIN
 #&gt; F_GUT = F1;
+#&gt; D_CENT = D1;
 #&gt; 
 #&gt; double CLi   = exp(log(CL)   + WTCL*log(WT/70) + log(SEXCL)*SEX + ECL);
 #&gt; double VCi   = exp(log(VC)   + WTVC*log(WT/70) + log(SEXVC)*SEX + EVC);

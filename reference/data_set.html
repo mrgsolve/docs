@@ -177,22 +177,29 @@ be used to update the corresponding parameter as the simulation
 progresses.</p>
 <p>Input data set may include the following columns related to 
 PK dosing events: <code>time</code>, <code>cmt</code>, <code>amt</code>, <code>rate</code>,
-<code>ii</code>, <code>addl</code>, <code>ss</code>.  <code>time</code> and <code>cmt</code> 
-(and <code>ID</code>) are required columns in the input data set. 
-<code>time</code> is the observation or event time, <code>cmt</code> 
+<code>ii</code>, <code>addl</code>, <code>ss</code>.  Along with <code>ID</code>, <code>time</code> 
+is a required column in the input data set unless <code>$PRED</code> is in 
+use.  Upper case PK dosing column names including
+<code>TIME</code>, <code>CMT</code>, <code>AMT</code>, <code>RATE</code>, <code>II</code>,
+<code>ADDL</code>, <code>SS</code> are also recognized.  However, an 
+error will be generated if a mix of upper case and lower
+case columns in this family are found.</p> 
+<p><code>time</code> is the observation or event time, <code>cmt</code> 
 is the compartment number (see <code><a href='init.html'>init</a></code>), <code>amt</code> 
 is the dosing amount, <code>rate</code> is the infusion rate, 
 <code>ii</code> is the dosing interval, <code>addl</code> specifies 
 additional doses to administer, and <code>ss</code> is a flag 
 for steady state dosing.  These column names operate 
 similarly to other non-linear mixed effects modeling 
-software.  Upper case PK dosing column names including
-<code>TIME</code>, <code>CMT</code>, <code>AMT</code>, <code>RATE</code>, <code>II</code>,
-<code>ADDL</code>, <code>SS</code> are also recognized.  However, an 
-error will be generated if a mix of upper case and lower
-case columns are found.</p>
+software.</p>
+<p>An error will be generate when mrgsolve detects that the data set
+is not sorted by <code>time</code> within an individual.  Also, an error 
+will be generated in case mrgsolve finds negative values for 
+<code>time</code>, unless <code>$PRED</code> is in use.</p>
 <p>Only numeric data can be brought in to the problem.  
-Any non-numeric data columns will be dropped with warning.</p>
+Any non-numeric data columns will be dropped with warning.  
+See <code><a href='numerics_only.html'>numerics_only</a></code>, which is used 
+to prepare the data set.</p>
 <p>See <code><a href='exdatasets.html'>exdatasets</a></code> for different example data sets.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
