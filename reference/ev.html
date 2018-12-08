@@ -218,7 +218,7 @@ event rows must match the number of <code>ID</code>s entered</p></li>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>ev</span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>time</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>cmt</span><span class='kw'>=</span><span class='fl'>1</span>)
-<span class='fu'><a href='events.html'>events</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: events are no longer included in the model object</span></div><div class='input'>
+
 <span class='no'>loading</span> <span class='kw'>&lt;-</span> <span class='fu'>ev</span>(<span class='kw'>time</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>cmt</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>)
 <span class='no'>maint</span> <span class='kw'>&lt;-</span> <span class='fu'>ev</span>(<span class='kw'>time</span><span class='kw'>=</span><span class='fl'>12</span>, <span class='kw'>cmt</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>ii</span><span class='kw'>=</span><span class='fl'>12</span>, <span class='kw'>addl</span><span class='kw'>=</span><span class='fl'>10</span>)
 <span class='no'>loading</span> + <span class='no'>maint</span></div><div class='output co'>#&gt; Events:
@@ -238,7 +238,6 @@ event rows must match the number of <code>ID</code>s entered</p></li>
 #&gt; 8   8    0   1 100    1
 #&gt; 9   9    0   1 100    1
 #&gt; 10 10    0   1 100    1</div><div class='input'>
-
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
