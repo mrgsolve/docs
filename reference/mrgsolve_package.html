@@ -189,7 +189,7 @@ See <code><a href='exdatasets.html'>exdatasets</a></code> for example input data
 #&gt;   Sigma:         1x1 
 #&gt; 
 #&gt;   Solver:        atol: 1e-08 rtol: 1e-08
-#&gt;   &gt;              maxsteps: 2000 hmin: 0 hmax: 0
+#&gt;   &gt;              maxsteps: 5000 hmin: 0 hmax: 0
 #&gt; </div><div class='input'>
 <span class='fu'><a href='see.html'>see</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
 #&gt; Model file:  housemodel.cpp 
@@ -414,7 +414,7 @@ See <code><a href='exdatasets.html'>exdatasets</a></code> for example input data
 <span class='fu'>plot</span>(<span class='no'>out</span>, <span class='no'>GUT</span>+<span class='no'>CP</span>~<span class='no'>.</span>)</div><div class='img'><img src='mrgsolve_package-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='no'>sims</span> <span class='kw'>&lt;-</span> <span class='fu'>as.data.frame</span>(<span class='no'>out</span>)
 
-<span class='no'>t72</span> <span class='kw'>&lt;-</span> <span class='fu'>subset</span>(<span class='no'>sims</span>, <span class='no'>time</span><span class='kw'>==</span><span class='fl'>72</span>)
+<span class='no'>t72</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='http://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>sims</span>, <span class='no'>time</span><span class='kw'>==</span><span class='fl'>72</span>)
 <span class='fu'>str</span>(<span class='no'>t72</span>)</div><div class='output co'>#&gt; 'data.frame':	1 obs. of  7 variables:
 #&gt;  $ ID  : num 1
 #&gt;  $ time: num 72

@@ -192,7 +192,7 @@ additional doses to administer, and <code>ss</code> is a flag
 for steady state dosing.  These column names operate 
 similarly to other non-linear mixed effects modeling 
 software.</p>
-<p>An error will be generate when mrgsolve detects that the data set
+<p>An error will be generated when mrgsolve detects that the data set
 is not sorted by <code>time</code> within an individual.  Also, an error 
 will be generated in case mrgsolve finds negative values for 
 <code>time</code>, unless <code>$PRED</code> is in use.</p>
@@ -200,12 +200,16 @@ will be generated in case mrgsolve finds negative values for
 Any non-numeric data columns will be dropped with warning.  
 See <code><a href='numerics_only.html'>numerics_only</a></code>, which is used 
 to prepare the data set.</p>
+<p>An error will be generated if any parameter columns in the 
+input data set contain <code>NA</code>.  Likewise, and error will 
+be generated if missing values are found in the following
+columns: <code>ID</code>, <code>time</code>/<code>TIME</code>, <code>rate</code>/<code>RATE</code>.</p>
 <p>See <code><a href='exdatasets.html'>exdatasets</a></code> for different example data sets.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='idata_set.html'>idata_set</a></code>, <code><a href='ev.html'>ev</a></code>, 
-<code><a href='valid_data.html'>valid_data_set</a></code>, <code><a href='valid_data.html'>valid_idata_set</a></code></p></div>
+<code><a href='valid_data_set.html'>valid_data_set</a></code>, <code><a href='valid_idata_set.html'>valid_idata_set</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

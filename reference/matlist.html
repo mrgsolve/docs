@@ -114,16 +114,13 @@
     <pre class="usage"><span class='fu'>zero.re</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for mrgmod</span>
-<span class='fu'>zero.re</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
+<span class='fu'>zero.re</span>(<span class='no'>.x</span>, <span class='no'>...</span>, <span class='kw'>.drop</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='fu'>zero_re</span>(<span class='no'>...</span>)
 
-<span class='fu'>drop.re</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
+<span class='fu'>drop_re</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
 
-<span class='co'># S4 method for mrgmod</span>
-<span class='fu'>drop.re</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
-
-<span class='fu'>drop_re</span>(<span class='no'>...</span>)
+<span class='fu'>drop.re</span>(<span class='no'>...</span>)
 
 <span class='co'># S4 method for matlist</span>
 <span class='fu'>as.list</span>(<span class='no'>x</span>, <span class='no'>...</span>)
@@ -159,6 +156,11 @@
     <tr>
       <th>...</th>
       <td><p>passed along</p></td>
+    </tr>
+    <tr>
+      <th>.drop</th>
+      <td><p>if <code>TRUE</code>, <code>zero_re</code> will drop <code>omega</code>
+or <code>sigma</code> or both entirely</p></td>
     </tr>
     <tr>
       <th>x</th>

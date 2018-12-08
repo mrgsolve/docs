@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Do an mrgsim run — do_mrgsim • mrgsolve</title>
+<title>Validate and prepare idata data sets for simulation — valid_idata_set • mrgsolve</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Do an mrgsim run — do_mrgsim" />
+<meta property="og:title" content="Validate and prepare idata data sets for simulation — valid_idata_set" />
 
-<meta property="og:description" content="Do an mrgsim run" />
+<meta property="og:description" content="Validate and prepare idata data sets for simulation" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,111 +100,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Do an mrgsim run</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/mrgsolve.R'><code>R/mrgsolve.R</code></a></small>
-    <div class="hidden name"><code>do_mrgsim.Rd</code></div>
+    <h1>Validate and prepare idata data sets for simulation</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/mrgindata.R'><code>R/mrgindata.R</code></a></small>
+    <div class="hidden name"><code>valid_idata_set.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Do an mrgsim run</p>
+    <p>Validate and prepare idata data sets for simulation</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>do_mrgsim</span>(<span class='no'>x</span>, <span class='no'>data</span>, <span class='kw'>idata</span> <span class='kw'>=</span> <span class='fu'>no_idata_set</span>(), <span class='kw'>carry_out</span> <span class='kw'>=</span> <span class='no'>carry.out</span>,
-  <span class='kw'>carry.out</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>), <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fu'>as.integer</span>(<span class='fl'>NA</span>), <span class='kw'>Request</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>),
-  <span class='kw'>capture</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>obsonly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>obsaug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>tgrid</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>recsort</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>deslist</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>descol</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>), <span class='kw'>filbak</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>tad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>nocb</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>skip_init_calc</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>valid_idata_set</span>(<span class='no'>x</span>, <span class='no'>m</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
+      <td><p>data.frame or matrix</p></td>
+    </tr>
+    <tr>
+      <th>m</th>
       <td><p>a model object</p></td>
     </tr>
     <tr>
-      <th>data</th>
-      <td><p>a simulation data set</p></td>
+      <th>verbose</th>
+      <td><p>logical</p></td>
     </tr>
     <tr>
-      <th>idata</th>
-      <td><p>individual-level data</p></td>
-    </tr>
-    <tr>
-      <th>carry_out</th>
-      <td><p>data items to copy into the output</p></td>
-    </tr>
-    <tr>
-      <th>carry.out</th>
-      <td><p>soon to be deprecated; use <code>carry_out</code> instead</p></td>
-    </tr>
-    <tr>
-      <th>seed</th>
-      <td><p>deprecated</p></td>
-    </tr>
-    <tr>
-      <th>Request</th>
-      <td><p>compartments or captured variables to retain
-in the simulated output</p></td>
-    </tr>
-    <tr>
-      <th>capture</th>
-      <td><p>character file name used for debugging (not related
-to <code>$CAPTURE</code></p></td>
-    </tr>
-    <tr>
-      <th>obsonly</th>
-      <td><p>if <code>TRUE</code>, dosing records are not included
-in the output</p></td>
-    </tr>
-    <tr>
-      <th>obsaug</th>
-      <td><p>augment the data set with time grid observations</p></td>
-    </tr>
-    <tr>
-      <th>tgrid</th>
-      <td><p>a tgrid object; or a numeric vector of simulation times
-or another object with an <code>stime</code> method</p></td>
-    </tr>
-    <tr>
-      <th>recsort</th>
-      <td><p>record sorting flag</p></td>
-    </tr>
-    <tr>
-      <th>deslist</th>
-      <td><p>a list of tgrid objects</p></td>
-    </tr>
-    <tr>
-      <th>descol</th>
-      <td><p>the name of a column for assigning designs</p></td>
-    </tr>
-    <tr>
-      <th>filbak</th>
-      <td><p>carry data items backward when the first 
-data set row has time greater than zero</p></td>
-    </tr>
-    <tr>
-      <th>tad</th>
-      <td><p>if <code>TRUE</code>, include time after dose
-in the output</p></td>
-    </tr>
-    <tr>
-      <th>nocb</th>
-      <td><p>if <code>TRUE</code>, use next observation carry 
-backward method; otherwise, use <code>locf</code></p></td>
-    </tr>
-    <tr>
-      <th>skip_init_calc</th>
-      <td><p>don't use <code>$MAIN</code> to 
-calculate initial conditions</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>passed to update</p></td>
+      <th>quiet</th>
+      <td><p>if <code>TRUE</code>, messages will be suppressed</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A numeric matrix with class <code>valid_idata_set</code>.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='valid_data_set.html'>valid_data_set</a></code>, <code><a href='idata_set.html'>idata_set</a></code>, 
+<code><a href='data_set.html'>data_set</a></code></p></div>
     
 
   </div>
@@ -212,7 +149,11 @@ calculate initial conditions</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Methods for working with <code>mrgsims</code> objects. — mrgsims • mrgsolve</title>
+<title>Methods for working with <code>mrgsims</code> objects — mrgsims • mrgsolve</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="Methods for working with <code>mrgsims</code> objects. — mrgsims" />
+<meta property="og:title" content="Methods for working with <code>mrgsims</code> objects — mrgsims" />
 
 <meta property="og:description" content="These methods help the user view simulation output and extract 
 simulated data to work with further.  The methods listed here 
@@ -104,7 +104,7 @@ by mrgsolve that have their own documentation pages." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Methods for working with <code>mrgsims</code> objects.</h1>
+    <h1>Methods for working with <code>mrgsims</code> objects</h1>
     <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/mrgsims.R'><code>R/mrgsims.R</code></a></small>
     <div class="hidden name"><code>mrgsims.Rd</code></div>
     </div>
@@ -140,9 +140,6 @@ as.data.frame(x, row.names = NULL, optional = FALSE,
 
 # S4 method for mrgsims
 as.matrix(x, ...)
-
-# S4 method for mrgsims
-subset(x, ...)
 
 # S4 method for mrgsims
 summary(object, ...)
@@ -184,8 +181,6 @@ show(object)</pre>
     <p>Most methods should behave as expected according to other method 
 commonly used in R (e.g. head, tail, as.data.frame, etc ...)</p>
 <ul>
-<li><p><code>subset</code> coreces simulated output to data.frame and 
-  passes to subset.data.frame</p></li>
 <li><p><code>$</code> selects a column in the simulated data and 
   returns numeric</p></li>
 <li><p><code>head</code> see <code>head.matrix</code>; returns 
@@ -263,13 +258,12 @@ commonly used in R (e.g. head, tail, as.data.frame, etc ...)</p>
 #&gt;   Sigma:         1x1 
 #&gt; 
 #&gt;   Solver:        atol: 1e-08 rtol: 1e-08
-#&gt;   &gt;              maxsteps: 2000 hmin: 0 hmax: 0
+#&gt;   &gt;              maxsteps: 5000 hmin: 0 hmax: 0
 #&gt; </div><div class='input'>
 <span class='fu'>dim</span>(<span class='no'>out</span>)</div><div class='output co'>#&gt; [1] 481   7</div><div class='input'><span class='fu'>names</span>(<span class='no'>out</span>)</div><div class='output co'>#&gt; [1] "ID"   "time" "GUT"  "CENT" "RESP" "DV"   "CP"  </div><div class='input'>
 <span class='no'>mat</span> <span class='kw'>&lt;-</span> <span class='fu'>as.matrix</span>(<span class='no'>out</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>as.data.frame</span>(<span class='no'>out</span>)
 
-<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>subset</span>(<span class='no'>out</span>, <span class='no'>time</span> <span class='kw'>&lt;</span> <span class='fl'>12</span>) <span class='co'>## a data frame</span>
 <span class='no'>out</span>$<span class='no'>CP</span></div><div class='output co'>#&gt;   [1] 0.00000000 1.28744129 2.22520840 2.90412917 3.39148807 3.73712819
 #&gt;   [7] 3.97797182 4.14136927 4.24757982 4.31160957 4.34457305 4.35470182
 #&gt;  [13] 4.34809176 4.32925658 4.30153797 4.26740933 4.22870090 4.18676645

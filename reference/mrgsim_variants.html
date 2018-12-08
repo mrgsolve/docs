@@ -33,7 +33,12 @@
 <meta property="og:title" content="mrgsim variant functions — mrgsim_variants" />
 
 <meta property="og:description" content="These functions are called by mrgsim and have
-explicit input requirements written into the function name." />
+explicit input requirements written into the function name.  The motivation
+behind these variants is to give the user a clear workflow with 
+specific, required inputs as indicated by the function name. Use 
+mrgsim_q instead to benchark mrgsolve or to do repeated quick
+simulation for tasks like parameter optimization,  sensitivity analyses, 
+or optimal design." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,7 +114,12 @@ explicit input requirements written into the function name." />
     <div class="ref-description">
     
     <p>These functions are called by <code><a href='mrgsim.html'>mrgsim</a></code> and have
-explicit input requirements written into the function name.</p>
+explicit input requirements written into the function name.  The motivation
+behind these variants is to give the user a clear workflow with 
+specific, required inputs as indicated by the function name. Use 
+<code><a href='mrgsim_q.html'>mrgsim_q</a></code> instead to benchark mrgsolve or to do repeated quick
+simulation for tasks like parameter optimization,  sensitivity analyses, 
+or optimal design.</p>
     
     </div>
 
@@ -130,7 +140,7 @@ explicit input requirements written into the function name.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>the model objects</p></td>
+      <td><p>the model object</p></td>
     </tr>
     <tr>
       <th>events</th>
@@ -147,7 +157,9 @@ one parameter per row (see <code><a href='idata_set.html'>idata_set</a></code>)<
     </tr>
     <tr>
       <th>...</th>
-      <td><p>passed to <code><a href='update.html'>update</a></code></p></td>
+      <td><p>passed to <code><a href='update.html'>update</a></code> and 
+<code><a href='do_mrgsim.html'>do_mrgsim</a></code>; please see these help topics for other 
+arguments for <code><a href='mrgsim.html'>mrgsim</a></code></p></td>
     </tr>
     </table>
     
@@ -166,11 +178,13 @@ inputs from a pipeline.</p>
     <code>idata_set</code></p></li>
 <li><p><code>mrgsim_i</code> simulate using a <code>idata_set</code></p></li>
 <li><p><code>mrgsim_0</code> simulate using just the model</p></li>
+<li><p><code>mrgsim_q</code> simulate from a data set with quicker 
+  turnaround (see <code><a href='mrgsim_q.html'>mrgsim_q</a></code>)</p></li>
 </ul>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='mrgsim.html'>mrgsim</a></code></p></div>
+    <div class='dont-index'><p><code><a href='mrgsim.html'>mrgsim</a></code>, <code><a href='mrgsim_q.html'>mrgsim_q</a></code></p></div>
     
 
   </div>

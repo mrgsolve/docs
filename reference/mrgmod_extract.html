@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Do an mrgsim run — do_mrgsim • mrgsolve</title>
+<title>Select parameter values from a model object — $,mrgmod-method • mrgsolve</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,12 @@
 
 
 
-<meta property="og:title" content="Do an mrgsim run — do_mrgsim" />
+<meta property="og:title" content="Select parameter values from a model object — $,mrgmod-method" />
 
-<meta property="og:description" content="Do an mrgsim run" />
+<meta property="og:description" content="The $ and [[ operators get the value 
+of a single parameter in the model.  The 
+[ gets several values, returning a 
+nameed list." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,109 +103,47 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Do an mrgsim run</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/mrgsolve.R'><code>R/mrgsolve.R</code></a></small>
-    <div class="hidden name"><code>do_mrgsim.Rd</code></div>
+    <h1>Select parameter values from a model object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/class_mrgmod.R'><code>R/class_mrgmod.R</code></a></small>
+    <div class="hidden name"><code>mrgmod_extract.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Do an mrgsim run</p>
+    <p>The <code>$</code> and <code>[[</code> operators get the value 
+of a single parameter in the model.  The 
+<code>[</code> gets several values, returning a 
+nameed list.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>do_mrgsim</span>(<span class='no'>x</span>, <span class='no'>data</span>, <span class='kw'>idata</span> <span class='kw'>=</span> <span class='fu'>no_idata_set</span>(), <span class='kw'>carry_out</span> <span class='kw'>=</span> <span class='no'>carry.out</span>,
-  <span class='kw'>carry.out</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>), <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fu'>as.integer</span>(<span class='fl'>NA</span>), <span class='kw'>Request</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>),
-  <span class='kw'>capture</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>obsonly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>obsaug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>tgrid</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>recsort</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>deslist</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>descol</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>), <span class='kw'>filbak</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>tad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>nocb</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>skip_init_calc</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"># S4 method for mrgmod
+$(x, name)
+
+# S4 method for mrgmod
+[[(x, i, exact = TRUE)
+
+# S4 method for mrgmod
+[(x, i)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>a model object</p></td>
+      <td><p>mrgmod object</p></td>
     </tr>
     <tr>
-      <th>data</th>
-      <td><p>a simulation data set</p></td>
+      <th>name</th>
+      <td><p>parameter to take</p></td>
     </tr>
     <tr>
-      <th>idata</th>
-      <td><p>individual-level data</p></td>
+      <th>i</th>
+      <td><p>an element to select</p></td>
     </tr>
     <tr>
-      <th>carry_out</th>
-      <td><p>data items to copy into the output</p></td>
-    </tr>
-    <tr>
-      <th>carry.out</th>
-      <td><p>soon to be deprecated; use <code>carry_out</code> instead</p></td>
-    </tr>
-    <tr>
-      <th>seed</th>
-      <td><p>deprecated</p></td>
-    </tr>
-    <tr>
-      <th>Request</th>
-      <td><p>compartments or captured variables to retain
-in the simulated output</p></td>
-    </tr>
-    <tr>
-      <th>capture</th>
-      <td><p>character file name used for debugging (not related
-to <code>$CAPTURE</code></p></td>
-    </tr>
-    <tr>
-      <th>obsonly</th>
-      <td><p>if <code>TRUE</code>, dosing records are not included
-in the output</p></td>
-    </tr>
-    <tr>
-      <th>obsaug</th>
-      <td><p>augment the data set with time grid observations</p></td>
-    </tr>
-    <tr>
-      <th>tgrid</th>
-      <td><p>a tgrid object; or a numeric vector of simulation times
-or another object with an <code>stime</code> method</p></td>
-    </tr>
-    <tr>
-      <th>recsort</th>
-      <td><p>record sorting flag</p></td>
-    </tr>
-    <tr>
-      <th>deslist</th>
-      <td><p>a list of tgrid objects</p></td>
-    </tr>
-    <tr>
-      <th>descol</th>
-      <td><p>the name of a column for assigning designs</p></td>
-    </tr>
-    <tr>
-      <th>filbak</th>
-      <td><p>carry data items backward when the first 
-data set row has time greater than zero</p></td>
-    </tr>
-    <tr>
-      <th>tad</th>
-      <td><p>if <code>TRUE</code>, include time after dose
-in the output</p></td>
-    </tr>
-    <tr>
-      <th>nocb</th>
-      <td><p>if <code>TRUE</code>, use next observation carry 
-backward method; otherwise, use <code>locf</code></p></td>
-    </tr>
-    <tr>
-      <th>skip_init_calc</th>
-      <td><p>don't use <code>$MAIN</code> to 
-calculate initial conditions</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>passed to update</p></td>
+      <th>exact</th>
+      <td><p>not used</p></td>
     </tr>
     </table>
     

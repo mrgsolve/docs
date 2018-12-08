@@ -35,8 +35,11 @@
 <meta property="og:description" content="This function sets up the simulation run from data stored in the model
 object as well as arguments passed in.  Note that there are several 
 non-formal arguments to this function that can be used to customize 
-the simulation run and it's output. Use mrgsim_df to 
-return a data frame rather than mrgsims object." />
+the simulation run and it's output.  Use mrgsim_q instead to
+benchark mrgsolve or to do repeated quick simulation for tasks like 
+parameter optimization,  sensitivity analyses, or optimal design.  See
+mrgsim_variants for other mrgsim-like functions that have 
+more focused inputs." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -114,8 +117,11 @@ return a data frame rather than mrgsims object." />
     <p>This function sets up the simulation run from data stored in the model
 object as well as arguments passed in.  Note that there are several 
 non-formal arguments to this function that can be used to customize 
-the simulation run and it's output. Use <code>mrgsim_df</code> to 
-return a data frame rather than <code>mrgsims</code> object.</p>
+the simulation run and it's output.  Use <code><a href='mrgsim_q.html'>mrgsim_q</a></code> instead to
+benchark mrgsolve or to do repeated quick simulation for tasks like 
+parameter optimization,  sensitivity analyses, or optimal design.  See
+<code><a href='mrgsim_variants.html'>mrgsim_variants</a></code> for other mrgsim-like functions that have 
+more focused inputs.</p>
     
     </div>
 
@@ -128,7 +134,7 @@ return a data frame rather than <code>mrgsims</code> object.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>the model objects</p></td>
+      <td><p>the model object</p></td>
     </tr>
     <tr>
       <th>data</th>
@@ -150,7 +156,9 @@ idata and data are missing</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>passed to <code><a href='update.html'>update</a></code></p></td>
+      <td><p>passed to <code><a href='update.html'>update</a></code> and 
+<code><a href='do_mrgsim.html'>do_mrgsim</a></code>; please see these help topics for other 
+arguments for <code>mrgsim</code></p></td>
     </tr>
     </table>
     
@@ -161,8 +169,10 @@ idata and data are missing</p></td>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <ul>
+<li><p>Use <code>mrgsim_df</code> to return a data frame rather than 
+<code>mrgsims</code> object.</p></li>
 <li><p>Both <code>data</code> and <code>idata</code> will be coreced to numeric matrix</p></li>
-<li><p><code>carry.out</code> can be used to insert data columns into the output 
+<li><p><code>carry_out</code> can be used to insert data columns into the output 
 data set.  This is partially dependent on the nature of the data brought 
 into the problem.</p></li>
 <li><p>When using <code>data</code> and <code>idata</code> together, an error is 
@@ -171,7 +181,7 @@ Also, when looking up data in <code>idata</code>, ID in <code>idata</code> is
 assumed to be uniquely keyed to ID in <code>data</code>.  No error is 
 generated if ID is duplicated in <code>data</code>; parameters will be used 
 from the first occurrence found in <code>idata</code>.</p></li>
-<li><p><code>carry.out</code>: <code>idata</code> is assumed to be 
+<li><p><code>carry_out</code>: <code>idata</code> is assumed to be 
 individual-level and variables that are carried from <code>idata</code> 
 are repeated throughout the invidivual's simulated data.  Variables 
 carried from <code>data</code> are carried via last-observation carry forward.  
@@ -182,7 +192,8 @@ simulated output that occur prior to the first record in <code>data</code>.</p><
     <h2 class="hasAnchor" id="additional-arguments"><a class="anchor" href="#additional-arguments"></a>Additional arguments</h2>
 
     
-    <ul>
+    <p>These are other arguments that are passed to <code><a href='do_mrgsim.html'>do_mrgsim</a></code>.</p>
+<ul>
 <li><p><code>Request</code> a vector of compartment or table names to take in 
 simulated output; if this is specified, <code>request</code> is ignored</p></li>
 <li><p><code>obsonly</code> omit records with <code>evid</code> != 0 from simulated 
@@ -191,7 +202,7 @@ output</p></li>
 used, the simulated output is augmented with an observation at each 
 time in <code><a href='stime.html'>stime</a></code>().  When using <code>obsaug</code>, a flag indicating 
 augmented observations can be requested by including <code>a.u.g</code> in 
-<code>carry.out</code></p></li>
+<code>carry_out</code></p></li>
 <li><p><code>recsort</code>  Default value is 1.  Possible values are 1,2,3,4: 
 1 and 2 put doses in a data set after padded observations at the same 
 time; 3 and 4 put those doses before padded observations at the same 
@@ -221,7 +232,8 @@ carried forward.</p></li>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='mrgsim_variants.html'>mrgsim_variants</a></code></p></div>
+    <div class='dont-index'><p><code><a href='mrgsim_variants.html'>mrgsim_variants</a></code>, <code><a href='mrgsim_q.html'>mrgsim_q</a></code>, 
+<code><a href='do_mrgsim.html'>do_mrgsim</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -277,7 +289,7 @@ carried forward.</p></li>
 #&gt; [6,]  1 5.10 8.838e-03 3.263 49.28 0.14348 0.14348
 #&gt; [7,]  1 7.03 8.720e-04 2.980 49.34 0.13101 0.13101
 #&gt; [8,]  1 9.05 7.723e-05 2.703 49.40 0.11884 0.11884</div><div class='input'>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>exTheoph</span>, <span class='kw'>obsaug</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>carry.out</span><span class='kw'>=</span><span class='st'>"a.u.g"</span>)
+<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>exTheoph</span>, <span class='kw'>obsaug</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>carry_out</span><span class='kw'>=</span><span class='st'>"a.u.g"</span>)
 <span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
 #&gt; Dim:    5904 x 8 
 #&gt; Time:   0 to 120 

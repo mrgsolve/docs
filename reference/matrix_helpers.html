@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parse PKMODEL BLOCK data — PKMODEL • mrgsolve</title>
+<title>Create matrices from vector input — matrix_helpers • mrgsolve</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Parse PKMODEL BLOCK data — PKMODEL" />
+<meta property="og:title" content="Create matrices from vector input — matrix_helpers" />
 
-<meta property="og:description" content="Parse PKMODEL BLOCK data" />
+<meta property="og:description" content="Create matrices from vector input" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,87 +100,66 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parse PKMODEL BLOCK data</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/modspec.R'><code>R/modspec.R</code></a></small>
-    <div class="hidden name"><code>PKMODEL.Rd</code></div>
+    <h1>Create matrices from vector input</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/matrix.R'><code>R/matrix.R</code></a></small>
+    <div class="hidden name"><code>matrix_helpers.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Parse PKMODEL BLOCK data</p>
+    <p>Create matrices from vector input</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>PKMODEL</span>(<span class='kw'>ncmt</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>depot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>cmt</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>trans</span> <span class='kw'>=</span> <span class='fu'>pick_trans</span>(<span class='no'>ncmt</span>,
-  <span class='no'>depot</span>), <span class='kw'>env</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>bmat</span>(<span class='no'>...</span>, <span class='kw'>correlation</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>digits</span> <span class='kw'>=</span> -<span class='fl'>1</span>)
+
+<span class='fu'>cmat</span>(<span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> -<span class='fl'>1</span>)
+
+<span class='fu'>dmat</span>(<span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>ncmt</th>
-      <td><p>number of compartments; must be 1 (one-compartment, 
-not including a depot dosing compartment) or 2 (two-compartment model, 
-not including a depot dosing compartment)</p></td>
-    </tr>
-    <tr>
-      <th>depot</th>
-      <td><p>logical indicating whether to add depot compartment</p></td>
-    </tr>
-    <tr>
-      <th>cmt</th>
-      <td><p>compartment names as comma-delimited character</p></td>
-    </tr>
-    <tr>
-      <th>trans</th>
-      <td><p>the parameterization for the PK model; must be 1, 2, 4, or 11</p></td>
-    </tr>
-    <tr>
-      <th>env</th>
-      <td><p>parse environment</p></td>
-    </tr>
-    <tr>
-      <th>pos</th>
-      <td><p>block position number</p></td>
-    </tr>
-    <tr>
       <th>...</th>
-      <td><p>not used</p></td>
+      <td><p>matrix data</p></td>
+    </tr>
+    <tr>
+      <th>correlation</th>
+      <td><p>logical; if TRUE, off diagonal elements are assumed 
+to be correlations and converted to covariances</p></td>
+    </tr>
+    <tr>
+      <th>digits</th>
+      <td><p>if greater than zero, matrix is passed to signif (along 
+with digits) prior to returning</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>When using <code>$PKMODEL</code>, certain symbols must be defined in the 
-model specification depending on the value of <code>ncmt</code>, <code>depot</code> 
-and <code>trans</code>.</p>
-<ul>
-<li><p><code>ncmt</code> 1, <code>depot FALSE</code>, trans 2: <code>CL</code>, <code>V</code></p></li>
-<li><p><code>ncmt</code> 1, <code>depot TRUE</code> , trans 2: <code>CL</code>, <code>V</code>,  
-<code>KA</code></p></li>
-<li><p><code>ncmt</code> 2, <code>depot FALSE</code>, trans 4: <code>CL</code>, <code>V1</code>, 
-<code>Q</code>, <code>V2</code></p></li>
-<li><p><code>ncmt</code> 2, <code>depot TRUE</code> , trans 4: <code>CL</code>, <code>V2</code>, 
-<code>Q</code>, <code>V3</code>, <code>KA</code></p></li>
-</ul>
-    <p>If <code>trans=11</code> is specfied, use the symbols listed above for the 
-<code>ncmt</code> / <code>depot</code> combination, but append <code>i</code> at the end 
-(e.g. <code>CLi</code> or <code>Qi</code> or <code>KAi</code>).</p>
-<p>If <code>trans=1</code>, the user must utilize the following symbols:</p>
-<ul>
-<li><p><code>pred_CL</code> for clearance</p></li>
-<li><p><code>pred_V</code>  or <code>pred_V2</code> for central compartment volume of 
-distribution</p></li>
-<li><p><code>pred_Q</code>  for intercompartmental clearance</p></li>
-<li><p><code>pred_V3</code> for for peripheral compartment volume of distribution</p></li>
-<li><p><code>pred_KA</code> for absorption rate constant</p></li>
-</ul>
+    <p><code>bmat</code> makes a block matrix.  <code>cmat</code> makes a correlation matrix. 
+<code>dmat</code> makes a diagonal matrix.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='BLOCK_PARSE.html'>BLOCK_PARSE</a></code></p></div>
+    <div class='dont-index'><p><code><a href='matrix_converters.html'>as_bmat</a></code></p>
+<p><code><a href='matrix_converters.html'>as_dmat</a></code></p></div>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'>dmat</span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>)/<span class='fl'>10</span></div><div class='output co'>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]  0.1  0.0  0.0
+#&gt; [2,]  0.0  0.2  0.0
+#&gt; [3,]  0.0  0.0  0.3</div><div class='input'>
+<span class='fu'>bmat</span>(<span class='fl'>0.5</span>,<span class='fl'>0.01</span>,<span class='fl'>0.2</span>)</div><div class='output co'>#&gt;      [,1] [,2]
+#&gt; [1,] 0.50 0.01
+#&gt; [2,] 0.01 0.20</div><div class='input'>
+<span class='fu'>cmat</span>(<span class='fl'>0.5</span>, <span class='fl'>0.87</span>,<span class='fl'>0.2</span>)</div><div class='output co'>#&gt;           [,1]      [,2]
+#&gt; [1,] 0.5000000 0.2751182
+#&gt; [2,] 0.2751182 0.2000000</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -190,7 +169,9 @@ distribution</p></li>
       <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

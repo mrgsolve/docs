@@ -158,12 +158,23 @@ only if one doesn't already exist</p></td>
     </table>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='no'>e</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>100</span>)
+
+<span class='fu'>names</span>(<span class='no'>e</span>)</div><div class='output co'>#&gt; [1] "time" "cmt"  "amt"  "evid"</div><div class='input'>
+<span class='fu'>as.data.frame</span>(<span class='no'>e</span>)</div><div class='output co'>#&gt;   time cmt amt evid
+#&gt; 1    0   1 100    1</div><div class='input'>
+<span class='fu'>nrow</span>(<span class='no'>e</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

@@ -113,45 +113,28 @@ parameter_list objects." />
     
     </div>
 
-    <pre class="usage">param(.x, ...)
+    <pre class="usage"><span class='fu'>param</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
 
-# S4 method for mrgmod
-param(.x, .y = list(), ..., .pat = "*",
-  .strict = FALSE)
+<span class='co'># S4 method for mrgmod</span>
+<span class='fu'>param</span>(<span class='no'>.x</span>, <span class='kw'>.y</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='no'>...</span>, <span class='kw'>.pat</span> <span class='kw'>=</span> <span class='st'>"*"</span>,
+  <span class='kw'>.strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
-# S4 method for mrgsims
-param(.x, ...)
+<span class='co'># S4 method for mrgsims</span>
+<span class='fu'>param</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
 
-# S4 method for missing
-param(..., .strict = TRUE)
+<span class='co'># S4 method for missing</span>
+<span class='fu'>param</span>(<span class='no'>...</span>, <span class='kw'>.strict</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-# S4 method for list
-param(.x, ...)
+<span class='co'># S4 method for list</span>
+<span class='fu'>param</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
 
-# S4 method for ANY
-param(.x, ...)
+<span class='co'># S4 method for ANY</span>
+<span class='fu'>param</span>(<span class='no'>.x</span>, <span class='no'>...</span>)
 
-# S4 method for parameter_list
-show(object)
+<span class='fu'>allparam</span>(<span class='no'>.x</span>)
 
-allparam(.x)
-
-as.param(.x, ...)
-
-# S4 method for list
-as.param(.x, ...)
-
-# S4 method for numeric
-as.param(.x, ...)
-
-# S4 method for parameter_list
-as.param(.x, ...)
-
-# S4 method for missing
-as.param(.x, ...)
-
-# S4 method for mrgmod
-$(x, name)</pre>
+<span class='co'># S4 method for parameter_list</span>
+<span class='fu'>show</span>(<span class='no'>object</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -183,14 +166,6 @@ in the parameter list</p></td>
       <th>object</th>
       <td><p>passed to show</p></td>
     </tr>
-    <tr>
-      <th>x</th>
-      <td><p>mrgmod object</p></td>
-    </tr>
-    <tr>
-      <th>name</th>
-      <td><p>parameter to take</p></td>
-    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -205,12 +180,15 @@ in the parameter list</p></td>
 the parameters in a model object.  For both uses, the return value 
 is a <code>parameter_list</code> object.
 For the former use, <code>param</code> is usually called to print
-the parameters to the screen, but the parameter_list object can also 
+the parameters to the screen, but the <code>parameter_list</code> object can also 
 be coreced to a list or numeric R object.</p>
+<p>Use <code>allparam</code> to get a <code>parameter_list</code> object including 
+both model parameters and data items listed in <code>$FIXED</code>.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## example("param")</span>
+
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
 
 <span class='fu'>param</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
@@ -222,7 +200,8 @@ be coreced to a list or numeric R object.</p>
 #&gt;  IC50 10    | VC    20   
 #&gt;  KA   1.2   | WT    70   
 #&gt;  KIN  100   | WTCL  0.75 
-#&gt;  KOUT 2     | WTVC  1    </div><div class='input'><span class='fu'>param</span>(<span class='no'>mod</span>, <span class='kw'>.pat</span><span class='kw'>=</span><span class='st'>"^(C|F)"</span>) <span class='co'>## may be useful when large number of parameters</span></div><div class='output co'>#&gt; 
+#&gt;  KOUT 2     | WTVC  1    </div><div class='input'>
+<span class='fu'>param</span>(<span class='no'>mod</span>, <span class='kw'>.pat</span><span class='kw'>=</span><span class='st'>"^(C|F)"</span>) <span class='co'>## may be useful when large number of parameters</span></div><div class='output co'>#&gt; 
 #&gt;  Model parameters (N=14):
 #&gt;  name value . name value
 #&gt;  CL   1     | F1   1    </div><div class='input'>
@@ -230,6 +209,7 @@ be coreced to a list or numeric R object.</p>
 #&gt; attr(,"package")
 #&gt; [1] "mrgsolve"</div><div class='input'>
 <span class='fu'>param</span>(<span class='no'>mod</span>)$<span class='no'>KA</span></div><div class='output co'>#&gt; [1] 1.2</div><div class='input'>
+<span class='fu'>param</span>(<span class='no'>mod</span>)<span class='kw'>[[</span><span class='st'>"KA"</span>]]</div><div class='output co'>#&gt; [1] 1.2</div><div class='input'>
 <span class='fu'>as.list</span>(<span class='fu'>param</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt; $CL
 #&gt; [1] 1
 #&gt; 
@@ -271,8 +251,53 @@ be coreced to a list or numeric R object.</p>
 #&gt; 
 #&gt; $IC50
 #&gt; [1] 10
-#&gt; </div><div class='input'><span class='fu'>as.data.frame</span>(<span class='fu'>param</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt;   CL VC  KA F1 D1 WT SEX WTCL WTVC SEXCL SEXVC KIN KOUT IC50
+#&gt; </div><div class='input'>
+<span class='fu'>as.data.frame</span>(<span class='fu'>param</span>(<span class='no'>mod</span>))</div><div class='output co'>#&gt;   CL VC  KA F1 D1 WT SEX WTCL WTVC SEXCL SEXVC KIN KOUT IC50
 #&gt; 1  1 20 1.2  1  2 70   0 0.75    1   0.7  0.85 100    2   10</div><div class='input'>
+<span class='fu'>param</span>(<span class='no'>mod</span>, <span class='kw'>CL</span> <span class='kw'>=</span> <span class='fl'>1.2</span>)</div><div class='output co'>#&gt; 
+#&gt; 
+#&gt; -------- mrgsolve model object (unix) --------
+#&gt;   Project: /Users/kyleb/git...e/pkg/project
+#&gt;   source:        housemodel.cpp
+#&gt;   shared object: mrgsolve 
+#&gt; 
+#&gt;   Time:          start: 0 end: 120 delta: 0.25
+#&gt;   &gt;              add: &lt;none&gt;
+#&gt;   &gt;              tscale: 1
+#&gt; 
+#&gt;   Compartments:  GUT CENT RESP [3]
+#&gt;   Parameters:    CL VC KA F1 D1 WT
+#&gt;   &gt;              SEX WTCL WTVC SEXCL SEXVC KIN
+#&gt;   &gt;              KOUT IC50 [14]
+#&gt;   Omega:         4x4 
+#&gt;   Sigma:         1x1 
+#&gt; 
+#&gt;   Solver:        atol: 1e-08 rtol: 1e-08
+#&gt;   &gt;              maxsteps: 5000 hmin: 0 hmax: 0
+#&gt; </div><div class='input'>
+<span class='no'>new_values</span> <span class='kw'>&lt;-</span> <span class='fu'>list</span>(<span class='kw'>CL</span> <span class='kw'>=</span> <span class='fl'>1.3</span>, <span class='kw'>VC</span> <span class='kw'>=</span> <span class='fl'>20.5</span>)
+
+<span class='fu'>param</span>(<span class='no'>mod</span>, <span class='no'>new_values</span>)</div><div class='output co'>#&gt; 
+#&gt; 
+#&gt; -------- mrgsolve model object (unix) --------
+#&gt;   Project: /Users/kyleb/git...e/pkg/project
+#&gt;   source:        housemodel.cpp
+#&gt;   shared object: mrgsolve 
+#&gt; 
+#&gt;   Time:          start: 0 end: 120 delta: 0.25
+#&gt;   &gt;              add: &lt;none&gt;
+#&gt;   &gt;              tscale: 1
+#&gt; 
+#&gt;   Compartments:  GUT CENT RESP [3]
+#&gt;   Parameters:    CL VC KA F1 D1 WT
+#&gt;   &gt;              SEX WTCL WTVC SEXCL SEXVC KIN
+#&gt;   &gt;              KOUT IC50 [14]
+#&gt;   Omega:         4x4 
+#&gt;   Sigma:         1x1 
+#&gt; 
+#&gt;   Solver:        atol: 1e-08 rtol: 1e-08
+#&gt;   &gt;              maxsteps: 5000 hmin: 0 hmax: 0
+#&gt; </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
