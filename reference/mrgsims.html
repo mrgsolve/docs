@@ -239,27 +239,7 @@ commonly used in R (e.g. head, tail, as.data.frame, etc ...)</p>
 #&gt; 479  1 119.50 2.498865e-44 0.2652002 49.93209 0.01326001 0.01326001
 #&gt; 480  1 119.75 1.869677e-44 0.2619058 49.93293 0.01309529 0.01309529
 #&gt; 481  1 120.00 1.163038e-44 0.2586523 49.93377 0.01293262 0.01293262</div><div class='input'>
-<span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/mrgsolve/topics/mod'>mod</a></span>(<span class='no'>out</span>)</div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; -------- mrgsolve model object (unix) --------
-#&gt;   Project: /Users/kyleb/git...e/pkg/project
-#&gt;   source:        housemodel.cpp
-#&gt;   shared object: mrgsolve 
-#&gt; 
-#&gt;   Time:          start: 0 end: 120 delta: 0.25
-#&gt;   &gt;              add: &lt;none&gt;
-#&gt;   &gt;              tscale: 1
-#&gt; 
-#&gt;   Compartments:  GUT CENT RESP [3]
-#&gt;   Parameters:    CL VC KA F1 D1 WT
-#&gt;   &gt;              SEX WTCL WTVC SEXCL SEXVC KIN
-#&gt;   &gt;              KOUT IC50 [14]
-#&gt;   Omega:         4x4 
-#&gt;   Sigma:         1x1 
-#&gt; 
-#&gt;   Solver:        atol: 1e-08 rtol: 1e-08
-#&gt;   &gt;              maxsteps: 5000 hmin: 0 hmax: 0
-#&gt; </div><div class='input'>
+
 <span class='fu'>dim</span>(<span class='no'>out</span>)</div><div class='output co'>#&gt; [1] 481   7</div><div class='input'><span class='fu'>names</span>(<span class='no'>out</span>)</div><div class='output co'>#&gt; [1] "ID"   "time" "GUT"  "CENT" "RESP" "DV"   "CP"  </div><div class='input'>
 <span class='no'>mat</span> <span class='kw'>&lt;-</span> <span class='fu'>as.matrix</span>(<span class='no'>out</span>)
 <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>as.data.frame</span>(<span class='no'>out</span>)
