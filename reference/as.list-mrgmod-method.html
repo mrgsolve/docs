@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Render a model to a document — render • mrgsolve</title>
+<title>Coerce a model object to list — as.list,mrgmod-method • mrgsolve</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Render a model to a document — render" />
+<meta property="og:title" content="Coerce a model object to list — as.list,mrgmod-method" />
 
-<meta property="og:description" content="Render a model to a document" />
+<meta property="og:description" content="Coerce a model object to list" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,72 +102,102 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Render a model to a document</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/render.R'><code>R/render.R</code></a></small>
-    <div class="hidden name"><code>render.Rd</code></div>
+    <h1>Coerce a model object to list</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/class_mrgmod.R'><code>R/class_mrgmod.R</code></a></small>
+    <div class="hidden name"><code>as.list-mrgmod-method.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Render a model to a document</p>
+    <p>Coerce a model object to list</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>render</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S4 method for character</span>
-<span class='fu'>render</span>(<span class='no'>x</span>, <span class='kw'>project</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
-
-<span class='co'># S4 method for mrgmod</span>
-<span class='fu'>render</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='fu'>dorender</span>(<span class='no'>model</span>, <span class='no'>project</span>, <span class='kw'>template</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>compile</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='co'># S4 method for mrgmod</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>as.list</a></span>(<span class='no'>x</span>, <span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>model object or the model name</p></td>
+      <td><p>mrgmod object</p></td>
+    </tr>
+    <tr>
+      <th>deep</th>
+      <td><p>if <code>TRUE</code>, extra information is returned
+(see details).</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>passed to <code><a href='https://www.rdocumentation.org/packages/rmarkdown/topics/render'>rmarkdown::render</a></code></p></td>
-    </tr>
-    <tr>
-      <th>project</th>
-      <td><p>the directory containing the <code>.cpp</code> model file</p></td>
-    </tr>
-    <tr>
-      <th>model</th>
-      <td><p>model name</p></td>
-    </tr>
-    <tr>
-      <th>template</th>
-      <td><p>template document</p></td>
-    </tr>
-    <tr>
-      <th>compile</th>
-      <td><p>logical; if true, the model will be compiled to run</p></td>
+      <td><p>not used</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
-<span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/mrgsolve/topics/render'>render</a></span>(<span class='no'>mod</span>)
-<span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/mrgsolve/topics/render'>render</a></span>(<span class='st'>"irm2"</span>, <span class='fu'><a href='modlib.html'>modlib</a></span>())
-<span class='co'># }</span><div class='input'>
-</div></pre>
+    <p>If <code>deep</code> is <code>TRUE</code>, then the values for
+<code>trans</code>,<code>advan</code>, and <code>mindt</code> are
+returned as well as a summary of internal model
+functions (with a call to <code>mrgsolve:::funset</code>).</p>
+    
+    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
+
+    
+    <ul>
+<li><p><code>npar</code>: number of parameters</p></li>
+<li><p><code>neq</code>: number of compartments or differential equations</p></li>
+<li><p><code>pars</code>: names of model parameters</p></li>
+<li><p><code>covariates</code>: names of parameters identified as covariates</p></li>
+<li><p><code>cmt</code>: names of model compartments</p></li>
+<li><p><code>param</code>: the parameter list</p></li>
+<li><p><code>init</code>: initial condition list</p></li>
+<li><p><code>omega</code>: <code>$OMEGA</code> matrices, as a <code>matlist</code> object</p></li>
+<li><p><code>sigma</code>: <code>$SIGMA</code> matrices, as a <code>matlist</code> object</p></li>
+<li><p><code>fixed</code>: named list of <code>$FIXED</code> values</p></li>
+<li><p><code>model</code>: model name</p></li>
+<li><p><code>project</code>: model project directory</p></li>
+<li><p><code>soloc</code>: directory where the model is being built</p></li>
+<li><p><code>sodll</code>: complete path to the model shared object</p></li>
+<li><p><code>cfile</code>: path for the model source code file</p></li>
+<li><p><code>shlib</code>: list of compilation information</p></li>
+<li><p><code>start</code>: simulation start time</p></li>
+<li><p><code>end</code>: simulation end time</p></li>
+<li><p><code>delta</code>: simulation time step</p></li>
+<li><p><code>add</code>: additional simulation times</p></li>
+<li><p><code>capture</code>: names of captured data items</p></li>
+<li><p><code>random</code>: names and labels of <code>$OMEGA</code> and <code>$SIGMA</code></p></li>
+<li><p><code>code</code>: model source code from <code>cfile</code></p></li>
+<li><p><code>details</code>: model details data frame</p></li>
+<li><p><code>atol</code>: see <a href='solversettings.html'>solversettings</a></p></li>
+<li><p><code>rtol</code>: see <a href='solversettings.html'>solversettings</a></p></li>
+<li><p><code>maxsteps</code>: see <a href='solversettings.html'>solversettings</a></p></li>
+<li><p><code>hmin</code>: see <a href='solversettings.html'>solversettings</a></p></li>
+<li><p><code>hmax</code>: see <a href='solversettings.html'>solversettings</a></p></li>
+<li><p><code>envir</code>: the model environment</p></li>
+<li><p><code>plugins</code>: plugins invoked in the model</p></li>
+<li><p><code>digits</code>: number of digits to request in simulated data</p></li>
+<li><p><code>request</code>: compartments requested upon simulation</p></li>
+<li><p><code>tscale</code>: multiplicative scalar for time in results only</p></li>
+<li><p><code>mindt</code>: simulation output time below which there model will assume to
+have not advanced</p></li>
+<li><p><code>preclean</code>: logical indicating to clean up compilation artifacts prior
+to compiling</p></li>
+<li><p><code>debug</code>: print debugging information during simulation run</p></li>
+<li><p><code>verbose</code>: print extra information during setup for model run</p></li>
+</ul>
+    
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#slots">Slots</a></li>
+          </ul>
 
   </div>
 </div>
