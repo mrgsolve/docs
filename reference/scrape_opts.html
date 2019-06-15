@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
       </span>
     </div>
 
@@ -114,7 +114,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>scrape_opts</span>(<span class='no'>x</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='kw'>def</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='kw'>all</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>marker</span> <span class='kw'>=</span> <span class='st'>"="</span>, <span class='kw'>narrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='kw'>marker</span> <span class='kw'>=</span> <span class='st'>"="</span>, <span class='kw'>allow_multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>narrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -138,6 +138,11 @@
     <tr>
       <th>marker</th>
       <td><p>assignment operator; used to locate lines with options</p></td>
+    </tr>
+    <tr>
+      <th>allow_multiple</th>
+      <td><p>if <code>TRUE</code>, the list with replicate names
+will be reduced</p></td>
     </tr>
     <tr>
       <th>narrow</th>

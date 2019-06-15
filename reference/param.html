@@ -64,7 +64,7 @@ parameter_list objects." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
       </span>
     </div>
 
@@ -251,45 +251,43 @@ both model parameters and data items listed in <code>$FIXED</code>.</p>
 #&gt; 1  1 20 1.2  1  2 70   0 0.75    1   0.7  0.85 100    2   10</div><div class='input'>
 <span class='fu'>param</span>(<span class='no'>mod</span>, <span class='kw'>CL</span> <span class='kw'>=</span> <span class='fl'>1.2</span>)</div><div class='output co'>#&gt; 
 #&gt; 
-#&gt; ------------ mrgsolve model object (unix) ------------
+#&gt; -------------  source: housemodel.cpp  -------------
+#&gt; 
 #&gt;   project: /Users/kyleb/git...e/pkg/project
-#&gt;   source:        housemodel.cpp
 #&gt;   shared object: mrgsolve 
 #&gt; 
 #&gt;   time:          start: 0 end: 120 delta: 0.25
 #&gt;                  add: &lt;none&gt;
-#&gt;                  tscale: 1
 #&gt; 
 #&gt;   compartments:  GUT CENT RESP [3]
 #&gt;   parameters:    CL VC KA F1 D1 WT SEX WTCL WTVC SEXCL
 #&gt;                  SEXVC KIN KOUT IC50 [14]
+#&gt;   captures:      DV CP [2]
 #&gt;   omega:         4x4 
 #&gt;   sigma:         1x1 
 #&gt; 
-#&gt;   solver:        atol: 1e-08 rtol: 1e-08
-#&gt;                  maxsteps: 5000 hmin: 0 hmax: 0
+#&gt;   solver:        atol: 1e-08 rtol: 1e-08 maxsteps: 5000
 #&gt; </div><div class='input'>
 <span class='no'>new_values</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>CL</span> <span class='kw'>=</span> <span class='fl'>1.3</span>, <span class='kw'>VC</span> <span class='kw'>=</span> <span class='fl'>20.5</span>)
 
 <span class='fu'>param</span>(<span class='no'>mod</span>, <span class='no'>new_values</span>)</div><div class='output co'>#&gt; 
 #&gt; 
-#&gt; ------------ mrgsolve model object (unix) ------------
+#&gt; -------------  source: housemodel.cpp  -------------
+#&gt; 
 #&gt;   project: /Users/kyleb/git...e/pkg/project
-#&gt;   source:        housemodel.cpp
 #&gt;   shared object: mrgsolve 
 #&gt; 
 #&gt;   time:          start: 0 end: 120 delta: 0.25
 #&gt;                  add: &lt;none&gt;
-#&gt;                  tscale: 1
 #&gt; 
 #&gt;   compartments:  GUT CENT RESP [3]
 #&gt;   parameters:    CL VC KA F1 D1 WT SEX WTCL WTVC SEXCL
 #&gt;                  SEXVC KIN KOUT IC50 [14]
+#&gt;   captures:      DV CP [2]
 #&gt;   omega:         4x4 
 #&gt;   sigma:         1x1 
 #&gt; 
-#&gt;   solver:        atol: 1e-08 rtol: 1e-08
-#&gt;                  maxsteps: 5000 hmin: 0 hmax: 0
+#&gt;   solver:        atol: 1e-08 rtol: 1e-08 maxsteps: 5000
 #&gt; </div><div class='input'>
 </div></pre>
   </div>

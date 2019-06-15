@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
       </span>
     </div>
 
@@ -103,6 +103,25 @@
       <small>Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="mrgsolve-091" class="section level1">
+<h1 class="page-header">
+<a href="#mrgsolve-091" class="anchor"></a>mrgsolve 0.9.1<small> Unreleased </small>
+</h1>
+<ul>
+<li>Fix bug in TAD plugin where time of last dose never moved from default</li>
+<li>Add option in <code>mrgsolve_q</code> to call the standard mrgsolve simulation rather than the streamlined function; a decision will have to be made about whether or not the streamlined function will be retained</li>
+<li>Fix bug in the model parser where commented lines with (all) leading spaces were not handled properly <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/450'>#450</a></li>
+<li>Objects of class <code>valid_data_set</code> now retain the matrix attribute <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/448'>#448</a></li>
+<li>Block names are now coerced to upper case letters</li>
+<li>Change default for simcall to 0 in mrgsim_q</li>
+<li>Add recover argument to mread</li>
+<li>Add <code>@as_object</code> option to the following blocks: PARAM, INIT, CMT, OMEGA, SIGMA; experimental</li>
+<li>Allow multiple <code>ODE</code> blocks</li>
+<li>Add <code>mtime</code> function to <code>self</code> object for simpler mtime implementation</li>
+<li>Add <code>@param</code> block option for ODE blocks; use comma-separated name=value pairs to add to the parameter list from within ODE</li>
+<li>Remove BLAS code embedded in ODEPACK fortran files per CRAN request</li>
+</ul>
+</div>
     <div id="mrgsolve-090" class="section level1">
 <h1 class="page-header">
 <a href="#mrgsolve-090" class="anchor"></a>mrgsolve 0.9.0<small> 2019-01-23 </small>
@@ -818,6 +837,7 @@ Specifying character names <code>tname</code>, <code>oname</code>, and <code>sna
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#mrgsolve-091">0.9.1</a></li>
         <li><a href="#mrgsolve-090">0.9.0</a></li>
         <li><a href="#mrgsolve-08129000">0.8.12.9000</a></li>
         <li><a href="#mrgsolve-0812">0.8.12</a></li>

@@ -71,7 +71,7 @@ A Systematized Collection of ODE Solvers." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
       </span>
     </div>
 
@@ -139,14 +139,6 @@ A Systematized Collection of ODE Solvers.</p>
 <li><p>Vignettes: <a href='https://mrgsolve.github.io/vignettes'>https://mrgsolve/github.io/vignettes</a></p></li>
 </ul>
     
-    <h2 class="hasAnchor" id="also-see"><a class="anchor" href="#also-see"></a>Also see</h2>
-
-    
-    <ul>
-<li><p>Package <a href='00Index.html'>index</a>, including a listing 
- of all functions</p></li>
-</ul>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -161,23 +153,22 @@ A Systematized Collection of ODE Solvers.</p>
 #&gt; 1    0   1 1000    1    5 24</div><div class='input'>
 <span class='no'>mod</span></div><div class='output co'>#&gt; 
 #&gt; 
-#&gt; ------------ mrgsolve model object (unix) ------------
+#&gt; -------------  source: housemodel.cpp  -------------
+#&gt; 
 #&gt;   project: /Users/kyleb/git...e/pkg/project
-#&gt;   source:        housemodel.cpp
 #&gt;   shared object: mrgsolve 
 #&gt; 
 #&gt;   time:          start: 0 end: 120 delta: 0.1
 #&gt;                  add: &lt;none&gt;
-#&gt;                  tscale: 1
 #&gt; 
 #&gt;   compartments:  GUT CENT RESP [3]
 #&gt;   parameters:    CL VC KA F1 D1 WT SEX WTCL WTVC SEXCL
 #&gt;                  SEXVC KIN KOUT IC50 [14]
+#&gt;   captures:      DV CP [2]
 #&gt;   omega:         4x4 
 #&gt;   sigma:         1x1 
 #&gt; 
-#&gt;   solver:        atol: 1e-08 rtol: 1e-08
-#&gt;                  maxsteps: 5000 hmin: 0 hmax: 0
+#&gt;   solver:        atol: 1e-08 rtol: 1e-08 maxsteps: 5000
 #&gt; </div><div class='input'>
 <span class='fu'><a href='see.html'>see</a></span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; 
 #&gt; Model file:  housemodel.cpp 
@@ -493,8 +484,6 @@ A Systematized Collection of ODE Solvers.</p>
     <ul class="nav nav-pills nav-stacked">
       
       <li><a href="#resources">Resources</a></li>
-
-      <li><a href="#also-see">Also see</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

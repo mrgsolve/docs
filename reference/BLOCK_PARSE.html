@@ -65,7 +65,7 @@ options and is documented separately." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
       </span>
     </div>
 
@@ -105,7 +105,7 @@ options and is documented separately." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Functions to parse code blocks</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/modspec.R'><code>R/modspec.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/handle_spec_block.R'><code>R/handle_spec_block.R</code></a></small>
     <div class="hidden name"><code>BLOCK_PARSE.Rd</code></div>
     </div>
 
@@ -117,16 +117,17 @@ options and is documented separately.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>PARAM</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>covariates</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>PARAM</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>covariates</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>as_object</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
 <span class='fu'>FIXED</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
 
 <span class='fu'>THETA</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"THETA"</span>,
   <span class='kw'>fill</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
-<span class='fu'>INIT</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
+<span class='fu'>INIT</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>as_object</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
-<span class='fu'>CMT</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
+<span class='fu'>CMT</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>as_object</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
 <span class='fu'>CAPTURE</span>(<span class='no'>x</span>, <span class='no'>env</span>, <span class='kw'>annotated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)</pre>
     
@@ -152,6 +153,10 @@ options and is documented separately.</p>
     <tr>
       <th>pos</th>
       <td><p>block position</p></td>
+    </tr>
+    <tr>
+      <th>as_object</th>
+      <td><p>indicates that object code is being provided</p></td>
     </tr>
     <tr>
       <th>...</th>
