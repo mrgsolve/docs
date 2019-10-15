@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="container template-home">
-      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -114,13 +114,13 @@
 <a class="sourceLine" id="cb4-2" title="2"><span class="st">  </span><span class="kw"><a href="reference/ev.html">ev</a></span>(<span class="dt">amt =</span> <span class="dv">100</span>, <span class="dt">ii =</span> <span class="dv">24</span>, <span class="dt">addl =</span> <span class="dv">9</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span><span class="kw"><a href="reference/mrgsim.html">mrgsim</a></span>(<span class="dt">end =</span> <span class="dv">300</span>, <span class="dt">delta =</span> <span class="fl">0.1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(CP<span class="op">~</span>time)</a></code></pre></div>
-<p><img src="reference/figures/README-pk-figure-1.png" width="100%"></p>
+<p><img src="reference/figures/README-pk-figure-1.png"><!-- --></p>
 <p>A more complicated regimen: 100 mg infusions over 2 hours every 24 hours for one week, followed by 50 mg boluses every 12 hours for 10 days:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">mod <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span><span class="kw"><a href="reference/ev_rx.html">ev_rx</a></span>(<span class="st">"100 over 2h q 24 x 7 then 50 q 12 x 20"</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span><span class="kw"><a href="reference/mrgsim.html">mrgsim</a></span>(<span class="dt">end =</span> <span class="dv">600</span>, <span class="dt">delta =</span> <span class="fl">0.1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(CP<span class="op">~</span>time)</a></code></pre></div>
-<p><img src="reference/figures/README-regimen-figure-1.png" width="100%"></p>
+<p><img src="reference/figures/README-regimen-figure-1.png"><!-- --></p>
 </div>
 <div id="population-simulation" class="section level3">
 <h3 class="hasAnchor">
@@ -129,29 +129,29 @@
 <p>A data set looking at different patient weights and doses</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
 <a class="sourceLine" id="cb7-2" title="2"></a>
-<a class="sourceLine" id="cb7-3" title="3">data &lt;-<span class="st"> </span><span class="kw"><a href="reference/expand.idata.html">expand.ev</a></span>(<span class="dt">amt =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">100</span>,<span class="dv">150</span>), <span class="dt">WT =</span> <span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">40</span>,<span class="dv">140</span>,<span class="dv">20</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">dose =</span> amt)</a>
+<a class="sourceLine" id="cb7-3" title="3">data &lt;-<span class="st"> </span><span class="kw"><a href="reference/expand.idata.html">expand.ev</a></span>(<span class="dt">amt =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">100</span>,<span class="dv">150</span>), <span class="dt">WT =</span> <span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">40</span>,<span class="dv">140</span>,<span class="dv">20</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">dose =</span> amt)</a>
 <a class="sourceLine" id="cb7-4" title="4"></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(data)</a>
-<a class="sourceLine" id="cb7-6" title="6">.   ID time amt cmt evid WT dose</a>
-<a class="sourceLine" id="cb7-7" title="7">. <span class="dv">1</span>  <span class="dv">1</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">40</span>  <span class="dv">100</span></a>
-<a class="sourceLine" id="cb7-8" title="8">. <span class="dv">2</span>  <span class="dv">2</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">40</span>  <span class="dv">150</span></a>
-<a class="sourceLine" id="cb7-9" title="9">. <span class="dv">3</span>  <span class="dv">3</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">60</span>  <span class="dv">100</span></a>
-<a class="sourceLine" id="cb7-10" title="10">. <span class="dv">4</span>  <span class="dv">4</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">60</span>  <span class="dv">150</span></a>
-<a class="sourceLine" id="cb7-11" title="11">. <span class="dv">5</span>  <span class="dv">5</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">80</span>  <span class="dv">100</span></a>
-<a class="sourceLine" id="cb7-12" title="12">. <span class="dv">6</span>  <span class="dv">6</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">80</span>  <span class="dv">150</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(data)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">.   ID time amt cmt evid WT dose</a>
+<a class="sourceLine" id="cb8-2" title="2">. <span class="dv">1</span>  <span class="dv">1</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">40</span>  <span class="dv">100</span></a>
+<a class="sourceLine" id="cb8-3" title="3">. <span class="dv">2</span>  <span class="dv">2</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">40</span>  <span class="dv">150</span></a>
+<a class="sourceLine" id="cb8-4" title="4">. <span class="dv">3</span>  <span class="dv">3</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">60</span>  <span class="dv">100</span></a>
+<a class="sourceLine" id="cb8-5" title="5">. <span class="dv">4</span>  <span class="dv">4</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">60</span>  <span class="dv">150</span></a>
+<a class="sourceLine" id="cb8-6" title="6">. <span class="dv">5</span>  <span class="dv">5</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">80</span>  <span class="dv">100</span></a>
+<a class="sourceLine" id="cb8-7" title="7">. <span class="dv">6</span>  <span class="dv">6</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">80</span>  <span class="dv">150</span></a></code></pre></div>
 <p>Simulate</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">mod <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw"><a href="reference/data_set.html">data_set</a></span>(data) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="st">  </span><span class="kw"><a href="reference/carry_out.html">carry_out</a></span>(dose,WT) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="st">  </span><span class="kw"><a href="reference/mrgsim.html">mrgsim</a></span>(<span class="dt">delta =</span> <span class="fl">0.1</span>, <span class="dt">end =</span> <span class="dv">72</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(IPRED<span class="op">~</span>time<span class="op">|</span><span class="kw"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(dose),<span class="dt">scales =</span> <span class="st">"same"</span>)</a></code></pre></div>
-<p><img src="reference/figures/README-population-figure-1.png" width="100%"></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">mod <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw"><a href="reference/data_set.html">data_set</a></span>(data) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="st">  </span><span class="kw"><a href="reference/carry_out.html">carry_out</a></span>(dose,WT) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="st">  </span><span class="kw"><a href="reference/mrgsim.html">mrgsim</a></span>(<span class="dt">delta =</span> <span class="fl">0.1</span>, <span class="dt">end =</span> <span class="dv">72</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(IPRED<span class="op">~</span>time<span class="op">|</span><span class="kw"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(dose),<span class="dt">scales =</span> <span class="st">"same"</span>)</a></code></pre></div>
+<p><img src="reference/figures/README-population-figure-1.png"><!-- --></p>
 </div>
 <div id="sensitivity-analysis-with-pbpk-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#sensitivity-analysis-with-pbpk-model" class="anchor"></a>Sensitivity analysis with PBPK model</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">mod &lt;-<span class="st"> </span><span class="kw"><a href="reference/modlib.html">modlib</a></span>(<span class="st">"pbpk"</span>)</a>
-<a class="sourceLine" id="cb9-2" title="2">. Building pbpk ... done.</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">mod &lt;-<span class="st"> </span><span class="kw"><a href="reference/modlib.html">modlib</a></span>(<span class="st">"pbpk"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">. Building pbpk ... done.</a></code></pre></div>
 <p>Reference</p>
 <pre><code>  
   Model file: pbpk.cpp 
@@ -163,48 +163,48 @@
   Syst Pharmacol. 2013 Aug 14;2:e63. doi: 10.1038/psp.2013.41. PubMed PMID:
   23945604; PubMed Central PMCID: PMC3828005.</code></pre>
 <p>Model parameters</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw"><a href="reference/param.html">param</a></span>(mod)</a>
-<a class="sourceLine" id="cb11-2" title="2">. </a>
-<a class="sourceLine" id="cb11-3" title="3">.  Model <span class="kw">parameters</span> (<span class="dt">N=</span><span class="dv">52</span>)<span class="op">:</span></a>
-<a class="sourceLine" id="cb11-4" title="4">.  name    value  . name  value  . name      value </a>
-<a class="sourceLine" id="cb11-5" title="5">.  BP      <span class="fl">0.98</span>   <span class="op">|</span><span class="st"> </span>fumic <span class="dv">1</span>      <span class="op">|</span><span class="st"> </span>FVve      <span class="fl">0.0514</span></a>
-<a class="sourceLine" id="cb11-6" title="6">.  BW      <span class="dv">70</span>     <span class="op">|</span><span class="st"> </span>fup   <span class="fl">0.681</span>  <span class="op">|</span><span class="st"> </span>HLM_CLint <span class="dv">8</span>     </a>
-<a class="sourceLine" id="cb11-7" title="7">.  CLrenal <span class="dv">0</span>      <span class="op">|</span><span class="st"> </span>FVad  <span class="fl">0.213</span>  <span class="op">|</span><span class="st"> </span>Ka        <span class="fl">2.18</span>  </a>
-<a class="sourceLine" id="cb11-8" title="8">.  CO      <span class="dv">108</span>    <span class="op">|</span><span class="st"> </span>FVar  <span class="fl">0.0257</span> <span class="op">|</span><span class="st"> </span>Kpad      <span class="fl">0.191</span> </a>
-<a class="sourceLine" id="cb11-9" title="9">.  F       <span class="dv">1</span>      <span class="op">|</span><span class="st"> </span>FVbo  <span class="fl">0.0856</span> <span class="op">|</span><span class="st"> </span>Kpbo      <span class="fl">0.374</span> </a>
-<a class="sourceLine" id="cb11-10" title="10">.  FQad    <span class="fl">0.05</span>   <span class="op">|</span><span class="st"> </span>FVbr  <span class="fl">0.02</span>   <span class="op">|</span><span class="st"> </span>Kpbr      <span class="fl">0.606</span> </a>
-<a class="sourceLine" id="cb11-11" title="11">.  FQbo    <span class="fl">0.05</span>   <span class="op">|</span><span class="st"> </span>FVgu  <span class="fl">0.0171</span> <span class="op">|</span><span class="st"> </span>Kpgu      <span class="fl">0.578</span> </a>
-<a class="sourceLine" id="cb11-12" title="12">.  FQbr    <span class="fl">0.12</span>   <span class="op">|</span><span class="st"> </span>FVhe  <span class="fl">0.0047</span> <span class="op">|</span><span class="st"> </span>Kphe      <span class="fl">0.583</span> </a>
-<a class="sourceLine" id="cb11-13" title="13">.  FQgu    <span class="fl">0.146</span>  <span class="op">|</span><span class="st"> </span>FVki  <span class="fl">0.0044</span> <span class="op">|</span><span class="st"> </span>Kpki      <span class="fl">0.597</span> </a>
-<a class="sourceLine" id="cb11-14" title="14">.  FQh     <span class="fl">0.215</span>  <span class="op">|</span><span class="st"> </span>FVli  <span class="fl">0.021</span>  <span class="op">|</span><span class="st"> </span>Kpli      <span class="fl">0.57</span>  </a>
-<a class="sourceLine" id="cb11-15" title="15">.  FQhe    <span class="fl">0.04</span>   <span class="op">|</span><span class="st"> </span>FVlu  <span class="fl">0.0076</span> <span class="op">|</span><span class="st"> </span>Kplu      <span class="fl">0.62</span>  </a>
-<a class="sourceLine" id="cb11-16" title="16">.  FQki    <span class="fl">0.19</span>   <span class="op">|</span><span class="st"> </span>FVmu  <span class="fl">0.4</span>    <span class="op">|</span><span class="st"> </span>Kpmu      <span class="fl">0.622</span> </a>
-<a class="sourceLine" id="cb11-17" title="17">.  FQlu    <span class="dv">1</span>      <span class="op">|</span><span class="st"> </span>FVpl  <span class="fl">0.0424</span> <span class="op">|</span><span class="st"> </span>Kpre      <span class="fl">0.6</span>   </a>
-<a class="sourceLine" id="cb11-18" title="18">.  FQmu    <span class="fl">0.17</span>   <span class="op">|</span><span class="st"> </span>FVrb  <span class="fl">0.0347</span> <span class="op">|</span><span class="st"> </span>Kpsk      <span class="fl">0.6</span>   </a>
-<a class="sourceLine" id="cb11-19" title="19">.  FQre    <span class="fl">0.104</span>  <span class="op">|</span><span class="st"> </span>FVre  <span class="fl">0.0998</span> <span class="op">|</span><span class="st"> </span>Kpsp      <span class="fl">0.591</span> </a>
-<a class="sourceLine" id="cb11-20" title="20">.  FQsk    <span class="fl">0.05</span>   <span class="op">|</span><span class="st"> </span>FVsk  <span class="fl">0.0371</span> <span class="op">|</span><span class="st"> </span>Kpte      <span class="fl">0.6</span>   </a>
-<a class="sourceLine" id="cb11-21" title="21">.  FQsp    <span class="fl">0.0172</span> <span class="op">|</span><span class="st"> </span>FVsp  <span class="fl">0.0026</span> <span class="op">|</span><span class="st"> </span>.         .     </a>
-<a class="sourceLine" id="cb11-22" title="22">.  FQte    <span class="fl">0.0108</span> <span class="op">|</span><span class="st"> </span>FVte  <span class="fl">0.01</span>   <span class="op">|</span><span class="st"> </span>.         .</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw"><a href="reference/param.html">param</a></span>(mod)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">. </a>
+<a class="sourceLine" id="cb14-2" title="2">.  Model <span class="kw">parameters</span> (<span class="dt">N=</span><span class="dv">52</span>)<span class="op">:</span></a>
+<a class="sourceLine" id="cb14-3" title="3">.  name    value  . name  value  . name      value </a>
+<a class="sourceLine" id="cb14-4" title="4">.  BP      <span class="fl">0.98</span>   <span class="op">|</span><span class="st"> </span>fumic <span class="dv">1</span>      <span class="op">|</span><span class="st"> </span>FVve      <span class="fl">0.0514</span></a>
+<a class="sourceLine" id="cb14-5" title="5">.  BW      <span class="dv">70</span>     <span class="op">|</span><span class="st"> </span>fup   <span class="fl">0.681</span>  <span class="op">|</span><span class="st"> </span>HLM_CLint <span class="dv">8</span>     </a>
+<a class="sourceLine" id="cb14-6" title="6">.  CLrenal <span class="dv">0</span>      <span class="op">|</span><span class="st"> </span>FVad  <span class="fl">0.213</span>  <span class="op">|</span><span class="st"> </span>Ka        <span class="fl">2.18</span>  </a>
+<a class="sourceLine" id="cb14-7" title="7">.  CO      <span class="dv">108</span>    <span class="op">|</span><span class="st"> </span>FVar  <span class="fl">0.0257</span> <span class="op">|</span><span class="st"> </span>Kpad      <span class="fl">0.191</span> </a>
+<a class="sourceLine" id="cb14-8" title="8">.  F       <span class="dv">1</span>      <span class="op">|</span><span class="st"> </span>FVbo  <span class="fl">0.0856</span> <span class="op">|</span><span class="st"> </span>Kpbo      <span class="fl">0.374</span> </a>
+<a class="sourceLine" id="cb14-9" title="9">.  FQad    <span class="fl">0.05</span>   <span class="op">|</span><span class="st"> </span>FVbr  <span class="fl">0.02</span>   <span class="op">|</span><span class="st"> </span>Kpbr      <span class="fl">0.606</span> </a>
+<a class="sourceLine" id="cb14-10" title="10">.  FQbo    <span class="fl">0.05</span>   <span class="op">|</span><span class="st"> </span>FVgu  <span class="fl">0.0171</span> <span class="op">|</span><span class="st"> </span>Kpgu      <span class="fl">0.578</span> </a>
+<a class="sourceLine" id="cb14-11" title="11">.  FQbr    <span class="fl">0.12</span>   <span class="op">|</span><span class="st"> </span>FVhe  <span class="fl">0.0047</span> <span class="op">|</span><span class="st"> </span>Kphe      <span class="fl">0.583</span> </a>
+<a class="sourceLine" id="cb14-12" title="12">.  FQgu    <span class="fl">0.146</span>  <span class="op">|</span><span class="st"> </span>FVki  <span class="fl">0.0044</span> <span class="op">|</span><span class="st"> </span>Kpki      <span class="fl">0.597</span> </a>
+<a class="sourceLine" id="cb14-13" title="13">.  FQh     <span class="fl">0.215</span>  <span class="op">|</span><span class="st"> </span>FVli  <span class="fl">0.021</span>  <span class="op">|</span><span class="st"> </span>Kpli      <span class="fl">0.57</span>  </a>
+<a class="sourceLine" id="cb14-14" title="14">.  FQhe    <span class="fl">0.04</span>   <span class="op">|</span><span class="st"> </span>FVlu  <span class="fl">0.0076</span> <span class="op">|</span><span class="st"> </span>Kplu      <span class="fl">0.62</span>  </a>
+<a class="sourceLine" id="cb14-15" title="15">.  FQki    <span class="fl">0.19</span>   <span class="op">|</span><span class="st"> </span>FVmu  <span class="fl">0.4</span>    <span class="op">|</span><span class="st"> </span>Kpmu      <span class="fl">0.622</span> </a>
+<a class="sourceLine" id="cb14-16" title="16">.  FQlu    <span class="dv">1</span>      <span class="op">|</span><span class="st"> </span>FVpl  <span class="fl">0.0424</span> <span class="op">|</span><span class="st"> </span>Kpre      <span class="fl">0.6</span>   </a>
+<a class="sourceLine" id="cb14-17" title="17">.  FQmu    <span class="fl">0.17</span>   <span class="op">|</span><span class="st"> </span>FVrb  <span class="fl">0.0347</span> <span class="op">|</span><span class="st"> </span>Kpsk      <span class="fl">0.6</span>   </a>
+<a class="sourceLine" id="cb14-18" title="18">.  FQre    <span class="fl">0.104</span>  <span class="op">|</span><span class="st"> </span>FVre  <span class="fl">0.0998</span> <span class="op">|</span><span class="st"> </span>Kpsp      <span class="fl">0.591</span> </a>
+<a class="sourceLine" id="cb14-19" title="19">.  FQsk    <span class="fl">0.05</span>   <span class="op">|</span><span class="st"> </span>FVsk  <span class="fl">0.0371</span> <span class="op">|</span><span class="st"> </span>Kpte      <span class="fl">0.6</span>   </a>
+<a class="sourceLine" id="cb14-20" title="20">.  FQsp    <span class="fl">0.0172</span> <span class="op">|</span><span class="st"> </span>FVsp  <span class="fl">0.0026</span> <span class="op">|</span><span class="st"> </span>.         .     </a>
+<a class="sourceLine" id="cb14-21" title="21">.  FQte    <span class="fl">0.0108</span> <span class="op">|</span><span class="st"> </span>FVte  <span class="fl">0.01</span>   <span class="op">|</span><span class="st"> </span>.         .</a></code></pre></div>
 <p>Set up a batch to simulate</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">idata &lt;-<span class="st"> </span><span class="kw"><a href="reference/expand.idata.html">expand.idata</a></span>(<span class="dt">Kpli =</span> <span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">4</span>,<span class="dv">20</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb12-2" title="2"></a>
-<a class="sourceLine" id="cb12-3" title="3">idata</a>
-<a class="sourceLine" id="cb12-4" title="4">.   ID Kpli</a>
-<a class="sourceLine" id="cb12-5" title="5">. <span class="dv">1</span>  <span class="dv">1</span>    <span class="dv">4</span></a>
-<a class="sourceLine" id="cb12-6" title="6">. <span class="dv">2</span>  <span class="dv">2</span>    <span class="dv">6</span></a>
-<a class="sourceLine" id="cb12-7" title="7">. <span class="dv">3</span>  <span class="dv">3</span>    <span class="dv">8</span></a>
-<a class="sourceLine" id="cb12-8" title="8">. <span class="dv">4</span>  <span class="dv">4</span>   <span class="dv">10</span></a>
-<a class="sourceLine" id="cb12-9" title="9">. <span class="dv">5</span>  <span class="dv">5</span>   <span class="dv">12</span></a>
-<a class="sourceLine" id="cb12-10" title="10">. <span class="dv">6</span>  <span class="dv">6</span>   <span class="dv">14</span></a>
-<a class="sourceLine" id="cb12-11" title="11">. <span class="dv">7</span>  <span class="dv">7</span>   <span class="dv">16</span></a>
-<a class="sourceLine" id="cb12-12" title="12">. <span class="dv">8</span>  <span class="dv">8</span>   <span class="dv">18</span></a>
-<a class="sourceLine" id="cb12-13" title="13">. <span class="dv">9</span>  <span class="dv">9</span>   <span class="dv">20</span></a></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">mod <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="st">  </span><span class="kw"><a href="reference/ev.html">ev</a></span>(<span class="dt">amt =</span> <span class="dv">150</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="st">  </span><span class="kw"><a href="reference/idata_set.html">idata_set</a></span>(idata) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-4" title="4"><span class="st">  </span><span class="kw"><a href="reference/mrgsim.html">mrgsim</a></span>(<span class="dt">end =</span> <span class="dv">6</span>, <span class="dt">delta =</span> <span class="fl">0.1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-5" title="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(Cp<span class="op">~</span>time)</a></code></pre></div>
-<p><img src="reference/figures/README-pbpk-figure-1.png" width="100%"></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">idata &lt;-<span class="st"> </span><span class="kw"><a href="reference/expand.idata.html">expand.idata</a></span>(<span class="dt">Kpli =</span> <span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">4</span>,<span class="dv">20</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb15-2" title="2"></a>
+<a class="sourceLine" id="cb15-3" title="3">idata</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">.   ID Kpli</a>
+<a class="sourceLine" id="cb16-2" title="2">. <span class="dv">1</span>  <span class="dv">1</span>    <span class="dv">4</span></a>
+<a class="sourceLine" id="cb16-3" title="3">. <span class="dv">2</span>  <span class="dv">2</span>    <span class="dv">6</span></a>
+<a class="sourceLine" id="cb16-4" title="4">. <span class="dv">3</span>  <span class="dv">3</span>    <span class="dv">8</span></a>
+<a class="sourceLine" id="cb16-5" title="5">. <span class="dv">4</span>  <span class="dv">4</span>   <span class="dv">10</span></a>
+<a class="sourceLine" id="cb16-6" title="6">. <span class="dv">5</span>  <span class="dv">5</span>   <span class="dv">12</span></a>
+<a class="sourceLine" id="cb16-7" title="7">. <span class="dv">6</span>  <span class="dv">6</span>   <span class="dv">14</span></a>
+<a class="sourceLine" id="cb16-8" title="8">. <span class="dv">7</span>  <span class="dv">7</span>   <span class="dv">16</span></a>
+<a class="sourceLine" id="cb16-9" title="9">. <span class="dv">8</span>  <span class="dv">8</span>   <span class="dv">18</span></a>
+<a class="sourceLine" id="cb16-10" title="10">. <span class="dv">9</span>  <span class="dv">9</span>   <span class="dv">20</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">mod <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="st">  </span><span class="kw"><a href="reference/ev.html">ev</a></span>(<span class="dt">amt =</span> <span class="dv">150</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="st">  </span><span class="kw"><a href="reference/idata_set.html">idata_set</a></span>(idata) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="st">  </span><span class="kw"><a href="reference/mrgsim.html">mrgsim</a></span>(<span class="dt">end =</span> <span class="dv">6</span>, <span class="dt">delta =</span> <span class="fl">0.1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(Cp<span class="op">~</span>time)</a></code></pre></div>
+<p><img src="reference/figures/README-pbpk-figure-1.png"><!-- --></p>
 </div>
 </div>
 </div>
