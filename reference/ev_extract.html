@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Access or clear arguments for calls to mrgsim — simargs • mrgsolve</title>
+<title>Select columns from an ev object — $,ev-method • mrgsolve</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Access or clear arguments for calls to mrgsim — simargs" />
-<meta property="og:description" content="Access or clear arguments for calls to mrgsim" />
+<meta property="og:title" content="Select columns from an ev object — $,ev-method" />
+<meta property="og:description" content="Select columns from an ev object" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -108,58 +108,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Access or clear arguments for calls to mrgsim</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>simargs.Rd</code></div>
+    <h1>Select columns from an ev object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/class_ev.R'><code>R/class_ev.R</code></a></small>
+    <div class="hidden name"><code>ev_extract.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Access or clear arguments for calls to mrgsim</p>
+    <p>Select columns from an ev object</p>
     </div>
 
-    <pre class="usage"><span class='fu'>simargs</span>(<span class='no'>x</span>, <span class='kw'>which</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>clear</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"># S4 method for ev
+$(x, name)
+
+# S4 method for ev
+[[(x, i, exact = TRUE)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>model object</p></td>
+      <td><p>ev object</p></td>
     </tr>
     <tr>
-      <th>which</th>
-      <td><p>character with length 1 naming a single arg to get</p></td>
+      <th>name</th>
+      <td><p>column to select</p></td>
     </tr>
     <tr>
-      <th>clear</th>
-      <td><p>logical indicating whether or not to clear <code>args</code> from
-the model object</p></td>
+      <th>i</th>
+      <td><p>an element to select</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>passed along</p></td>
+      <th>exact</th>
+      <td><p>not used</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If <code>clear</code> is <code>TRUE</code>, the argument list is
-cleared and the model object is returned.  Otherwise, the argument
-list is returned.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='https://rdrr.io/pkg/mrgsolve/man/house.html'>house</a></span>()
-<span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='Req.html'>Req</a></span>(<span class='no'>CP</span>,<span class='no'>RESP</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='carry_out.html'>carry_out</a></span>(<span class='no'>evid</span>,<span class='no'>WT</span>,<span class='no'>FLAG</span>) <span class='kw'>%&gt;%</span> <span class='no'>simargs</span></div><div class='output co'>#&gt; $carry_out
-#&gt; [1] "evid, WT, FLAG"
-#&gt; </div><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

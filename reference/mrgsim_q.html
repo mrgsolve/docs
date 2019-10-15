@@ -8,21 +8,25 @@
 
 <title>Simulate from a model object with quicker turnaround — mrgsim_q • mrgsolve</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,8 +34,8 @@
 
 
 
-<meta property="og:title" content="Simulate from a model object with quicker turnaround — mrgsim_q" />
 
+<meta property="og:title" content="Simulate from a model object with quicker turnaround — mrgsim_q" />
 <meta property="og:description" content="Use the function when you would usually use mrgsim_d, 
 but you need a quicker turnaround time.  The timing differences 
 might be difficult to detect for a single simulation run
@@ -41,6 +45,7 @@ is invoked compared to mrgsim and mrgsim_d.
 This function should always be used for benchmarking simulation time with
 mrgsolve." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -54,12 +59,13 @@ mrgsolve." />
 <![endif]-->
 
 
+
   </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -70,7 +76,7 @@ mrgsolve." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0</span>
       </span>
     </div>
 
@@ -78,7 +84,7 @@ mrgsolve." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -89,7 +95,6 @@ mrgsolve." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
@@ -104,6 +109,7 @@ mrgsolve." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -115,7 +121,6 @@ mrgsolve." />
     </div>
 
     <div class="ref-description">
-    
     <p>Use the function when you would usually use <code><a href='mrgsim_variants.html'>mrgsim_d</a></code>, 
 but you need a quicker turnaround time.  The timing differences 
 might be difficult to detect for a single simulation run
@@ -124,12 +129,11 @@ but could become appreciable with repeated simulation.  See
 is invoked compared to <code><a href='mrgsim.html'>mrgsim</a></code> and <code><a href='mrgsim_variants.html'>mrgsim_d</a></code>.  
 This function should always be used for benchmarking simulation time with
 mrgsolve.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>mrgsim_q</span>(<span class='no'>x</span>, <span class='no'>data</span>, <span class='kw'>recsort</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stime</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric</a></span>(<span class='fl'>0</span>), <span class='kw'>output</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>skip_init_calc</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>simcall</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>mrgsim_q</span>(<span class='no'>x</span>, <span class='no'>data</span>, <span class='kw'>recsort</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stime</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>),
+  <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"mrgsims"</span>, <span class='kw'>skip_init_calc</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>simcall</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -153,7 +157,7 @@ records in <code>data</code></p></td>
     </tr>
     <tr>
       <th>output</th>
-      <td><p>output data type; if <code>NULL</code>, then an <code>mrgsims</code>
+      <td><p>output data type; if <code>mrgsims</code>, then the default output
 object is returned; if <code>"df"</code> then a data frame is returned</p></td>
     </tr>
     <tr>
@@ -162,12 +166,10 @@ object is returned; if <code>"df"</code> then a data frame is returned</p></td>
     </tr>
     <tr>
       <th>simcall</th>
-      <td><p>the default value <code>1</code> will invoke use of a streamlined
-version of <code>DEVTRAN</code> to be use for the simulation; <code>0</code> revets
-back to the same <code>DEVTRAN</code> code that is used by <code><a href='mrgsim.html'>mrgsim</a></code></p></td>
+      <td><p>not used; only the default value of 0 is allowed</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function does not support the piped simulation workflow.  All
@@ -194,44 +196,45 @@ should be joined onto the data set prior to simulation.  Otherwise
 <p>By default, a mrgsims object is returned (as with <code><a href='mrgsim.html'>mrgsim</a></code>). 
 Use the <code>output="df"</code> argument to request a plain 
 data.frame of simulated data on return.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='mrgsim.html'>mrgsim</a></code>, <code><a href='mrgsim_variants.html'>mrgsim_variants</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='mrgsim.html'>mrgsim</a></code>, <code><a href='mrgsim_variants.html'>mrgsim_variants</a></code>, <code><a href='qsim.html'>qsim</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/mrgsolve/topics/house'>house</a></span>()
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='https://rdrr.io/pkg/mrgsolve/man/house.html'>house</a></span>()
 
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='expand.idata.html'>expand.ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>100</span>,<span class='fl'>300</span>,<span class='fl'>1000</span>))
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='expand.idata.html'>expand.ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>100</span>,<span class='fl'>300</span>,<span class='fl'>1000</span>))
 
 <span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'>mrgsim_q</span>(<span class='no'>mod</span>,<span class='no'>data</span>)
 
 <span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
-#&gt; Dim:    3 x 7 
-#&gt; Time:   0 to 0 
+#&gt; Dim:    1446 x 7 
+#&gt; Time:   0 to 120 
 #&gt; ID:     3 
-#&gt;     ID time  GUT CENT RESP DV CP
-#&gt; 1:   1    0  100    0   50  0  0
-#&gt; 2:   2    0  300    0   50  0  0
-#&gt; 3:   3    0 1000    0   50  0  0</div><div class='input'>
+#&gt;     ID time    GUT  CENT  RESP    DV    CP
+#&gt; 1:   1 0.00   0.00  0.00 50.00 0.000 0.000
+#&gt; 2:   1 0.00 100.00  0.00 50.00 0.000 0.000
+#&gt; 3:   1 0.25  74.08 25.75 48.68 1.287 1.287
+#&gt; 4:   1 0.50  54.88 44.50 46.18 2.225 2.225
+#&gt; 5:   1 0.75  40.66 58.08 43.61 2.904 2.904
+#&gt; 6:   1 1.00  30.12 67.83 41.38 3.391 3.391
+#&gt; 7:   1 1.25  22.31 74.74 39.58 3.737 3.737
+#&gt; 8:   1 1.50  16.53 79.56 38.18 3.978 3.978</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#details">Details</a></li>
-
       <li><a href="#see-also">See also</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -239,13 +242,16 @@ data.frame of simulated data on return.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

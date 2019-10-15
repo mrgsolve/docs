@@ -8,21 +8,25 @@
 
 <title>Insert observations into a data set — expand_observations • mrgsolve</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +34,11 @@
 
 
 
-<meta property="og:title" content="Insert observations into a data set — expand_observations" />
 
+<meta property="og:title" content="Insert observations into a data set — expand_observations" />
 <meta property="og:description" content="Insert observations into a data set" />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,12 +52,13 @@
 <![endif]-->
 
 
+
   </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -63,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0</span>
       </span>
     </div>
 
@@ -71,7 +77,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,7 +88,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
@@ -97,6 +102,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -108,13 +114,11 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Insert observations into a data set</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>expand_observations</span>(<span class='no'>data</span>, <span class='no'>times</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>expand_observations</span>(<span class='no'>data</span>, <span class='no'>times</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>obs_pos</span> <span class='kw'>=</span> -<span class='fl'>1L</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -131,115 +135,117 @@
       <td><p>`logical`; if `TRUE` then values for `time` are 
 dropped if they are found anywhere in `data`</p></td>
     </tr>
+    <tr>
+      <th>obs_pos</th>
+      <td><p>determines sorting order for observations; use `-1` (default)
+to put observations first; otherwise, use large integer to ensure 
+observations are placed after doses</p></td>
+    </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A data frame</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Non-numeric columns will be dropped with a warning.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='expand.idata.html'>expand.ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>100</span>,<span class='fl'>200</span>,<span class='fl'>300</span>))
+    <pre class="examples"><div class='input'><span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='expand.idata.html'>expand.ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>100</span>,<span class='fl'>200</span>,<span class='fl'>300</span>))
 
-<span class='fu'>expand_observations</span>(<span class='no'>data</span>, <span class='kw'>times</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0</span>,<span class='fl'>48</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt;    ID amt evid cmt time
-#&gt; 1   1   0    0   0    0
-#&gt; 2   1 100    1   1    0
-#&gt; 3   1   0    0   0    2
-#&gt; 4   1   0    0   0    4
-#&gt; 5   1   0    0   0    6
-#&gt; 6   1   0    0   0    8
-#&gt; 7   1   0    0   0   10
-#&gt; 8   1   0    0   0   12
-#&gt; 9   1   0    0   0   14
-#&gt; 10  1   0    0   0   16
-#&gt; 11  1   0    0   0   18
-#&gt; 12  1   0    0   0   20
-#&gt; 13  1   0    0   0   22
-#&gt; 14  1   0    0   0   24
-#&gt; 15  1   0    0   0   26
-#&gt; 16  1   0    0   0   28
-#&gt; 17  1   0    0   0   30
-#&gt; 18  1   0    0   0   32
-#&gt; 19  1   0    0   0   34
-#&gt; 20  1   0    0   0   36
-#&gt; 21  1   0    0   0   38
-#&gt; 22  1   0    0   0   40
-#&gt; 23  1   0    0   0   42
-#&gt; 24  1   0    0   0   44
-#&gt; 25  1   0    0   0   46
-#&gt; 26  1   0    0   0   48
-#&gt; 27  2   0    0   0    0
-#&gt; 28  2 200    1   1    0
-#&gt; 29  2   0    0   0    2
-#&gt; 30  2   0    0   0    4
-#&gt; 31  2   0    0   0    6
-#&gt; 32  2   0    0   0    8
-#&gt; 33  2   0    0   0   10
-#&gt; 34  2   0    0   0   12
-#&gt; 35  2   0    0   0   14
-#&gt; 36  2   0    0   0   16
-#&gt; 37  2   0    0   0   18
-#&gt; 38  2   0    0   0   20
-#&gt; 39  2   0    0   0   22
-#&gt; 40  2   0    0   0   24
-#&gt; 41  2   0    0   0   26
-#&gt; 42  2   0    0   0   28
-#&gt; 43  2   0    0   0   30
-#&gt; 44  2   0    0   0   32
-#&gt; 45  2   0    0   0   34
-#&gt; 46  2   0    0   0   36
-#&gt; 47  2   0    0   0   38
-#&gt; 48  2   0    0   0   40
-#&gt; 49  2   0    0   0   42
-#&gt; 50  2   0    0   0   44
-#&gt; 51  2   0    0   0   46
-#&gt; 52  2   0    0   0   48
-#&gt; 53  3   0    0   0    0
-#&gt; 54  3 300    1   1    0
-#&gt; 55  3   0    0   0    2
-#&gt; 56  3   0    0   0    4
-#&gt; 57  3   0    0   0    6
-#&gt; 58  3   0    0   0    8
-#&gt; 59  3   0    0   0   10
-#&gt; 60  3   0    0   0   12
-#&gt; 61  3   0    0   0   14
-#&gt; 62  3   0    0   0   16
-#&gt; 63  3   0    0   0   18
-#&gt; 64  3   0    0   0   20
-#&gt; 65  3   0    0   0   22
-#&gt; 66  3   0    0   0   24
-#&gt; 67  3   0    0   0   26
-#&gt; 68  3   0    0   0   28
-#&gt; 69  3   0    0   0   30
-#&gt; 70  3   0    0   0   32
-#&gt; 71  3   0    0   0   34
-#&gt; 72  3   0    0   0   36
-#&gt; 73  3   0    0   0   38
-#&gt; 74  3   0    0   0   40
-#&gt; 75  3   0    0   0   42
-#&gt; 76  3   0    0   0   44
-#&gt; 77  3   0    0   0   46
-#&gt; 78  3   0    0   0   48</div><div class='input'>
+<span class='fu'>expand_observations</span>(<span class='no'>data</span>, <span class='kw'>times</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>,<span class='fl'>48</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt;    ID time amt cmt evid
+#&gt; 1   1    0   0   0    0
+#&gt; 2   1    0 100   1    1
+#&gt; 3   1    2   0   0    0
+#&gt; 4   1    4   0   0    0
+#&gt; 5   1    6   0   0    0
+#&gt; 6   1    8   0   0    0
+#&gt; 7   1   10   0   0    0
+#&gt; 8   1   12   0   0    0
+#&gt; 9   1   14   0   0    0
+#&gt; 10  1   16   0   0    0
+#&gt; 11  1   18   0   0    0
+#&gt; 12  1   20   0   0    0
+#&gt; 13  1   22   0   0    0
+#&gt; 14  1   24   0   0    0
+#&gt; 15  1   26   0   0    0
+#&gt; 16  1   28   0   0    0
+#&gt; 17  1   30   0   0    0
+#&gt; 18  1   32   0   0    0
+#&gt; 19  1   34   0   0    0
+#&gt; 20  1   36   0   0    0
+#&gt; 21  1   38   0   0    0
+#&gt; 22  1   40   0   0    0
+#&gt; 23  1   42   0   0    0
+#&gt; 24  1   44   0   0    0
+#&gt; 25  1   46   0   0    0
+#&gt; 26  1   48   0   0    0
+#&gt; 27  2    0   0   0    0
+#&gt; 28  2    0 200   1    1
+#&gt; 29  2    2   0   0    0
+#&gt; 30  2    4   0   0    0
+#&gt; 31  2    6   0   0    0
+#&gt; 32  2    8   0   0    0
+#&gt; 33  2   10   0   0    0
+#&gt; 34  2   12   0   0    0
+#&gt; 35  2   14   0   0    0
+#&gt; 36  2   16   0   0    0
+#&gt; 37  2   18   0   0    0
+#&gt; 38  2   20   0   0    0
+#&gt; 39  2   22   0   0    0
+#&gt; 40  2   24   0   0    0
+#&gt; 41  2   26   0   0    0
+#&gt; 42  2   28   0   0    0
+#&gt; 43  2   30   0   0    0
+#&gt; 44  2   32   0   0    0
+#&gt; 45  2   34   0   0    0
+#&gt; 46  2   36   0   0    0
+#&gt; 47  2   38   0   0    0
+#&gt; 48  2   40   0   0    0
+#&gt; 49  2   42   0   0    0
+#&gt; 50  2   44   0   0    0
+#&gt; 51  2   46   0   0    0
+#&gt; 52  2   48   0   0    0
+#&gt; 53  3    0   0   0    0
+#&gt; 54  3    0 300   1    1
+#&gt; 55  3    2   0   0    0
+#&gt; 56  3    4   0   0    0
+#&gt; 57  3    6   0   0    0
+#&gt; 58  3    8   0   0    0
+#&gt; 59  3   10   0   0    0
+#&gt; 60  3   12   0   0    0
+#&gt; 61  3   14   0   0    0
+#&gt; 62  3   16   0   0    0
+#&gt; 63  3   18   0   0    0
+#&gt; 64  3   20   0   0    0
+#&gt; 65  3   22   0   0    0
+#&gt; 66  3   24   0   0    0
+#&gt; 67  3   26   0   0    0
+#&gt; 68  3   28   0   0    0
+#&gt; 69  3   30   0   0    0
+#&gt; 70  3   32   0   0    0
+#&gt; 71  3   34   0   0    0
+#&gt; 72  3   36   0   0    0
+#&gt; 73  3   38   0   0    0
+#&gt; 74  3   40   0   0    0
+#&gt; 75  3   42   0   0    0
+#&gt; 76  3   44   0   0    0
+#&gt; 77  3   46   0   0    0
+#&gt; 78  3   48   0   0    0</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -247,13 +253,16 @@ dropped if they are found anywhere in `data`</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

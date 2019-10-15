@@ -6,23 +6,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Optional inputs for DLSODA — solversettings • mrgsolve</title>
+<title>Optional inputs for lsoda — solversettings • mrgsolve</title>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,13 +34,14 @@
 
 
 
-<meta property="og:title" content="Optional inputs for DLSODA — solversettings" />
 
+<meta property="og:title" content="Optional inputs for lsoda — solversettings" />
 <meta property="og:description" content="These are settings for the differential equation 
-solver (DLSODA) that can be accessed via
+solver (lsoda) that can be accessed via
 the R interface.  The code listing below is taken directly
-from the DLSODA source code." />
+from the lsoda source code." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -50,12 +55,13 @@ from the DLSODA source code." />
 <![endif]-->
 
 
+
   </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -66,7 +72,7 @@ from the DLSODA source code." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0</span>
       </span>
     </div>
 
@@ -74,7 +80,7 @@ from the DLSODA source code." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -85,7 +91,6 @@ from the DLSODA source code." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
@@ -100,26 +105,26 @@ from the DLSODA source code." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Optional inputs for DLSODA</h1>
+    <h1>Optional inputs for lsoda</h1>
     <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/package.R'><code>R/package.R</code></a></small>
     <div class="hidden name"><code>solversettings.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
     <p>These are settings for the differential equation 
-solver (<code>DLSODA</code>) that can be accessed via
+solver (<code>lsoda</code>) that can be accessed via
 the R interface.  The code listing below is taken directly
-from the <code>DLSODA</code> source code.</p>
-    
+from the <code>lsoda</code> source code.</p>
     </div>
 
-        
+
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The following items can be set</p>
@@ -147,73 +152,22 @@ here will result in longer run times.</p></li>
 number when you want a more precise solution.  However be aware 
 that more precision here will result in longer run times.</p></li>
 </ul>
-    
-    <h2 class="hasAnchor" id="solver-settings"><a class="anchor" href="#solver-settings"></a>Solver Settings</h2>
 
-    
-    <pre>
-C-----------------------------------------------------------------------
-C Optional Inputs.
-C
-C The following is a list of the optional inputs provided for in the
-C call sequence.  (See also Part 2.)  For each such input variable,
-C this table lists its name as used in this documentation, its
-C location in the call sequence, its meaning, and the default value.
-C The use of any of these inputs requires IOPT = 1, and in that
-C case all of these inputs are examined.  A value of zero for any
-C of these optional inputs will cause the default value to be used.
-C Thus to use a subset of the optional inputs, simply preload
-C locations 5 to 10 in RWORK and IWORK to 0.0 and 0 respectively, and
-C then set those of interest to nonzero values.
-C
-C Name    Location      Meaning and Default Value
-C
-C
-C HMAX    RWORK(6)  the maximum absolute step size allowed.
-C                   The default value is infinite.
-C
-C HMIN    RWORK(7)  the minimum absolute step size allowed.
-C                   The default value is 0.  (This lower bound is not
-C                   enforced on the final step before reaching TCRIT
-C                   when ITASK = 4 or 5.)
-C
-C IXPR    IWORK(5)  flag to generate extra printing at method switches.
-C                   IXPR = 0 means no extra printing (the default).
-C                   IXPR = 1 means print data on each switch.
-C                   T, H, and NST will be printed on the same logical
-C                   unit as used for error messages.
-C
-C MXSTEP  IWORK(6)  maximum number of (internally defined) steps
-C                   allowed during one call to the solver.
-C                   The default value is 500.
-C
-C MXHNIL  IWORK(7)  maximum number of messages printed (per problem)
-C                   warning that T + H = T on a step (H = step size).
-C                   This must be positive to result in a non-default
-C                   value.  The default value is 10.
-C
-C-----------------------------------------------------------------------
-</pre>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='aboutsolver.html'>aboutsolver</a></code>, <code><a href='update.html'>update</a></code></p></div>
-    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
       <li><a href="#details">Details</a></li>
-
-      <li><a href="#solver-settings">Solver Settings</a></li>
-
       <li><a href="#see-also">See also</a></li>
-          </ul>
+    </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -221,13 +175,16 @@ C-----------------------------------------------------------------------
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

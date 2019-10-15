@@ -8,21 +8,25 @@
 
 <title>Create intervention objects from Rx input — ev_rx • mrgsolve</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,11 +34,12 @@
 
 
 
-<meta property="og:title" content="Create intervention objects from Rx input — ev_rx" />
 
+<meta property="og:title" content="Create intervention objects from Rx input — ev_rx" />
 <meta property="og:description" content="See details below for Rx specification. Actual parsing is done
 by parse_rx; this function can be used to debug Rx inputs." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -48,12 +53,13 @@ by parse_rx; this function can be used to debug Rx inputs." />
 <![endif]-->
 
 
+
   </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -64,7 +70,7 @@ by parse_rx; this function can be used to debug Rx inputs." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0</span>
       </span>
     </div>
 
@@ -72,7 +78,7 @@ by parse_rx; this function can be used to debug Rx inputs." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -83,7 +89,6 @@ by parse_rx; this function can be used to debug Rx inputs." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
@@ -98,6 +103,7 @@ by parse_rx; this function can be used to debug Rx inputs." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -109,10 +115,8 @@ by parse_rx; this function can be used to debug Rx inputs." />
     </div>
 
     <div class="ref-description">
-    
     <p>See details below for Rx specification. Actual parsing is done
 by parse_rx; this function can be used to debug Rx inputs.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>ev_rx</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)
@@ -124,7 +128,7 @@ by parse_rx; this function can be used to debug Rx inputs.</p>
 <span class='fu'>ev_rx</span>(<span class='no'>x</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
 <span class='fu'>parse_rx</span>(<span class='no'>x</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -145,18 +149,18 @@ by parse_rx; this function can be used to debug Rx inputs.</p>
       <td><p>if <code>TRUE</code> then a data frame is returned</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The method dispatched on model object (<code>mrgmod</code>) returns another
 model object.  The <code>character</code> method returns an event object.  The
 <code>parse_rx</code> function return a list named with
 arguments for the event object constructor <a href='ev.html'>ev</a>.</p>
-    
     <h2 class="hasAnchor" id="rx-specification"><a class="anchor" href="#rx-specification"></a>Rx specification</h2>
 
     
-    <ul>
+
+<ul>
 <li><p>The dose is found at the start of the string by sequential digits; this
 may be integer, decimal, or in scientific notation</p></li>
 <li><p>Use <code>in</code> to identify the dosing compartment number; must be integer</p></li>
@@ -169,40 +173,40 @@ decimal number</p></li>
 <li><p>User <code>after</code> to insert a lag in the start of a period; integer or
 decimal number (but not scientific notation)</p></li>
 </ul>
-    
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># example("ev_rx")</span>
 
 <span class='fu'>ev_rx</span>(<span class='st'>"100"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt evid
-#&gt; 1    0   1 100    1</div><div class='input'>
+#&gt;   time amt cmt evid
+#&gt; 1    0 100   1    1</div><div class='input'>
 <span class='fu'>ev_rx</span>(<span class='st'>"100 in 2"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt evid
-#&gt; 1    0   2 100    1</div><div class='input'>
+#&gt;   time amt cmt evid
+#&gt; 1    0 100   2    1</div><div class='input'>
 <span class='fu'>ev_rx</span>(<span class='st'>"100 q12 x 3"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt evid ii addl
-#&gt; 1    0   1 100    1 12    2</div><div class='input'>
+#&gt;   time amt ii addl cmt evid
+#&gt; 1    0 100 12    2   1    1</div><div class='input'>
 <span class='fu'>ev_rx</span>(<span class='st'>"100 over 2"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt evid rate
-#&gt; 1    0   1 100    1   50</div><div class='input'>
+#&gt;   time amt rate cmt evid
+#&gt; 1    0 100   50   1    1</div><div class='input'>
 <span class='fu'>ev_rx</span>(<span class='st'>"100 q 24 x 3 then 50 q12 x 2"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt evid ii addl
-#&gt; 1    0   1 100    1 24    2
-#&gt; 2   72   1  50    1 12    1</div><div class='input'>
+#&gt;   time amt ii addl cmt evid
+#&gt; 1    0 100 24    2   1    1
+#&gt; 2   72  50 12    1   1    1</div><div class='input'>
 <span class='fu'>ev_rx</span>(<span class='st'>"100 then 50 q 24 after 12"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt evid ii addl
-#&gt; 1    0   1 100    1  0    0
-#&gt; 2   12   1  50    1 24    0</div><div class='input'>
+#&gt;   time amt ii addl cmt evid
+#&gt; 1    0 100  0    0   1    1
+#&gt; 2   12  50 24    0   1    1</div><div class='input'>
 <span class='fu'>ev_rx</span>(<span class='st'>"100.2E-2 q4"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt   amt evid ii
-#&gt; 1    0   1 1.002    1  4</div><div class='input'>
+#&gt;   time   amt ii cmt evid
+#&gt; 1    0 1.002  4   1    1</div><div class='input'>
 <span class='fu'>ev_rx</span>(<span class='st'>"100 over 2.23"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt evid     rate
-#&gt; 1    0   1 100    1 44.84305</div><div class='input'>
+#&gt;   time amt     rate cmt evid
+#&gt; 1    0 100 44.84305   1    1</div><div class='input'>
 <span class='fu'>ev_rx</span>(<span class='st'>"100 q 12 x 3"</span>)</div><div class='output co'>#&gt; Events:
-#&gt;   time cmt amt evid ii addl
-#&gt; 1    0   1 100    1 12    2</div><div class='input'>
+#&gt;   time amt ii addl cmt evid
+#&gt; 1    0 100 12    2   1    1</div><div class='input'>
 <span class='fu'>parse_rx</span>(<span class='st'>"100 mg q 24 then 200 mg q12"</span>)</div><div class='output co'>#&gt; [[1]]
 #&gt; [[1]]$time
 #&gt; [1] 0
@@ -237,16 +241,14 @@ decimal number (but not scientific notation)</p></li>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#rx-specification">Rx specification</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -254,13 +256,16 @@ decimal number (but not scientific notation)</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
