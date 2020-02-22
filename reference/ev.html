@@ -12,8 +12,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
@@ -60,7 +60,7 @@ but simpler and quicker." />
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -71,7 +71,7 @@ but simpler and quicker." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.1</span>
       </span>
     </div>
 
@@ -127,9 +127,18 @@ but simpler and quicker.</p>
 <span class='fu'>ev</span>(<span class='no'>x</span>, <span class='kw'>object</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for missing</span>
-<span class='fu'>ev</span>(<span class='kw'>time</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>evid</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>cmt</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>ID</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>), <span class='kw'>replicate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>until</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tinf</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>realize_addl</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+<span class='fu'>ev</span>(
+  <span class='kw'>time</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>evid</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>cmt</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>ID</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>),
+  <span class='kw'>replicate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>until</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>tinf</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>realize_addl</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for ev</span>
 <span class='fu'>ev</span>(<span class='no'>x</span>, <span class='kw'>realize_addl</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
@@ -223,7 +232,7 @@ event rows must match the number of <code>ID</code>s entered</p></li>
 <code><a href='as.ev.html'>as.ev</a></code>, <code><a href='ev_methods.html'>ev_methods</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>:::</span><span class='fu'><a href='https://rdrr.io/pkg/mrgsolve/man/house.html'>house</a></span>()
+    <pre class="examples"><div class='input'><span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/mrgsolve/man/house.html'>house</a></span>()
 
 <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>ev</span>(<span class='kw'>amt</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>time</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>cmt</span><span class='kw'>=</span><span class='fl'>1</span>)
 
@@ -258,7 +267,7 @@ event rows must match the number of <code>ID</code>s entered</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>
