@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -43,7 +47,6 @@ parameter optimization, sensitivity analyses, or optimal design.  See
 mrgsim_variants for other mrgsim-like functions that have 
 more focused inputs. mrgsim_df coerces output to data.frame 
 prior to returning." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -61,7 +64,7 @@ prior to returning." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -75,7 +78,7 @@ prior to returning." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
       </span>
     </div>
 
@@ -139,6 +142,7 @@ prior to returning.</p>
   <span class='kw'>idata</span> <span class='kw'>=</span> <span class='fu'>no_idata_set</span>(),
   <span class='kw'>carry_out</span> <span class='kw'>=</span> <span class='no'>carry.out</span>,
   <span class='kw'>carry.out</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>),
+  <span class='kw'>recover</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>),
   <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span>(<span class='fl'>NA</span>),
   <span class='kw'>Request</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>),
   <span class='kw'>output</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -196,11 +200,17 @@ return a matrix</p></td>
     </tr>
     <tr>
       <th>carry_out</th>
-      <td><p>data items to copy into the output</p></td>
+      <td><p>numeric data items to copy into the output</p></td>
     </tr>
     <tr>
       <th>carry.out</th>
       <td><p>soon to be deprecated; use <code>carry_out</code> instead</p></td>
+    </tr>
+    <tr>
+      <th>recover</th>
+      <td><p>character column names in either <code>data</code> or <code>idata</code> 
+to join back (recover) to simulated data; may be any class (e.g. numeric, 
+character, factor, etc)</p></td>
     </tr>
     <tr>
       <th>seed</th>
@@ -311,23 +321,35 @@ determination.</p></td>
     
 <ul>
 <li><p>Use <code>mrgsim_df</code> to return a data frame rather than 
-<code>mrgsims</code> object.</p></li>
+<code>mrgsims</code> object</p></li>
 <li><p>Both <code>data</code> and <code>idata</code> will be coerced to numeric matrix</p></li>
 <li><p><code>carry_out</code> can be used to insert data columns into the output 
 data set.  This is partially dependent on the nature of the data brought 
-into the problem.</p></li>
+into the problem</p></li>
 <li><p>When using <code>data</code> and <code>idata</code> together, an error is 
 generated if an  ID occurs in <code>data</code> but not <code>idata</code>.  
 Also, when looking up data in <code>idata</code>, ID in <code>idata</code> is 
 assumed to be uniquely keyed to ID in <code>data</code>.  No error is 
 generated if ID is duplicated in <code>data</code>; parameters will be used 
-from the first occurrence found in <code>idata</code>.</p></li>
+from the first occurrence found in <code>idata</code></p></li>
 <li><p><code>carry_out</code>: <code>idata</code> is assumed to be 
 individual-level and variables that are carried from <code>idata</code> 
 are repeated throughout the individual's simulated data.  Variables 
 carried from <code>data</code> are carried via last-observation carry forward.  
 <code>NA</code> is returned from observations that are inserted into 
-simulated output that occur prior to the first record in <code>data</code>.</p></li>
+simulated output that occur prior to the first record in <code>data</code></p></li>
+<li><p><code>recover</code>: this is similar to <code>carry_out</code> with respect to 
+end result, but it uses a different process.  Columns to be recovered are 
+cached prior to running the simulation, and then joined back on to the 
+simulated data.  So, whereas <code>carry_out</code> will only accept numeric 
+data items, <code>recover</code> can handle data frame columns of any type.  There
+is a small decrease in performance with <code>recover</code> compared to 
+<code>carry_out</code>, but it is likely that the performance difference is 
+difficult to perceive (when the simulation runs very fast) or only a small
+fractional increase in run time when the simulation is very large.  And any
+performance hit is likely to be well worth it in light of the convenience 
+gain.  Just think carefully about using this feature when every millisecond
+counts.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -339,7 +361,7 @@ simulated output that occur prior to the first record in <code>data</code>.</p><
 
 <span class='no'>e</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
 
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/mrgsolve/man/house.html'>house</a></span>()
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>::</span><span class='fu'><a href='house.html'>house</a></span>()
 
 <span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='no'>e</span>) <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>()
 
@@ -408,22 +430,7 @@ simulated output that occur prior to the first record in <code>data</code>.</p><
 #&gt; 6:   1 0.57     0 2.028 1.961 49.81 0.08624 0.08624
 #&gt; 7:   1 0.75     1 1.634 2.337 49.73 0.10274 0.10274
 #&gt; 8:   1 1.00     1 1.211 2.729 49.61 0.12001 0.12001</div><div class='input'>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='no'>e</span>) <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>(<span class='kw'>req</span><span class='kw'>=</span><span class='st'>"CENT"</span>)
-
-<span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
-#&gt; Dim:    482 x 5 
-#&gt; Time:   0 to 120 
-#&gt; ID:     1 
-#&gt;     ID time  CENT    DV    CP
-#&gt; 1:   1 0.00   0.0  0.00  0.00
-#&gt; 2:   1 0.00   0.0  0.00  0.00
-#&gt; 3:   1 0.25 257.5 12.87 12.87
-#&gt; 4:   1 0.50 445.0 22.25 22.25
-#&gt; 5:   1 0.75 580.8 29.04 29.04
-#&gt; 6:   1 1.00 678.3 33.91 33.91
-#&gt; 7:   1 1.25 747.4 37.37 37.37
-#&gt; 8:   1 1.50 795.6 39.78 39.78</div><div class='input'>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'>mrgsim</span>(<span class='no'>mod</span>, <span class='kw'>Req</span><span class='kw'>=</span><span class='st'>"CP,RESP"</span>, <span class='kw'>events</span> <span class='kw'>=</span> <span class='no'>e</span>)
+<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='no'>e</span>) <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>(<span class='kw'>outvars</span><span class='kw'>=</span><span class='st'>"CP,RESP"</span>)
 
 <span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
 #&gt; Dim:    482 x 4 
@@ -438,19 +445,31 @@ simulated output that occur prior to the first record in <code>data</code>.</p><
 #&gt; 6:   1 1.00 20.05 33.91
 #&gt; 7:   1 1.25 16.45 37.37
 #&gt; 8:   1 1.50 14.01 39.78</div><div class='input'>
+<span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>'a'</span>)
+<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>750</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>'b'</span>)
+<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='as_data_set.html'>as_data_set</a></span>(<span class='no'>a</span>,<span class='no'>b</span>)
 
+<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mrgsim_variants.html'>mrgsim_d</a></span>(<span class='no'>mod</span>, <span class='no'>data</span>, <span class='kw'>recover</span><span class='kw'>=</span><span class='st'>"group"</span>)
+
+<span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
+#&gt; Dim:    964 x 8 
+#&gt; Time:   0 to 120 
+#&gt; ID:     2 
+#&gt;     ID time    GUT  CENT  RESP    DV    CP group
+#&gt; 1:   1 0.00    0.0   0.0 50.00  0.00  0.00     a
+#&gt; 2:   1 0.00 1000.0   0.0 50.00  0.00  0.00     a
+#&gt; 3:   1 0.25  740.8 257.5 42.29 12.87 12.87     a
+#&gt; 4:   1 0.50  548.8 445.0 32.69 22.25 22.25     a
+#&gt; 5:   1 0.75  406.6 580.8 25.29 29.04 29.04     a
+#&gt; 6:   1 1.00  301.2 678.3 20.05 33.91 33.91     a
+#&gt; 7:   1 1.25  223.1 747.4 16.45 37.37 37.37     a
+#&gt; 8:   1 1.50  165.3 795.6 14.01 39.78 39.78     a</div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -461,7 +480,7 @@ simulated output that occur prior to the first record in <code>data</code>.</p><
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

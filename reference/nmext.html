@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Objects exported from other packages — reexports • mrgsolve</title>
+<title>Import model estimates from a NONMEM ext file — nmext • mrgsolve</title>
 
 
 <!-- jquery -->
@@ -39,13 +39,8 @@
 
 
 
-<meta property="og:title" content="Objects exported from other packages — reexports" />
-<meta property="og:description" content="These objects are imported from other packages. Follow the links
-below to see their documentation.
-
-  dplyrfilter
-
-" />
+<meta property="og:title" content="Import model estimates from a NONMEM ext file — nmext" />
+<meta property="og:description" content="Import model estimates from a NONMEM ext file" />
 
 
 
@@ -116,22 +111,101 @@ below to see their documentation.
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Objects exported from other packages</h1>
-    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/Aaaa.R'><code>R/Aaaa.R</code></a></small>
-    <div class="hidden name"><code>reexports.Rd</code></div>
+    <h1>Import model estimates from a NONMEM ext file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/R/nmxml.R'><code>R/nmxml.R</code></a></small>
+    <div class="hidden name"><code>nmext.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>These objects are imported from other packages. Follow the links
-below to see their documentation.</p>
-<dl'>
-  <dt>dplyr</dt><dd><p><code><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></code></p></dd>
-
-</dl>
+    <p>Import model estimates from a NONMEM ext file</p>
     </div>
 
+    <pre class="usage"><span class='fu'>nmext</span>(
+  <span class='kw'>run</span> <span class='kw'>=</span> <span class='fl'>NA_real_</span>,
+  <span class='kw'>project</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span>(),
+  <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='no'>run</span>, <span class='st'>".ext"</span>),
+  <span class='kw'>path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>theta</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>omega</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>sigma</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>olabels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>slabels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>oprefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>sprefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>tname</span> <span class='kw'>=</span> <span class='st'>"THETA"</span>,
+  <span class='kw'>oname</span> <span class='kw'>=</span> <span class='st'>"..."</span>,
+  <span class='kw'>sname</span> <span class='kw'>=</span> <span class='st'>"..."</span>,
+  <span class='kw'>read_fun</span> <span class='kw'>=</span> <span class='st'>"data.table"</span>
+)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>run</th>
+      <td><p>run number</p></td>
+    </tr>
+    <tr>
+      <th>project</th>
+      <td><p>project directory</p></td>
+    </tr>
+    <tr>
+      <th>file</th>
+      <td><p>deprecated; use <code>path</code> instead</p></td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td><p>full path to NONMEM <code>ext</code> file</p></td>
+    </tr>
+    <tr>
+      <th>theta</th>
+      <td><p>logical; if TRUE, the <code>$THETA</code> vector is returned</p></td>
+    </tr>
+    <tr>
+      <th>omega</th>
+      <td><p>logical; if TRUE, the <code>$OMEGA</code> matrix is returned</p></td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td><p>logical; if TRUE, the <code>$SIGMA</code> matrix is returned</p></td>
+    </tr>
+    <tr>
+      <th>olabels</th>
+      <td><p>labels for <code>$OMEGA</code></p></td>
+    </tr>
+    <tr>
+      <th>slabels</th>
+      <td><p>labels for <code>$SIGMA</code></p></td>
+    </tr>
+    <tr>
+      <th>oprefix</th>
+      <td><p>prefix for <code>$OMEGA</code> labels</p></td>
+    </tr>
+    <tr>
+      <th>sprefix</th>
+      <td><p>prefix for <code>$SIGMA</code> labels</p></td>
+    </tr>
+    <tr>
+      <th>tname</th>
+      <td><p>name for <code>$THETA</code></p></td>
+    </tr>
+    <tr>
+      <th>oname</th>
+      <td><p>name for <code>$OMEGA</code></p></td>
+    </tr>
+    <tr>
+      <th>sname</th>
+      <td><p>name for <code>$SIGMA</code></p></td>
+    </tr>
+    <tr>
+      <th>read_fun</th>
+      <td><p>function to use when reading the <code>ext</code> file</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><a href='nmxml.html'>nmxml</a>, <a href='read_nmext.html'>read_nmext</a></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

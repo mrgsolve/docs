@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -36,8 +40,8 @@
 
 
 <meta property="og:title" content="Methods for handling output with dplyr verbs — mrgsims_dplyr" />
-<meta property="og:description" content="Methods for handling output with dplyr verbs" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:description" content="These methods modify the data in a mrgsims object and return a data frame.
+Contrast with the functions in mrgsims_modify." />
 
 
 
@@ -55,7 +59,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
       </span>
     </div>
 
@@ -114,30 +118,24 @@
     </div>
 
     <div class="ref-description">
-    <p>Methods for handling output with dplyr verbs</p>
+    <p>These methods modify the data in a mrgsims object and return a data frame.
+Contrast with the functions in <a href='mrgsims_modify.html'>mrgsims_modify</a>.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for mrgsims</span>
-<span class='fu'>as.tbl</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mrgsims</span>
 <span class='fu'>pull</span>(<span class='no'>.data</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mrgsims</span>
 <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>.data</span>, <span class='no'>...</span>)
 
-<span class='fu'>filter_sims</span>(<span class='no'>.data</span>, <span class='no'>...</span>)
-
 <span class='co'># S3 method for mrgsims</span>
-<span class='fu'>group_by</span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>group_by</span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>.add</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S3 method for mrgsims</span>
 <span class='fu'>distinct</span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='kw'>.keep_all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S3 method for mrgsims</span>
 <span class='fu'>mutate</span>(<span class='no'>.data</span>, <span class='no'>...</span>)
-
-<span class='fu'>mutate_sims</span>(<span class='no'>.data</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for each</span>
 <span class='fu'>summarise</span>(<span class='no'>.data</span>, <span class='no'>funs</span>, <span class='no'>...</span>)
@@ -151,42 +149,42 @@
 <span class='co'># S3 method for mrgsims</span>
 <span class='fu'>select</span>(<span class='no'>.data</span>, <span class='no'>...</span>)
 
-<span class='fu'>select_sims</span>(<span class='no'>.data</span>, <span class='no'>...</span>)
-
 <span class='co'># S3 method for mrgsims</span>
 <span class='fu'>slice</span>(<span class='no'>.data</span>, <span class='no'>...</span>)
 
 <span class='fu'>as_data_frame.mrgsims</span>(<span class='no'>.data_</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mrgsims</span>
-<span class='fu'>as_tibble</span>(<span class='no'>.data_</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>as_tibble</span>(<span class='no'>.data_</span>, <span class='no'>...</span>)
+
+<span class='fu'>as.tbl.mrgsims</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>mrgsims object</p></td>
+      <th>.data</th>
+      <td><p>an mrgsims object; passed to various <code>dplyr</code> functions</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>passed to other methods</p></td>
     </tr>
     <tr>
-      <th>.data</th>
-      <td><p>passed to various <code>dplyr</code> functions</p></td>
+      <th>add</th>
+      <td><p>passed to <a href='https://dplyr.tidyverse.org/reference/group_by.html'>dplyr::group_by</a> (for dplyr &lt; <code>1.0.0</code>)</p></td>
     </tr>
     <tr>
-      <th>add</th>
-      <td><p>passed to <code><a href='https://dplyr.tidyverse.org/reference/group_by.html'>dplyr::group_by</a></code></p></td>
+      <th>.add</th>
+      <td><p>passed to <a href='https://dplyr.tidyverse.org/reference/group_by.html'>dplyr::group_by</a> (for dplyr &gt;= <code>1.0.0</code>)</p></td>
     </tr>
     <tr>
       <th>.keep_all</th>
-      <td><p>passed to <code><a href='https://dplyr.tidyverse.org/reference/distinct.html'>dplyr::distinct</a></code></p></td>
+      <td><p>passed to <a href='https://dplyr.tidyverse.org/reference/distinct.html'>dplyr::distinct</a></p></td>
     </tr>
     <tr>
       <th>funs</th>
-      <td><p>passed to <code><a href='https://dplyr.tidyverse.org/reference/summarise_each.html'>dplyr::summarise_each</a></code></p></td>
+      <td><p>passed to <a href='https://dplyr.tidyverse.org/reference/summarise_each.html'>dplyr::summarise_each</a></p></td>
     </tr>
     <tr>
       <th>.dots</th>
@@ -196,23 +194,56 @@
       <th>.data_</th>
       <td><p>mrgsims object</p></td>
     </tr>
+    <tr>
+      <th>x</th>
+      <td><p>passed to <a href='https://dplyr.tidyverse.org/reference/tbl.html'>dplyr::as.tbl</a></p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>For the <code>select_sims</code> function, the dots <code>...</code> must be either 
+    <p>For the <code>select_sims</code> function, the dots <code>...</code> must be either
 compartment names or variables in <code>$CAPTURE</code>.  An error will be
-generated if no valid names are selected or the names for selection are 
+generated if no valid names are selected or the names for selection are
 not found in the simulated output.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
+    <div class='dont-index'><p><a href='mrgsims_modify.html'>mrgsims_modify</a></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mrgsim.html'>mrgsim</a></span>(<span class='fu'><a href='house.html'>house</a></span>(), <span class='kw'>events</span> <span class='kw'>=</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>100</span>), <span class='kw'>end</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>delta</span><span class='kw'>=</span><span class='fl'>1</span>)
+
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>out</span>, <span class='no'>time</span><span class='kw'>==</span><span class='fl'>2</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 7</span><span>
+#&gt;      ID  time   GUT  CENT  RESP    DV    CP
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     1     2  9.07  85.0  36.4  4.25  4.25</div><div class='input'>
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='no'>out</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"abc"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 7 x 8</span><span>
+#&gt;      ID  time     GUT  CENT  RESP    DV    CP label
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     1     0   0       0    50    0     0    abc  
+#&gt; </span><span style='color: #555555;'>2</span><span>     1     0 100       0    50    0     0    abc  
+#&gt; </span><span style='color: #555555;'>3</span><span>     1     1  30.1    67.8  41.4  3.39  3.39 abc  
+#&gt; </span><span style='color: #555555;'>4</span><span>     1     2   9.07   85.0  36.4  4.25  4.25 abc  
+#&gt; </span><span style='color: #555555;'>5</span><span>     1     3   2.73   87.0  35.1  4.35  4.35 abc  
+#&gt; </span><span style='color: #555555;'>6</span><span>     1     4   0.823  84.6  35.0  4.23  4.23 abc  
+#&gt; </span><span style='color: #555555;'>7</span><span>     1     5   0.248  81.0  35.4  4.05  4.05 abc  </div><div class='input'>
+<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='no'>out</span>, <span class='no'>time</span>, <span class='no'>RESP</span>, <span class='no'>CP</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 7 x 3</span><span>
+#&gt;    time  RESP    CP
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     0  50    0   
+#&gt; </span><span style='color: #555555;'>2</span><span>     0  50    0   
+#&gt; </span><span style='color: #555555;'>3</span><span>     1  41.4  3.39
+#&gt; </span><span style='color: #555555;'>4</span><span>     2  36.4  4.25
+#&gt; </span><span style='color: #555555;'>5</span><span>     3  35.1  4.35
+#&gt; </span><span style='color: #555555;'>6</span><span>     4  35.0  4.23
+#&gt; </span><span style='color: #555555;'>7</span><span>     5  35.4  4.05</div><div class='input'>
+</div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#details">Details</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -223,7 +254,7 @@ not found in the simulated output.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
