@@ -73,7 +73,7 @@ by parse_rx; this function can be used to debug Rx inputs." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0</span>
       </span>
     </div>
 
@@ -81,12 +81,42 @@ by parse_rx; this function can be used to debug Rx inputs." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
+  <a href="../articles/mrgsolve.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extra/dollar-pred.html">Models without compartments</a>
+    </li>
+    <li>
+      <a href="../articles/extra/events.html">Event objects</a>
+    </li>
+    <li>
+      <a href="../articles/extra/init.html">Set initial conditions</a>
+    </li>
+    <li>
+      <a href="../articles/extra/modeled-event-time.html">Modeled events</a>
+    </li>
+    <li>
+      <a href="../articles/extra/steady-state.html">Steady-state</a>
+    </li>
+    <li>
+      <a href="../articles/extra/time-after-dose.html">Time after dose</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -95,7 +125,7 @@ by parse_rx; this function can be used to debug Rx inputs." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -122,15 +152,15 @@ by parse_rx; this function can be used to debug Rx inputs." />
 by parse_rx; this function can be used to debug Rx inputs.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ev_rx</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>ev_rx</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for mrgmod,character</span>
-<span class='fu'>ev_rx</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for character,missing</span>
-<span class='fu'>ev_rx</span>(<span class='no'>x</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='va'>x</span>, df <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>parse_rx</span>(<span class='no'>x</span>)</pre>
+<span class='fu'>parse_rx</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -181,36 +211,46 @@ decimal number (but not scientific notation)</p></li>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># example("ev_rx")</span>
 
-<span class='fu'>ev_rx</span>(<span class='st'>"100"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time amt cmt evid
 #&gt; 1    0 100   1    1</div><div class='input'>
-<span class='fu'>ev_rx</span>(<span class='st'>"100 in 2"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100 in 2"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time amt cmt evid
 #&gt; 1    0 100   2    1</div><div class='input'>
-<span class='fu'>ev_rx</span>(<span class='st'>"100 q12 x 3"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100 q12 x 3"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time amt ii addl cmt evid
 #&gt; 1    0 100 12    2   1    1</div><div class='input'>
-<span class='fu'>ev_rx</span>(<span class='st'>"100 over 2"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100 over 2"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time amt rate cmt evid
 #&gt; 1    0 100   50   1    1</div><div class='input'>
-<span class='fu'>ev_rx</span>(<span class='st'>"100 q 24 x 3 then 50 q12 x 2"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100 q 24 x 3 then 50 q12 x 2"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time amt ii addl cmt evid
 #&gt; 1    0 100 24    2   1    1
 #&gt; 2   72  50 12    1   1    1</div><div class='input'>
-<span class='fu'>ev_rx</span>(<span class='st'>"100 then 50 q 24 after 12"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100 then 50 q 24 after 12"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time amt ii addl cmt evid
 #&gt; 1    0 100  0    0   1    1
 #&gt; 2   12  50 24    0   1    1</div><div class='input'>
-<span class='fu'>ev_rx</span>(<span class='st'>"100.2E-2 q4"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100.2E-2 q4"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time   amt ii cmt evid
 #&gt; 1    0 1.002  4   1    1</div><div class='input'>
-<span class='fu'>ev_rx</span>(<span class='st'>"100 over 2.23"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100 over 2.23"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time amt     rate cmt evid
 #&gt; 1    0 100 44.84305   1    1</div><div class='input'>
-<span class='fu'>ev_rx</span>(<span class='st'>"100 q 12 x 3"</span>)</div><div class='output co'>#&gt; Events:
+<span class='fu'>ev_rx</span><span class='op'>(</span><span class='st'>"100 q 12 x 3"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Events:
 #&gt;   time amt ii addl cmt evid
 #&gt; 1    0 100 12    2   1    1</div><div class='input'>
-<span class='fu'>parse_rx</span>(<span class='st'>"100 mg q 24 then 200 mg q12"</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='fu'>parse_rx</span><span class='op'>(</span><span class='st'>"100 mg q 24 then 200 mg q12"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [[1]]$time
 #&gt; [1] 0
 #&gt; 
@@ -254,7 +294,7 @@ decimal number (but not scientific notation)</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

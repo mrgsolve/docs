@@ -1,6 +1,13 @@
-pandoc: '2.6'
-pkgdown: 1.5.1
+pandoc: 2.11.2
+pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: []
-last_built: 2020-06-18T16:32Z
+articles:
+  extra/dollar-pred: dollar-pred.html
+  extra/events: events.html
+  extra/init: init.html
+  extra/modeled-event-time: modeled-event-time.html
+  extra/steady-state: steady-state.html
+  extra/time-after-dose: time-after-dose.html
+  mrgsolve: mrgsolve.html
+last_built: 2021-03-30T05:02Z
 

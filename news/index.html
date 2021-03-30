@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0</span>
       </span>
     </div>
 
@@ -79,12 +79,42 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
+  <a href="../articles/mrgsolve.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extra/dollar-pred.html">Models without compartments</a>
+    </li>
+    <li>
+      <a href="../articles/extra/events.html">Event objects</a>
+    </li>
+    <li>
+      <a href="../articles/extra/init.html">Set initial conditions</a>
+    </li>
+    <li>
+      <a href="../articles/extra/modeled-event-time.html">Modeled events</a>
+    </li>
+    <li>
+      <a href="../articles/extra/steady-state.html">Steady-state</a>
+    </li>
+    <li>
+      <a href="../articles/extra/time-after-dose.html">Time after dose</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -93,7 +123,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -114,6 +144,81 @@
       <small>Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="mrgsolve-0110" class="section level1">
+<h1 class="page-header" data-toc-text="0.11.0">
+<a href="#mrgsolve-0110" class="anchor"></a>mrgsolve 0.11.0<small> 2021-03-28 </small>
+</h1>
+<ul>
+<li>The absolute paths to nonmem output files (<code>root.xml</code> or <code>root.ext</code>) are now saved in the model object when nonmem results are imported via <code>$NMEXT</code> or <code>$NMXML</code>; paths are accessible by coercing the model object with <code><a href="https://rdrr.io/r/base/list.html">as.list()</a></code> and looking at the <code>nm_import</code> item (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/802'>#802</a>)</li>
+<li>Add Tim Waterhouse as contributor (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/809'>#809</a>)</li>
+<li>Add <code>root</code> argument to <code>$NMEXT</code> and <code>$NMXML</code> so that the nonmem output files are located relative to the <code>working</code> directory (default, previous behavior) or the directory where the <code>cppfile</code> is stored; <code>cppfile</code> will eventually replace <code>working</code> as the default (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/803'>#803</a>)</li>
+<li>Models based on <code>$PRED</code> now respect the <code>obsonly</code> option (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/811'>#811</a>)</li>
+</ul>
+</div>
+    <div id="mrgsolve-0109" class="section level1">
+<h1 class="page-header" data-toc-text="0.10.9">
+<a href="#mrgsolve-0109" class="anchor"></a>mrgsolve 0.10.9<small> Unreleased </small>
+</h1>
+<ul>
+<li>Dosing into a compartment that is off at the time of the dose turns the compartment back on regardless of whether bioavailability is zero or non-zero (this is a bug fix where the compartment was not turned on when bioavailability was zero). (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/800'>#800</a>)</li>
+<li>
+<code>simeta()</code> and <code>simeps()</code> now accept an (optional) integer argument to limit re-simulation to single ETA or EPS values (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/789'>#789</a>)</li>
+<li>
+<code><a href="https://rdrr.io/r/base/list.html">as.list(mod)</a></code> output now includes a data frame of <code>C++</code> variables and pre-processor definitions in the <code>cpp_variables</code> slot. (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/780'>#780</a>)</li>
+<li>
+<code>$PARAM</code>, <code>$THETA</code>, <code>$CMT</code>, <code>$INIT</code>, <code>$OMEGA</code> and <code>$SIGMA</code> blocks all include the directives <code>@object</code> and <code>@as_object</code> so that block contents can be specified programmatically. <code>@object</code> names an object that was coded into <code>$ENV</code> and <code>@as_object</code> indicates that the block contains code to realize the object. See <code><a href="../reference/BLOCK_PARSE.html">?BLOCK_PARSE</a></code> help topic for more information on how this all works. (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/783'>#783</a>)</li>
+<li>
+<code>$NMEXT</code> now lets the user select between multiple tables for scraping parameter estimates. (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/782'>#782</a>)</li>
+</ul>
+</div>
+    <div id="mrgsolve-0108" class="section level1">
+<h1 class="page-header" data-toc-text="0.10.8">
+<a href="#mrgsolve-0108" class="anchor"></a>mrgsolve 0.10.8<small> Unreleased </small>
+</h1>
+<ul>
+<li>Allow simulation from compartmental models with negative times <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/778'>#778</a></li>
+<li>Enable dynamic capture of pre-processor directives at compile time <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/776'>#776</a></li>
+<li>Fix error message when requesting invalid items during dynamic capture <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/776'>#776</a></li>
+</ul>
+</div>
+    <div id="mrgsolve-0107" class="section level1">
+<h1 class="page-header" data-toc-text="0.10.7">
+<a href="#mrgsolve-0107" class="anchor"></a>mrgsolve 0.10.7<small> 2020-12-09 </small>
+</h1>
+<ul>
+<li>Stop testing test_equal using lattice</li>
+</ul>
+</div>
+    <div id="mrgsolve-0106" class="section level1">
+<h1 class="page-header" data-toc-text="0.10.6">
+<a href="#mrgsolve-0106" class="anchor"></a>mrgsolve 0.10.6<small> Unreleased </small>
+</h1>
+<ul>
+<li>Fix url endings for check on r-devel</li>
+<li>Adjust test comparing lattice plots based on change in r-devel; passing check.environments now</li>
+</ul>
+</div>
+    <div id="mrgsolve-0105" class="section level1">
+<h1 class="page-header" data-toc-text="0.10.5">
+<a href="#mrgsolve-0105" class="anchor"></a>mrgsolve 0.10.5<small> Unreleased </small>
+</h1>
+<ul>
+<li>Suppress warnings when non-numeric columns are dropped when those columns are not relevant to the simulation <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/709'>#709</a></li>
+<li>Add <code>$ERROR</code> as an alias for <code>$TABLE</code> in the model file <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/710'>#710</a></li>
+<li>Fix bug where warning messages during steady-state finding referenced <code>rtol</code> and <code>atol</code> rather than <code>ss_rtol</code> and <code>ss_atol</code> <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/703'>#703</a></li>
+<li>Fix annotation parsing bug when the description included semi-colon <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/696'>#696</a></li>
+<li>
+<code>loadso</code> issues a proper error when the model dll doesn’t exist <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/724'>#724</a></li>
+<li>Try loading the model with loadso once of the model isn’t loaded at the time of simulation <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/725'>#725</a></li>
+<li>Throw an error when <code>addl</code> or <code>ss</code> are negative <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/733'>#733</a></li>
+<li>Internal refactoring so that there is a hard solver reset when parameters that are copied from data change <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/744'>#744</a></li>
+<li>Add <code>tad</code> plugin to calculate time after dose in a specific compartment
+<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/702'>#702</a></li>
+<li>Internal refactor <code>carry_out</code> to respect default <code>nocb</code> behavior <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/759'>#759</a>; see also <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/744'>#744</a></li>
+<li>Throw an error when matlist labels are duplicated <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/730'>#730</a></li>
+<li>Add <code>capture</code> argument to <code>mread</code> to add to <code>$CAPTURE</code> when compiling the model <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/704'>#704</a></li>
+</ul>
+</div>
     <div id="mrgsolve-0103" class="section level1">
 <h1 class="page-header" data-toc-text="0.10.3">
 <a href="#mrgsolve-0103" class="anchor"></a>mrgsolve 0.10.3<small> Unreleased </small>
@@ -636,7 +741,7 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 <h2 class="hasAnchor">
 <a href="#features" class="anchor"></a>Features</h2>
 <ul>
-<li>Added <code>@</code> macros for indicating block options in model specification file.</li>
+<li>Added <code><a href="https://rdrr.io/r/base/slotOp.html">@</a></code> macros for indicating block options in model specification file.</li>
 <li>Added <code>qsim</code> function for quick(er) simulation runs with just one parameter set.<br>
 </li>
 <li>Added <code>recmatrix</code> that creates matrix simulation template for <code>qsim</code>.</li>
@@ -939,7 +1044,7 @@ Specifying character names <code>tname</code>, <code>oname</code>, and <code>sna
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0</span>
       </span>
     </div>
 
@@ -80,12 +80,42 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
+  <a href="../articles/mrgsolve.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extra/dollar-pred.html">Models without compartments</a>
+    </li>
+    <li>
+      <a href="../articles/extra/events.html">Event objects</a>
+    </li>
+    <li>
+      <a href="../articles/extra/init.html">Set initial conditions</a>
+    </li>
+    <li>
+      <a href="../articles/extra/modeled-event-time.html">Modeled events</a>
+    </li>
+    <li>
+      <a href="../articles/extra/steady-state.html">Steady-state</a>
+    </li>
+    <li>
+      <a href="../articles/extra/time-after-dose.html">Time after dose</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -94,7 +124,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -120,13 +150,14 @@
     <p>Extract estimates from NONMEM ext file</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_nmext</span>(
-  <span class='kw'>run</span> <span class='kw'>=</span> <span class='fl'>NA_real_</span>,
-  <span class='kw'>project</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span>(),
-  <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='no'>run</span>, <span class='st'>".ext"</span>),
-  <span class='kw'>path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>read_fun</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"data.table"</span>, <span class='st'>"read.table"</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>read_nmext</span><span class='op'>(</span>
+  run <span class='op'>=</span> <span class='cn'>NA_real_</span>,
+  project <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>,
+  file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>run</span>, <span class='st'>".ext"</span><span class='op'>)</span>,
+  path <span class='op'>=</span> <span class='cn'>NULL</span>,
+  read_fun <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"data.table"</span>, <span class='st'>"read.table"</span><span class='op'>)</span>,
+  index <span class='op'>=</span> <span class='st'>"last"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,19 +182,30 @@
       <th>read_fun</th>
       <td><p>function to read the <code>ext</code> file</p></td>
     </tr>
+    <tr>
+      <th>index</th>
+      <td><p>selects the table number whose results will be returned;
+use value "last" to select the last table in the <code>.ext</code> file; or pass an
+integer specifying the table number; in case there is exactly
+one table in the <code>.ext</code> file, pass the value "single" to bypass parsing
+the file to look for sub tables (this might be useful when BAYES analysis
+was performed as the only estimation method and there are 10000s of
+posterior samples in the file)</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list with param, omega, and sigma in a format
-ready to be used to update a model object.</p>
+    <p>A list with param, omega, and sigma in a format ready to be used to
+update a model object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>project</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"nonmem"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"mrgsolve"</span>)
+    <pre class="examples"><div class='input'><span class='va'>project</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"nonmem"</span>, package <span class='op'>=</span> <span class='st'>"mrgsolve"</span><span class='op'>)</span>
 
-<span class='no'>est</span> <span class='kw'>&lt;-</span> <span class='fu'>read_nmext</span>(<span class='fl'>1005</span>, <span class='kw'>project</span> <span class='kw'>=</span> <span class='no'>project</span>)
+<span class='va'>est</span> <span class='op'>&lt;-</span> <span class='fu'>read_nmext</span><span class='op'>(</span><span class='fl'>1005</span>, project <span class='op'>=</span> <span class='va'>project</span><span class='op'>)</span>
 
-<span class='no'>est</span>$<span class='no'>param</span></div><div class='output co'>#&gt; $THETA1
+<span class='va'>est</span><span class='op'>$</span><span class='va'>param</span>
+</div><div class='output co'>#&gt; $THETA1
 #&gt; [1] 9.50789
 #&gt; 
 #&gt; $THETA2
@@ -184,13 +226,17 @@ ready to be used to update a model object.</p>
 #&gt; $THETA7
 #&gt; [1] 1.19212
 #&gt; </div><div class='input'>
-<span class='no'>est</span>$<span class='no'>omega</span></div><div class='output co'>#&gt;            [,1]       [,2]       [,3]
+<span class='va'>est</span><span class='op'>$</span><span class='va'>omega</span>
+</div><div class='output co'>#&gt;            [,1]       [,2]       [,3]
 #&gt; [1,]  0.2138790  0.1207700 -0.0116278
 #&gt; [2,]  0.1207700  0.0945105 -0.0372064
 #&gt; [3,] -0.0116278 -0.0372064  0.0465631</div><div class='input'>
-<span class='no'>est</span>$<span class='no'>sigma</span></div><div class='output co'>#&gt;           [,1]     [,2]
+<span class='va'>est</span><span class='op'>$</span><span class='va'>sigma</span>
+</div><div class='output co'>#&gt;           [,1]     [,2]
 #&gt; [1,] 0.0491707 0.000000
 #&gt; [2,] 0.0000000 0.201769</div><div class='input'>
+<span class='va'>est</span> <span class='op'>&lt;-</span> <span class='fu'>read_nmext</span><span class='op'>(</span><span class='fl'>2005</span>, project <span class='op'>=</span> <span class='va'>project</span>, index <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -207,7 +253,7 @@ ready to be used to update a model object.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

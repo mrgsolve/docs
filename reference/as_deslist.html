@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0</span>
       </span>
     </div>
 
@@ -80,12 +80,42 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
+  <a href="../articles/mrgsolve.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extra/dollar-pred.html">Models without compartments</a>
+    </li>
+    <li>
+      <a href="../articles/extra/events.html">Event objects</a>
+    </li>
+    <li>
+      <a href="../articles/extra/init.html">Set initial conditions</a>
+    </li>
+    <li>
+      <a href="../articles/extra/modeled-event-time.html">Modeled events</a>
+    </li>
+    <li>
+      <a href="../articles/extra/steady-state.html">Steady-state</a>
+    </li>
+    <li>
+      <a href="../articles/extra/time-after-dose.html">Time after dose</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -94,7 +124,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -120,7 +150,7 @@
     <p>Create a list of designs from a data frame</p>
     </div>
 
-    <pre class="usage"><span class='fu'>as_deslist</span>(<span class='no'>data</span>, <span class='kw'>descol</span> <span class='kw'>=</span> <span class='st'>"ID"</span>)</pre>
+    <pre class="usage"><span class='fu'>as_deslist</span><span class='op'>(</span><span class='va'>data</span>, descol <span class='op'>=</span> <span class='st'>"ID"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,21 +179,23 @@ and <code>add</code> (other, ad-hoc times).  Note that <code>add</code> might be
 a <code>list-column</code> to get a vector of times for each time grid object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>idata</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>tibble</span><span class='kw ns'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span>(<span class='kw'>ID</span><span class='kw'>=</span><span class='fl'>1</span>:<span class='fl'>4</span>, <span class='kw'>end</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>24</span>,<span class='fl'>96</span>,<span class='fl'>24</span>), <span class='kw'>delta</span><span class='kw'>=</span><span class='fl'>6</span>,
-<span class='kw'>add</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>122</span>,<span class='fl'>124</span>,<span class='fl'>135</span>),<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>111</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>99</span>),<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>88</span>)))
+    <pre class="examples"><div class='input'><span class='va'>idata</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>ID<span class='op'>=</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, end<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>24</span>,<span class='fl'>96</span>,<span class='fl'>24</span><span class='op'>)</span>, delta<span class='op'>=</span><span class='fl'>6</span>,
+add<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>122</span>,<span class='fl'>124</span>,<span class='fl'>135</span><span class='op'>)</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>111</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>99</span><span class='op'>)</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>88</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='no'>idata</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='no'>idata</span>, <span class='kw'>GRP</span> <span class='kw'>=</span> <span class='no'>ID</span> <span class='kw'>%%</span><span class='fl'>2</span>)
+<span class='va'>idata</span> <span class='op'>&lt;-</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span><span class='va'>idata</span>, GRP <span class='op'>=</span> <span class='va'>ID</span> <span class='op'>%%</span><span class='fl'>2</span><span class='op'>)</span>
 
-<span class='no'>idata</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 4 x 5</span><span>
+<span class='va'>idata</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 4 x 5</span><span>
 #&gt;      ID   end delta add         GRP
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span>     1    24     6 </span><span style='color: #555555;'>&lt;dbl [3]&gt;</span><span>     1
-#&gt; </span><span style='color: #555555;'>2</span><span>     2    48     6 </span><span style='color: #555555;'>&lt;dbl [1]&gt;</span><span>     0
-#&gt; </span><span style='color: #555555;'>3</span><span>     3    72     6 </span><span style='color: #555555;'>&lt;dbl [1]&gt;</span><span>     1
-#&gt; </span><span style='color: #555555;'>4</span><span>     4    96     6 </span><span style='color: #555555;'>&lt;dbl [1]&gt;</span><span>     0</div><div class='input'>
-<span class='no'>l</span> <span class='kw'>&lt;-</span> <span class='fu'>as_deslist</span>(<span class='no'>idata</span>,<span class='st'>"GRP"</span>)
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;list&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span>     1    24     6 </span><span style='color: #949494;'>&lt;dbl [3]&gt;</span><span>     1
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     2    48     6 </span><span style='color: #949494;'>&lt;dbl [1]&gt;</span><span>     0
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span>     3    72     6 </span><span style='color: #949494;'>&lt;dbl [1]&gt;</span><span>     1
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span>     4    96     6 </span><span style='color: #949494;'>&lt;dbl [1]&gt;</span><span>     0</div><div class='input'>
+<span class='va'>l</span> <span class='op'>&lt;-</span> <span class='fu'>as_deslist</span><span class='op'>(</span><span class='va'>idata</span>,<span class='st'>"GRP"</span><span class='op'>)</span>
 
-<span class='no'>l</span></div><div class='output co'>#&gt; $GRP_0
+<span class='va'>l</span>
+</div><div class='output co'>#&gt; $GRP_0
 #&gt; start:  0  end:    48  delta:  6  offset: 0  min:    0   max:    111 
 #&gt; 
 #&gt; $GRP_1
@@ -171,13 +203,15 @@ a <code>list-column</code> to get a vector of times for each time grid object.</
 #&gt; 
 #&gt; attr(,"descol")
 #&gt; [1] "GRP"</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>l</span>,<span class='no'>stime</span>)</div><div class='output co'>#&gt; $GRP_0
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>l</span>,<span class='va'>stime</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $GRP_0
 #&gt;  [1]   0   6  12  18  24  30  36  42  48 111
 #&gt; 
 #&gt; $GRP_1
 #&gt; [1]   0   6  12  18  24 122 124 135
 #&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='fu'>as_deslist</span>(<span class='no'>idata</span>, <span class='st'>"ID"</span>),<span class='no'>stime</span>)</div><div class='output co'>#&gt; $ID_1
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='fu'>as_deslist</span><span class='op'>(</span><span class='va'>idata</span>, <span class='st'>"ID"</span><span class='op'>)</span>,<span class='va'>stime</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $ID_1
 #&gt; [1]   0   6  12  18  24 122 124 135
 #&gt; 
 #&gt; $ID_2
@@ -205,7 +239,7 @@ a <code>list-column</code> to get a vector of times for each time grid object.</
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

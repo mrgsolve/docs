@@ -73,7 +73,7 @@ Model code is written to a file and read back in using mread." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0</span>
       </span>
     </div>
 
@@ -81,12 +81,42 @@ Model code is written to a file and read back in using mread." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
+  <a href="../articles/mrgsolve.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extra/dollar-pred.html">Models without compartments</a>
+    </li>
+    <li>
+      <a href="../articles/extra/events.html">Event objects</a>
+    </li>
+    <li>
+      <a href="../articles/extra/init.html">Set initial conditions</a>
+    </li>
+    <li>
+      <a href="../articles/extra/modeled-event-time.html">Modeled events</a>
+    </li>
+    <li>
+      <a href="../articles/extra/steady-state.html">Steady-state</a>
+    </li>
+    <li>
+      <a href="../articles/extra/time-after-dose.html">Time after dose</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -95,7 +125,7 @@ Model code is written to a file and read back in using mread." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -122,14 +152,14 @@ Model code is written to a file and read back in using mread." />
 Model code is written to a file and read back in using <code><a href='mread.html'>mread</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mcode</span>(<span class='no'>model</span>, <span class='no'>code</span>, <span class='kw'>project</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"mrgsolve.project"</span>, <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>()), <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>mcode</span><span class='op'>(</span><span class='va'>model</span>, <span class='va'>code</span>, project <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"mrgsolve.project"</span>, <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>mcode_cache</span>(
-  <span class='no'>model</span>,
-  <span class='no'>code</span>,
-  <span class='kw'>project</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"mrgsolve.project"</span>, <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>()),
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>mcode_cache</span><span class='op'>(</span>
+  <span class='va'>model</span>,
+  <span class='va'>code</span>,
+  project <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"mrgsolve.project"</span>, <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,8 +195,8 @@ compilation results with <code>mcode_cache</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='st'>'
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span> 
+<span class='va'>code</span> <span class='op'>&lt;-</span> <span class='st'>'
 $CMT DEPOT CENT
 $PKMODEL ncmt=1, depot=TRUE
 $MAIN
@@ -175,8 +205,10 @@ double V = 20;
 double KA = 1;
 '</span>
 
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='fu'>mcode</span>(<span class='st'>"example"</span>,<span class='no'>code</span>)
-}</div></pre>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'>mcode</span><span class='op'>(</span><span class='st'>"example"</span>,<span class='va'>code</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -192,7 +224,7 @@ double KA = 1;
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

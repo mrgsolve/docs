@@ -41,12 +41,11 @@
 
 <meta property="og:title" content="Simulate from a model object — mrgsim" />
 <meta property="og:description" content="This function sets up the simulation run from data stored in the model
-object as well as arguments passed in.  Use mrgsim_q instead 
-to benchmark mrgsolve or to do repeated quick simulation for tasks like 
+object as well as arguments passed in.  Use mrgsim_q() instead
+to benchmark mrgsolve or to do repeated quick simulation for tasks like
 parameter optimization, sensitivity analyses, or optimal design.  See
-mrgsim_variants for other mrgsim-like functions that have 
-more focused inputs. mrgsim_df coerces output to data.frame 
-prior to returning." />
+mrgsim_variants for other mrgsim-like functions that have more focused
+inputs. mrgsim_df coerces output to data.frame prior to returning." />
 
 
 
@@ -78,7 +77,7 @@ prior to returning." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0</span>
       </span>
     </div>
 
@@ -86,12 +85,42 @@ prior to returning." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
+  <a href="../articles/mrgsolve.html">Get started</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extra/dollar-pred.html">Models without compartments</a>
+    </li>
+    <li>
+      <a href="../articles/extra/events.html">Event objects</a>
+    </li>
+    <li>
+      <a href="../articles/extra/init.html">Set initial conditions</a>
+    </li>
+    <li>
+      <a href="../articles/extra/modeled-event-time.html">Modeled events</a>
+    </li>
+    <li>
+      <a href="../articles/extra/steady-state.html">Steady-state</a>
+    </li>
+    <li>
+      <a href="../articles/extra/time-after-dose.html">Time after dose</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -100,7 +129,7 @@ prior to returning." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -124,43 +153,42 @@ prior to returning." />
 
     <div class="ref-description">
     <p>This function sets up the simulation run from data stored in the model
-object as well as arguments passed in.  Use <code><a href='mrgsim_q.html'>mrgsim_q</a></code> instead 
-to benchmark mrgsolve or to do repeated quick simulation for tasks like 
+object as well as arguments passed in.  Use <code><a href='mrgsim_q.html'>mrgsim_q()</a></code> instead
+to benchmark mrgsolve or to do repeated quick simulation for tasks like
 parameter optimization, sensitivity analyses, or optimal design.  See
-<code><a href='mrgsim_variants.html'>mrgsim_variants</a></code> for other mrgsim-like functions that have 
-more focused inputs. <code>mrgsim_df</code> coerces output to data.frame 
-prior to returning.</p>
+<a href='mrgsim_variants.html'>mrgsim_variants</a> for other mrgsim-like functions that have more focused
+inputs. <code>mrgsim_df</code> coerces output to data.frame prior to returning.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mrgsim</span>(<span class='no'>x</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>idata</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>events</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>nid</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>mrgsim</span><span class='op'>(</span><span class='va'>x</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, idata <span class='op'>=</span> <span class='cn'>NULL</span>, events <span class='op'>=</span> <span class='cn'>NULL</span>, nid <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>mrgsim_df</span>(<span class='no'>...</span>, <span class='kw'>output</span> <span class='kw'>=</span> <span class='st'>"df"</span>)
+<span class='fu'>mrgsim_df</span><span class='op'>(</span><span class='va'>...</span>, output <span class='op'>=</span> <span class='st'>"df"</span><span class='op'>)</span>
 
-<span class='fu'>do_mrgsim</span>(
-  <span class='no'>x</span>,
-  <span class='no'>data</span>,
-  <span class='kw'>idata</span> <span class='kw'>=</span> <span class='fu'>no_idata_set</span>(),
-  <span class='kw'>carry_out</span> <span class='kw'>=</span> <span class='no'>carry.out</span>,
-  <span class='kw'>carry.out</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>),
-  <span class='kw'>recover</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>),
-  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span>(<span class='fl'>NA</span>),
-  <span class='kw'>Request</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>),
-  <span class='kw'>output</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>capture</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>obsonly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>obsaug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>tgrid</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>recsort</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>deslist</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(),
-  <span class='kw'>descol</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>),
-  <span class='kw'>filbak</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>tad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>nocb</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>skip_init_calc</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>ss_n</span> <span class='kw'>=</span> <span class='fl'>500</span>,
-  <span class='kw'>ss_fixed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>do_mrgsim</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>data</span>,
+  idata <span class='op'>=</span> <span class='fu'>no_idata_set</span><span class='op'>(</span><span class='op'>)</span>,
+  carry_out <span class='op'>=</span> <span class='va'>carry.out</span>,
+  carry.out <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  recover <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  seed <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='cn'>NA</span><span class='op'>)</span>,
+  Request <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  output <span class='op'>=</span> <span class='cn'>NULL</span>,
+  capture <span class='op'>=</span> <span class='cn'>NULL</span>,
+  obsonly <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  obsaug <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  tgrid <span class='op'>=</span> <span class='cn'>NULL</span>,
+  recsort <span class='op'>=</span> <span class='fl'>1</span>,
+  deslist <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  descol <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  filbak <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  tad <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  nocb <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  skip_init_calc <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  ss_n <span class='op'>=</span> <span class='fl'>500</span>,
+  ss_fixed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,12 +199,12 @@ prior to returning.</p>
     </tr>
     <tr>
       <th>data</th>
-      <td><p>NMTRAN-like data set (see <code><a href='data_set.html'>data_set</a></code>)</p></td>
+      <td><p>NMTRAN-like data set (see <code><a href='data_set.html'>data_set()</a></code>)</p></td>
     </tr>
     <tr>
       <th>idata</th>
-      <td><p>a matrix or data frame of model parameters, 
-one parameter per row (see <code><a href='idata_set.html'>idata_set</a></code>)</p></td>
+      <td><p>a matrix or data frame of model parameters,
+one parameter per row (see <code><a href='idata_set.html'>idata_set()</a></code>)</p></td>
     </tr>
     <tr>
       <th>events</th>
@@ -184,18 +212,18 @@ one parameter per row (see <code><a href='idata_set.html'>idata_set</a></code>)<
     </tr>
     <tr>
       <th>nid</th>
-      <td><p>integer number of individuals to simulate; only used if 
+      <td><p>integer number of individuals to simulate; only used if
 idata and data are missing</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>passed to <code><a href='update.html'>update</a></code> and 
-<code>do_mrgsim</code></p></td>
+      <td><p>passed to <code><a href='update.html'>update()</a></code> and
+<code>do_mrgsim()</code></p></td>
     </tr>
     <tr>
       <th>output</th>
-      <td><p>if <code>NULL</code> (the default) a mrgsims object is returned; 
-otherwise, pass <code>df</code> to return a data.frame or <code>matrix</code> to 
+      <td><p>if <code>NULL</code> (the default) a mrgsims object is returned;
+otherwise, pass <code>df</code> to return a data.frame or <code>matrix</code> to
 return a matrix</p></td>
     </tr>
     <tr>
@@ -208,8 +236,8 @@ return a matrix</p></td>
     </tr>
     <tr>
       <th>recover</th>
-      <td><p>character column names in either <code>data</code> or <code>idata</code> 
-to join back (recover) to simulated data; may be any class (e.g. numeric, 
+      <td><p>character column names in either <code>data</code> or <code>idata</code>
+to join back (recover) to simulated data; may be any class (e.g. numeric,
 character, factor, etc)</p></td>
     </tr>
     <tr>
@@ -234,9 +262,9 @@ in the output</p></td>
     </tr>
     <tr>
       <th>obsaug</th>
-      <td><p>augment the data set with time grid observations; when 
-<code>TRUE</code> and a full data set is used, the simulated output is augmented 
-with an observation at each time in <code><a href='stime.html'>stime</a></code>().  When using
+      <td><p>augment the data set with time grid observations; when
+<code>TRUE</code> and a full data set is used, the simulated output is augmented
+with an observation at each time in <code><a href='stime.html'>stime()</a></code>.  When using
 <code>obsaug</code>, a flag indicating augmented observations can be requested by
 including <code>a.u.g</code> in  <code>carry_out</code></p></td>
     </tr>
@@ -247,13 +275,13 @@ or another object with an <code>stime</code> method</p></td>
     </tr>
     <tr>
       <th>recsort</th>
-      <td><p>record sorting flag.  Default value is 1.  Possible values 
-are 1,2,3,4: 1 and 2 put doses in a data set after padded observations at 
-the same time; 3 and 4 put those doses before padded observations at the 
-same time.  2 and 4 will put doses scheduled through <code>addl</code> after 
-observations at the same time; 1 and 3 put doses scheduled through 
-<code>addl</code> before observations at the same time. <code>recsort</code> will 
-not change the order of your input data set if both doses and observations 
+      <td><p>record sorting flag.  Default value is 1.  Possible values
+are 1,2,3,4: 1 and 2 put doses in a data set after padded observations at
+the same time; 3 and 4 put those doses before padded observations at the
+same time.  2 and 4 will put doses scheduled through <code>addl</code> after
+observations at the same time; 1 and 3 put doses scheduled through
+<code>addl</code> before observations at the same time. <code>recsort</code> will
+not change the order of your input data set if both doses and observations
 are given.</p></td>
     </tr>
     <tr>
@@ -266,26 +294,25 @@ are given.</p></td>
     </tr>
     <tr>
       <th>filbak</th>
-      <td><p>carry data items backward when the first 
+      <td><p>carry data items backward when the first
 data set row has time greater than zero</p></td>
     </tr>
     <tr>
       <th>tad</th>
-      <td><p>when <code>TRUE</code> a column is added to simulated 
-output is added showing the time since the last dose.  Only data records 
-with <code>evid == 1</code> will be considered doses for the purposes of 
-<code>tad</code> calculation. The <code>tad</code> can be properly calculated with 
-a dosing lag time in the model as long as the dosing lag time (specified 
-in <code>$MAIN</code>)  is always  appropriate for any subsequent doses scheduled 
-through <code>addl</code>.  This will always be true if the lag time doesn't 
-change over time.  But it might (possibly) not hold if the lag time changes
-prior to the last dose in the <code>addl</code> sequence.  This known limitation
-shouldn't affect <code>tad</code> calculation in most common dosing lag time
-implementations.</p></td>
+      <td><p>when <code>TRUE</code> a column is added to simulated
+output is added showing the time since the last dose.  Only data records
+with <code>evid == 1</code> will be considered doses for the purposes of <code>tad</code>
+calculation. The <code>tad</code> can be properly calculated with a dosing lag time in
+the model as long as the dosing lag time (specified in <code>$MAIN</code>)  is always
+appropriate for any subsequent doses scheduled through <code>addl</code>.  This will
+always be true if the lag time doesn't change over time.  But it might
+(possibly) not hold if the lag time changes prior to the last dose in the
+<code>addl</code> sequence.  This known limitation shouldn't affect <code>tad</code> calculation
+in most common dosing lag time implementations.</p></td>
     </tr>
     <tr>
       <th>nocb</th>
-      <td><p>if <code>TRUE</code>, use next observation carry backward method; 
+      <td><p>if <code>TRUE</code>, use next observation carry backward method;
 otherwise, use <code>locf</code>.</p></td>
     </tr>
     <tr>
@@ -294,81 +321,81 @@ otherwise, use <code>locf</code>.</p></td>
     </tr>
     <tr>
       <th>ss_n</th>
-      <td><p>maximum number of iterations for determining steady state for 
-the PK system; a warning will be issued if steady state is not achieved 
+      <td><p>maximum number of iterations for determining steady state for
+the PK system; a warning will be issued if steady state is not achieved
 within <code>ss_n</code> iterations when <code>ss_fixed</code> is <code>TRUE</code></p></td>
     </tr>
     <tr>
       <th>ss_fixed</th>
       <td><p>if <code>FALSE</code> (the default), then a warning will be issued
 if the system does not reach steady state within <code>ss_n</code> iterations
-given the model tolerances <code>rtol</code> and <code>atol</code>; if <code>TRUE</code>, 
-the number of iterations for determining steady state are capped at 
-<code>ss_n</code> and no warning will be issued if steady state 
+given the model tolerances <code>rtol</code> and <code>atol</code>; if <code>TRUE</code>,
+the number of iterations for determining steady state are capped at
+<code>ss_n</code> and no warning will be issued if steady state
 has not been reached within <code>ss_n</code> dosing iterations.
-To silence warnings related to steady state, 
-set <code>ss_fixed</code> to <code>TRUE</code> and set <code>ss_n</code> as the maximum number 
-of iterations to try when advancing the system for steady state 
-determination.</p></td>
+To silence warnings related to steady state, set <code>ss_fixed</code> to <code>TRUE</code> and
+set <code>ss_n</code> as the maximum number of iterations to try when advancing the
+system for steady state determination.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code><a href='mrgsims.html'>mrgsims</a></code></p>
+    <p>An object of class <a href='mrgsims.html'>mrgsims</a></p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     
 <ul>
-<li><p>Use <code>mrgsim_df</code> to return a data frame rather than 
+<li><p>Use <code>mrgsim_df()</code> to return a data frame rather than
 <code>mrgsims</code> object</p></li>
 <li><p>Both <code>data</code> and <code>idata</code> will be coerced to numeric matrix</p></li>
-<li><p><code>carry_out</code> can be used to insert data columns into the output 
-data set.  This is partially dependent on the nature of the data brought 
+<li><p><code>carry_out</code> can be used to insert data columns into the output
+data set. This is partially dependent on the nature of the data brought
 into the problem</p></li>
-<li><p>When using <code>data</code> and <code>idata</code> together, an error is 
-generated if an  ID occurs in <code>data</code> but not <code>idata</code>.  
-Also, when looking up data in <code>idata</code>, ID in <code>idata</code> is 
-assumed to be uniquely keyed to ID in <code>data</code>.  No error is 
-generated if ID is duplicated in <code>data</code>; parameters will be used 
+<li><p>When using <code>data</code> and <code>idata</code> together, an error is
+generated if an  ID occurs in <code>data</code> but not <code>idata</code>.
+Also, when looking up data in <code>idata</code>, ID in <code>idata</code> is
+assumed to be uniquely keyed to ID in <code>data</code>.  No error is
+generated if ID is duplicated in <code>data</code>; parameters will be used
 from the first occurrence found in <code>idata</code></p></li>
-<li><p><code>carry_out</code>: <code>idata</code> is assumed to be 
-individual-level and variables that are carried from <code>idata</code> 
-are repeated throughout the individual's simulated data.  Variables 
-carried from <code>data</code> are carried via last-observation carry forward.  
-<code>NA</code> is returned from observations that are inserted into 
+<li><p><code>carry_out</code>: <code>idata</code> is assumed to be individual-level and variables that
+are carried from <code>idata</code> are repeated throughout the individual's simulated
+data.  Variables carried from <code>data</code> are carried via last-observation carry
+forward.  <code>NA</code> is returned from observations that are inserted into
 simulated output that occur prior to the first record in <code>data</code></p></li>
-<li><p><code>recover</code>: this is similar to <code>carry_out</code> with respect to 
-end result, but it uses a different process.  Columns to be recovered are 
-cached prior to running the simulation, and then joined back on to the 
-simulated data.  So, whereas <code>carry_out</code> will only accept numeric 
+<li><p><code>recover</code>: this is similar to <code>carry_out</code> with respect to
+end result, but it uses a different process.  Columns to be recovered are
+cached prior to running the simulation, and then joined back on to the
+simulated data.  So, whereas <code>carry_out</code> will only accept numeric
 data items, <code>recover</code> can handle data frame columns of any type.  There
-is a small decrease in performance with <code>recover</code> compared to 
-<code>carry_out</code>, but it is likely that the performance difference is 
+is a small decrease in performance with <code>recover</code> compared to
+<code>carry_out</code>, but it is likely that the performance difference is
 difficult to perceive (when the simulation runs very fast) or only a small
 fractional increase in run time when the simulation is very large.  And any
-performance hit is likely to be well worth it in light of the convenience 
+performance hit is likely to be well worth it in light of the convenience
 gain.  Just think carefully about using this feature when every millisecond
 counts.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='mrgsim_variants.html'>mrgsim_variants</a></code>, <code><a href='mrgsim_q.html'>mrgsim_q</a></code></p></div>
+    <div class='dont-index'><p><a href='mrgsim_variants.html'>mrgsim_variants</a>, <code><a href='mrgsim_q.html'>mrgsim_q()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## example("mrgsim")</span>
 
-<span class='no'>e</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='va'>e</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span><span class='op'>(</span>amt <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
 
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mrgsolve</span><span class='kw ns'>::</span><span class='fu'><a href='house.html'>house</a></span>()
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='fu'>mrgsolve</span><span class='fu'>::</span><span class='fu'><a href='house.html'>house</a></span><span class='op'>(</span><span class='op'>)</span> 
 
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='no'>e</span>) <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>()
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='va'>mod</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>mrgsim</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>out</span>)</div><div class='img'><img src='mrgsim-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='no'>e</span>) <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>(<span class='kw'>end</span><span class='kw'>=</span><span class='fl'>22</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+</div><div class='img'><img src='mrgsim-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='va'>mod</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>mrgsim</span><span class='op'>(</span>end<span class='op'>=</span><span class='fl'>22</span><span class='op'>)</span>
 
-<span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
+<span class='va'>out</span>
+</div><div class='output co'>#&gt; Model:  housemodel 
 #&gt; Dim:    90 x 7 
 #&gt; Time:   0 to 22 
 #&gt; ID:     1 
@@ -381,11 +408,12 @@ counts.</p></li>
 #&gt; 6:   1 1.00  301.2 678.3 20.05 33.91 33.91
 #&gt; 7:   1 1.25  223.1 747.4 16.45 37.37 37.37
 #&gt; 8:   1 1.50  165.3 795.6 14.01 39.78 39.78</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>exTheoph</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>exTheoph</span><span class='op'>)</span>
 
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='data_set.html'>data_set</a></span>(<span class='no'>exTheoph</span>) <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>()
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='va'>mod</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='data_set.html'>data_set</a></span><span class='op'>(</span><span class='va'>exTheoph</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>mrgsim</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
+<span class='va'>out</span>
+</div><div class='output co'>#&gt; Model:  housemodel 
 #&gt; Dim:    132 x 7 
 #&gt; Time:   0 to 24.65 
 #&gt; ID:     12 
@@ -398,11 +426,12 @@ counts.</p></li>
 #&gt; 6:   1 3.82 0.041060 3.439 49.25 0.15121 0.15121
 #&gt; 7:   1 5.10 0.008838 3.263 49.28 0.14348 0.14348
 #&gt; 8:   1 7.03 0.000872 2.980 49.34 0.13101 0.13101</div><div class='input'>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>exTheoph</span>)
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='va'>mod</span> <span class='op'>%&gt;%</span> <span class='fu'>mrgsim</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>exTheoph</span><span class='op'>)</span>
 
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'>mrgsim</span>(<span class='no'>mod</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>exTheoph</span>, <span class='kw'>obsonly</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'>mrgsim</span><span class='op'>(</span><span class='va'>mod</span>, data<span class='op'>=</span><span class='va'>exTheoph</span>, obsonly<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
+<span class='va'>out</span>
+</div><div class='output co'>#&gt; Model:  housemodel 
 #&gt; Dim:    120 x 7 
 #&gt; Time:   0.25 to 24.65 
 #&gt; ID:     12 
@@ -415,9 +444,10 @@ counts.</p></li>
 #&gt; 6:   1 5.10 8.838e-03 3.263 49.28 0.14348 0.14348
 #&gt; 7:   1 7.03 8.720e-04 2.980 49.34 0.13101 0.13101
 #&gt; 8:   1 9.05 7.723e-05 2.703 49.40 0.11884 0.11884</div><div class='input'>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>exTheoph</span>, <span class='kw'>obsaug</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>carry_out</span><span class='kw'>=</span><span class='st'>"a.u.g"</span>)
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='va'>mod</span> <span class='op'>%&gt;%</span> <span class='fu'>mrgsim</span><span class='op'>(</span>data<span class='op'>=</span><span class='va'>exTheoph</span>, obsaug<span class='op'>=</span><span class='cn'>TRUE</span>, carry_out<span class='op'>=</span><span class='st'>"a.u.g"</span><span class='op'>)</span>
 
-<span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
+<span class='va'>out</span>
+</div><div class='output co'>#&gt; Model:  housemodel 
 #&gt; Dim:    5904 x 8 
 #&gt; Time:   0 to 120 
 #&gt; ID:     12 
@@ -430,9 +460,10 @@ counts.</p></li>
 #&gt; 6:   1 0.57     0 2.028 1.961 49.81 0.08624 0.08624
 #&gt; 7:   1 0.75     1 1.634 2.337 49.73 0.10274 0.10274
 #&gt; 8:   1 1.00     1 1.211 2.729 49.61 0.12001 0.12001</div><div class='input'>
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='no'>mod</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='no'>e</span>) <span class='kw'>%&gt;%</span> <span class='fu'>mrgsim</span>(<span class='kw'>outvars</span><span class='kw'>=</span><span class='st'>"CP,RESP"</span>)
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='va'>mod</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='ev.html'>ev</a></span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>mrgsim</span><span class='op'>(</span>outvars<span class='op'>=</span><span class='st'>"CP,RESP"</span><span class='op'>)</span>
 
-<span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
+<span class='va'>out</span>
+</div><div class='output co'>#&gt; Model:  housemodel 
 #&gt; Dim:    482 x 4 
 #&gt; Time:   0 to 120 
 #&gt; ID:     1 
@@ -445,13 +476,14 @@ counts.</p></li>
 #&gt; 6:   1 1.00 20.05 33.91
 #&gt; 7:   1 1.25 16.45 37.37
 #&gt; 8:   1 1.50 14.01 39.78</div><div class='input'>
-<span class='no'>a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>'a'</span>)
-<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span>(<span class='kw'>amt</span> <span class='kw'>=</span> <span class='fl'>750</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>'b'</span>)
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='as_data_set.html'>as_data_set</a></span>(<span class='no'>a</span>,<span class='no'>b</span>)
+<span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span><span class='op'>(</span>amt <span class='op'>=</span> <span class='fl'>1000</span>, group <span class='op'>=</span> <span class='st'>'a'</span><span class='op'>)</span>
+<span class='va'>b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ev.html'>ev</a></span><span class='op'>(</span>amt <span class='op'>=</span> <span class='fl'>750</span>, group <span class='op'>=</span> <span class='st'>'b'</span><span class='op'>)</span>
+<span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='as_data_set.html'>as_data_set</a></span><span class='op'>(</span><span class='va'>a</span>,<span class='va'>b</span><span class='op'>)</span>
 
-<span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mrgsim_variants.html'>mrgsim_d</a></span>(<span class='no'>mod</span>, <span class='no'>data</span>, <span class='kw'>recover</span><span class='kw'>=</span><span class='st'>"group"</span>)
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mrgsim_variants.html'>mrgsim_d</a></span><span class='op'>(</span><span class='va'>mod</span>, <span class='va'>data</span>, recover<span class='op'>=</span><span class='st'>"group"</span><span class='op'>)</span>
 
-<span class='no'>out</span></div><div class='output co'>#&gt; Model:  housemodel 
+<span class='va'>out</span>
+</div><div class='output co'>#&gt; Model:  housemodel 
 #&gt; Dim:    964 x 8 
 #&gt; Time:   0 to 120 
 #&gt; ID:     2 
@@ -463,8 +495,7 @@ counts.</p></li>
 #&gt; 5:   1 0.75  406.6 580.8 25.29 29.04 29.04     a
 #&gt; 6:   1 1.00  301.2 678.3 20.05 33.91 33.91     a
 #&gt; 7:   1 1.25  223.1 747.4 16.45 37.37 37.37     a
-#&gt; 8:   1 1.50  165.3 795.6 14.01 39.78 39.78     a</div><div class='input'>
-</div></pre>
+#&gt; 8:   1 1.50  165.3 795.6 14.01 39.78 39.78     a</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -480,7 +511,7 @@ counts.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
