@@ -77,7 +77,7 @@ inputs. mrgsim_df coerces output to data.frame prior to returning." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.1</span>
       </span>
     </div>
 
@@ -187,6 +187,7 @@ inputs. <code>mrgsim_df</code> coerces output to data.frame prior to returning.<
   skip_init_calc <span class='op'>=</span> <span class='cn'>FALSE</span>,
   ss_n <span class='op'>=</span> <span class='fl'>500</span>,
   ss_fixed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  interrupt <span class='op'>=</span> <span class='fl'>256</span>,
   <span class='va'>...</span>
 <span class='op'>)</span></pre>
 
@@ -336,6 +337,13 @@ has not been reached within <code>ss_n</code> dosing iterations.
 To silence warnings related to steady state, set <code>ss_fixed</code> to <code>TRUE</code> and
 set <code>ss_n</code> as the maximum number of iterations to try when advancing the
 system for steady state determination.</p></td>
+    </tr>
+    <tr>
+      <th>interrupt</th>
+      <td><p>integer check user interrupt interval; when <code>interrupt</code> is a
+positive integer, the simulation will check for the user interrupt signal
+every <code>interrupt</code> simulation records; pass a negative number to never check
+for the user interrupt interval.</p></td>
     </tr>
     </table>
 

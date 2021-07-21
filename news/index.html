@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.1</span>
       </span>
     </div>
 
@@ -144,6 +144,18 @@
       <small>Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="mrgsolve-0111" class="section level1">
+<h1 class="page-header" data-toc-text="0.11.1">
+<a href="#mrgsolve-0111" class="anchor"></a>mrgsolve 0.11.1<small> 2021-05-10 </small>
+</h1>
+<ul>
+<li>
+<code><a href="../reference/mrgsim.html">mrgsim()</a></code> will now periodically check for user interrupt signal so that long-running simulations can be stopped using <code>Esc</code> and / or <code>Control-C</code>; the check interval can be modified through the <code>interrupt</code> argument to <code><a href="../reference/mrgsim.html">mrgsim()</a></code>, but for most applications, this shouldn’t need to be changed (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/823'>#823</a>)</li>
+<li>
+<code><a href="../reference/mrgsim.html">mrgsim()</a></code> will issue a warning if duplicate columns are found in simulated output and rename duplicates using <code><a href="https://rdrr.io/r/base/make.names.html">make.names()</a></code>; thanks <a href='https://github.com/FelicienLL'>@FelicienLL</a> for the report (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/827'>#827</a>, <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/828'>#828</a>)</li>
+<li>Users can now turn compartments to <code>OFF</code> when they have active infusions running; this was previously an error (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/822'>#822</a>)</li>
+</ul>
+</div>
     <div id="mrgsolve-0110" class="section level1">
 <h1 class="page-header" data-toc-text="0.11.0">
 <a href="#mrgsolve-0110" class="anchor"></a>mrgsolve 0.11.0<small> 2021-03-28 </small>
