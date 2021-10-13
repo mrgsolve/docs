@@ -1,4 +1,4 @@
-pandoc: 2.11.4
+pandoc: 2.14.0.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
@@ -9,5 +9,5 @@ articles:
   extra/steady-state: steady-state.html
   extra/time-after-dose: time-after-dose.html
   mrgsolve: mrgsolve.html
-last_built: 2021-07-21T13:07Z
+last_built: 2021-10-13T21:43Z
 

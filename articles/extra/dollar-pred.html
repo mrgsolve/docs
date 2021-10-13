@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.2</span>
       </span>
     </div>
 
@@ -83,7 +83,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,13 +97,13 @@
 
       
 
-      </header><script src="dollar-pred_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
+      </header><script src="dollar-pred_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Models without compartments</h1>
                         <h4 class="author"></h4>
             
-            <h4 class="date">2021-07-21</h4>
+            <h4 class="date">2021-10-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/master/vignettes/extra/dollar-pred.Rmd"><code>vignettes/extra/dollar-pred.Rmd</code></a></small>
       <div class="hidden name"><code>dollar-pred.Rmd</code></div>
@@ -127,12 +127,12 @@
 <p>The model code is</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>$PROB</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>An example model expressed in closed form</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>$PARAM B = -<span class="dv">1</span>, beta0 = <span class="dv">100</span>, beta1 = <span class="fl">0.1</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>$PARAM B <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> beta0 <span class="op">=</span> <span class="dv">100</span><span class="op">,</span> beta1 <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>$OMEGA <span class="dv">2</span> <span class="fl">0.3</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>$PRED</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> beta0i = beta0 + ETA(<span class="dv">1</span>);</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> beta1i = beta1*exp(ETA(<span class="dv">2</span>));</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>capture Y = beta0i + beta1i*B;</span></code></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> beta0i <span class="op">=</span> beta0 <span class="op">+</span> ETA<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> beta1i <span class="op">=</span> beta1<span class="op">*</span>exp<span class="op">(</span>ETA<span class="op">(</span><span class="dv">2</span><span class="op">));</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>capture Y <span class="op">=</span> beta0i <span class="op">+</span> beta1i<span class="op">*</span>B<span class="op">;</span></span></code></pre></div>
 <p>This is a random-intercept, random slope linear model. Like other models in mrgsolve, you can write parameters (<code>$PARAM</code>), and random effects (<code>$OMEGA</code>). But the model is actually written in <code>$PRED</code>.</p>
 <p>When mrgsolve finds <code>$PRED</code>, it will generate an error if it also finds <code>$MAIN</code>, <code>$TABLE</code>, or <code>$ODE</code>. However, the code that gets entered into <code>$PRED</code> would function exactly as if you put it in <code>$TABLE</code>.</p>
 <p>In the example model, the response is a function of the parameter <code>B</code>, so we’ll generate an input data set with some values of <code>B</code></p>
@@ -140,7 +140,7 @@
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fl">1</span>, B <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">0</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
-<pre><code>. # A tibble: 6 x 2
+<pre><code>. # A tibble: 6 × 2
 .      ID     B
 .   &lt;dbl&gt; &lt;dbl&gt;
 . 1     1 5.61 
@@ -159,7 +159,7 @@
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_df</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">30</span>, <span class="op">~</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="va">.x</span>, B <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">30</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></code></pre></div>
-<pre><code>. # A tibble: 6 x 2
+<pre><code>. # A tibble: 6 × 2
 .      ID     B
 .   &lt;int&gt; &lt;dbl&gt;
 . 1     1     0

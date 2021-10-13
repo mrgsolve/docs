@@ -75,7 +75,7 @@ matrix (c)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.2</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ matrix (c)." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -215,7 +215,7 @@ a list of matrices are returned.</p>
 
     <p>Use <code>as_dmat</code> to create a diagonal matrix, <code>as_bmat</code>
 to create a block matrix, and <code>as_cmat</code> to create a block 
-matrix where diagonal elements are understood to be correlations
+matrix where off-diagonal elements are understood to be correlations
 rather than covariances. <code>as_cmat</code> uses <code>as_bmat</code> to 
 form the matrix and then converts off-diagonal elements to 
 covariances before returning.</p>

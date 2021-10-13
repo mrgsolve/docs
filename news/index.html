@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.2</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -144,6 +144,19 @@
       <small>Source: <a href='https://github.com/metrumresearchgroup/mrgsolve/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="mrgsolve-0112" class="section level1">
+<h1 class="page-header" data-toc-text="0.11.2">
+<a href="#mrgsolve-0112" class="anchor"></a>mrgsolve 0.11.2<small> Unreleased </small>
+</h1>
+<ul>
+<li><p>In <code>pk2iv</code>, change scaling volume for <code>CENT</code> from <code>V2</code> (incorrect) to <code>V1</code> (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/831'>#831</a>, <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/832'>#832</a>, <a href='https://github.com/metrumresearchgroup/mrgsolve/issues/833'>#833</a>)</p></li>
+<li><p>Fix bug collating multiple <code>$OMEGA</code> or <code>$SIGMA</code> matrices when parsing a model (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/863'>#863</a>)</p></li>
+<li><p>Refactor how debugging information is processed when using the <code>recover</code> argument to <code><a href="../reference/mread.html">mread()</a></code> (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/853'>#853</a>)</p></li>
+<li><p>Fix typo in documentation for <code><a href="../reference/as_bmat.html">as_cmat()</a></code>; the off-diagonals are assumed to contain correlations (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/856'>#856</a>)</p></li>
+<li><p>Wrote a <code><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame.matrix()</a></code> function in Rcpp; all simulation results return from the C++ simulation code as a data frame (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/857'>#857</a>)</p></li>
+<li><p>Fix bug where dynamic capture (via <code><a href="../reference/mread.html">mread()</a></code>) was not allowed for variables declared in <code>$GLOBAL</code> (<a href='https://github.com/metrumresearchgroup/mrgsolve/issues/868'>#868</a>)</p></li>
+</ul>
+</div>
     <div id="mrgsolve-0111" class="section level1">
 <h1 class="page-header" data-toc-text="0.11.1">
 <a href="#mrgsolve-0111" class="anchor"></a>mrgsolve 0.11.1<small> 2021-05-10 </small>

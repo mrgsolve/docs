@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.2</span>
       </span>
     </div>
 
@@ -83,7 +83,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,13 +97,13 @@
 
       
 
-      </header><script src="time-after-dose_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
+      </header><script src="time-after-dose_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Time after dose</h1>
                         <h4 class="author"></h4>
             
-            <h4 class="date">2021-07-21</h4>
+            <h4 class="date">2021-10-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/master/vignettes/extra/time-after-dose.Rmd"><code>vignettes/extra/time-after-dose.Rmd</code></a></small>
       <div class="hidden name"><code>time-after-dose.Rmd</code></div>
@@ -132,7 +132,7 @@
   <span class="fu"><a href="../../reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>tad <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3.888</span>,<span class="fl">5.91</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
-<pre><code>. # A tibble: 10 x 4
+<pre><code>. # A tibble: 10 × 4
 .       ID  time   tad    CP
 .    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 .  1     1  0    -2     0   
@@ -157,22 +157,22 @@
 <div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
 <p>When you call <code>self.tad()</code> you will get the time after dose. It’s important that this gets called on every record … specifically every dosing record. It will not work properly if it is not called every record and there is no check at this time to make sure you follow that rule. So please follow the rule.</p>
 <p>To see an example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>[ param ] CL = <span class="dv">1</span>, V = <span class="dv">20</span>, KA = <span class="dv">1</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> param <span class="op">]</span> CL <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> V <span class="op">=</span> <span class="dv">20</span><span class="op">,</span> KA <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>[ pkmodel ] cmt = <span class="st">"GUT,CENT"</span>, depot = TRUE</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> pkmodel <span class="op">]</span> cmt <span class="op">=</span> <span class="st">"GUT,CENT"</span><span class="op">,</span> depot <span class="op">=</span> TRUE</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>[ main ] </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>capture tadose = self.tad();</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> main <span class="op">]</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>capture tadose <span class="op">=</span> self<span class="op">.</span>tad<span class="op">();</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>[ table]</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>capture CP  = CENT/V;</span></code></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> table<span class="op">]</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>capture CP  <span class="op">=</span> CENT<span class="op">/</span>V<span class="op">;</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../../reference/ev.html">ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fl">100</span>, ii <span class="op">=</span> <span class="fl">4</span>, addl <span class="op">=</span> <span class="fl">3</span>, time <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../../reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>tad <span class="op">=</span> <span class="cn">TRUE</span>, add <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3.888</span>, <span class="fl">5.91</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
-<pre><code>. # A tibble: 10 x 5
+<pre><code>. # A tibble: 10 × 5
 .       ID  time   tad tadose    CP
 .    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
 .  1     1  0    -2     -1     0   

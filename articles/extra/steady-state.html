@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.2</span>
       </span>
     </div>
 
@@ -83,7 +83,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/metrumresearchgroup/mrgsolve">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,13 +97,13 @@
 
       
 
-      </header><script src="steady-state_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
+      </header><script src="steady-state_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Steady-state</h1>
                         <h4 class="author"></h4>
             
-            <h4 class="date">2021-07-21</h4>
+            <h4 class="date">2021-10-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/master/vignettes/extra/steady-state.Rmd"><code>vignettes/extra/steady-state.Rmd</code></a></small>
       <div class="hidden name"><code>steady-state.Rmd</code></div>
@@ -199,54 +199,54 @@
 <a href="#one-compartment-misbehaves" class="anchor"></a>One compartment misbehaves</h2>
 <p>I have seen this with the dosing compartment when there is a very large inter-dose interval. So the amount gets driven very small, maybe flips sign and the calculations for steady state just don’t work out right to call it “good”. Here’s what you can do:</p>
 <p>In your model, you can now give a vector of compartment to not look at for handling steady state:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>[ set ] ss_cmt = <span class="st">"-DEPOT"</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> set <span class="op">]</span> ss_cmt <span class="op">=</span> <span class="st">"-DEPOT"</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>[ cmt ] DEPOT CENT PERIPH</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> cmt <span class="op">]</span> DEPOT CENT PERIPH</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>[ ode ]</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>dxdt_DEPOT  = ...;</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>dxdt_CENT   = ...;</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>dxdt_PERIPH = ...;</span></code></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> ode <span class="op">]</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>dxdt_DEPOT  <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>dxdt_CENT   <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>dxdt_PERIPH <span class="op">=</span> <span class="op">...;</span></span></code></pre></div>
 <p>The <code>-DEPOT</code> says “forget about the DEPOT compartment when running up to steady state”; it was giving me numerical problems and I don’t really care about that one so much either.</p>
 </div>
 <div id="auc-compartment-in-the-model" class="section level2">
 <h2 class="hasAnchor">
 <a href="#auc-compartment-in-the-model" class="anchor"></a>AUC compartment in the model</h2>
 <p>Let’s say you’re accumulating stuff in a compartment for AUC calculation. When you have this in the model, you’ll never make it to steady state according to the definition set out above.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>[ set ] ss_cmt = <span class="st">"-AUC"</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> set <span class="op">]</span> ss_cmt <span class="op">=</span> <span class="st">"-AUC"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>[ cmt ] DEPOT CENT PERIPH AUC</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> cmt <span class="op">]</span> DEPOT CENT PERIPH AUC</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>[ ode ]</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>dxdt_DEPOT  = ...;</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>dxdt_CENT   = ...;</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>dxdt_PERIPH = ...;</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>dxdt_AUC = CENT/V;</span></code></pre></div>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> ode <span class="op">]</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>dxdt_DEPOT  <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>dxdt_CENT   <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>dxdt_PERIPH <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>dxdt_AUC <span class="op">=</span> CENT<span class="op">/</span>V<span class="op">;</span></span></code></pre></div>
 <p>Rather than trying to figure that out under the hood, mrgsolve just asks you to tell it to forget about the <code>AUC</code> compartment when determining steady state.</p>
 <p>There is another (better) way to handle this. Users have a new variable that they can check that evaluates to <code>true</code> when mrgsolve is advancing the system to steady state. So you might write this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>[ cmt ] DEPOT CENT PERIPH AUC</span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> cmt <span class="op">]</span> DEPOT CENT PERIPH AUC</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>[ ode ]</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>dxdt_DEPOT  = ...;</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>dxdt_CENT   = ...;</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>dxdt_PERIPH = ...;</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>dxdt_AUC = CENT/V;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> ode <span class="op">]</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>dxdt_DEPOT  <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>dxdt_CENT   <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>dxdt_PERIPH <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>dxdt_AUC <span class="op">=</span> CENT<span class="op">/</span>V<span class="op">;</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(SS_ADVANCE) dxdt_AUC = <span class="dv">0</span>;</span></code></pre></div>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>SS_ADVANCE<span class="op">)</span> dxdt_AUC <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>This will prevent the <code>AUC</code> compartment from advancing at all when mrgsolve is looking for steady state. And this compartment won’t be a stumbling block for the SS determination (as described above).</p>
 </div>
 <div id="only-consider-a-single-compartment" class="section level2">
 <h2 class="hasAnchor">
 <a href="#only-consider-a-single-compartment" class="anchor"></a>Only consider a single compartment</h2>
 <p>Rather than excluding the misbehaving compartment, we can also request that only one compartment be evaluated for SS</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>[ set ] ss_cmt = <span class="st">"CENT"</span></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> set <span class="op">]</span> ss_cmt <span class="op">=</span> <span class="st">"CENT"</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>[ cmt ] DEPOT CENT PERIPH </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> cmt <span class="op">]</span> DEPOT CENT PERIPH </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>[ ode ]</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>dxdt_DEPOT  = ...;</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>dxdt_CENT   = ...;</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>dxdt_PERIPH = ...;</span></code></pre></div>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="op">[</span> ode <span class="op">]</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>dxdt_DEPOT  <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>dxdt_CENT   <span class="op">=</span> <span class="op">...;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>dxdt_PERIPH <span class="op">=</span> <span class="op">...;</span></span></code></pre></div>
 <p>This ignores every compartment except for <code>CENT</code> when figuring out SS.</p>
 </div>
 </div>
