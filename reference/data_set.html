@@ -19,7 +19,7 @@ of individuals."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@ of individuals."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">
+  <a>
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -181,9 +181,9 @@ columns: <code>ID</code>, <code>time</code>/<code>TIME</code>, <code>rate</code>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu">mrgsolve</span><span class="fu">::</span><span class="fu"><a href="house.html">house</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="expand.idata.html">expand.ev</a></span><span class="op">(</span>ID<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, amt<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="expand.idata.html">expand.ev</a></span><span class="op">(</span>ID<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, amt<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">mod</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu">data_set</span><span class="op">(</span><span class="va">data</span>, <span class="va">ID</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="va">mrgsim</span></span>
+<span class="r-in"><span class="va">mod</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu">data_set</span><span class="op">(</span><span class="va">data</span>, <span class="va">ID</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu"><a href="mrgsim.html">mrgsim</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model:  housemodel </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dim:    2410 x 7 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time:   0 to 120 </span>
@@ -208,7 +208,7 @@ columns: <code>ID</code>, <code>time</code>/<code>TIME</code>, <code>rate</code>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  3  500   1   48    0  0    0    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  3 1000   1   72    0  0    0    1</span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">mod</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu">data_set</span><span class="op">(</span><span class="va">extran1</span><span class="op">)</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="va">mrgsim</span></span>
+<span class="r-in"><span class="va">mod</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu">data_set</span><span class="op">(</span><span class="va">extran1</span><span class="op">)</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu"><a href="mrgsim.html">mrgsim</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model:  housemodel </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dim:    2414 x 7 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time:   0 to 120 </span>
@@ -222,7 +222,7 @@ columns: <code>ID</code>, <code>time</code>/<code>TIME</code>, <code>rate</code>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6:   1 1.00  301.2 678.3 20.05 33.91 33.91</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7:   1 1.25  223.1 747.4 16.45 37.37 37.37</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8:   1 1.50  165.3 795.6 14.01 39.78 39.78</span>
-<span class="r-in"><span class="va">mod</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu"><a href="mrgsim.html">mrgsim</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">extran1</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">mod</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu"><a href="mrgsim.html">mrgsim</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">extran1</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model:  housemodel </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dim:    2414 x 7 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time:   0 to 120 </span>

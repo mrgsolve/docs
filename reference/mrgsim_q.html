@@ -24,7 +24,7 @@ mrgsolve."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/m
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -64,7 +64,7 @@ mrgsolve."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/m
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">
+  <a>
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -126,6 +126,11 @@ object is returned; if <code>"df"</code> then a data frame is returned</p></dd>
 <dt>simcall</dt>
 <dd><p>not used; only the default value of 0 is allowed</p></dd>
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    <p>By default, an object of class `mrgsims`. Use `output = "df"` to return 
+a data frame.</p>
+    </div>
     <div id="details">
     <h2>Details</h2>
     <p>This function does not support the piped simulation workflow.  All
@@ -163,9 +168,9 @@ data.frame of simulated data on return.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu">mrgsolve</span><span class="fu">::</span><span class="fu"><a href="house.html">house</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="expand.idata.html">expand.ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">300</span>,<span class="fl">1000</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="expand.idata.html">expand.ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">300</span>, <span class="fl">1000</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">mrgsim_q</span><span class="op">(</span><span class="va">mod</span>,<span class="va">data</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">mrgsim_q</span><span class="op">(</span><span class="va">mod</span>, <span class="va">data</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">out</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model:  housemodel </span>

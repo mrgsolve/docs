@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">
+  <a>
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -82,7 +82,7 @@
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for matlist</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="va">x</span>, detailed <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
 
 <span class="co"># S4 method for matlist</span>
 <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
@@ -110,6 +110,11 @@
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a matlist object</p></dd>
+<dt>detailed</dt>
+<dd><p>if <code>TRUE</code>, then a simple list of matrices is returned;
+otherwise, then entire <code>matlist</code> object data is returned along with the
+name of the <code>class</code> (e.g. either <code>omegalist</code> or <code>sigmalist</code>) as well
+as the <code>names</code> of the matrices</p></dd>
 <dt>...</dt>
 <dd><p>passed through to other methods</p></dd>
 <dt>object</dt>

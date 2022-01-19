@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">
+  <a>
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -118,13 +118,13 @@ making the assignments.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">ev1</span> <span class="op">&lt;-</span> <span class="fu"><a href="ev.html">ev</a></span><span class="op">(</span>amt<span class="op">=</span><span class="fl">100</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ev2</span> <span class="op">&lt;-</span> <span class="fu"><a href="ev.html">ev</a></span><span class="op">(</span>amt<span class="op">=</span><span class="fl">300</span>, rate<span class="op">=</span><span class="fl">100</span>, ii<span class="op">=</span><span class="fl">12</span>, addl<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">ev1</span> <span class="op">&lt;-</span> <span class="fu"><a href="ev.html">ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">ev2</span> <span class="op">&lt;-</span> <span class="fu"><a href="ev.html">ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fl">300</span>, rate <span class="op">=</span> <span class="fl">100</span>, ii <span class="op">=</span> <span class="fl">12</span>, addl <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">idata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ID<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> </span>
+<span class="r-in"><span class="va">idata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> </span>
 <span class="r-in"><span class="va">idata</span><span class="op">$</span><span class="va">arm</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">+</span><span class="op">(</span><span class="va">idata</span><span class="op">$</span><span class="va">ID</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span><span class="fl">2</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu">ev_assign</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ev1</span>,<span class="va">ev2</span><span class="op">)</span>, <span class="va">idata</span>, <span class="st">"arm"</span>, join<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">ev_assign</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ev1</span>, <span class="va">ev2</span><span class="op">)</span>, <span class="va">idata</span>, <span class="st">"arm"</span>, join <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    time amt cmt evid rate ii addl ID arm</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1     0 300   1    1  100 12   10  1   2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2     0 100   1    1    0  0    0  2   1</span>
@@ -136,8 +136,6 @@ making the assignments.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8     0 100   1    1    0  0    0  8   1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9     0 300   1    1  100 12   10  9   2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10    0 100   1    1    0  0    0 10   1</span>
-<span class="r-in"></span>
-<span class="r-in"></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

@@ -24,7 +24,7 @@ equation solver. See aboutsolver for more information."><!-- mathjax --><script 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -64,7 +64,7 @@ equation solver. See aboutsolver for more information."><!-- mathjax --><script 
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">
+  <a>
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -99,17 +99,17 @@ equation solver. See <a href="aboutsolver.html">aboutsolver</a> for more informa
     <h2>Resources</h2>
     
 
-<ul><li><p>Main mrgsolve resource page: <a href="https://mrgsolve.github.io" class="external-link">https://mrgsolve.github.io</a></p></li>
-<li><p>User guide: <a href="https://mrgsolve.github.io/user_guide/" class="external-link">https://mrgsolve.github.io/user_guide/</a></p></li>
-<li><p>Web vignettes: <a href="https://mrgsolve.github.io/vignettes/" class="external-link">https://mrgsolve.github.io/vignettes/</a></p></li>
+<ul><li><p>Main mrgsolve resource page: <a href="https://mrgsolve.org" class="external-link">https://mrgsolve.org</a></p></li>
+<li><p>User guide: <a href="https://mrgsolve.org/user_guide/" class="external-link">https://mrgsolve.org/user_guide/</a></p></li>
+<li><p>Package documentation and vignettes: <a href="https://mrgsolve.org/docs/" class="external-link">https://mrgsolve.org/docs/</a></p></li>
 </ul></div>
     <div id="package-wide-options">
     <h2>Package-wide options</h2>
     
 
-<ul><li><p><code>mrgolve.project</code>: sets the default project director (<a href="mread.html">mread</a>)</p></li>
-<li><p><code>mrgsolve.soloc</code>: sets the default package build directory (<a href="mread.html">mread</a>)</p></li>
-<li><p><code>mrgsolve_mread_quiet</code>: don't print messages during <a href="mread.html">mread</a></p></li>
+<ul><li><p><code>mrgolve.project</code>: sets the default project director (<code><a href="mread.html">mread()</a></code>)</p></li>
+<li><p><code>mrgsolve.soloc</code>: sets the default package build directory (<code><a href="mread.html">mread()</a></code>)</p></li>
+<li><p><code>mrgsolve_mread_quiet</code>: don't print messages during <code><a href="mread.html">mread()</a></code></p></li>
 <li><p><code>mrgsolve.update.strict</code>: if <code>TRUE</code>, print warning when trying to update
 an item in the model object that doesn't exist</p></li>
 </ul></div>
@@ -315,7 +315,6 @@ an item in the model object that doesn't exist</p></li>
 <span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="va">mod</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu"><a href="ev.html">ev</a></span><span class="op">(</span><span class="va">events</span><span class="op">)</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu"><a href="mrgsim.html">mrgsim</a></span><span class="op">(</span>end<span class="op">=</span><span class="fl">180</span>, req<span class="op">=</span><span class="st">""</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="mrgsolve_package-3.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## "Condensed" data set</span></span>

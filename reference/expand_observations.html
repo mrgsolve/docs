@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">
+  <a>
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -100,7 +100,7 @@ observations are placed after doses</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A data frame</p>
+    <p>A data frame with additional rows for added observation records.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -109,9 +109,9 @@ observations are placed after doses</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="expand.idata.html">expand.ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">200</span>,<span class="fl">300</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="expand.idata.html">expand.ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">300</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="fu">expand_observations</span><span class="op">(</span><span class="va">data</span>, times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">48</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu">expand_observations</span><span class="op">(</span><span class="va">data</span>, times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">48</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ID time amt cmt evid</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   1    0   0   0    0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   1    0 100   1    1</span>

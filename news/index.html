@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">
+  <a>
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -75,6 +75,15 @@
       <small>Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="1.0.0" id="mrgsolve-100">mrgsolve 1.0.0<a class="anchor" aria-label="anchor" href="#mrgsolve-100"></a></h2>
+<ul><li><p>New model syntax: <code>THETA(n)</code> is interpreted as <code>THETAn</code> in the model code; <code>THETA</code> is now a reserved word (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/837" class="external-link">#837</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/891" class="external-link">#891</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/892" class="external-link">#892</a>).</p></li>
+<li><p>New functions <code><a href="../reference/collapse_matrices.html">collapse_omega()</a></code>, <code><a href="../reference/collapse_matrices.html">collapse_sigma()</a></code> and <code><a href="../reference/collapse_matrix.html">collapse_matrix()</a></code> added which help to reshape OMEGA and SIGMA matrix objects with multiple blocks (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/897" class="external-link">#897</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/900" class="external-link">#900</a>).</p></li>
+<li><p>New plugin <code>nm-vars</code> which implements NONMEM-like syntax for referring to compartments, differential equations, bioavailability factor, infusion duration and rate, and lag time (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/904" class="external-link">#904</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/891" class="external-link">#891</a>).</p></li>
+<li><p>New plugin <code>autodec</code> which will find user-defined variables in the model code and automatically declare them as type <code>double</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/905" class="external-link">#905</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/893" class="external-link">#893</a>).</p></li>
+<li><p>Use <code>ii</code> as spacer for setting the between-dose interval when putting event objects in a sequence (c.f. <code>wait</code>) (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/906" class="external-link">#906</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/901" class="external-link">#901</a>).</p></li>
+<li><p>Start deprecating<code>simeta(n)</code> and <code>simeps(n)</code>, calls to <code>simeta()</code> or <code>simeps()</code> with an integer argument thus limiting the update to just a single <code>ETA(n)</code> or <code>EPS(n)</code>; use in model code will generate warning when loading the model that contains the <code>n</code> integer value (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/908" class="external-link">#908</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/909" class="external-link">#909</a>).</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.11.2" id="mrgsolve-0112">mrgsolve 0.11.2<a class="anchor" aria-label="anchor" href="#mrgsolve-0112"></a></h2>
 <ul><li><p>In <code>pk2iv</code>, change scaling volume for <code>CENT</code> from <code>V2</code> (incorrect) to <code>V1</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/831" class="external-link">#831</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/832" class="external-link">#832</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/833" class="external-link">#833</a>)</p></li>

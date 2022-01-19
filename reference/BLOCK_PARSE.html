@@ -19,7 +19,7 @@ options and is documented separately."><!-- mathjax --><script src="https://cdnj
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -59,7 +59,7 @@ options and is documented separately."><!-- mathjax --><script src="https://cdnj
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">
+  <a>
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -112,7 +112,17 @@ options and is documented separately.</p>
 
 <span class="fu">INIT</span><span class="op">(</span><span class="va">x</span>, <span class="va">env</span>, pos <span class="op">=</span> <span class="fl">1</span>, annotated <span class="op">=</span> <span class="cn">FALSE</span>, object <span class="op">=</span> <span class="cn">NULL</span>, as_object <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
 
-<span class="fu">CMT</span><span class="op">(</span><span class="va">x</span>, <span class="va">env</span>, pos <span class="op">=</span> <span class="fl">1</span>, annotated <span class="op">=</span> <span class="cn">FALSE</span>, object <span class="op">=</span> <span class="cn">NULL</span>, as_object <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
+<span class="fu">CMT</span><span class="op">(</span>
+  <span class="va">x</span>,
+  <span class="va">env</span>,
+  pos <span class="op">=</span> <span class="fl">1</span>,
+  annotated <span class="op">=</span> <span class="cn">FALSE</span>,
+  object <span class="op">=</span> <span class="cn">NULL</span>,
+  as_object <span class="op">=</span> <span class="cn">FALSE</span>,
+  number <span class="op">=</span> <span class="cn">NULL</span>,
+  prefix <span class="op">=</span> <span class="st">"A"</span>,
+  <span class="va">...</span>
+<span class="op">)</span>
 
 <span class="fu">CAPTURE</span><span class="op">(</span><span class="va">x</span>, <span class="va">env</span>, pos <span class="op">=</span> <span class="fl">1</span>, annotated <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
 
@@ -155,12 +165,14 @@ options and is documented separately.</p>
 <dd><p>block name</p></dd>
 <dt>fill</dt>
 <dd><p>deprecated; not used</p></dd>
+<dt>number</dt>
+<dd><p>number of compartments to create</p></dd>
+<dt>prefix</dt>
+<dd><p>a prefix to add to the label</p></dd>
 <dt>type</dt>
 <dd><p>internal use</p></dd>
 <dt>oclass</dt>
 <dd><p>internal use</p></dd>
-<dt>prefix</dt>
-<dd><p>a prefix to add to the label</p></dd>
 <dt>labels</dt>
 <dd><p>aliases to use for simulated ETA values</p></dd>
 <dt>unlinked</dt>
