@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -99,7 +99,7 @@
       <h1 data-toc-skip>Time after dose</h1>
                         <h4 data-toc-skip class="author"></h4>
             
-            <h4 data-toc-skip class="date">2022-01-19</h4>
+            <h4 data-toc-skip class="date">2022-03-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/vignettes/extra/time-after-dose.Rmd" class="external-link"><code>vignettes/extra/time-after-dose.Rmd</code></a></small>
       <div class="hidden name"><code>time-after-dose.Rmd</code></div>
@@ -108,14 +108,14 @@
 
     
     
-<div class="section level1">
-<h1 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h1>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p><code>TAD</code> stands for time after dose. In mrgsolve, any time <code>TAD</code> is calculated automatically, a dose is a record in the input data set where <code>EVID</code> is set to either 1 or 4.</p>
 </div>
-<div class="section level1">
-<h1 id="tad-calculated-as-runtime-argument">TAD calculated as runtime argument<a class="anchor" aria-label="anchor" href="#tad-calculated-as-runtime-argument"></a>
-</h1>
+<div class="section level2">
+<h2 id="tad-calculated-as-runtime-argument">TAD calculated as runtime argument<a class="anchor" aria-label="anchor" href="#tad-calculated-as-runtime-argument"></a>
+</h2>
 <p>For a while, you’ve been able to get time after dose in your simulated output</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">mrgsolve</a></span><span class="op">)</span>
@@ -143,9 +143,9 @@
 .  [38;5;250m10 [39m     1  6     0     4.21</code></pre>
 <p>This is convenient because you can choose the output at run time, we give you the negative numbers prior to the first dose etc. This sort of calculation is possible because we let mrgsolve know ahead of time that we want this calculation done and mrgsolve makes an extra pass through the records to find when is the first dose for each individual.</p>
 </div>
-<div class="section level1">
-<h1 id="tad-calculated-in-the-model">TAD calculated in the model<a class="anchor" aria-label="anchor" href="#tad-calculated-in-the-model"></a>
-</h1>
+<div class="section level2">
+<h2 id="tad-calculated-in-the-model">TAD calculated in the model<a class="anchor" aria-label="anchor" href="#tad-calculated-in-the-model"></a>
+</h2>
 <p>Sometimes you would like to work with time after dose in your model. This isn’t super-complicated to do but does require some programming and setup and all of that. As of mrgsolve 0.9.1, there is a special function to do these calculations for you.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mread.html">mread</a></span><span class="op">(</span><span class="st">"time-after-dose.txt"</span>,req <span class="op">=</span> <span class="st">""</span><span class="op">)</span></code></pre></div>
@@ -189,9 +189,9 @@
 </ol>
 <p>The main point if this is that you can easily obtain time after dose in the problem (model) itself to use as you program the model and also output the number into the simulated output.</p>
 </div>
-<div class="section level1">
-<h1 id="time-after-dose-in-specific-compartment">Time after dose in specific compartment<a class="anchor" aria-label="anchor" href="#time-after-dose-in-specific-compartment"></a>
-</h1>
+<div class="section level2">
+<h2 id="time-after-dose-in-specific-compartment">Time after dose in specific compartment<a class="anchor" aria-label="anchor" href="#time-after-dose-in-specific-compartment"></a>
+</h2>
 <p>Version 0.10.7 adds a new plugin with the ability to calculate time after dose in any compartment.</p>
 <p>We write a model using the <code>tad</code> plugin to track time after dose in compartments <code>one</code> and <code>two</code>. We create <code>tadose</code> objects to track this and we can call the <code>tad()</code> method on these objects, passing in the <code>self</code> data item.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -274,7 +274,7 @@ capture tad2 = tad_cmt_2.tad(self);
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>

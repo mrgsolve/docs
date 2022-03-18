@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -99,7 +99,7 @@
       <h1 data-toc-skip>Modeled events</h1>
                         <h4 data-toc-skip class="author"></h4>
             
-            <h4 data-toc-skip class="date">2022-01-19</h4>
+            <h4 data-toc-skip class="date">2022-03-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/vignettes/extra/modeled-event-time.Rmd" class="external-link"><code>vignettes/extra/modeled-event-time.Rmd</code></a></small>
       <div class="hidden name"><code>modeled-event-time.Rmd</code></div>
@@ -108,15 +108,15 @@
 
     
     
-<div class="section level1">
-<h1 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h1>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p>A modeled event is a discontinuity introduced into the simulation at a time and with characteristics that are determined within the model itself, rather than the standard setup of specifying these events via the data set.</p>
 <p>In this vignette, we’ll focus on creating a discontinuity in the simulation so that the value of a parameter can change at a specific time that is not necessarily chosen prior to the run time.</p>
 </div>
-<div class="section level1">
-<h1 id="example-with-single-mtime">Example with single mtime<a class="anchor" aria-label="anchor" href="#example-with-single-mtime"></a>
-</h1>
+<div class="section level2">
+<h2 id="example-with-single-mtime">Example with single mtime<a class="anchor" aria-label="anchor" href="#example-with-single-mtime"></a>
+</h2>
 <p>For example, we might wish a rate constant to change at some time that is not found in a record in the input data set. We can make this happen from the model code itself using <code>mtime()</code>.</p>
 <p>Let’s make KA change at 2.1 hours (<code>change_t</code> parameter in the example below).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>[ param ]</span>
@@ -146,9 +146,9 @@
 <p><img src="modeled-event-time_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 <p>You won’t see the message that we actually stumbled on <code>2.1</code> hours in the simulation even though it was not in the lineup when the simulation started.</p>
 </div>
-<div class="section level1">
-<h1 id="example-with-several-mtimes">Example with several mtimes<a class="anchor" aria-label="anchor" href="#example-with-several-mtimes"></a>
-</h1>
+<div class="section level2">
+<h2 id="example-with-several-mtimes">Example with several mtimes<a class="anchor" aria-label="anchor" href="#example-with-several-mtimes"></a>
+</h2>
 <p>We could keep track of several mtimes like this</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>[ set ] end<span class="ot">=</span><span class="dv">8</span>, delta<span class="ot">=</span><span class="fl">0.1</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -193,7 +193,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>

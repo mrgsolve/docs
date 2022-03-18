@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -76,7 +76,19 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="1.0.0" id="mrgsolve-100">mrgsolve 1.0.0<a class="anchor" aria-label="anchor" href="#mrgsolve-100"></a></h2>
+<h2 class="page-header" data-toc-text="1.0.2" id="mrgsolve-102">mrgsolve 1.0.2<small>2022-03-17</small><a class="anchor" aria-label="anchor" href="#mrgsolve-102"></a></h2>
+<ul><li>Check for try-error using inherits, not class, based on CRAN pre-test.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="1.0.1" id="mrgsolve-101">mrgsolve 1.0.1<a class="anchor" aria-label="anchor" href="#mrgsolve-101"></a></h2>
+<ul><li><p>Add <code>LOG()</code>, <code>EXP()</code>, <code>SQRT()</code> macros when <code>nm-vars</code> plugin is invoked <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/931" class="external-link">#931</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/936" class="external-link">#936</a>.</p></li>
+<li><p>Use <code><a href="../reference/evd.html">evd()</a></code> to create an event object which renders nmtran names in upper case (e.g. <code>TIME</code> rather than <code>time</code>) <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/935" class="external-link">#935</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/919" class="external-link">#919</a>.</p></li>
+<li><p>Fixed bug where <code>rate</code> was not getting set for modeled events <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/934" class="external-link">#934</a>.</p></li>
+<li><p>Fixed bug where <code>self.stop_id()</code> and <code>self.stop_id_cf()</code> had reversed behavior as documented <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/927" class="external-link">#927</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/928" class="external-link">#928</a>.</p></li>
+<li><p>Refactored EVID=3 behavior to leave <code>NEWIND</code> as-is <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/934" class="external-link">#934</a>.</p></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="1.0.0" id="mrgsolve-100">mrgsolve 1.0.0<small>2022-01-20</small><a class="anchor" aria-label="anchor" href="#mrgsolve-100"></a></h2>
 <ul><li><p>New model syntax: <code>THETA(n)</code> is interpreted as <code>THETAn</code> in the model code; <code>THETA</code> is now a reserved word (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/837" class="external-link">#837</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/891" class="external-link">#891</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/892" class="external-link">#892</a>).</p></li>
 <li><p>New functions <code><a href="../reference/collapse_matrices.html">collapse_omega()</a></code>, <code><a href="../reference/collapse_matrices.html">collapse_sigma()</a></code> and <code><a href="../reference/collapse_matrix.html">collapse_matrix()</a></code> added which help to reshape OMEGA and SIGMA matrix objects with multiple blocks (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/897" class="external-link">#897</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/900" class="external-link">#900</a>).</p></li>
 <li><p>New plugin <code>nm-vars</code> which implements NONMEM-like syntax for referring to compartments, differential equations, bioavailability factor, infusion duration and rate, and lag time (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/904" class="external-link">#904</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/891" class="external-link">#891</a>).</p></li>
@@ -698,7 +710,7 @@ Specifying character names <code>tname</code>, <code>oname</code>, and <code>sna
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>

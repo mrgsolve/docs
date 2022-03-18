@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">mrgsolve</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -99,7 +99,7 @@
       <h1 data-toc-skip>Set initial conditions</h1>
                         <h4 data-toc-skip class="author"></h4>
             
-            <h4 data-toc-skip class="date">2022-01-19</h4>
+            <h4 data-toc-skip class="date">2022-03-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/vignettes/extra/init.Rmd" class="external-link"><code>vignettes/extra/init.Rmd</code></a></small>
       <div class="hidden name"><code>init.Rmd</code></div>
@@ -108,13 +108,13 @@
 
     
     
-<div class="section level1">
-<h1 id="short-answer">Short answer<a class="anchor" aria-label="anchor" href="#short-answer"></a>
-</h1>
-<p>There are two commonly-used ways to set initial conditions: in <code>$MAIN</code> and in the initial condition list.</p>
 <div class="section level2">
-<h2 id="set-initials-in-main">Set initials in <code>$MAIN</code><a class="anchor" aria-label="anchor" href="#set-initials-in-main"></a>
+<h2 id="short-answer">Short answer<a class="anchor" aria-label="anchor" href="#short-answer"></a>
 </h2>
+<p>There are two commonly-used ways to set initial conditions: in <code>$MAIN</code> and in the initial condition list.</p>
+<div class="section level3">
+<h3 id="set-initials-in-main">Set initials in <code>$MAIN</code><a class="anchor" aria-label="anchor" href="#set-initials-in-main"></a>
+</h3>
 <p>For a compartment called <code>CMT</code>, there is a variable available to you called <code>CMT_0</code> that you can use to set the initial condition of that compartment in <code>$MAIN</code>. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">code</span> <span class="op">&lt;-</span> <span class="st">'
@@ -127,9 +127,9 @@ RESP_0 = KIN/KOUT;
 '</span></code></pre></div>
 <p>This is the most commonly-used way to set initial conditions: the initial condition for the <code>RESP</code> compartment is set equal to <code>KIN</code> divided by <code>KOUT</code>. If you had a parameter called <code>BASE</code>, you could also write <code>RESP_0 = BASE;</code>. In these examples, we’re using data items from <code>$PARAM</code>. But the initial condition could be set to any numeric value in the model, including individual parameters derived from parameters, covariates, and random effects. Note that you should never declare <code>RESP_0</code> (e.g. <code>double RESP_0</code>): it just appears for you to use.</p>
 </div>
-<div class="section level2">
-<h2 id="set-initials-in-the-init-list">Set initials in the <code>init</code> list<a class="anchor" aria-label="anchor" href="#set-initials-in-the-init-list"></a>
-</h2>
+<div class="section level3">
+<h3 id="set-initials-in-the-init-list">Set initials in the <code>init</code> list<a class="anchor" aria-label="anchor" href="#set-initials-in-the-init-list"></a>
+</h3>
 <p>You can also set initial conditions in the initials list. Most commonly, this means declaring compartments with <code>$INIT</code> rather than <code>$CMT</code>. For example</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">code</span> <span class="op">&lt;-</span> <span class="st">'
@@ -155,15 +155,15 @@ $INIT RESP = 4
 .  RESP (1)   8     | . ...   .</code></pre>
 <p>This method is commonly used to set initial conditions in large QSP models where the compartment starts out as some known or assumed steady state value.</p>
 </div>
-<div class="section level2">
-<h2 id="dont-use-initial-conditions-as-a-dosing-mechanism">Don’t use initial conditions as a dosing mechanism<a class="anchor" aria-label="anchor" href="#dont-use-initial-conditions-as-a-dosing-mechanism"></a>
-</h2>
+<div class="section level3">
+<h3 id="dont-use-initial-conditions-as-a-dosing-mechanism">Don’t use initial conditions as a dosing mechanism<a class="anchor" aria-label="anchor" href="#dont-use-initial-conditions-as-a-dosing-mechanism"></a>
+</h3>
 <p>Using an initial condition to put a starting dose in a compartment is not recommended. Always use a dosing event for that.</p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="long-answer">Long answer<a class="anchor" aria-label="anchor" href="#long-answer"></a>
-</h1>
+<div class="section level2">
+<h2 id="long-answer">Long answer<a class="anchor" aria-label="anchor" href="#long-answer"></a>
+</h2>
 <p>The following is from a wiki post I did on the topic. It’s pedantic. But hopefully helpful to learn what <code>mrgsolve</code> is doing for those who want to know.</p>
 <ul>
 <li>
@@ -191,9 +191,9 @@ $INIT RESP = 4
 </li>
 <li>For larger systems models, we often just set the initial value via the base list</li>
 </ul>
-<div class="section level2">
-<h2 id="make-a-model-only-to-examine-init-behavior">Make a model only to examine <code>init</code> behavior<a class="anchor" aria-label="anchor" href="#make-a-model-only-to-examine-init-behavior"></a>
-</h2>
+<div class="section level3">
+<h3 id="make-a-model-only-to-examine-init-behavior">Make a model only to examine <code>init</code> behavior<a class="anchor" aria-label="anchor" href="#make-a-model-only-to-examine-init-behavior"></a>
+</h3>
 <p>Note: <code>IFLAG</code> is my invention only for this demo. The demo is always responsible for setting and interpreting the value (it is not reserved in any way and <code>mrgsolve</code> does not control the value).</p>
 <p>For this demo</p>
 <ul>
@@ -255,9 +255,9 @@ $ODE dxdt_A = 0;
 <code class="sourceCode R"><span class="va">mod</span> <span class="op"><a href="../../reference/zchain.html">%&gt;%</a></span> <span class="fu"><a href="../../reference/param.html">param</a></span><span class="op">(</span>IFLAG<span class="op">=</span><span class="fl">1</span>, BASE<span class="op">=</span><span class="fl">300</span><span class="op">)</span> <span class="op"><a href="../../reference/zchain.html">%&gt;%</a></span> <span class="va">mrgsim</span> <span class="op"><a href="../../reference/zchain.html">%&gt;%</a></span> <span class="va">dplot</span></code></pre></div>
 <p><img src="init_files/figure-html/unnamed-chunk-9-2.png" width="700"></p>
 </div>
-<div class="section level2">
-<h2 id="example-pkpd-model-with-initial-condition">Example PK/PD model with initial condition<a class="anchor" aria-label="anchor" href="#example-pkpd-model-with-initial-condition"></a>
-</h2>
+<div class="section level3">
+<h3 id="example-pkpd-model-with-initial-condition">Example PK/PD model with initial condition<a class="anchor" aria-label="anchor" href="#example-pkpd-model-with-initial-condition"></a>
+</h3>
 <p>Just to be clear, there is no need to set any sort of flag to set the initial condition.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">code</span> <span class="op">&lt;-</span> <span class="st">'
@@ -294,9 +294,9 @@ dxdt_RESP = KIN*(1-AUC/(AUC50+AUC)) - KOUT*RESP;
 . 7:   1    6   40
 . 8:   1    7   40</code></pre>
 </div>
-<div class="section level2">
-<h2 id="calling-init-will-let-you-check-to-see-what-is-going-on">Calling <code>init</code> will let you check to see what is going on<a class="anchor" aria-label="anchor" href="#calling-init-will-let-you-check-to-see-what-is-going-on"></a>
-</h2>
+<div class="section level3">
+<h3 id="calling-init-will-let-you-check-to-see-what-is-going-on">Calling <code>init</code> will let you check to see what is going on<a class="anchor" aria-label="anchor" href="#calling-init-will-let-you-check-to-see-what-is-going-on"></a>
+</h3>
 <ul>
 <li>It’s a good idea to get in the habit of doing this when things aren’t clear</li>
 <li>
@@ -316,9 +316,9 @@ dxdt_RESP = KIN*(1-AUC/(AUC50+AUC)) - KOUT*RESP;
 .  RESP (1)   20    | . ...   .</code></pre>
 </div>
 </div>
-<div class="section level1">
-<h1 id="set-initial-conditions-via-idata">Set initial conditions via <code>idata</code><a class="anchor" aria-label="anchor" href="#set-initial-conditions-via-idata"></a>
-</h1>
+<div class="section level2">
+<h2 id="set-initial-conditions-via-idata">Set initial conditions via <code>idata</code><a class="anchor" aria-label="anchor" href="#set-initial-conditions-via-idata"></a>
+</h2>
 <p>Go back to house model</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu">mrgsolve</span><span class="fu">:::</span><span class="fu"><a href="../../reference/house.html">house</a></span><span class="op">(</span><span class="op">)</span>
@@ -374,7 +374,7 @@ dxdt_RESP = KIN*(1-AUC/(AUC50+AUC)) - KOUT*RESP;
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
