@@ -10,10 +10,10 @@
     systems biology.">
 <title>Simulate from ODE-Based Models • mrgsolve</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Simulate from ODE-Based Models">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Simulate from ODE-Based Models">
 <meta property="og:description" content="Fast simulation from ordinary differential equation
     (ODE) based models typically employed in quantitative pharmacology and
     systems biology.">
@@ -30,7 +30,7 @@
     
     <a class="navbar-brand me-2" href="index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.8</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,7 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="mrgsolve-">mrgsolve <img align="right" src="reference/figures/MRG-Solve-Hex.png" width="135px"><a class="anchor" aria-label="anchor" href="#mrgsolve-"></a>
 </h1></div>
-
+<p><a href="https://github-drone.metrumrg.com/metrumresearchgroup/mrgsolve" class="external-link"><img src="https://github-drone.metrumrg.com/api/badges/metrumresearchgroup/mrgsolve/status.svg" alt="Build Status"></a> <a href="https://cran.r-project.org/package=mrgsolve" class="external-link"><img src="http://www.r-pkg.org/badges/version/mrgsolve" alt="CRAN"></a> <a href="http://www.gnu.org/licenses/gpl-2.0.html" class="external-link"><img src="http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat" alt="License"></a> <a href="https://github.com/metrumresearchgroup/mrgsolve/issues" class="external-link"><img src="https://img.shields.io/badge/ask_for-Help-brightgreen.svg" alt="questions"></a> <a href="http://metrumrg.com" class="external-link"><img src="https://img.shields.io/badge/contact-MetrumRG-brightgreen.svg" alt="MetrumRG"></a></p>
 <p>mrgsolve is an R package for simulation from hierarchical, ordinary differential equation (ODE) based models typically employed in drug development. mrgsolve is free and open-source software.</p>
 <div class="section level2">
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
@@ -99,11 +99,11 @@
 </h2>
 <p>Install the latest release on CRAN</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mrgsolve"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mrgsolve"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Please</strong> be sure to see important install-related information <a href="https://github.com/metrumresearchgroup/mrgsolve/wiki/mrgsolve-Installation" class="external-link">here</a>.</p>
 <p>Install the current development version</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"metrumresearchgroup/mrgsolve@dev"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"metrumresearchgroup/mrgsolve@develop"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="interaction">Interaction<a class="anchor" aria-label="anchor" href="#interaction"></a>
@@ -118,113 +118,113 @@
 <h3 id="a-simple-simulation">A simple simulation<a class="anchor" aria-label="anchor" href="#a-simple-simulation"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">mrgsolve</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/metrumresearchgroup/mrgsolve" class="external-link">mrgsolve</a></span><span class="op">)</span></span></code></pre></div>
 <p>Load a model from the internal library</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mread.html">mread</a></span><span class="op">(</span><span class="st">"pk1"</span>, <span class="fu"><a href="reference/modlib.html">modlib</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mread.html">mread</a></span><span class="op">(</span><span class="st">"pk1"</span>, <span class="fu"><a href="reference/modlib.html">modlib</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Simulate a simple regimen</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/ev.html">ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fl">100</span>, ii <span class="op">=</span> <span class="fl">24</span>, addl <span class="op">=</span> <span class="fl">9</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span>
-  <span class="fu"><a href="reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">300</span>, delta <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">CP</span><span class="op">~</span><span class="va">time</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/ev.html">ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fl">100</span>, ii <span class="op">=</span> <span class="fl">24</span>, addl <span class="op">=</span> <span class="fl">9</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">300</span>, delta <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">CP</span><span class="op">~</span><span class="va">time</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-pk-figure-1.png"><!-- --></p>
 <p>A more complicated regimen: 100 mg infusions over 2 hours every 24 hours for one week, followed by 50 mg boluses every 12 hours for 10 days:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/ev_rx.html">ev_rx</a></span><span class="op">(</span><span class="st">"100 over 2h q 24 x 7 then 50 q 12 x 20"</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span>
-  <span class="fu"><a href="reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">600</span>, delta <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">CP</span><span class="op">~</span><span class="va">time</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/ev_rx.html">ev_rx</a></span><span class="op">(</span><span class="st">"100 over 2h q 24 x 7 then 50 q 12 x 20"</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">600</span>, delta <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">CP</span><span class="op">~</span><span class="va">time</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-regimen-figure-1.png"><!-- --></p>
 </div>
 <div class="section level3">
 <h3 id="population-simulation">Population simulation<a class="anchor" aria-label="anchor" href="#population-simulation"></a>
 </h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mread.html">mread</a></span><span class="op">(</span><span class="st">"popex"</span>, <span class="fu"><a href="reference/modlib.html">modlib</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> <span class="fu"><a href="reference/zero_re.html">zero_re</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mread.html">mread</a></span><span class="op">(</span><span class="st">"popex"</span>, <span class="fu"><a href="reference/modlib.html">modlib</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> <span class="fu"><a href="reference/zero_re.html">zero_re</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>A data set looking at different patient weights and doses</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-
-<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/expand.idata.html">expand.ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">150</span><span class="op">)</span>, WT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">40</span>,<span class="fl">140</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>dose <span class="op">=</span> <span class="va">amt</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>.   ID time amt cmt evid WT dose</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>. <span class="dv">1</span>  <span class="dv">1</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">40</span>  <span class="dv">100</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>. <span class="dv">2</span>  <span class="dv">2</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">40</span>  <span class="dv">150</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>. <span class="dv">3</span>  <span class="dv">3</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">60</span>  <span class="dv">100</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>. <span class="dv">4</span>  <span class="dv">4</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">60</span>  <span class="dv">150</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>. <span class="dv">5</span>  <span class="dv">5</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">80</span>  <span class="dv">100</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>. <span class="dv">6</span>  <span class="dv">6</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">80</span>  <span class="dv">150</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/expand.idata.html">expand.ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">150</span><span class="op">)</span>, WT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">40</span>,<span class="fl">140</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>dose <span class="op">=</span> <span class="va">amt</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>.   ID time amt cmt evid WT dose</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>. <span class="dv">1</span>  <span class="dv">1</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">40</span>  <span class="dv">100</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>. <span class="dv">2</span>  <span class="dv">2</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">40</span>  <span class="dv">150</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>. <span class="dv">3</span>  <span class="dv">3</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">60</span>  <span class="dv">100</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>. <span class="dv">4</span>  <span class="dv">4</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">60</span>  <span class="dv">150</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>. <span class="dv">5</span>  <span class="dv">5</span>    <span class="dv">0</span> <span class="dv">100</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">80</span>  <span class="dv">100</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>. <span class="dv">6</span>  <span class="dv">6</span>    <span class="dv">0</span> <span class="dv">150</span>   <span class="dv">1</span>    <span class="dv">1</span> <span class="dv">80</span>  <span class="dv">150</span></span></code></pre></div>
 <p>Simulate</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/data_set.html">data_set</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/carry_out.html">carry_out</a></span><span class="op">(</span><span class="va">dose</span>,<span class="va">WT</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span>
-  <span class="fu"><a href="reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>delta <span class="op">=</span> <span class="fl">0.1</span>, end <span class="op">=</span> <span class="fl">72</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">IPRED</span><span class="op">~</span><span class="va">time</span><span class="op">|</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">dose</span><span class="op">)</span>,scales <span class="op">=</span> <span class="st">"same"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/data_set.html">data_set</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/carry_out.html">carry_out</a></span><span class="op">(</span><span class="va">dose</span>,<span class="va">WT</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>delta <span class="op">=</span> <span class="fl">0.1</span>, end <span class="op">=</span> <span class="fl">72</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">IPRED</span><span class="op">~</span><span class="va">time</span><span class="op">|</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">dose</span><span class="op">)</span>,scales <span class="op">=</span> <span class="st">"same"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-population-figure-1.png"><!-- --></p>
 </div>
 <div class="section level3">
 <h3 id="sensitivity-analysis-with-pbpk-model">Sensitivity analysis with PBPK model<a class="anchor" aria-label="anchor" href="#sensitivity-analysis-with-pbpk-model"></a>
 </h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modlib.html">modlib</a></span><span class="op">(</span><span class="st">"pbpk"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>. Building pbpk ... done.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modlib.html">modlib</a></span><span class="op">(</span><span class="st">"pbpk"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>. Building pbpk ... done.</span></code></pre></div>
 <p>Reference</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  Model file<span class="sc">:</span> pbpk.cpp </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">$</span>PROB</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># HUMAN PBPK MODEL</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span> Jones H, Rowland<span class="sc">-</span>Yeo K. Basic concepts <span class="cf">in</span> physiologically based</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  pharmacokinetic modeling <span class="cf">in</span> drug discovery and development. CPT Pharmacometrics</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  Syst Pharmacol. <span class="dv">2013</span> Aug <span class="dv">14</span>;<span class="dv">2</span><span class="sc">:</span>e63. doi<span class="sc">:</span> <span class="fl">10.1038</span><span class="sc">/</span>psp.<span class="dv">2013</span>.<span class="fl">41.</span> PubMed PMID<span class="sc">:</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">23945604</span>; PubMed Central PMCID<span class="sc">:</span> PMC3828005.</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>  Model file<span class="sc">:</span> pbpk.cpp </span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  </span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="sc">$</span>PROB</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>  <span class="co"># HUMAN PBPK MODEL</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span> Jones H, Rowland<span class="sc">-</span>Yeo K. Basic concepts <span class="cf">in</span> physiologically based</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>  pharmacokinetic modeling <span class="cf">in</span> drug discovery and development. CPT Pharmacometrics</span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>  Syst Pharmacol. <span class="dv">2013</span> Aug <span class="dv">14</span>;<span class="dv">2</span><span class="sc">:</span>e63. doi<span class="sc">:</span> <span class="fl">10.1038</span><span class="sc">/</span>psp.<span class="dv">2013</span>.<span class="fl">41.</span> PubMed PMID<span class="sc">:</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>  <span class="dv">23945604</span>; PubMed Central PMCID<span class="sc">:</span> PMC3828005.</span></code></pre></div>
 <p>Model parameters</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/param.html">param</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>. </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>.  Model <span class="fu">parameters</span> (<span class="at">N=</span><span class="dv">52</span>)<span class="sc">:</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>.  name    value  . name  value  . name      value </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>.  BP      <span class="fl">0.98</span>   <span class="sc">|</span> fumic <span class="dv">1</span>      <span class="sc">|</span> FVve      <span class="fl">0.0514</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>.  BW      <span class="dv">70</span>     <span class="sc">|</span> fup   <span class="fl">0.681</span>  <span class="sc">|</span> HLM_CLint <span class="dv">8</span>     </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>.  CLrenal <span class="dv">0</span>      <span class="sc">|</span> FVad  <span class="fl">0.213</span>  <span class="sc">|</span> Ka        <span class="fl">2.18</span>  </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>.  CO      <span class="dv">108</span>    <span class="sc">|</span> FVar  <span class="fl">0.0257</span> <span class="sc">|</span> Kpad      <span class="fl">0.191</span> </span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>.  F       <span class="dv">1</span>      <span class="sc">|</span> FVbo  <span class="fl">0.0856</span> <span class="sc">|</span> Kpbo      <span class="fl">0.374</span> </span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>.  FQad    <span class="fl">0.05</span>   <span class="sc">|</span> FVbr  <span class="fl">0.02</span>   <span class="sc">|</span> Kpbr      <span class="fl">0.606</span> </span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>.  FQbo    <span class="fl">0.05</span>   <span class="sc">|</span> FVgu  <span class="fl">0.0171</span> <span class="sc">|</span> Kpgu      <span class="fl">0.578</span> </span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>.  FQbr    <span class="fl">0.12</span>   <span class="sc">|</span> FVhe  <span class="fl">0.0047</span> <span class="sc">|</span> Kphe      <span class="fl">0.583</span> </span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>.  FQgu    <span class="fl">0.146</span>  <span class="sc">|</span> FVki  <span class="fl">0.0044</span> <span class="sc">|</span> Kpki      <span class="fl">0.597</span> </span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>.  FQh     <span class="fl">0.215</span>  <span class="sc">|</span> FVli  <span class="fl">0.021</span>  <span class="sc">|</span> Kpli      <span class="fl">0.57</span>  </span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>.  FQhe    <span class="fl">0.04</span>   <span class="sc">|</span> FVlu  <span class="fl">0.0076</span> <span class="sc">|</span> Kplu      <span class="fl">0.62</span>  </span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>.  FQki    <span class="fl">0.19</span>   <span class="sc">|</span> FVmu  <span class="fl">0.4</span>    <span class="sc">|</span> Kpmu      <span class="fl">0.622</span> </span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>.  FQlu    <span class="dv">1</span>      <span class="sc">|</span> FVpl  <span class="fl">0.0424</span> <span class="sc">|</span> Kpre      <span class="fl">0.6</span>   </span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>.  FQmu    <span class="fl">0.17</span>   <span class="sc">|</span> FVrb  <span class="fl">0.0347</span> <span class="sc">|</span> Kpsk      <span class="fl">0.6</span>   </span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>.  FQre    <span class="fl">0.104</span>  <span class="sc">|</span> FVre  <span class="fl">0.0998</span> <span class="sc">|</span> Kpsp      <span class="fl">0.591</span> </span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>.  FQsk    <span class="fl">0.05</span>   <span class="sc">|</span> FVsk  <span class="fl">0.0371</span> <span class="sc">|</span> Kpte      <span class="fl">0.6</span>   </span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>.  FQsp    <span class="fl">0.0172</span> <span class="sc">|</span> FVsp  <span class="fl">0.0026</span> <span class="sc">|</span> .         .     </span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>.  FQte    <span class="fl">0.0108</span> <span class="sc">|</span> FVte  <span class="fl">0.01</span>   <span class="sc">|</span> .         .</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/param.html">param</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>. </span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>.  Model <span class="fu">parameters</span> (<span class="at">N=</span><span class="dv">52</span>)<span class="sc">:</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>.  name    value  . name  value  . name      value </span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>.  BP      <span class="fl">0.98</span>   <span class="sc">|</span> fumic <span class="dv">1</span>      <span class="sc">|</span> FVve      <span class="fl">0.0514</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>.  BW      <span class="dv">70</span>     <span class="sc">|</span> fup   <span class="fl">0.681</span>  <span class="sc">|</span> HLM_CLint <span class="dv">8</span>     </span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>.  CLrenal <span class="dv">0</span>      <span class="sc">|</span> FVad  <span class="fl">0.213</span>  <span class="sc">|</span> Ka        <span class="fl">2.18</span>  </span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>.  CO      <span class="dv">108</span>    <span class="sc">|</span> FVar  <span class="fl">0.0257</span> <span class="sc">|</span> Kpad      <span class="fl">0.191</span> </span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>.  F       <span class="dv">1</span>      <span class="sc">|</span> FVbo  <span class="fl">0.0856</span> <span class="sc">|</span> Kpbo      <span class="fl">0.374</span> </span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a>.  FQad    <span class="fl">0.05</span>   <span class="sc">|</span> FVbr  <span class="fl">0.02</span>   <span class="sc">|</span> Kpbr      <span class="fl">0.606</span> </span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>.  FQbo    <span class="fl">0.05</span>   <span class="sc">|</span> FVgu  <span class="fl">0.0171</span> <span class="sc">|</span> Kpgu      <span class="fl">0.578</span> </span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>.  FQbr    <span class="fl">0.12</span>   <span class="sc">|</span> FVhe  <span class="fl">0.0047</span> <span class="sc">|</span> Kphe      <span class="fl">0.583</span> </span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>.  FQgu    <span class="fl">0.146</span>  <span class="sc">|</span> FVki  <span class="fl">0.0044</span> <span class="sc">|</span> Kpki      <span class="fl">0.597</span> </span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>.  FQh     <span class="fl">0.215</span>  <span class="sc">|</span> FVli  <span class="fl">0.021</span>  <span class="sc">|</span> Kpli      <span class="fl">0.57</span>  </span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a>.  FQhe    <span class="fl">0.04</span>   <span class="sc">|</span> FVlu  <span class="fl">0.0076</span> <span class="sc">|</span> Kplu      <span class="fl">0.62</span>  </span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a>.  FQki    <span class="fl">0.19</span>   <span class="sc">|</span> FVmu  <span class="fl">0.4</span>    <span class="sc">|</span> Kpmu      <span class="fl">0.622</span> </span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>.  FQlu    <span class="dv">1</span>      <span class="sc">|</span> FVpl  <span class="fl">0.0424</span> <span class="sc">|</span> Kpre      <span class="fl">0.6</span>   </span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a>.  FQmu    <span class="fl">0.17</span>   <span class="sc">|</span> FVrb  <span class="fl">0.0347</span> <span class="sc">|</span> Kpsk      <span class="fl">0.6</span>   </span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>.  FQre    <span class="fl">0.104</span>  <span class="sc">|</span> FVre  <span class="fl">0.0998</span> <span class="sc">|</span> Kpsp      <span class="fl">0.591</span> </span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a>.  FQsk    <span class="fl">0.05</span>   <span class="sc">|</span> FVsk  <span class="fl">0.0371</span> <span class="sc">|</span> Kpte      <span class="fl">0.6</span>   </span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a>.  FQsp    <span class="fl">0.0172</span> <span class="sc">|</span> FVsp  <span class="fl">0.0026</span> <span class="sc">|</span> .         .     </span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a>.  FQte    <span class="fl">0.0108</span> <span class="sc">|</span> FVte  <span class="fl">0.01</span>   <span class="sc">|</span> .         .</span></code></pre></div>
 <p>Set up a batch to simulate</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">idata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/expand.idata.html">expand.idata</a></span><span class="op">(</span>Kpli <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">20</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">idata</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>.   ID Kpli</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>. <span class="dv">1</span>  <span class="dv">1</span>    <span class="dv">4</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>. <span class="dv">2</span>  <span class="dv">2</span>    <span class="dv">6</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>. <span class="dv">3</span>  <span class="dv">3</span>    <span class="dv">8</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>. <span class="dv">4</span>  <span class="dv">4</span>   <span class="dv">10</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>. <span class="dv">5</span>  <span class="dv">5</span>   <span class="dv">12</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>. <span class="dv">6</span>  <span class="dv">6</span>   <span class="dv">14</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>. <span class="dv">7</span>  <span class="dv">7</span>   <span class="dv">16</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>. <span class="dv">8</span>  <span class="dv">8</span>   <span class="dv">18</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>. <span class="dv">9</span>  <span class="dv">9</span>   <span class="dv">20</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">idata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/expand.idata.html">expand.idata</a></span><span class="op">(</span>Kpli <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">20</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">idata</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>.   ID Kpli</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>. <span class="dv">1</span>  <span class="dv">1</span>    <span class="dv">4</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>. <span class="dv">2</span>  <span class="dv">2</span>    <span class="dv">6</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>. <span class="dv">3</span>  <span class="dv">3</span>    <span class="dv">8</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>. <span class="dv">4</span>  <span class="dv">4</span>   <span class="dv">10</span></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>. <span class="dv">5</span>  <span class="dv">5</span>   <span class="dv">12</span></span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>. <span class="dv">6</span>  <span class="dv">6</span>   <span class="dv">14</span></span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>. <span class="dv">7</span>  <span class="dv">7</span>   <span class="dv">16</span></span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a>. <span class="dv">8</span>  <span class="dv">8</span>   <span class="dv">18</span></span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a>. <span class="dv">9</span>  <span class="dv">9</span>   <span class="dv">20</span></span></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/ev.html">ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fl">150</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/idata_set.html">idata_set</a></span><span class="op">(</span><span class="va">idata</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span>
-  <span class="fu"><a href="reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">6</span>, delta <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">Cp</span><span class="op">~</span><span class="va">time</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/ev.html">ev</a></span><span class="op">(</span>amt <span class="op">=</span> <span class="fl">150</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/idata_set.html">idata_set</a></span><span class="op">(</span><span class="va">idata</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">6</span>, delta <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op"><a href="reference/zchain.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">Cp</span><span class="op">~</span><span class="va">time</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-pbpk-figure-1.png"><!-- --></p>
 </div>
 </div>
@@ -261,16 +261,7 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://github-drone.metrumrg.com/metrumresearchgroup/mrgsolve" class="external-link"><img src="https://github-drone.metrumrg.com/api/badges/metrumresearchgroup/mrgsolve/status.svg" alt="Build Status"></a></li>
-<li><a href="https://cran.r-project.org/package=mrgsolve" class="external-link"><img src="http://www.r-pkg.org/badges/version/mrgsolve" alt="CRAN"></a></li>
-<li><a href="http://www.gnu.org/licenses/gpl-2.0.html" class="external-link"><img src="http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat" alt="License"></a></li>
-<li><a href="https://github.com/metrumresearchgroup/mrgsolve/issues" class="external-link"><img src="https://img.shields.io/badge/ask_for-Help-brightgreen.svg" alt="questions"></a></li>
-<li><a href="http://metrumrg.com" class="external-link"><img src="https://img.shields.io/badge/contact-MetrumRG-brightgreen.svg" alt="MetrumRG"></a></li>
-</ul>
-</div>
+
 
   </aside>
 </div>
@@ -283,7 +274,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
     </footer>
