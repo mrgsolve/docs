@@ -151,16 +151,16 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Joining, by = "ID"</span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="va">data</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ID  amt cmt time addl ii rate evid       CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 1000   1    0    3 24    0    1 2.000174</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 1000   2    0    0  0   20    1 1.321641</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 1000   1    0    0  0    0    1 1.627746</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  3  500   1   24    0  0    0    1 1.627746</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  3  500   1   48    0  0    0    1 1.627746</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  3 1000   1   72    0  0    0    1 1.627746</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  4 2000   2    0    2 48  100    1 1.349272</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  5 1000   1    0    0  0    0    1 2.990872</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  5 5000   1   24    0  0   60    1 2.990872</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ID  amt cmt time addl ii rate evid        CL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 1000   1    0    3 24    0    1 1.3679965</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 1000   2    0    0  0   20    1 0.8652766</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 1000   1    0    0  0    0    1 1.8971165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  3  500   1   24    0  0    0    1 1.8971165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  3  500   1   48    0  0    0    1 1.8971165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  3 1000   1   72    0  0    0    1 1.8971165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  4 2000   2    0    2 48  100    1 2.2913902</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  5 1000   1    0    0  0    0    1 1.6587928</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  5 5000   1   24    0  0   60    1 1.6587928</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="va">mod</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu"><a href="data_set.html">data_set</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op"><a href="zchain.html">%&gt;%</a></span> <span class="fu"><a href="carry_out.html">carry_out</a></span><span class="op">(</span><span class="va">CL</span><span class="op">)</span> <span class="op"><a href="zchain.html">%&gt;%</a></span>  <span class="va">mrgsim</span></span></span>
 <span class="r-in"><span><span class="va">out</span></span></span>
@@ -168,15 +168,15 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dim:    4814 x 4 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time:   0 to 240 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ID:     5 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ID time CL    CP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   1 0.00  2  0.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:   1 0.00  2  0.00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:   1 0.25  2 12.79</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:   1 0.50  2 21.95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:   1 0.75  2 28.43</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6:   1 1.00  2 32.93</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7:   1 1.25  2 35.97</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8:   1 1.50  2 37.93</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ID time    CL    CP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   1 0.00 1.368  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:   1 0.00 1.368  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:   1 0.25 1.368 12.84</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:   1 0.50 1.368 22.14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:   1 0.75 1.368 28.81</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6:   1 1.00 1.368 33.55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7:   1 1.25 1.368 36.85</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8:   1 1.50 1.368 39.09</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="exdatasets-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>

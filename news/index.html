@@ -59,7 +59,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.0.8" id="mrgsolve-108">mrgsolve 1.0.8<a class="anchor" aria-label="anchor" href="#mrgsolve-108"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.0.8" id="mrgsolve-108">mrgsolve 1.0.8<a class="anchor" aria-label="anchor" href="#mrgsolve-108"></a></h2><p class="text-muted">CRAN release: 2023-03-04</p>
 <ul><li><p><code><a href="../reference/sigma.html">SIGMA()</a></code> is a new model macro which allows users to access on-diagonal elements of <code>SIGMA</code> in the model (e.g. <code>SIGMA(2)</code> in <code>$ERROR</code>) (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1051" class="external-link">#1051</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1052" class="external-link">#1052</a>).</p></li>
 <li><p><code><a href="../reference/mrgsim.html">mrgsim()</a></code> and <code><a href="../reference/mrgsim_q.html">mrgsim_q()</a></code> gain an <code>etasrc</code> argument, allowing <code>ETAs</code> to be either simulated from <code>OMEGA</code> (new default and previously the only behavior) or taken from the input data set (new option), similar to the way parameters can be scraped from the data set (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1037" class="external-link">#1037</a>).</p></li>
 <li><p><code>@etas</code> is a new option for use with the <code>$CAPTURE</code> block to let users name <code>ETAs</code> to be captured into the simulated output; for example, use <code>@etas 1:last</code> to capture all model <code>ETAs</code> in the simulated output (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1055" class="external-link">#1055</a>).</p></li>
