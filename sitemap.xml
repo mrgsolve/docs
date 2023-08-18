@@ -73,6 +73,9 @@
     <loc>/reference/carry_out.html</loc>
   </url>
   <url>
+    <loc>/reference/check_data_names.html</loc>
+  </url>
+  <url>
     <loc>/reference/cmt_list-class.html</loc>
   </url>
   <url>
@@ -317,6 +320,9 @@
   </url>
   <url>
     <loc>/reference/param.html</loc>
+  </url>
+  <url>
+    <loc>/reference/param_tags.html</loc>
   </url>
   <url>
     <loc>/reference/parameter_list-class.html</loc>

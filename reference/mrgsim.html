@@ -20,7 +20,7 @@ inputs. mrgsim_df coerces output to data.frame prior to returning."><!-- mathjax
     
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@ inputs. <code>mrgsim_df</code> coerces output to data.frame prior to returning.<
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mrgsim</span><span class="op">(</span><span class="va">x</span>, data <span class="op">=</span> <span class="cn">NULL</span>, idata <span class="op">=</span> <span class="cn">NULL</span>, events <span class="op">=</span> <span class="cn">NULL</span>, nid <span class="op">=</span> <span class="fl">1</span>, <span class="va">...</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mrgsim</span><span class="op">(</span><span class="va">x</span>, data <span class="op">=</span> <span class="cn">NULL</span>, idata <span class="op">=</span> <span class="cn">NULL</span>, events <span class="op">=</span> <span class="cn">NULL</span>, nid <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">mrgsim_df</span><span class="op">(</span><span class="va">...</span>, output <span class="op">=</span> <span class="st">"df"</span><span class="op">)</span></span>
 <span></span>
@@ -197,7 +197,8 @@ or another object with an <code>stime</code> method.</p></dd>
 
 <dt>etasrc</dt>
 <dd><p>source for <code>ETA()</code> values in the model; values can include:
-<code>"omega"</code>, <code>"data"</code> or <code>"data.all"</code>; see 'Details'.</p></dd>
+<code>"omega"</code>, <code>"data"</code>, <code>"data.all"</code>, <code>"idata"</code>, or <code>"idata.all"</code>; see
+'Details'.</p></dd>
 
 
 <dt>recsort</dt>
@@ -314,7 +315,9 @@ counts.</p></li>
 <li><p><code>etasrc</code>: this argument lets you control where <code>ETA(n)</code> come from in the
 model. When <code>etasrc</code> is set to <code>"omega"</code> (the default), <code>ETAs</code> will be
 simulated from a multivariate normal distribution defined by the <code>$OMEGA</code>
-blocks in the model. When <code>etasrc</code> is set to <code>"data"</code> or <code>"data.all"</code>,
+blocks in the model. Alternatively, input <code>data</code> or <code>idata</code> sets can be used
+to pass in fixed <code>ETA(n)</code> by setting <code>etasrc</code> to <code>"data"</code>, <code>"idata"</code>,
+<code>"data.all"</code> or <code>"idata.all"</code>. When <code>etasrc</code> is set to <code>"data"</code> or <code>"data.all"</code>,
 the input data set will be scanned for columns called <code>ETA1</code>, <code>ETA2</code>, ...,
 <code>ETAn</code> and those values will be copied into the appropriate slot in the
 <code>ETA()</code> vector. Only the first record for each individual will be copied into
@@ -336,7 +339,9 @@ data set, the missing <code>ETA()</code> will be set to <code>0</code>.  Alterna
 can pass <code>etasrc = "data.all"</code> which causes an error to be generated if any
 <code>ETAn</code> is missing from the data set. Use this option when you intend to have
 <em>all</em> <code>ETAs</code> attached to the data set and want an error generated if mrgsolve
-finds one or more of them is missing.</p></li>
+finds one or more of them is missing. Using <code>etasrc ="idata"</code> or
+<code>"idata.all"</code>, the behavior is identical to <code>"data"</code> (or <code>"data.all"</code>),
+except mrgsolve will look at the idata set rather than data set.</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

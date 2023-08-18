@@ -24,7 +24,7 @@ equation solver. See aboutsolver for more information."><!-- mathjax --><script 
     
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,8 +100,8 @@ equation solver. See <a href="aboutsolver.html">aboutsolver</a> for more informa
 <ul><li><p><code>mrgolve.project</code>: sets the default project director (<code><a href="mread.html">mread()</a></code>)</p></li>
 <li><p><code>mrgsolve.soloc</code>: sets the default package build directory (<code><a href="mread.html">mread()</a></code>)</p></li>
 <li><p><code>mrgsolve_mread_quiet</code>: don't print messages during <code><a href="mread.html">mread()</a></code></p></li>
-<li><p><code>mrgsolve.update.strict</code>: if <code>TRUE</code>, print warning when trying to update
-an item in the model object that doesn't exist</p></li>
+<li><p><code>mrgsolve.update.strict</code>: this option has been deprecated; use the <code>strict</code>
+argument to <code><a href="update.html">update()</a></code> instead</p></li>
 </ul></div>
 
     <div class="section level2">
@@ -130,8 +130,8 @@ an item in the model object that doesn't exist</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  add: &lt;none&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   compartments:  GUT CENT RESP [3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters:    CL VC KA F1 D1 WT SEX WTCL WTVC SEXCL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  SEXVC KIN KOUT IC50 [14]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters:    CL VC KA F1 D1 WTCL WTVC SEXCL SEXVC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  KIN KOUT IC50 WT SEX [14]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   captures:      DV CP [2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   omega:         4x4 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   sigma:         1x1 </span>
@@ -164,8 +164,6 @@ an item in the model object that doesn't exist</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> KA   : 1.2  : Absorption rate constant (1/hr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> F1   : 1.0  : Bioavailability fraction (.)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> D1   : 2.0  : Infusion duration (hr)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> WT   : 70   : Weight (kg)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SEX  : 0    : Covariate female sex</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> WTCL : 0.75 : Exponent WT on CL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> WTVC : 1.00 : Exponent WT on VC</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> SEXCL: 0.7  : Prop cov effect on CL</span>
@@ -173,6 +171,10 @@ an item in the model object that doesn't exist</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> KIN  : 100  : Resp prod rate constant (1/hr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> KOUT : 2    : Resp elim rate constant (1/hr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> IC50 : 10   : Conc giving 50% max resp (ng/ml)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $PARAM @annotated @covariates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> WT   : 70   : Weight (kg)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SEX  :  0   : Covariate female sex</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $CMT @annotated</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> GUT  : Dosing compartment (mg)</span>
@@ -186,7 +188,6 @@ an item in the model object that doesn't exist</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $SET end=120, delta=0.25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $GLOBAL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #define CP (CENT/VCi)</span>
@@ -216,7 +217,6 @@ an item in the model object that doesn't exist</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $CAPTURE @annotated</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> DV: Dependent variable (ng/ml)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CP: Plasma concentration (ng/ml)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="stime.html">stime</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
@@ -252,12 +252,12 @@ an item in the model object that doesn't exist</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  1  0.4  618.7834 379.1657 36.29753 18.958286 18.958286</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      ID  time          GUT     CENT     RESP       DV       CP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1677  1 167.5 1.218837e-22 671.4739 11.36504 33.57369 33.57369</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1678  1 167.6 1.077787e-22 669.7973 11.38701 33.48987 33.48987</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1679  1 167.7 9.538416e-23 668.1249 11.40901 33.40625 33.40625</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1680  1 167.8 8.441717e-23 666.4567 11.43104 33.32283 33.32283</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1681  1 167.9 7.466550e-23 664.7926 11.45310 33.23963 33.23963</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1682  1 168.0 6.610142e-23 663.1327 11.47519 33.15664 33.15664</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1677  1 167.5 1.218838e-22 671.4739 11.36504 33.57369 33.57369</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1678  1 167.6 1.077788e-22 669.7973 11.38701 33.48987 33.48987</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1679  1 167.7 9.538423e-23 668.1249 11.40901 33.40625 33.40625</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1680  1 167.8 8.441723e-23 666.4567 11.43104 33.32283 33.32283</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1681  1 167.9 7.466555e-23 664.7926 11.45310 33.23963 33.23963</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1682  1 168.0 6.610146e-23 663.1327 11.47519 33.15664 33.15664</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1682    7</span>
 <span class="r-in"><span></span></span>
@@ -337,6 +337,8 @@ an item in the model object that doesn't exist</p></li>
 <span class="r-in"><span>  <span class="fu"><a href="mrgsim.html">mrgsim</a></span><span class="op">(</span>end<span class="op">=</span><span class="fl">72</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span>, <span class="va">CP</span><span class="op">~</span><span class="va">.</span>, as<span class="op">=</span><span class="st">"log10"</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>In subset.data.frame(as.data.frame(x), ...) :</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>  extra argument ‘as’ will be disregarded</span>
 <span class="r-plt img"><img src="mrgsolve_package-5.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>

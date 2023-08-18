@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,10 +100,10 @@ for <code>.x</code>.</p></dd>
 
 <dt>.y</dt>
 <dd><p>an object to be merged into parameter list; non-<code>NULL</code> values
-must be named list, data.frame, or numeric vector; named items that do
-not exist in the parameter list are allowed and will be silently ignored;
-use the <code>.strict</code> argument to require that all names in <code>.y</code> exist already
-in the parameter list.</p></dd>
+must be named <code>list</code>, <code>data.frame</code>, <code>numeric</code> vector, or <code>parameter_list</code>
+object; named items that do not exist in the parameter list are allowed and
+will be silently ignored; use the <code>.strict</code> argument to require that all
+names in <code>.y</code> exist already in the parameter list.</p></dd>
 
 
 <dt>.pat</dt>
@@ -127,7 +127,7 @@ in the parameter list.</p></dd>
     <p>Can be used to either get a parameter list object from a <code>mrgmod</code>
 model object or to update the parameters in a model object.
 For both uses, the return value is a <code>parameter_list</code> object. For the
-former use, <code>param</code> is usually called to print the parameters to the
+former use, <code>param()</code> is usually called to print the parameters to the
 screen, but the <code>parameter_list</code> object can also be coerced to a list
 or numeric R object.</p>
 <p>Use <code>allparam()</code> to get a <code>parameter_list</code> object including
@@ -198,12 +198,6 @@ the candidates) by passing <code>.strict = TRUE</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $D1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $WT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 70</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $SEX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $WTCL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.75</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -225,10 +219,16 @@ the candidates) by passing <code>.strict = TRUE</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $IC50</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $WT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 70</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SEX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="fu">param</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   CL VC  KA F1 D1 WT SEX WTCL WTVC SEXCL SEXVC KIN KOUT IC50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 20 1.2  1  2 70   0 0.75    1   0.7  0.85 100    2   10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   CL VC  KA F1 D1 WTCL WTVC SEXCL SEXVC KIN KOUT IC50 WT SEX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 20 1.2  1  2 0.75    1   0.7  0.85 100    2   10 70   0</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">param</span><span class="op">(</span><span class="va">mod</span>, CL <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -242,8 +242,8 @@ the candidates) by passing <code>.strict = TRUE</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  add: &lt;none&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   compartments:  GUT CENT RESP [3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters:    CL VC KA F1 D1 WT SEX WTCL WTVC SEXCL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  SEXVC KIN KOUT IC50 [14]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters:    CL VC KA F1 D1 WTCL WTVC SEXCL SEXVC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  KIN KOUT IC50 WT SEX [14]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   captures:      DV CP [2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   omega:         4x4 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   sigma:         1x1 </span>
@@ -265,8 +265,8 @@ the candidates) by passing <code>.strict = TRUE</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  add: &lt;none&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   compartments:  GUT CENT RESP [3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters:    CL VC KA F1 D1 WT SEX WTCL WTVC SEXCL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  SEXVC KIN KOUT IC50 [14]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters:    CL VC KA F1 D1 WTCL WTVC SEXCL SEXVC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  KIN KOUT IC50 WT SEX [14]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   captures:      DV CP [2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   omega:         4x4 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   sigma:         1x1 </span>

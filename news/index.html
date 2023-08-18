@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,6 +58,33 @@
       <small>Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.1" id="mrgsolve-111">mrgsolve 1.1.1<a class="anchor" aria-label="anchor" href="#mrgsolve-111"></a></h2><p class="text-muted">CRAN release: 2023-08-16</p>
+<ul><li>Remove <code>.x</code> from <code>matlist</code> documentation object per new NOTE output from rdevel (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1103" class="external-link">#1103</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1104" class="external-link">#1104</a>).</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.0" id="mrgsolve-110">mrgsolve 1.1.0<a class="anchor" aria-label="anchor" href="#mrgsolve-110"></a></h2>
+<ul><li>
+<p>Add new functionality for assessing consistency between names on input data set and parameter names (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1078" class="external-link">#1078</a>).</p>
+<ul><li>New function <code><a href="../reference/check_data_names.html">check_data_names()</a></code> executes the check.</li>
+<li>New model specification block <code>$INPUT</code> for marking parameters as “inputs” and expecting them to be present in the data when <code><a href="../reference/check_data_names.html">check_data_names()</a></code> is called.</li>
+<li>New <code>$PARAM</code> block attributes <code>@input</code> and <code>@tag</code> for adding tags to parameters which will be checked when <code><a href="../reference/check_data_names.html">check_data_names()</a></code> is called.</li>
+<li>New function <code><a href="../reference/param_tags.html">param_tags()</a></code> to list parameters and tags for a given model.</li>
+</ul></li>
+<li><p>Now checking <code>TIME</code> and <code>time</code> when assessing upper / lower case name consistency of input data sets (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1099" class="external-link">#1099</a>).</p></li>
+<li><p>ETAs can now be passed into the problem via <code>idata</code> by passing <code>eta_src</code> as either <code>idata</code> or <code>idata.all</code> to <code><a href="../reference/mrgsim.html">mrgsim()</a></code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1092" class="external-link">#1092</a>).</p></li>
+<li><p>Internal refactor of mechanics checking for user interrupt during simulation (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1088" class="external-link">#1088</a>).</p></li>
+<li><p>Minor re-factor of <code>mrgsim_nid()</code> and documentation update to be in line with original intent; no meaningful change in functionality (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1086" class="external-link">#1086</a>).</p></li>
+<li><p><code>parameter_list</code> objects can now be passed to <code><a href="../reference/param.html">param()</a></code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1076" class="external-link">#1076</a>).</p></li>
+<li><p><code><a href="../reference/ev_rx.html">ev_rx()</a></code> syntax gains <code>&amp;</code> operator allowing specification of multiple events at a single time (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1072" class="external-link">#1072</a>).</p></li>
+<li><p>Kyle Meyer added as contributor (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1096" class="external-link">#1096</a>).</p></li>
+<li><p><code><a href="../reference/modlib.html">modlib()</a></code> model <code>1005</code> re-coded to reflect the “traditional” model specification syntax (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1069" class="external-link">#1069</a>).</p></li>
+<li><p>The model object <code><a href="../reference/update.html">update()</a></code> method will again issue a warning when unrecognized arguments are passed (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1068" class="external-link">#1068</a>).</p></li>
+</ul><div class="section level3">
+<h3 id="bugs-fixed-1-1-0">Bugs Fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-1-1-0"></a></h3>
+<ul><li>Fixed bug where ETA in the first column of <code>data</code> was not recognized when using <code>eta_src = "data"</code> or <code>eta_src = "data.all"</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1095" class="external-link">#1095</a>).</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.9" id="mrgsolve-109">mrgsolve 1.0.9<a class="anchor" aria-label="anchor" href="#mrgsolve-109"></a></h2><p class="text-muted">CRAN release: 2023-03-10</p>
 <ul><li>Fix signatures for <code>compiled.mrgmod()</code> and <code><a href="../reference/mrgsims_dplyr.html">as_tibble.mrgsims()</a></code> based on new R-devel check findings (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1065" class="external-link">#1065</a>).</li>

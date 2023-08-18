@@ -14,7 +14,7 @@ options and is documented separately."><!-- mathjax --><script src="https://cdnj
     
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,6 +79,8 @@ options and is documented separately.</p>
 <span>  object <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  as_object <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  covariates <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  input <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  tag <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -156,7 +158,16 @@ options and is documented separately.</p>
 
 
 <dt>covariates</dt>
-<dd><p>logical</p></dd>
+<dd><p>logical; mark as covariates and potentially required
+data input</p></dd>
+
+
+<dt>input</dt>
+<dd><p>logical; mark as potentially required data input</p></dd>
+
+
+<dt>tag</dt>
+<dd><p>space or comma-separated user-defined tags for the parameter block</p></dd>
 
 
 <dt>...</dt>
