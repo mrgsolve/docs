@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,6 +58,23 @@
       <small>Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.3.0" id="mrgsolve-130">mrgsolve 1.3.0<a class="anchor" aria-label="anchor" href="#mrgsolve-130"></a></h2>
+<ul><li><p>The <code>evdata</code> object for modeled events now contains a <code>check_unique</code> member; when set to <code>false</code>, the event will be processed without checking for a matching record in the modeled event log (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1119" class="external-link">#1119</a>).</p></li>
+<li><p>The <code>amt</code> attribute in <code>evdata</code> modeled event objects is now considered when looking for duplicate records in the modeled event log (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1119" class="external-link">#1119</a>).</p></li>
+</ul><div class="section level3">
+<h3 id="bugs-fixed-1-3-0">Bugs Fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-1-3-0"></a></h3>
+<ul><li><p>Fixed a bug where multiple lagged doses given at the same time but with different bioavailability were all given the bioavailability of the last dosing record (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1129" class="external-link">#1129</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1130" class="external-link">#1130</a>).</p></li>
+<li><p>Fixed a bug where modeled infusions given <code>now</code> were never turned off (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1131" class="external-link">#1131</a>).</p></li>
+<li><p>Fixed a bug where the <code>self</code> object (type: <code>databox</code>) could not be passed into functions written into header files that were included through <code>$INCLUDE</code>; these header files are now included immediately preceding any user code written into <code>$GLOBAL</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1125" class="external-link">#1125</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1126" class="external-link">#1126</a>).</p></li>
+<li><p>Fixed a bug where modeled event log was not getting reset after simulating the first individual; this resulted in events not getting executed in subsequent individuals when matching events were executed in the first individual; this affects modeled events only, not events coming from the data set (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1117" class="external-link">#1117</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1118" class="external-link">#1118</a>).</p></li>
+<li><p>Fixed a bug in detecting which compartments are receiving doses (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1112" class="external-link">#1112</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1113" class="external-link">#1113</a>).</p></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.2.0" id="mrgsolve-120">mrgsolve 1.2.0<a class="anchor" aria-label="anchor" href="#mrgsolve-120"></a></h2>
+<ul><li>Data set records at the same time within individual will receive different <code>EPS</code> draws; this is a change from previous behavior where records with the same time received the same value for <code>EPS</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1110" class="external-link">#1110</a>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.1" id="mrgsolve-111">mrgsolve 1.1.1<a class="anchor" aria-label="anchor" href="#mrgsolve-111"></a></h2><p class="text-muted">CRAN release: 2023-08-16</p>
 <ul><li>Remove <code>.x</code> from <code>matlist</code> documentation object per new NOTE output from rdevel (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1103" class="external-link">#1103</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1104" class="external-link">#1104</a>).</li>
@@ -151,11 +168,11 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.1" id="mrgsolve-101">mrgsolve 1.0.1<a class="anchor" aria-label="anchor" href="#mrgsolve-101"></a></h2>
-<ul><li><p>Add <code>LOG()</code>, <code>EXP()</code>, <code>SQRT()</code> macros when <code>nm-vars</code> plugin is invoked <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/931" class="external-link">#931</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/936" class="external-link">#936</a>.</p></li>
-<li><p>Use <code><a href="../reference/evd.html">evd()</a></code> to create an event object which renders nmtran names in upper case (e.g. <code>TIME</code> rather than <code>time</code>) <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/935" class="external-link">#935</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/919" class="external-link">#919</a>.</p></li>
-<li><p>Fixed bug where <code>rate</code> was not getting set for modeled events <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/934" class="external-link">#934</a>.</p></li>
-<li><p>Fixed bug where <code>self.stop_id()</code> and <code>self.stop_id_cf()</code> had reversed behavior as documented <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/927" class="external-link">#927</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/928" class="external-link">#928</a>.</p></li>
-<li><p>Refactored EVID=3 behavior to leave <code>NEWIND</code> as-is <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/934" class="external-link">#934</a>.</p></li>
+<ul><li><p>Add <code>LOG()</code>, <code>EXP()</code>, <code>SQRT()</code> macros when <code>nm-vars</code> plugin is invoked (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/931" class="external-link">#931</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/936" class="external-link">#936</a>).</p></li>
+<li><p>Use <code><a href="../reference/evd.html">evd()</a></code> to create an event object which renders nmtran names in upper case (e.g. <code>TIME</code> rather than <code>time</code>) (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/935" class="external-link">#935</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/919" class="external-link">#919</a>).</p></li>
+<li><p>Fixed bug where <code>rate</code> was not getting set for modeled events (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/934" class="external-link">#934</a>).</p></li>
+<li><p>Fixed bug where <code>self.stop_id()</code> and <code>self.stop_id_cf()</code> had reversed behavior as documented (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/927" class="external-link">#927</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/928" class="external-link">#928</a>).</p></li>
+<li><p>Refactored EVID=3 behavior to leave <code>NEWIND</code> as-is (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/934" class="external-link">#934</a>).</p></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="mrgsolve-100">mrgsolve 1.0.0<a class="anchor" aria-label="anchor" href="#mrgsolve-100"></a></h2><p class="text-muted">CRAN release: 2022-01-20</p>
@@ -219,89 +236,89 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.5" id="mrgsolve-0105">mrgsolve 0.10.5<a class="anchor" aria-label="anchor" href="#mrgsolve-0105"></a></h2>
-<ul><li>Suppress warnings when non-numeric columns are dropped when those columns are not relevant to the simulation <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/709" class="external-link">#709</a></li>
-<li>Add <code>$ERROR</code> as an alias for <code>$TABLE</code> in the model file <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/710" class="external-link">#710</a></li>
-<li>Fix bug where warning messages during steady-state finding referenced <code>rtol</code> and <code>atol</code> rather than <code>ss_rtol</code> and <code>ss_atol</code> <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/703" class="external-link">#703</a></li>
-<li>Fix annotation parsing bug when the description included semi-colon <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/696" class="external-link">#696</a></li>
+<ul><li>Suppress warnings when non-numeric columns are dropped when those columns are not relevant to the simulation (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/709" class="external-link">#709</a>)</li>
+<li>Add <code>$ERROR</code> as an alias for <code>$TABLE</code> in the model file (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/710" class="external-link">#710</a>)</li>
+<li>Fix bug where warning messages during steady-state finding referenced <code>rtol</code> and <code>atol</code> rather than <code>ss_rtol</code> and <code>ss_atol</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/703" class="external-link">#703</a>)</li>
+<li>Fix annotation parsing bug when the description included semi-colon (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/696" class="external-link">#696</a>)</li>
 <li>
-<code>loadso</code> issues a proper error when the model dll doesn’t exist <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/724" class="external-link">#724</a></li>
-<li>Try loading the model with loadso once of the model isn’t loaded at the time of simulation <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/725" class="external-link">#725</a></li>
-<li>Throw an error when <code>addl</code> or <code>ss</code> are negative <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/733" class="external-link">#733</a></li>
-<li>Internal refactoring so that there is a hard solver reset when parameters that are copied from data change <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/744" class="external-link">#744</a></li>
-<li>Add <code>tad</code> plugin to calculate time after dose in a specific compartment <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/702" class="external-link">#702</a></li>
-<li>Internal refactor <code>carry_out</code> to respect default <code>nocb</code> behavior <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/759" class="external-link">#759</a>; see also <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/744" class="external-link">#744</a></li>
-<li>Throw an error when matlist labels are duplicated <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/730" class="external-link">#730</a></li>
-<li>Add <code>capture</code> argument to <code>mread</code> to add to <code>$CAPTURE</code> when compiling the model <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/704" class="external-link">#704</a></li>
+<code>loadso</code> issues a proper error when the model dll doesn’t exist (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/724" class="external-link">#724</a>)</li>
+<li>Try loading the model with loadso once of the model isn’t loaded at the time of simulation (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/725" class="external-link">#725</a>)</li>
+<li>Throw an error when <code>addl</code> or <code>ss</code> are negative (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/733" class="external-link">#733</a>)</li>
+<li>Internal refactoring so that there is a hard solver reset when parameters that are copied from data change (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/744" class="external-link">#744</a>)</li>
+<li>Add <code>tad</code> plugin to calculate time after dose in a specific compartment (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/702" class="external-link">#702</a>)</li>
+<li>Internal refactor <code>carry_out</code> to respect default <code>nocb</code> behavior (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/759" class="external-link">#759</a>; see also <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/744" class="external-link">#744</a>)</li>
+<li>Throw an error when matlist labels are duplicated (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/730" class="external-link">#730</a>)</li>
+<li>Add <code>capture</code> argument to <code>mread</code> to add to <code>$CAPTURE</code> when compiling the model (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/704" class="external-link">#704</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.3" id="mrgsolve-0103">mrgsolve 0.10.3<a class="anchor" aria-label="anchor" href="#mrgsolve-0103"></a></h2>
-<ul><li>The simulation time grid was adjusted so that rendering the grid could result in no times (length 0 vector of times); this is a breaking change from previous behavior where the time grid resolved to 0 when there were no observations to be found. While this is a breaking change, the old behavior was almost always wrong when the desired output was a series of non-observation records <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/640" class="external-link">#640</a></li>
+<ul><li>The simulation time grid was adjusted so that rendering the grid could result in no times (length 0 vector of times); this is a breaking change from previous behavior where the time grid resolved to 0 when there were no observations to be found. While this is a breaking change, the old behavior was almost always wrong when the desired output was a series of non-observation records (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/640" class="external-link">#640</a>)</li>
 <li>Added 1005 model</li>
-<li>Added <code>recover</code> mechanism to join items in input data sets to the output <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/646" class="external-link">#646</a></li>
-<li>Allow simulation from empty time grid; this would potentially break some existing code; but not common <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/648" class="external-link">#648</a></li>
-<li>Add collapse_omega and collapse_sigma arguments to [ set ] block <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/651" class="external-link">#651</a></li>
-<li>Add separate tolerances (<code>ss_rtol</code> and <code>ss_atol</code>) to control advance to steady state <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/652" class="external-link">#652</a></li>
-<li>Fix bug in <code>realize_addl</code> when <code>addl</code> is zero by <code>ii</code> is not <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/653" class="external-link">#653</a></li>
-<li>Fix bug where system did not reset with EVID 4 and infusion dose <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/683" class="external-link">#683</a></li>
-<li>NMXML will now take vector for <code>tname</code> to add custom names to imported THETAs <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/687" class="external-link">#687</a></li>
-<li>Add NMEXT block that works similar (not identical) to NMXML, but reads from the <code>run.ext</code> file <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/509" class="external-link">#509</a></li>
+<li>Added <code>recover</code> mechanism to join items in input data sets to the output (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/646" class="external-link">#646</a>)</li>
+<li>Allow simulation from empty time grid; this would potentially break some existing code; but not common (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/648" class="external-link">#648</a>)</li>
+<li>Add collapse_omega and collapse_sigma arguments to [ set ] block (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/651" class="external-link">#651</a>)</li>
+<li>Add separate tolerances (<code>ss_rtol</code> and <code>ss_atol</code>) to control advance to steady state (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/652" class="external-link">#652</a>)</li>
+<li>Fix bug in <code>realize_addl</code> when <code>addl</code> is zero by <code>ii</code> is not (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/653" class="external-link">#653</a>)</li>
+<li>Fix bug where system did not reset with EVID 4 and infusion dose (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/683" class="external-link">#683</a>)</li>
+<li>NMXML will now take vector for <code>tname</code> to add custom names to imported THETAs (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/687" class="external-link">#687</a>)</li>
+<li>Add NMEXT block that works similar (not identical) to NMXML, but reads from the <code>run.ext</code> file (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/509" class="external-link">#509</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.1" id="mrgsolve-0101">mrgsolve 0.10.1<a class="anchor" aria-label="anchor" href="#mrgsolve-0101"></a></h2><p class="text-muted">CRAN release: 2020-02-21</p>
-<ul><li>Add <code>select_sims</code> method for selecting columns in <code>mrgsims</code> object <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/585" class="external-link">#585</a></li>
-<li>Fix bug where system was improperly advanced on steady state dosing record with a lag time when the system failed to reach steady state <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/596" class="external-link">#596</a></li>
-<li>Add better compartment level control for advancing system to steady state <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/598" class="external-link">#598</a></li>
-<li>Allow user to set <code>CXX_FLAGS</code> in <code>$ENV</code> block <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/603" class="external-link">#603</a></li>
-<li>Add <code>N_CMT</code> plugin so that the number (index) of every compartment is available by name (e.g. <code>N_CENT</code> for the number index of the central compartment) <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/606" class="external-link">#606</a></li>
-<li>Fix bug where <code><a href="../reference/blocks.html">blocks()</a></code> failed when the model was defined in <code>Rmd</code> file <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/608" class="external-link">#608</a></li>
-<li>Call ODE block every time the system tries to advance so that variables calculated in ODE are properly calculated in output <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/613" class="external-link">#613</a></li>
-<li>Add <code>within</code> method for mrgmod <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/616" class="external-link">#616</a></li>
-<li>Access initial compartment values and other model object items with <code>$</code> operator for <code>mrgmod</code> <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/620" class="external-link">#620</a></li>
-<li>Add plot method for signature <code>c("mrgsims", "character")</code>; pass in a character vector of outputs to plot <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/630" class="external-link">#630</a></li>
-<li>The house model, previously accessible by <code>mrgsolve:::house()</code> is now an exported function <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/625" class="external-link">#625</a></li>
+<ul><li>Add <code>select_sims</code> method for selecting columns in <code>mrgsims</code> object (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/585" class="external-link">#585</a>)</li>
+<li>Fix bug where system was improperly advanced on steady state dosing record with a lag time when the system failed to reach steady state (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/596" class="external-link">#596</a>)</li>
+<li>Add better compartment level control for advancing system to steady state (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/598" class="external-link">#598</a>)</li>
+<li>Allow user to set <code>CXX_FLAGS</code> in <code>$ENV</code> block (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/603" class="external-link">#603</a>)</li>
+<li>Add <code>N_CMT</code> plugin so that the number (index) of every compartment is available by name (e.g. <code>N_CENT</code> for the number index of the central compartment) (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/606" class="external-link">#606</a>)</li>
+<li>Fix bug where <code><a href="../reference/blocks.html">blocks()</a></code> failed when the model was defined in <code>Rmd</code> file (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/608" class="external-link">#608</a>)</li>
+<li>Call ODE block every time the system tries to advance so that variables calculated in ODE are properly calculated in output (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/613" class="external-link">#613</a>)</li>
+<li>Add <code>within</code> method for mrgmod (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/616" class="external-link">#616</a>)</li>
+<li>Access initial compartment values and other model object items with <code>$</code> operator for <code>mrgmod</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/620" class="external-link">#620</a>)</li>
+<li>Add plot method for signature <code>c("mrgsims", "character")</code>; pass in a character vector of outputs to plot (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/630" class="external-link">#630</a>)</li>
+<li>The house model, previously accessible by <code>mrgsolve:::house()</code> is now an exported function (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/625" class="external-link">#625</a>)</li>
 <li>Exporting outvars function to extract names of current output variables from the model object</li>
 <li>Now importing lifecycle and glue packages</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.0" id="mrgsolve-0100">mrgsolve 0.10.0<a class="anchor" aria-label="anchor" href="#mrgsolve-0100"></a></h2><p class="text-muted">CRAN release: 2019-10-15</p>
 <ul><li>Remove <code>qsim</code> and all associated functions</li>
-<li>Export new function / workflow as <code>qsim</code> as a simpler, quicker simulation routine <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/490" class="external-link">#490</a></li>
-<li>tad calculation (when called through <code><a href="../reference/mrgsim.html">mrgsim()</a></code> and variants) recognizes evid 4 in addition to evid 1 <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/502" class="external-link">#502</a></li>
-<li>Fix bug where <code>$NMXML</code> fails when <code>nm</code> namespace not found in xml file <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/510" class="external-link">#510</a></li>
-<li>Arguments to <code>ev</code> constructor are now evaluated; for example, <code>ev(amt = 100, rate = amt/2)</code> <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/512" class="external-link">#512</a></li>
-<li>Add <code>$</code> and <code>[[</code> operators for event objects <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a></li>
-<li>Recalculate rate (from tinf), addl (from total or until) upon mutate <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a></li>
-<li>Standardize column order for event objects <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a></li>
+<li>Export new function / workflow as <code>qsim</code> as a simpler, quicker simulation routine (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/490" class="external-link">#490</a>)</li>
+<li>tad calculation (when called through <code><a href="../reference/mrgsim.html">mrgsim()</a></code> and variants) recognizes evid 4 in addition to evid 1 (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/502" class="external-link">#502</a>)</li>
+<li>Fix bug where <code>$NMXML</code> fails when <code>nm</code> namespace not found in xml file (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/510" class="external-link">#510</a>)</li>
+<li>Arguments to <code>ev</code> constructor are now evaluated; for example, <code>ev(amt = 100, rate = amt/2)</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/512" class="external-link">#512</a>)</li>
+<li>Add <code>$</code> and <code>[[</code> operators for event objects (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a>)</li>
+<li>Recalculate rate (from tinf), addl (from total or until) upon mutate (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a>)</li>
+<li>Standardize column order for event objects (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a>)</li>
 <li>
 <code>mrgsim_e</code> and <code>mrgsim_ei</code> will try to accept data frame and validated data sets</li>
-<li>Drop ODEPACK solver and implement lsoda in C++ <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/504" class="external-link">#504</a></li>
+<li>Drop ODEPACK solver and implement lsoda in C++ (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/504" class="external-link">#504</a>)</li>
 <li>Add C++11 as system requirement</li>
-<li>Add constant infusion at steady state <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/249" class="external-link">#249</a></li>
+<li>Add constant infusion at steady state (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/249" class="external-link">#249</a>)</li>
 <li>Add <code>outvars</code> argument to update method; this will replace <code>Req</code>
 </li>
-<li>Add two arguments to mrgsim: <code>ss_n</code> and <code>ss_fixed</code> to control advance to steady state; a warning will be issued when <code>ss_fixed</code> is <code>FALSE</code> and the system doesn’t reach steady state within <code>ss_n</code> iterations <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/533" class="external-link">#533</a></li>
-<li>An error is issued when the first argument to mrgsim and variants is not a model object <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/547" class="external-link">#547</a></li>
-<li>Argument <code>xpath</code> is added to <code><a href="../reference/nmxml.html">nmxml()</a></code> to handle cases where the <code>nm</code> namespace is not found in the xml file <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/510" class="external-link">#510</a></li>
-<li>More informative error messages are included when processing input data sets <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/534" class="external-link">#534</a></li>
-<li>When there is a problem when the ODE system is advanced, informative error messages from both lsoda and mrgsolve will be issued along with the value of <code>istate</code> <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/457" class="external-link">#457</a></li>
-<li>Add ability to have <code>ss=1</code> in a dosing record with bioavailability is zero <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/497" class="external-link">#497</a></li>
-<li>Error messages will be issued when both of the following are found in input for event object construction: <code>rate/tinf</code>, <code>addl/total</code>, <code>addl/until</code> <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a></li>
-<li>When <code>tinf</code> is used to create event object, that item is retained and used to set the infusion rate (along with dose) until it is removed; it is an error to try to set <code>rate</code> when <code>tinf</code> is in the event object <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a></li>
-<li>Fix bug related to column identification in <code>expand_observations</code> <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/563" class="external-link">#563</a></li>
-<li>Add record position argument to <code>expand_observations</code> to allow control record sort order <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/565" class="external-link">#565</a></li>
+<li>Add two arguments to mrgsim: <code>ss_n</code> and <code>ss_fixed</code> to control advance to steady state; a warning will be issued when <code>ss_fixed</code> is <code>FALSE</code> and the system doesn’t reach steady state within <code>ss_n</code> iterations (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/533" class="external-link">#533</a>)</li>
+<li>An error is issued when the first argument to mrgsim and variants is not a model object (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/547" class="external-link">#547</a>)</li>
+<li>Argument <code>xpath</code> is added to <code><a href="../reference/nmxml.html">nmxml()</a></code> to handle cases where the <code>nm</code> namespace is not found in the xml file (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/510" class="external-link">#510</a>)</li>
+<li>More informative error messages are included when processing input data sets (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/534" class="external-link">#534</a>)</li>
+<li>When there is a problem when the ODE system is advanced, informative error messages from both lsoda and mrgsolve will be issued along with the value of <code>istate</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/457" class="external-link">#457</a>)</li>
+<li>Add ability to have <code>ss=1</code> in a dosing record with bioavailability is zero (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/497" class="external-link">#497</a>)</li>
+<li>Error messages will be issued when both of the following are found in input for event object construction: <code>rate/tinf</code>, <code>addl/total</code>, <code>addl/until</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a>)</li>
+<li>When <code>tinf</code> is used to create event object, that item is retained and used to set the infusion rate (along with dose) until it is removed; it is an error to try to set <code>rate</code> when <code>tinf</code> is in the event object (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/513" class="external-link">#513</a>)</li>
+<li>Fix bug related to column identification in <code>expand_observations</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/563" class="external-link">#563</a>)</li>
+<li>Add record position argument to <code>expand_observations</code> to allow control record sort order (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/565" class="external-link">#565</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.2" id="mrgsolve-092">mrgsolve 0.9.2<a class="anchor" aria-label="anchor" href="#mrgsolve-092"></a></h2><p class="text-muted">CRAN release: 2019-07-13</p>
-<ul><li>Fix bug where system advanced to next time after advancing to steady state on a dosing record with ss=1 with no observation record at the same time but preceding the dosing record <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/484" class="external-link">#484</a></li>
-<li>Add AMT and CMT macros for self.amt and self.cmt, respectively <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/354" class="external-link">#354</a></li>
+<ul><li>Fix bug where system advanced to next time after advancing to steady state on a dosing record with ss=1 with no observation record at the same time but preceding the dosing record (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/484" class="external-link">#484</a>)</li>
+<li>Add AMT and CMT macros for self.amt and self.cmt, respectively (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/354" class="external-link">#354</a>)</li>
 <li>Re-organize <code>DLSODA</code> code to avoid CRAN LTO warning</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.1" id="mrgsolve-091">mrgsolve 0.9.1<a class="anchor" aria-label="anchor" href="#mrgsolve-091"></a></h2><p class="text-muted">CRAN release: 2019-06-14</p>
 <ul><li>Fix bug in TAD plugin where time of last dose never moved from default</li>
 <li>Add option in <code>mrgsolve_q</code> to call the standard mrgsolve simulation rather than the streamlined function; a decision will have to be made about whether or not the streamlined function will be retained</li>
-<li>Fix bug in the model parser where commented lines with (all) leading spaces were not handled properly <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/450" class="external-link">#450</a></li>
-<li>Objects of class <code>valid_data_set</code> now retain the matrix attribute <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/448" class="external-link">#448</a></li>
+<li>Fix bug in the model parser where commented lines with (all) leading spaces were not handled properly (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/450" class="external-link">#450</a>)</li>
+<li>Objects of class <code>valid_data_set</code> now retain the matrix attribute (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/448" class="external-link">#448</a>)</li>
 <li>Block names are now coerced to upper case letters</li>
 <li>Change default for <code>simcall</code> to 0 in mrgsim_q</li>
 <li>Add recover argument to mread</li>
@@ -348,7 +365,7 @@
 </ul></div>
 <div class="section level3">
 <h3 id="bugs-fixed-0-8-12-9000">Bugs fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-0-8-12-9000"></a></h3>
-<ul><li>Fixed bug related to record sort order <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/406" class="external-link">#406</a></li>
+<ul><li>Fixed bug related to record sort order (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/406" class="external-link">#406</a>)</li>
 </ul></div>
 <div class="section level3">
 <h3 id="deprecated-0-8-12-9000">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-0-8-12-9000"></a></h3>
@@ -371,13 +388,13 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.8.10.9015" id="mrgsolve-08109015">mrgsolve 0.8.10.9015<a class="anchor" aria-label="anchor" href="#mrgsolve-08109015"></a></h2>
-<ul><li>Re-configured the list of data coming from <code>as.list.mrgmod</code> so that the names match the names that you would pass to <code>update.mrgmod</code>; also added some items so that all updatable slots in the model object are exported by calling <code>as.list</code> <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/354" class="external-link">#354</a></li>
+<ul><li>Re-configured the list of data coming from <code>as.list.mrgmod</code> so that the names match the names that you would pass to <code>update.mrgmod</code>; also added some items so that all updatable slots in the model object are exported by calling <code>as.list</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/354" class="external-link">#354</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.8.10.9014" id="mrgsolve-08109014">mrgsolve 0.8.10.9014<a class="anchor" aria-label="anchor" href="#mrgsolve-08109014"></a></h2>
 <ul><li>Add OMEGA and SIGMA matrices to <code>as.list.mrgmod</code> output under the names omat and smat, respectively</li>
 <li>It is no longer an error to attempt to update slots for OMEGA and SIGMA matrices when there is no matrices in the slot as long as the update is with an empty list or a matrix with zero rows</li>
-<li>Fix segmentation fault when both data set and idata set are used in a simulation with certain mis-matches in the ID content between the two <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/352" class="external-link">#352</a></li>
+<li>Fix segmentation fault when both data set and idata set are used in a simulation with certain mis-matches in the ID content between the two (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/352" class="external-link">#352</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.8.10.9013" id="mrgsolve-08109013">mrgsolve 0.8.10.9013<a class="anchor" aria-label="anchor" href="#mrgsolve-08109013"></a></h2>
@@ -519,7 +536,7 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 <h3 id="bugs-fixed-0-8-6-9000">Bugs fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-0-8-6-9000"></a></h3>
 <ul><li>PR <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/214" class="external-link">#214</a> from <a href="https://github.com/dastoor" class="external-link">@dastoor</a> fixes compatibility issue with new <code>dplyr</code>
 </li>
-<li>Fixed bug in <code>deslist</code> implementation <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/222" class="external-link">#222</a></li>
+<li>Fixed bug in <code>deslist</code> implementation (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/222" class="external-link">#222</a>)</li>
 <li>PR <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/238" class="external-link">#238</a> fixes incorrect steady-state values when dose is associated with lagtime (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/239" class="external-link">#239</a>)</li>
 </ul></div>
 </div>
@@ -560,10 +577,10 @@ For example <code>$CAPTURE WT = WGT ETA(1) TVCL = THETA1</code></p></li>
 <h2 class="pkg-version" data-toc-text="0.7.6" id="mrgsolve-076">mrgsolve 0.7.6<a class="anchor" aria-label="anchor" href="#mrgsolve-076"></a></h2>
 <div class="section level3">
 <h3 id="important-changes-0-7-6">Important changes<a class="anchor" aria-label="anchor" href="#important-changes-0-7-6"></a></h3>
-<ul><li>The <code><a href="https://rdrr.io/r/base/table.html" class="external-link">table()</a></code> macro in <code>$TABLE</code> is now deprecated (<a href="https://github.com/metrumresearchgroup/mrgsolve/pull/129" class="external-link uri">https://github.com/metrumresearchgroup/mrgsolve/pull/129</a>). To get derived values into the simulated output, users should assign to type <code>double</code> and list that variable name in <code>$CAPTURE</code>. See also the <code>capture</code> typedef introduced below.</li>
+<ul><li>The <code><a href="https://rdrr.io/r/base/table.html" class="external-link">table()</a></code> macro in <code>$TABLE</code> is now deprecated (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/129" class="external-link">#129</a>). To get derived values into the simulated output, users should assign to type <code>double</code> and list that variable name in <code>$CAPTURE</code>. See also the <code>capture</code> typedef introduced below.</li>
 <li>The <code>mrgx</code> plugin was completely removed.<br></li>
 <li>Parameter updates via <code>param</code> method with signature <code>missing</code> will check names of input parameters against names of existing parameters. An error is generated if a user attempts to update a parameter that doesn’t exist. Note that this does not apply for the <code>param</code> method with signature <code>list</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/144" class="external-link">#144</a>).</li>
-<li>The git repository was re-organized so that the package lives in the base directory (PR <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/171" class="external-link">#171</a>).</li>
+<li>The git repository was re-organized so that the package lives in the base directory (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/171" class="external-link">#171</a>).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="features-0-7-6">Features<a class="anchor" aria-label="anchor" href="#features-0-7-6"></a></h3>
@@ -577,7 +594,7 @@ The <code>capture</code> typedef is not allowed in <code>$ODE</code> and probabl
 <li>
 <code>simeta</code> is available in <code>$MAIN</code> and <code>simeps</code> is available in <code>$TABLE</code> by default, no <code>$PLUGIN</code> is required.</li>
 <li>Better support for including <code>R</code> objects in the model via <code>$ENV</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/158" class="external-link">#158</a>).</li>
-<li>Added <code>assign_ev</code> function to help build simulation data sets from event objects (<a href="https://github.com/metrumresearchgroup/mrgsolve/pull/164" class="external-link uri">https://github.com/metrumresearchgroup/mrgsolve/pull/164</a>).</li>
+<li>Added <code>assign_ev</code> function to help build simulation data sets from event objects (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/164" class="external-link">#164</a>).</li>
 <li>Added <code>as_data_frame</code> method from the <code>tibble</code> package (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/166" class="external-link">#166</a>).</li>
 <li>When annotating model blocks, mrgsolve takes the <strong>last</strong> parens item as the “units” and the <strong>last</strong> bracketed item as “options”</li>
 <li>Added <code>$</code> operator for <code>mrgmod</code> objects to return the value of a parameter.</li>
@@ -637,7 +654,7 @@ For example: <code>mod &lt;- mread("emax", modlib())</code> will compile the <co
 <h2 class="pkg-version" data-toc-text="0.7.2" id="mrgsolve-072">mrgsolve 0.7.2<a class="anchor" aria-label="anchor" href="#mrgsolve-072"></a></h2>
 <ul><li>Addressed an issue where model compilation on <code>Windows</code> systems failed when certain symbol names were used in the model (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/97" class="external-link">#97</a>). In this release, a <code>dllname-win.def</code> file is created in <code>soloc</code> to export only the functions that mrgsolve needs to use. This is <em>only</em> relevant to <code>Windows</code> platform.</li>
 <li>Added a check on the <code>project</code> argument to <code>mread</code>: if newline(s) are found, an error is generated and the user is prompted to use <code>mcode</code> instead.</li>
-<li>Several changes under the hood (<a href="https://github.com/metrumresearchgroup/mrgsolve/pull/99" class="external-link uri">https://github.com/metrumresearchgroup/mrgsolve/pull/99</a>)</li>
+<li>Several changes under the hood (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/99" class="external-link">#99</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.1" id="mrgsolve-071">mrgsolve 0.7.1<a class="anchor" aria-label="anchor" href="#mrgsolve-071"></a></h2>
@@ -709,15 +726,15 @@ The working directory is restored on exit from <code>mread</code>.</li>
 <div class="section level3">
 <h3 id="bugs-fixed-0-6-0">Bugs fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-0-6-0"></a></h3>
 <ul><li>Fixed a bug when an infusion was attempted with <code>rate &gt; 0</code> and <code>amt==0</code>.<br>
-Additionally, an error is generated when an infusion is attempted with zero <code>amt</code> (<a href="../../issues/43">issue 43</a>).</li>
+Additionally, an error is generated when an infusion is attempted with zero <code>amt</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/43" class="external-link">#43</a>).</li>
 </ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.12" id="mrgsolve-0512">mrgsolve 0.5.12<a class="anchor" aria-label="anchor" href="#mrgsolve-0512"></a></h2>
 <div class="section level3">
 <h3 id="bugs-fixed-0-5-12">Bugs fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-0-5-12"></a></h3>
-<ul><li>Fixed a bug where infusion dosing events with <code>evid 4</code> were not properly implemented. While investigating that issue, also found similar issue with <code>evid 4</code> infusions getting scheduled with <code>addl</code> (<a href="../../issues/31">issue 31</a>).</li>
-<li>Removed NSE evaluation for arguments passed into <code>ev</code> to avoid unintended issues in evaluation (<a href="../../issues/29">issue 29</a>).</li>
+<ul><li>Fixed a bug where infusion dosing events with <code>evid 4</code> were not properly implemented. While investigating that issue, also found similar issue with <code>evid 4</code> infusions getting scheduled with <code>addl</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/31" class="external-link">#31</a>).</li>
+<li>Removed NSE evaluation for arguments passed into <code>ev</code> to avoid unintended issues in evaluation (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/29" class="external-link">#29</a>).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="new-features-0-5-12">New features<a class="anchor" aria-label="anchor" href="#new-features-0-5-12"></a></h3>
@@ -726,8 +743,8 @@ So the call is: <code>mod &lt;- mcode("mymodel", code)</code>. The equivalent <c
 <li>
 <code><a href="../reference/carry_out.html">carry.out()</a></code> and <code><a href="../reference/Req.html">Req()</a></code> now take <code>newname = oldname</code> as input. Use this syntax in <code>carry.out</code> when you want to copy a column from the input data set into the simulated data set, changing the column to <code>newname</code> from <code>oldname</code>.<br>
 Use this syntax in <code>Req</code> when you want to change the names of compartments or output variables specified in <code>$TABLE</code> / <code>$CAPTURE</code>.</li>
-<li>Added <code>pkmodel</code> function for easy loading and simulating from 1- and 2-compartment models (<a href="../../issues/39">issue 39</a>).</li>
-<li>Added new code block: <code>$PKMODEL</code> for simulating PK model with analytical solutions. The main option for this block is <code>ncmt</code>, which picks the number of compartments for the pk model. See <code><a href="../reference/PKMODEL.html">?PKMODEL</a></code> for more information and other options (<a href="../../issues/34">issue 34</a>).</li>
+<li>Added <code>pkmodel</code> function for easy loading and simulating from 1- and 2-compartment models (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/39" class="external-link">#39</a>).</li>
+<li>Added new code block: <code>$PKMODEL</code> for simulating PK model with analytical solutions. The main option for this block is <code>ncmt</code>, which picks the number of compartments for the pk model. See <code><a href="../reference/PKMODEL.html">?PKMODEL</a></code> for more information and other options (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/34" class="external-link">#34</a>).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="under-the-hood-0-5-12">Under the hood<a class="anchor" aria-label="anchor" href="#under-the-hood-0-5-12"></a></h3>
@@ -741,15 +758,14 @@ Use this syntax in <code>Req</code> when you want to change the names of compart
 <div class="section level3">
 <h3 id="bugs-fixed-0-5-11">Bugs fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-0-5-11"></a></h3>
 <ul><li>Added missing example model specification files (popExample, viralExample, others)</li>
-<li>Added <code>mindt</code> attribute to <code>mrgmod</code> objects with default value of <code>.Machine$double.eps*10</code>. When the problem includes an infusion, the calculated end of the infusion may come too close to another record. Usually the solver will fail with the message <code>DLSODA- TOUT(=R1) too close to T(=R2) to start integration.</code>. To fix this, set <code>mindt</code> to be greater than zero but small … maybe 1E-12. When <code>mindt</code> is greater than zero and <code>tto - tfrom</code> (the times of two adjacent records) is less than <code>mindt</code>, mrgsolve will set <code>tto</code> equal to <code>tfrom</code> (<a href="../../issues/9">issue 9</a>).</li>
+<li>Added <code>mindt</code> attribute to <code>mrgmod</code> objects with default value of <code>.Machine$double.eps*10</code>. When the problem includes an infusion, the calculated end of the infusion may come too close to another record. Usually the solver will fail with the message <code>DLSODA- TOUT(=R1) too close to T(=R2) to start integration.</code>. To fix this, set <code>mindt</code> to be greater than zero but small … maybe 1E-12. When <code>mindt</code> is greater than zero and <code>tto - tfrom</code> (the times of two adjacent records) is less than <code>mindt</code>, mrgsolve will set <code>tto</code> equal to <code>tfrom</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/9" class="external-link">#9</a>).</li>
 <li>
-<code>zero.re</code> didn’t properly update the <code>$SIGMA</code> list when one matrix was named and another was unnamed. This has been fixed.<br>
-(<a href="../../issues/16">issue 16</a>)</li>
-<li>Fixed a bug where infusions with <code>ss</code>=1 caused mrgsolve/<code>R</code> to crash when the infusion duration was equal to or some multiple of the dosing interval. (<a href="../../issues/19">issue 19</a>)</li>
+<code>zero.re</code> didn’t properly update the <code>$SIGMA</code> list when one matrix was named and another was unnamed. This has been fixed. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/16" class="external-link">#16</a>)</li>
+<li>Fixed a bug where infusions with <code>ss</code>=1 caused mrgsolve/<code>R</code> to crash when the infusion duration was equal to or some multiple of the dosing interval. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/19" class="external-link">#19</a>)</li>
 <li>Fixed a bug where setting <code>F_CENT</code> to zero gave undefined behavior.<br>
-mrgsolve will issue an error if <code>F_CMT</code> is set to zero and the <code>ss</code> flag is set to 1. (<a href="../../issues/16">issue 22</a>)</li>
+mrgsolve will issue an error if <code>F_CMT</code> is set to zero and the <code>ss</code> flag is set to 1. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/22" class="external-link">#22</a>)</li>
 <li>Fixed bug where dosing records with <code>evid=4</code> (reset the system and dose)<br>
-and <code>addl &gt; 0</code> reset the system for all subsequent doses. Additional doses coming from records with <code>evid=4</code> will not do system reset. (<a href="../../issues/23">issue 23</a>)</li>
+and <code>addl &gt; 0</code> reset the system for all subsequent doses. Additional doses coming from records with <code>evid=4</code> will not do system reset. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/23" class="external-link">#23</a>)</li>
 </ul></div>
 <div class="section level3">
 <h3 id="important-changes-0-5-11">Important changes<a class="anchor" aria-label="anchor" href="#important-changes-0-5-11"></a></h3>
@@ -758,11 +774,11 @@ Specifying character names <code>tname</code>, <code>oname</code>, and <code>sna
 </ul></div>
 <div class="section level3">
 <h3 id="new-features-0-5-11">New features<a class="anchor" aria-label="anchor" href="#new-features-0-5-11"></a></h3>
-<ul><li>New aliases available for setting bioavailability, lag time and infusion duration and rate. For a compartment called <code>DEPOT</code> use: <code>F_DEPOT</code> (bioavailability), <code>ALAG_DEPOT</code> (dosing lag time), <code>D_DEPOT</code> (infusion duration), and / or <code>R_DEPOT</code> (infusion rate). (<a href="../../issues/13">issue 13</a>)</li>
+<ul><li>New aliases available for setting bioavailability, lag time and infusion duration and rate. For a compartment called <code>DEPOT</code> use: <code>F_DEPOT</code> (bioavailability), <code>ALAG_DEPOT</code> (dosing lag time), <code>D_DEPOT</code> (infusion duration), and / or <code>R_DEPOT</code> (infusion rate). (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/13" class="external-link">#13</a>)</li>
 <li>Added <em>slightly</em> more informative messages when <code>DLSODA</code> fails, including clear identification if the value of <code>istate</code>, which is 2 when the solver succeeds and negative when the solver fails.</li>
 <li>Added <code>labels</code> and <code>prefix</code> options to <code>$OMEGA</code> and <code>$SIGMA</code>. These allow descriptive aliases for ETAs … e.g. using <code>ETA_CL</code> rather than <code>ETA(1)</code>.<br>
-(<a href="../../issues/15">issue 15</a>)</li>
-<li>Added <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice</a></code> method for <code>mrgsims</code> objects (<a href="../../issues/11">issue 11</a>)</li>
+(<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/15" class="external-link">#15</a>)</li>
+<li>Added <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice</a></code> method for <code>mrgsims</code> objects (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/11" class="external-link">#11</a>)</li>
 <li>New argument to <code>mread</code>: <code>quiet</code>. Setting <code>quiet</code> to <code>TRUE</code> will prevent printing messages when <code>mread</code> is called. The default is <code>getOptions("mrgsolve_mread_quiet",FALSE)</code> … so you can call <code>options(mrgsolve_mread_quiet = TRUE)</code> to globally turn off messages from <code>mread</code>.</li>
 </ul></div>
 </div>

@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,7 +82,7 @@
       <img src="" class="logo" alt=""><h1>Models without compartments</h1>
                         <h4 data-toc-skip class="author"></h4>
             
-            <h4 data-toc-skip class="date">2023-08-18</h4>
+            <h4 data-toc-skip class="date">2023-12-04</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/vignettes/extra/dollar-pred.Rmd" class="external-link"><code>vignettes/extra/dollar-pred.Rmd</code></a></small>
       <div class="d-none name"><code>dollar-pred.Rmd</code></div>
@@ -111,8 +111,8 @@ have been put in place when these types of models are invoked.</p>
 <p>The model code is</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>$PROB</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>An example model expressed in closed form</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>$PARAM B <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> beta0 <span class="op">=</span> <span class="dv">100</span><span class="op">,</span> beta1 <span class="op">=</span> <span class="dv">0</span><span class="er">.1</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>$OMEGA <span class="dv">2</span> <span class="dv">0</span><span class="er">.3</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>$PARAM B <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> beta0 <span class="op">=</span> <span class="dv">100</span><span class="op">,</span> beta1 <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>$OMEGA <span class="dv">2</span> <span class="fl">0.3</span></span>
 <span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>$PRED</span>
 <span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="dt">double</span> beta0i <span class="op">=</span> beta0 <span class="op">+</span> ETA<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="dt">double</span> beta1i <span class="op">=</span> beta1<span class="op">*</span>exp<span class="op">(</span>ETA<span class="op">(</span><span class="dv">2</span><span class="op">));</span></span>
