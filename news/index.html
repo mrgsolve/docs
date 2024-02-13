@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,25 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.3.0" id="mrgsolve-130">mrgsolve 1.3.0<a class="anchor" aria-label="anchor" href="#mrgsolve-130"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.4.1" id="mrgsolve-141">mrgsolve 1.4.1<a class="anchor" aria-label="anchor" href="#mrgsolve-141"></a></h2>
+<ul><li>Fix bug in <code>evt::regimen.ii(double)</code> where timing of next dose was not as expected (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1170" class="external-link">#1170</a>).</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.4.0" id="mrgsolve-140">mrgsolve 1.4.0<a class="anchor" aria-label="anchor" href="#mrgsolve-140"></a></h2><p class="text-muted">CRAN release: 2024-02-08</p>
+<ul><li><p><code>evtools</code> is a new plugin providing API for dynamic dosing from within the model; functions and classes are in the <code>evt</code> namespace (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1149" class="external-link">#1149</a>).</p></li>
+<li><p><code>regimen</code> is a new class located in the <code>evt</code> namespace via the <code>evtools</code> plugin; <code>regimen</code> objects can execute doses in a regular regimen (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1156" class="external-link">#1156</a>).</p></li>
+<li><p><code><a href="../reference/mread.html">mread()</a></code> and <code><a href="../reference/mcode.html">mcode()</a></code> no longer print a message before the required waiting period on model recompile (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1145" class="external-link">#1145</a>).</p></li>
+<li><p><code><a href="../reference/ev_rep.html">ev_rep()</a></code> output rownames are cleaned up before returning (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1158" class="external-link">#1158</a>).</p></li>
+<li><p>C++ model code blocks (GLOBAL, PREAMBLE, MAIN/PK, ODE/DES, TABLE/ERROR) are now checked for <code>&lt;object&gt;.&lt;attribute&gt;</code> syntax; if found, symbols on both sides of the dot become reserved words when loading and compiling that model; specifically, an error will be generated if either side of the dot (<code>&lt;object&gt;</code> or <code>&lt;attribute&gt;</code>) is found in parameter names, compartment names, ETA labels, or EPS labels (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1159" class="external-link">#1159</a>).</p></li>
+<li><p>ETA values are always simulated from OMEGA, even when the user requests they get scraped from <code>data</code> or <code>idata</code> via <code>etasrc</code> argument to <code><a href="../reference/mrgsim.html">mrgsim()</a></code>; this ensures <code>EPS</code> are reproducible for model runs where <code>etasrc = "omega"</code> (default, ETA are simulated) or, for example, where <code>etaasrc = "data.all"</code> (scrape ETA from the data set) (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1163" class="external-link">#1163</a>).</p></li>
+</ul><div class="section level3">
+<h3 id="bugs-fixed-1-4-0">Bugs Fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-1-4-0"></a></h3>
+<ul><li><p>Fixed a bug where modeled doses scheduled to happen <code>now</code> were ignored if the <code>time</code> attribute was set to a value prior to the current simulation time (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1152" class="external-link">#1152</a>).</p></li>
+<li><p>Fixed a bug in how doses were computed using the <code>until</code> argument to <code><a href="../reference/ev.html">ev()</a></code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1154" class="external-link">#1154</a>).</p></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.3.0" id="mrgsolve-130">mrgsolve 1.3.0<a class="anchor" aria-label="anchor" href="#mrgsolve-130"></a></h2><p class="text-muted">CRAN release: 2023-12-04</p>
 <ul><li><p>The <code>evdata</code> object for modeled events now contains a <code>check_unique</code> member; when set to <code>false</code>, the event will be processed without checking for a matching record in the modeled event log (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1119" class="external-link">#1119</a>).</p></li>
 <li><p>The <code>amt</code> attribute in <code>evdata</code> modeled event objects is now considered when looking for duplicate records in the modeled event log (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1119" class="external-link">#1119</a>).</p></li>
 </ul><div class="section level3">
@@ -139,7 +157,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.5" id="mrgsolve-105">mrgsolve 1.0.5<a class="anchor" aria-label="anchor" href="#mrgsolve-105"></a></h2>
 <ul><li><p>Changed behavior for dosing records where EVID = 4 and SS != 0 to match what is done by NONMEM: the system will be advanced to steady-state but will not be reset; behavior prior to 1.0.5 release was to advance to steady-state and then reset (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1011" class="external-link">#1011</a>).</p></li>
-<li><p>Any column in an input data set that has a class attribute will now be dropped in addition to non-numeric columns; this includes columns that are <code>integer64</code> which can be present in data frames derived from <code><a href="https://Rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">data.table::fread()</a></code> or other <code>.csv</code> readers (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1008" class="external-link">#1008</a>).</p></li>
+<li><p>Any column in an input data set that has a class attribute will now be dropped in addition to non-numeric columns; this includes columns that are <code>integer64</code> which can be present in data frames derived from <code><a href="https://rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">data.table::fread()</a></code> or other <code>.csv</code> readers (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1008" class="external-link">#1008</a>).</p></li>
 <li><p>The <code>$MAIN</code> and <code>$TABLE</code> blocks will no longer get called for <em>actual</em> dose administration records with lag times; this could change time after dose calculations or other calculations that could be happening in those blocks when the <em>actual</em> administration is taking place (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/992" class="external-link">#992</a>).</p></li>
 <li><p>Code to update the parameter list was re-factored to be much more efficient (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/978" class="external-link">#978</a>).</p></li>
 </ul><div class="section level3">
