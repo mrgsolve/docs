@@ -253,6 +253,9 @@
     <loc>/reference/mread.html</loc>
   </url>
   <url>
+    <loc>/reference/mread_yaml.html</loc>
+  </url>
+  <url>
     <loc>/reference/mrgmod-class.html</loc>
   </url>
   <url>
@@ -284,6 +287,12 @@
   </url>
   <url>
     <loc>/reference/mvgauss.html</loc>
+  </url>
+  <url>
+    <loc>/reference/mwrite_cpp.html</loc>
+  </url>
+  <url>
+    <loc>/reference/mwrite_yaml.html</loc>
   </url>
   <url>
     <loc>/reference/names-mrgmod-method.html</loc>

@@ -1,13 +1,13 @@
 pandoc: 3.1.9
-pkgdown: 2.0.7
+pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
   dollar-pred: extra/dollar-pred.html
   events: extra/events.html
   init: extra/init.html
   modeled-event-time: extra/modeled-event-time.html
+  mrgsolve: mrgsolve.html
   steady-state: extra/steady-state.html
   time-after-dose: extra/time-after-dose.html
-  mrgsolve: mrgsolve.html
-last_built: 2024-02-13T14:18Z
+last_built: 2024-07-29T13:14Z
 
