@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@
       <h1>Get started</h1>
                         <h4 data-toc-skip class="author"></h4>
             
-            <h4 data-toc-skip class="date">2024-10-18</h4>
+            <h4 data-toc-skip class="date">2025-08-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/vignettes/mrgsolve.Rmd" class="external-link"><code>vignettes/mrgsolve.Rmd</code></a></small>
       <div class="d-none name"><code>mrgsolve.Rmd</code></div>
@@ -100,18 +100,17 @@ certain information about the model. For example, get an overview</p>
 . -----------------  source: pk1.cpp  -----------------
 . 
 .   project: /private/var/fol...gsolve/models
-.   shared object: pk1-so-ea392a1f45d5 
+.   shared object: pk1-so-1686cc9d55c9 
 . 
 .   time:          start: 0 end: 24 delta: 1
 .                  add: &lt;none&gt;
-. 
 .   compartments:  EV CENT [2]
 .   parameters:    CL V KA [3]
 .   captures:      CP [1]
 .   omega:         0x0 
 .   sigma:         0x0 
 . 
-.   solver:        atol: 1e-08 rtol: 1e-08 maxsteps: 20k
+.   solver:        rtol: 1e-08 atol: 1e-08 itol: 1 (scalar)
 . ------------------------------------------------------</code></pre>
 <p>Or look at model parameters and their values</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">

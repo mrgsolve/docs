@@ -11,7 +11,7 @@ file format."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,12 +121,11 @@ update the model object directly with data read back from the <code>yaml</code> 
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------  source: new-house.mod  --------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   project: /private/var/fol.../T/Rtmp4KiOzM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   shared object: new-house.mod-so-e6a76e457bcf &lt;not loaded&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   project: /private/var/fol.../T/RtmpRwrIeP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   shared object: new-house.mod-so-1661c6a7016bc &lt;not loaded&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   time:          start: 0 end: 120 delta: 0.25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  add: &lt;none&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   compartments:  GUT CENT RESP [3]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   parameters:    CL VC KA F1 D1 WTCL WTVC SEXCL SEXVC</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  KIN KOUT IC50 WT SEX [14]</span>
@@ -134,7 +133,7 @@ update the model object directly with data read back from the <code>yaml</code> 
 <span class="r-out co"><span class="r-pr">#&gt;</span>   omega:         4x4 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   sigma:         1x1 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   solver:        atol: 1e-08 rtol: 1e-08 maxsteps: 20k</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   solver:        rtol: 1e-08 atol: 1e-08 itol: 1 (scalar)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">cppfile</span> <span class="op">&lt;-</span> <span class="fu">yaml_to_cpp</span><span class="op">(</span><span class="va">temp</span>, project <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>

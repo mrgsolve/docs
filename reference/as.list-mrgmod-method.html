@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,9 +119,13 @@ cpp file</p></li>
 <li><p><code>rtol</code>: see <a href="solversettings.html">solversettings</a></p></li>
 <li><p><code>ss_atol</code>: absolute tolerance to use when advancing to PK steady state</p></li>
 <li><p><code>ss_rtol</code>: relative tolerance to use when advancing to PK steady state</p></li>
+<li><p><code>custom_atol</code>: absolute tolerances, one for each compartment</p></li>
+<li><p><code>custom_rtol</code>: relative tolerances, one for each compartment</p></li>
 <li><p><code>maxsteps</code>: see <a href="solversettings.html">solversettings</a></p></li>
 <li><p><code>hmin</code>: see <a href="solversettings.html">solversettings</a></p></li>
 <li><p><code>hmax</code>: see <a href="solversettings.html">solversettings</a></p></li>
+<li><p><code>itol</code>: 1 (use scalar values) or 4 (use customized values)</p></li>
+<li><p><code>itol_type</code>: either "scalar" (<code>itol = 1</code>) or "custom" (<code>itol = 4</code>)</p></li>
 <li><p><code>envir</code>: the model environment</p></li>
 <li><p><code>plugins</code>: plugins invoked in the model</p></li>
 <li><p><code>digits</code>: number of digits to request in simulated data</p></li>

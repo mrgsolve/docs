@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,46 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.5.2" id="mrgsolve-152">mrgsolve 1.5.2<a class="anchor" aria-label="anchor" href="#mrgsolve-152"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.6.1" id="mrgsolve-161">mrgsolve 1.6.1<a class="anchor" aria-label="anchor" href="#mrgsolve-161"></a></h2><p class="text-muted">CRAN release: 2025-08-22</p>
+<ul><li>Internal refactor of <code>self.mevent()</code> and <code>self.mtime()</code> to <em>not</em> send event objects back to mrgsolve when the requested object time is in the past; this preserves previous functionality while respecting change in <code>1.6.0</code> that generates an error for events (or event sequences) that happen or begin in the past (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1297" class="external-link">#1297</a>).</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.6.0" id="mrgsolve-160">mrgsolve 1.6.0<a class="anchor" aria-label="anchor" href="#mrgsolve-160"></a></h2>
+<ul><li><p><code>evt::tgrid()</code> was added to the <code>evtools</code> plugin, allowing users to insert internal-only (non-output) records into the simulation for monitoring the system at a regular grid of times (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1291" class="external-link">#1291</a>).</p></li>
+<li><p><code>evt::evid()</code> was added to the <code>evtools</code> plugin allowing users to reset the event ID attribute of event objects created inside a model (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1291" class="external-link">#1291</a>).</p></li>
+<li><p><code>EVID</code> behavior was changed so that event IDs greater than or equal to 100 do not trigger a reset of the ODE solver, functioning like observation records with <code>EVID=0</code>; for <code>EVID &lt; 100</code>, a discontinuity will continue to happen through ODE solver reset (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1291" class="external-link">#1291</a>).</p></li>
+<li><p>Event objects created in the model (typically through the <code>evtools</code> plugin) will now trigger an error when the event or event sequence starts before the current simulation time; these events were previously ignored silently (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1291" class="external-link">#1291</a>).</p></li>
+<li>
+<p>Absolute (<code>atol</code>) and relative (<code>rtol</code>) tolerances can now be customized for each compartment in an ODE-based model (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1264" class="external-link">#1264</a>)</p>
+<ul><li>Use<code><a href="../reference/custom_tol.html">custom_rtol()</a></code>, <code><a href="../reference/custom_tol.html">custom_atol()</a></code>, and <code><a href="../reference/custom_tol.html">custom_tol()</a></code> to set tolerances on a compartment-by-compartment basis.</li>
+<li>Use <code><a href="../reference/reset_tol.html">reset_rtol()</a></code>, <code><a href="../reference/reset_tol.html">reset_atol()</a></code>, or <code><a href="../reference/reset_tol.html">reset_tol()</a></code> to reset custom tolerances.</li>
+<li>Use <code><a href="../reference/use_custom_tol.html">use_custom_tol()</a></code> and <code><a href="../reference/use_custom_tol.html">use_scalar_tol()</a></code> to toggle the model to use either the customized (vector) values or the scalar values.</li>
+<li>Use <code><a href="../reference/get_tol.html">get_tol()</a></code> or <code><a href="../reference/get_tol.html">get_tol_list()</a></code> to extract both custom and scalar tolerance values.</li>
+<li>The model print method has been updated to reflect whether the model is currently set to use the scalar or customized (vector) values.</li>
+</ul></li>
+</ul><div class="section level3">
+<h3 id="bugs-fixed-1-6-0">Bugs Fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-1-6-0"></a></h3>
+<ul><li><p>Fixed a bug where incorrectly spelled block names were inadvertently aliased resulting in a misleading error message (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1294" class="external-link">#1294</a>).</p></li>
+<li><p>Fixed a bug where no <code>OMEGA</code> or <code>SIGMA</code> matrices were imported into the model via multiple <code>$NMEXT</code> or <code>$NMXML</code> blocks when the matrix from one block was ignored (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1276" class="external-link">#1276</a>).</p></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.5.3" id="mrgsolve-153">mrgsolve 1.5.3<a class="anchor" aria-label="anchor" href="#mrgsolve-153"></a></h2>
+<ul><li><p><code>D_CMT</code>, <code>ALAG_CMT</code>, and <code>simeta()</code> are now available to use in <code>$TABLE</code> (<code>$ERROR</code>), <code>$EVENT</code>, and <code>$PRED</code> code blocks (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1290" class="external-link">#1290</a>).</p></li>
+<li><p>Added <code>END_OF_INFUSION</code> syntax, which is <code>true</code> on the internal record that stops an infusion (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1288" class="external-link">#1288</a>).</p></li>
+<li><p><code><a href="../reference/mwrite_yaml.html">mwrite_yaml()</a></code> and <code><a href="../reference/mwrite_cpp.html">mwrite_cpp()</a></code> now render block names in upper case, even for blocks coded with lower case in the original model file (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1282" class="external-link">#1282</a>).</p></li>
+<li><p>When creating an <code>evt::regimen</code> object (via <code>evtools</code> plugin), the <em>default</em> start time is now the time when the object was created; before this change, the <em>default</em> time was always <code>0</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1266" class="external-link">#1266</a>).</p></li>
+<li><p>Added methods for <code>evt::regimen</code> objects (via <code>evtools</code> plugin) under the name <code>time_next()</code>; this either gets or sets the time of the next dose in the regimen (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1266" class="external-link">#1266</a>).</p></li>
+</ul><div class="section level3">
+<h3 id="bugs-fixed-1-5-3">Bugs Fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-1-5-3"></a></h3>
+<ul><li><p>Fixed an issue where <code>time</code> values in the simulated output data frame were off by a very small amount, due to issues with floating point mathematical operations (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1287" class="external-link">#1287</a>).</p></li>
+<li><p>Fixed a problem writing a model to file with <code><a href="../reference/mwrite_yaml.html">mwrite_yaml()</a></code> and <code><a href="../reference/mwrite_cpp.html">mwrite_cpp()</a></code> when lower case block naming was used (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1282" class="external-link">#1282</a>).</p></li>
+<li><p>Fixed a bug where invalid item passed through the <code>$SET</code> block caused an error when reading / building a model (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1271" class="external-link">#1271</a>).</p></li>
+<li><p>Fixed a bug where mrgsolve was not matching NONMEM behavior when an <code>EVID=4</code> record was included in the data set with <code>SS=1</code>; mrgsolve will now match NONMEM behavior in this case, with the output being identical to <code>EVID=1</code> with <code>SS=1</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1262" class="external-link">#1262</a>).</p></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.5.2" id="mrgsolve-152">mrgsolve 1.5.2<a class="anchor" aria-label="anchor" href="#mrgsolve-152"></a></h2><p class="text-muted">CRAN release: 2024-10-18</p>
 <ul><li><p>Add <code>$EVENT</code> block for writing code related to dosing or other events that are implemented through model code rather than the data set (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1230" class="external-link">#1230</a>).</p></li>
 <li><p>Add <code>evt::reset()</code> and <code>evt::reset(self)</code> functions under the <code>evtools</code> plugin; these reset the compartments in a model; overloaded functions are also provided to reset and dose with bolus or infusion (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1222" class="external-link">#1222</a>).</p></li>
 <li><p>Completed dosing functionality in <code>evtools</code> plugin; use <code>evt::addl()</code> to schedule additional doses through an <code>evt::ev</code> object; use <code>evt::ii()</code> to set the dosing interval; use <code>evt::ss()</code> to advance the pharmacokinetic system to steady state just prior to dosing; <code>evt::cmt()</code> sets the compartment number; <code>evt::amt()</code> sets the dose amount; <code>evt::rate()</code> sets the infusion rate; see the user guide for the specific signatures that are available (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1227" class="external-link">#1227</a>).</p></li>

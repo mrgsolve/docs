@@ -30,6 +30,7 @@
 <url><loc>https://mrgsolve.org/docs/reference/code.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/collapse_matrices.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/collapse_matrix.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/custom_tol.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/cvec.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/data_set.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/design.html</loc></url>
@@ -55,6 +56,7 @@
 <url><loc>https://mrgsolve.org/docs/reference/expand.idata.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/expand_observations.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/file_show.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/get_tol.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/house.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/idata_set.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/index.html</loc></url>
@@ -121,6 +123,7 @@
 <url><loc>https://mrgsolve.org/docs/reference/reexports.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/render.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/reserved.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/reset_tol.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/revar.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/scrape_and_call.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/scrape_opts.html</loc></url>
@@ -139,6 +142,7 @@
 <url><loc>https://mrgsolve.org/docs/reference/touch_funs.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/tscale.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/update.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/use_custom_tol.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/valid_data_set.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/valid_idata_set.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/wf_sweep.html</loc></url>

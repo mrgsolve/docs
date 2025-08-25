@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.6.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,12 +120,26 @@ ignore <code>&lt;numeric&gt;</code></p></dd>
 <dd><p>passed to <code><a href="solversettings.html">dlsoda</a></code> <code>&lt;numeric&gt;</code></p></dd>
 
 
+<dt><code>itol</code></dt>
+<dd><p>passed to <code><a href="solversettings.html">dlsoda</a></code> <code>&lt;int&gt;</code>;
+<code>itol=1</code> indicates scalar values for <code>atol</code> and <code>rtol</code>;
+<code>itol=4</code> indicates customized tolerances for each compartment</p></dd>
+
+
 <dt><code>atol</code></dt>
 <dd><p>passed to <code><a href="solversettings.html">dlsoda</a></code> <code>&lt;numeric&gt;</code></p></dd>
 
 
 <dt><code>rtol</code></dt>
 <dd><p>passed to <code><a href="solversettings.html">dlsoda</a></code> <code>&lt;numeric&gt;</code></p></dd>
+
+
+<dt><code>vec_rtol</code></dt>
+<dd><p>a vector of <code>rtol</code> to be used when <code>itol=4</code> <code>&lt;numeric&gt;</code></p></dd>
+
+
+<dt><code>vec_atol</code></dt>
+<dd><p>a vector of <code>atol</code> to be used when <code>itol=4</code> <code>&lt;numeric&gt;</code></p></dd>
 
 
 <dt><code>ss_rtol</code></dt>
