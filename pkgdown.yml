@@ -1,5 +1,5 @@
-pandoc: 3.7.0.2
-pkgdown: 2.1.0
+pandoc: '3.9'
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   extra/dollar-pred: extra/dollar-pred.html
@@ -9,7 +9,7 @@ articles:
   mrgsolve: mrgsolve.html
   extra/steady-state: extra/steady-state.html
   extra/time-after-dose: extra/time-after-dose.html
-last_built: 2025-08-25T13:05Z
+last_built: 2026-03-22T04:08Z
 urls:
   reference: https://mrgsolve.org/docs/reference
   article: https://mrgsolve.org/docs/articles
