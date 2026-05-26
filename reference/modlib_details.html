@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,7 @@
     <h2 id="compartments">Compartments<a class="anchor" aria-label="anchor" href="#compartments"></a></h2>
 
 
-<ul><li><p><code>EV1</code>, <code>EV2</code>: extravascular dosing compartments</p></li>
+<ul><li><p><code>EV</code>, <code>EV2</code>: extravascular dosing compartments</p></li>
 <li><p><code>CENT</code>: central PK compartment</p></li>
 <li><p><code>PERIPH</code>: peripheral PK compartment</p></li>
 <li><p><code>PERIPH2</code>: peripheral PK compartment 2</p></li>
@@ -62,30 +62,30 @@
     <h2 id="output-variables">Output variables<a class="anchor" aria-label="anchor" href="#output-variables"></a></h2>
 
 
-<ul><li><p><code>CP</code>: concentration in the central compartment (<code>CENT/VC</code>)</p></li>
+<ul><li><p><code>CP</code>: concentration in the central compartment</p></li>
 <li><p><code>RESP</code>: response (emax model)</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="pk-parameters">PK parameters<a class="anchor" aria-label="anchor" href="#pk-parameters"></a></h2>
 
 
-<ul><li><p><code>KA1</code>, <code>KA2</code>:  first order absorption rate constants
-from first and second extravascular compartment (1/time)</p></li>
+<ul><li><p><code>KA</code>, <code>KA2</code>: first order absorption rate constants from first and
+second extravascular compartment (1/time)</p></li>
 <li><p><code>CL</code>: clearance (volume/time)</p></li>
-<li><p><code>VC</code>: volume of distribution, central compartment (volume)</p></li>
-<li><p><code>VP</code>:  volume of distribution, peripheral compartment
-(volume)</p></li>
-<li><p><code>VP2</code>: volume of distribution, peripheral compartment 2
-(volume)</p></li>
+<li><p><code>V</code>: volume of distribution (volume)</p></li>
+<li><p><code>V2</code>: volume of distribution, central compartment (volume)</p></li>
+<li><p><code>V3</code>: volume of distribution, peripheral compartment (volume)</p></li>
+<li><p><code>V4</code>: volume of distribution, peripheral compartment 2 (volume)</p></li>
 <li><p><code>Q</code>: intercompartmental clearance (volume/time)</p></li>
-<li><p><code>Q2</code>: intercompartmental clearance 2 (volume/time)</p></li>
-<li><p><code>VMAX</code>:  maximum rate, nonlinear process (mass/time)</p></li>
+<li><p><code>Q3</code>: intercompartmental clearance (volume/time)</p></li>
+<li><p><code>Q4</code>: intercompartmental clearance 2 (volume/time)</p></li>
+<li><p><code>VMAX</code>: maximum rate, nonlinear process (mass/time)</p></li>
 <li><p><code>KM</code>: Michaelis constant (mass/volume)</p></li>
-<li><p><code>K10</code>: elimination rate constant (1/time); <code>CL/VC</code></p></li>
-<li><p><code>K12</code>: rate constant for transfer to peripheral compartment
-from central (1/time); <code>Q/VC</code></p></li>
+<li><p><code>K10</code>: elimination rate constant (1/time)</p></li>
+<li><p><code>K12</code>: rate constant for transfer to peripheral compartment from
+central (1/time)</p></li>
 <li><p><code>K21</code>: rate constant for transfer to central compartment from
- peripheral (1/time); <code>Q/VP</code></p></li>
+peripheral (1/time)</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="pd-parameters">PD parameters<a class="anchor" aria-label="anchor" href="#pd-parameters"></a></h2>
@@ -93,15 +93,12 @@ from central (1/time); <code>Q/VC</code></p></li>
 
 <ul><li><p><code>E0</code>: baseline effect (emax model)</p></li>
 <li><p><code>EMAX</code>, <code>IMAX</code>: maximum effect (response)</p></li>
-<li><p><code>EC50</code>, <code>IC50</code>: concentration producing 50 percent of
-effect (mass/volume)</p></li>
-<li><p><code>KIN</code>: zero-order response production rate (irm models)
-(response/time)</p></li>
-<li><p><code>KOUT</code>: first-order response elimination rate (irm models)
- (1/time)</p></li>
+<li><p><code>EC50</code>, <code>IC50</code>: concentration producing 50 percent of effect
+(mass/volume)</p></li>
+<li><p><code>KIN</code>: zero-order response production rate (irm models) (response/time)</p></li>
+<li><p><code>KOUT</code>: first-order response elimination rate (irm models) (1/time)</p></li>
 <li><p><code>n</code>: sigmoidicity factor</p></li>
-<li><p><code>KEO</code>: rate constant for transfer to effect compartment
-(1/time)</p></li>
+<li><p><code>KEO</code>: rate constant for transfer to effect compartment (1/time)</p></li>
 </ul></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,10 +50,10 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for class 'mrgsims,missing'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, limit <span class="op">=</span> <span class="fl">16</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">plot</span><span class="op">(</span><span class="va">x</span>, limit <span class="op">=</span> <span class="fl">16</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for class 'mrgsims,formula'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span><span class="fu">plot</span><span class="op">(</span></span>
 <span>  <span class="va">x</span>,</span>
 <span>  <span class="va">y</span>,</span>
 <span>  limit <span class="op">=</span> <span class="fl">16</span>,</span>
@@ -64,13 +64,15 @@
 <span>  ylab <span class="op">=</span> <span class="st">"value"</span>,</span>
 <span>  groups <span class="op">=</span> <span class="va">ID</span>,</span>
 <span>  scales <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>relation <span class="op">=</span> <span class="st">"free"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  logy <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  logbr <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  fixy <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  logy <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  logbr <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  equispaced.log <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for class 'mrgsims,character'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">plot</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -78,57 +80,68 @@
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>mrgsims object</p></dd>
+<dd><p>mrgsims object.</p></dd>
 
 
 <dt id="arg-limit">limit<a class="anchor" aria-label="anchor" href="#arg-limit"></a></dt>
-<dd><p>limit the the number of panels to create</p></dd>
+<dd><p>limit the the number of panels to create.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>other arguments passed to xyplot</p></dd>
+<dd><p>other arguments passed to <code><a href="https://rdrr.io/pkg/lattice/man/xyplot.html" class="external-link">lattice::xyplot()</a></code>.</p></dd>
 
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
-<dd><p>formula used for plotting</p></dd>
+<dd><p>formula used for plotting.</p></dd>
 
 
 <dt id="arg-show-grid">show.grid<a class="anchor" aria-label="anchor" href="#arg-show-grid"></a></dt>
-<dd><p>logical indicating whether or not to draw panel.grid</p></dd>
+<dd><p>logical indicating whether or not to draw <code>panel.grid</code>.</p></dd>
 
 
 <dt id="arg-outer">outer<a class="anchor" aria-label="anchor" href="#arg-outer"></a></dt>
-<dd><p>passed to xyplot</p></dd>
+<dd><p>passed to <code><a href="https://rdrr.io/pkg/lattice/man/xyplot.html" class="external-link">lattice::xyplot()</a></code>.</p></dd>
 
 
 <dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
-<dd><p>passed to xyplot</p></dd>
+<dd><p>passed to <code><a href="https://rdrr.io/pkg/lattice/man/xyplot.html" class="external-link">lattice::xyplot()</a></code>.</p></dd>
 
 
 <dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
-<dd><p>passed to xyplot</p></dd>
+<dd><p>passed to <code><a href="https://rdrr.io/pkg/lattice/man/xyplot.html" class="external-link">lattice::xyplot()</a></code>.</p></dd>
 
 
 <dt id="arg-ylab">ylab<a class="anchor" aria-label="anchor" href="#arg-ylab"></a></dt>
-<dd><p>passed to xyplot</p></dd>
+<dd><p>passed to <code><a href="https://rdrr.io/pkg/lattice/man/xyplot.html" class="external-link">lattice::xyplot()</a></code>.</p></dd>
 
 
 <dt id="arg-groups">groups<a class="anchor" aria-label="anchor" href="#arg-groups"></a></dt>
-<dd><p>passed to xyplot</p></dd>
+<dd><p>passed to <code><a href="https://rdrr.io/pkg/lattice/man/xyplot.html" class="external-link">lattice::xyplot()</a></code>.</p></dd>
 
 
 <dt id="arg-scales">scales<a class="anchor" aria-label="anchor" href="#arg-scales"></a></dt>
-<dd><p>passed to xyplot</p></dd>
+<dd><p>passed to  <code><a href="https://rdrr.io/pkg/lattice/man/xyplot.html" class="external-link">lattice::xyplot()</a></code>.</p></dd>
+
+
+<dt id="arg-fixy">fixy<a class="anchor" aria-label="anchor" href="#arg-fixy"></a></dt>
+<dd><p>make the y-axis scale the same for all variables; ignored if
+<code>scales</code> is not a list.</p></dd>
 
 
 <dt id="arg-logy">logy<a class="anchor" aria-label="anchor" href="#arg-logy"></a></dt>
-<dd><p>plot the y variables on log scale</p></dd>
+<dd><p>plot the y variables on log scale; ignored if <code>scales</code> is not
+a list.</p></dd>
 
 
 <dt id="arg-logbr">logbr<a class="anchor" aria-label="anchor" href="#arg-logbr"></a></dt>
 <dd><p>log scale breaks indicator; use <code>1</code> for breaks every log
 unit; use <code>3</code> for breaks every half log unit; use <code>0</code> for default
-breaks</p></dd>
+breaks; ignored if <code>scales</code> is not a list.</p></dd>
+
+
+<dt id="arg-equispaced-log">equispaced.log<a class="anchor" aria-label="anchor" href="#arg-equispaced-log"></a></dt>
+<dd><p>see <code>scales</code> argument in <code><a href="https://rdrr.io/pkg/lattice/man/xyplot.html" class="external-link">lattice::xyplot()</a></code>;
+ignored if <code>scales</code> is not a list.</p></dd>
 
 </dl></div>
 
@@ -139,22 +152,20 @@ breaks</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="mrgsim.html">mrgsim</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot</span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_mrgsims-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span>, subset<span class="op">=</span><span class="va">time</span> <span class="op">&lt;=</span><span class="fl">24</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot</span><span class="op">(</span><span class="va">out</span>, subset<span class="op">=</span><span class="va">time</span> <span class="op">&lt;=</span> <span class="fl">24</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_mrgsims-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span>, <span class="va">GUT</span><span class="op">+</span><span class="va">CP</span><span class="op">~</span><span class="va">.</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot</span><span class="op">(</span><span class="va">out</span>, <span class="va">GUT</span> <span class="op">+</span> <span class="va">CP</span> <span class="op">~</span> <span class="va">.</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_mrgsims-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span>, <span class="va">CP</span><span class="op">+</span><span class="va">RESP</span><span class="op">~</span><span class="va">time</span>, col<span class="op">=</span><span class="st">"black"</span>, scales<span class="op">=</span><span class="st">"same"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>In subset.data.frame(as.data.frame(x), ...) :</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>  extra arguments ‘col’, ‘lty’ will be disregarded</span>
+<span class="r-in"><span><span class="fu">plot</span><span class="op">(</span><span class="va">out</span>, <span class="va">CP</span> <span class="op">+</span> <span class="va">RESP</span> <span class="op">~</span> <span class="va">time</span>, col <span class="op">=</span> <span class="st">"black"</span>, fixy <span class="op">=</span> <span class="cn">TRUE</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_mrgsims-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span>, <span class="st">"CP RESP, GUT"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot</span><span class="op">(</span><span class="va">out</span>, <span class="st">"CP RESP, GUT"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

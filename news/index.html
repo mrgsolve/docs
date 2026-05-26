@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +42,84 @@
       <small>Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="2.0.1" id="mrgsolve-201">mrgsolve 2.0.1<a class="anchor" aria-label="anchor" href="#mrgsolve-201"></a></h2><p class="text-muted">CRAN release: 2026-05-20</p>
+<div class="section level3">
+<h3 id="bugs-fixed-2-0-1">Bugs Fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-2-0-1"></a></h3>
+<ul><li><p>Fixed a bug causing an error when calling <code>pow_convert()</code> on empty model code blocks. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1381" class="external-link">#1381</a>)</p></li>
+<li><p>Fixed a compilation error under C++20, the default standard in R 4.6.0. A <code>boost::static_visitor</code> initialization in <code>dsl-preprocess.cpp</code> used list initialization (<code>Emitter{}</code>) that is disallowed in C++20; changed to value initialization (<code>Emitter()</code>). (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1385" class="external-link">#1385</a>, fixes <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1384" class="external-link">#1384</a>)</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="internal-2-0-1">Internal<a class="anchor" aria-label="anchor" href="#internal-2-0-1"></a></h3>
+<ul><li><p>Column names are now assigned to the simulation output matrix in place, avoiding an extra copy of the simulated data. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1383" class="external-link">#1383</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1387" class="external-link">#1387</a>)</p></li>
+<li><p>Updated the simulation loop to clear an individual’s records before moving to the next individual; this should improve memory utilization, especially for very large simulation output. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1388" class="external-link">#1388</a>)</p></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="2.0.0" id="mrgsolve-200">mrgsolve 2.0.0<a class="anchor" aria-label="anchor" href="#mrgsolve-200"></a></h2>
+<div class="section level3">
+<h3 id="breaking-changes-2-0-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-2-0-0"></a></h3>
+<ul><li><p><code><a href="../reference/data_set.html">data_set()</a></code> and <code><a href="../reference/idata_set.html">idata_set()</a></code> no longer accept <code>.subset</code>, <code>.select</code>, <code>object</code>, or <code>need</code> arguments. These arguments allowed filtering and column selection inside the call; that processing should now be done on the data frame before passing it to <code><a href="../reference/data_set.html">data_set()</a></code> or <code><a href="../reference/idata_set.html">idata_set()</a></code>. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1374" class="external-link">#1374</a>)</p></li>
+<li><p>The <code>n</code> argument to <code>simeta()</code> and <code>simeps()</code> has been discouraged for a while and is now removed. Calling <code>simeta(n)</code> or <code>simeps(n)</code> to resimulate a single ETA or EPS value is no longer supported. Use <code>simeta()</code> or <code>simeps()</code> (no argument) to resimulate all values. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1373" class="external-link">#1373</a>)</p></li>
+<li><p><code><a href="../reference/knobs.html">knobs()</a></code>, <code><a href="../reference/wf_sweep.html">wf_sweep()</a></code>, and <code>render()</code> have been removed. These functions were previously deprecated. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1369" class="external-link">#1369</a>)</p></li>
+<li><p>The default value of <code>root</code> in <code>$NMXML</code> and <code>$NMEXT</code> has changed from <code>"working"</code> to <code>"cppfile"</code>. The root directory for locating NONMEM output files now defaults to the directory containing the model <code>.cpp</code> file rather than the R working directory. Pass <code>root = "working"</code> to restore the previous behavior; but users are <em>highly</em> encouraged to use the new default. (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1368" class="external-link">#1368</a>)</p></li>
+<li><p><code><a href="../reference/mrgsims_dplyr.html">summarise.each()</a></code> is removed; it has not been practically reachable by the user for several years (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1352" class="external-link">#1352</a>).</p></li>
+<li>
+<p>Several <code>modlib</code> model library models have had parameter and compartment names standardized (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1361" class="external-link">#1361</a>):</p>
+<ul><li>The first extravascular compartment is now named <code>EV</code> (was <code>EV1</code>) in <code>pk1cmt</code>, <code>pk2cmt</code>, <code>irm1</code>-<code>irm4</code>, and <code>emax</code>.</li>
+<li>The first absorption rate constant is now named <code>KA</code> (was <code>KA1</code>) in models that previously used numbered names.</li>
+<li>Code that references these compartments or parameters by name (e.g., <code>init(mod, EV1 = 0)</code> or <code>param(mod, KA1 = 1)</code>) will need to be updated.</li>
+<li>We continue to discourage users from using these models in production code.</li>
+</ul></li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-features-2-0-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-2-0-0"></a></h3>
+<ul><li><p>Models can now use <code>a ** b</code> syntax to represent <code>pow(a, b)</code>; this syntax is always available, without need to invoke a plugin (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1360" class="external-link">#1360</a>).</p></li>
+<li><p>With the <code>nm-vars</code> plugin, mrgsolve now recognizes NONMEM / Fortran <code>IF / ELSE / THEN</code> statements; this code can be left in your model and mrgsolve will convert to appropriate C++ under the hood (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1360" class="external-link">#1360</a>).</p></li>
+<li><p><code>ERR(n)</code> is now recognized as an alias for <code>EPS(n)</code> when using the <code>nm-vars</code> plugin (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1367" class="external-link">#1367</a>).</p></li>
+<li>
+<p>New DSL preprocessing functions convert NONMEM/Fortran model code to mrgsolve / C++ syntax (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1360" class="external-link">#1360</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1362" class="external-link">#1362</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1366" class="external-link">#1366</a>):</p>
+<ul><li>
+<code><a href="../reference/dsl_preprocess.html">convert_pow()</a></code> converts Fortran <code>**</code> exponentiation to <code>pow()</code>.</li>
+<li>
+<code><a href="../reference/dsl_preprocess.html">convert_fort_if()</a></code> converts Fortran <code>IF/THEN/ELSE/END IF</code> blocks to C++ <code>if/else</code> syntax.</li>
+<li>
+<code><a href="../reference/dsl_preprocess.html">convert_semicolons()</a></code> inserts missing trailing semicolons on assignment statements.</li>
+<li>RStudio addins are provided to allow conversion of certain NONMEM source code blocks to mrgsolve format in the RStudio editor window.</li>
+</ul></li>
+<li><p>Closed-form three-compartment linear models with or without depot compartments can now be implemented via <code>$PKMODEL</code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1345" class="external-link">#1345</a>).</p></li>
+<li><p><code>$PKMODEL</code> gains an <code>advan</code> input for selecting 1, 2, or 3 compartment models with analytical solutions; for example, setting <code>advan</code> to 2, 4, or 12 will give you 1, 2, or 3 compartment model in closed form with a depot compartment. When <code>advan</code> is specified, compartments with standard names are automatically registered if neither <code>$INIT</code> nor <code>$CMT</code> are found in the model file and no compartments are registered at the time that <code>$PKMODEL</code> is processed (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1345" class="external-link">#1345</a>).</p></li>
+<li><p>Two new <code>modlib</code> models, <code>pk3</code> and <code>pk3iv</code>, provide the corresponding pre-coded model files (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1345" class="external-link">#1345</a>).</p></li>
+<li><p><code>mrgx::assign()</code> is now available in the <code>mrgx</code> plugin; this is a convenience function to help you get R objects from your model code back to R when the simulation finishes (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1353" class="external-link">#1353</a>).</p></li>
+<li><p>The <code><a href="../reference/plot_mrgsims.html">plot()</a></code> method for <code>mrgsims</code> objects gains a <code>fixy</code> argument to fix the y-axis limits across panels in the plot (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1349" class="external-link">#1349</a>).</p></li>
+<li><p>Users can now find <code><a href="../reference/plot_mrgsims.html">plot()</a></code> method documentation through <code><a href="../reference/plot_mrgsims.html">?plot</a></code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1349" class="external-link">#1349</a>).</p></li>
+<li><p><code><a href="../reference/env_get.html">env_get()</a></code> refactored to allow access of R objects inside the model environment similar to <code><a href="https://rdrr.io/r/base/get.html" class="external-link">base::get()</a></code>; <code><a href="../reference/env_get.html">env_get_obj()</a></code> is an alias to <code><a href="../reference/env_get.html">env_get()</a></code>, analogous to <code><a href="../reference/env_get.html">env_get_env()</a></code> (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1355" class="external-link">#1355</a>).</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="bugs-fixed-2-0-0">Bugs Fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-2-0-0"></a></h3>
+<ul><li>Fixed a bug where the model row counter was not correct when a simulation was performed with only an idata set (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1351" class="external-link">#1351</a>).</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.8.0" id="mrgsolve-180">mrgsolve 1.8.0<a class="anchor" aria-label="anchor" href="#mrgsolve-180"></a></h2>
+<ul><li><p>mrgsolve now requires R &gt;= 4.1 (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1333" class="external-link">#1333</a>).</p></li>
+<li><p><code>FINAL_ROW</code> and <code>FINAL_IROW</code> macros are now available to indicate when the simulation is processing the final output record for the whole problem or for the current individual, respectively; both macros are reserved words (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1328" class="external-link">#1328</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1327" class="external-link">#1327</a>).</p></li>
+</ul><div class="section level3">
+<h3 id="bugs-fixed-1-8-0">Bugs Fixed<a class="anchor" aria-label="anchor" href="#bugs-fixed-1-8-0"></a></h3>
+<ul><li><p>Fixed S3 registration of the <code>all.equal</code> method (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1337" class="external-link">#1337</a>).</p></li>
+<li><p><code><a href="../reference/custom_tol.html">custom_rtol()</a></code> and <code><a href="../reference/custom_tol.html">custom_atol()</a></code> now return without error when called with no tolerance inputs (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1321" class="external-link">#1321</a>, <a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1336" class="external-link">#1336</a>).</p></li>
+<li><p>Row counters (<code>self.rown</code>, <code>self.nrow</code>, <code>self.irown</code>, <code>self.inrow</code>) now only update when the system advances to an output record; previously, non-output records between output records could cause the counters to misrepresent the current position in the output (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1323" class="external-link">#1323</a>).</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="internal-1-8-0">Internal<a class="anchor" aria-label="anchor" href="#internal-1-8-0"></a></h3>
+<ul><li>
+<p>Model parameter and compartment aliases in generated C++ code now use scoped reference variables rather than preprocessor <code>#define</code> directives (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1332" class="external-link">#1332</a>).</p>
+<ul><li>During this refactor, it was noted that model parameters were mutable in <code>$TABLE</code> (and <code>$EVENT</code>), against the intention for the parameter vector. This vector continues to be mutable in these blocks, but plans will be made to fix this behavior in the future.</li>
+</ul></li>
+<li><p>Initialize <code>Self</code> to null pointer in <code>evt::regimen</code> objects (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1329" class="external-link">#1329</a>).</p></li>
+<li><p>Refactor <code>mat2df()</code> (C++) for efficiency, avoiding Rcpp sugar (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1316" class="external-link">#1316</a>).</p></li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.7.2" id="mrgsolve-172">mrgsolve 1.7.2<a class="anchor" aria-label="anchor" href="#mrgsolve-172"></a></h2><p class="text-muted">CRAN release: 2026-01-22</p>
 <ul><li>An individual record counter has been added. Use <code>self.inrow</code> to get the number of output rows for the current individual; use <code>self.irown</code> to get the zero-indexed row number for the current individual; these are similar to <code>self.nrow</code> and <code>self.rown</code>, which count records for the entire output data set (<a href="https://github.com/metrumresearchgroup/mrgsolve/issues/1313" class="external-link">#1313</a>).</li>

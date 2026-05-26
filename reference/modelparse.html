@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,13 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">modelparse</span><span class="op">(</span><span class="va">txt</span>, split <span class="op">=</span> <span class="cn">FALSE</span>, drop_blank <span class="op">=</span> <span class="cn">TRUE</span>, comment_re <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"//"</span>, <span class="st">"##"</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">modelparse</span><span class="op">(</span></span>
+<span>  <span class="va">txt</span>,</span>
+<span>  split <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  drop_blank <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  comment_re <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"//"</span>, <span class="st">"##"</span><span class="op">)</span>,</span>
+<span>  keep_mapping <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">modelparse_rmd</span><span class="op">(</span><span class="va">txt</span>, split <span class="op">=</span> <span class="cn">FALSE</span>, drop_blank <span class="op">=</span> <span class="cn">TRUE</span>, comment_re <span class="op">=</span> <span class="st">"//"</span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -59,29 +65,42 @@
 
 
 <dl><dt id="arg-txt">txt<a class="anchor" aria-label="anchor" href="#arg-txt"></a></dt>
-<dd><p>model specification text</p></dd>
+<dd><p>model specification text.</p></dd>
 
 
 <dt id="arg-split">split<a class="anchor" aria-label="anchor" href="#arg-split"></a></dt>
-<dd><p>logical</p></dd>
+<dd><p>logical; if <code>TRUE</code>, <code>txt</code> will be split on <code>\n</code> before
+processing.</p></dd>
 
 
 <dt id="arg-drop-blank">drop_blank<a class="anchor" aria-label="anchor" href="#arg-drop-blank"></a></dt>
-<dd><p>logical; <code>TRUE</code> if blank lines are to be dropped</p></dd>
+<dd><p>logical; <code>TRUE</code> if blank lines will be dropped.</p></dd>
 
 
 <dt id="arg-comment-re">comment_re<a class="anchor" aria-label="anchor" href="#arg-comment-re"></a></dt>
-<dd><p>regular expression for comments</p></dd>
+<dd><p>regular expression to identify comments.</p></dd>
+
+
+<dt id="arg-keep-mapping">keep_mapping<a class="anchor" aria-label="anchor" href="#arg-keep-mapping"></a></dt>
+<dd><p>if <code>TRUE</code>, parse information will be retained as
+attributes on the parsed model code.</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p><code><a href="modelsplit.html">modelsplit()</a></code> and <code><a href="modelsplit.html">modelunsplit()</a></code> for a non-destructive
+split/reassemble alternative.</p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="modlib.html">modlib</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"pk1.cpp"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">modelparse</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">code</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">modelparse</span><span class="op">(</span><span class="va">code</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $PARAM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "@annotated"                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "@annotated @input"                            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2] "CL   :  1 : Clearance (volume/time)"          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3] "V    : 20 : Central volume (volume)"          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4] "KA   :  1 : Absorption rate constant (1/time)"</span>
@@ -94,7 +113,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#define CP (CENT/V)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $PKMODEL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ncmt = 1, depot = TRUE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "advan = 2"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $CAPTURE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "@annotated"                             </span>

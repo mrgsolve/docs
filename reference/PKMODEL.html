@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,8 @@
 <span>  ncmt <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  depot <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  cmt <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  trans <span class="op">=</span> <span class="fu">pick_trans</span><span class="op">(</span><span class="va">ncmt</span>, <span class="va">depot</span><span class="op">)</span>,</span>
+<span>  advan <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  trans <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  env <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  pos <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  <span class="va">...</span></span>
@@ -66,62 +67,95 @@
 
 <dl><dt id="arg-ncmt">ncmt<a class="anchor" aria-label="anchor" href="#arg-ncmt"></a></dt>
 <dd><p>number of compartments; must be 1 (one-compartment,
-not including a depot dosing compartment) or 2 (two-compartment model,
-not including a depot dosing compartment)</p></dd>
+not including a depot dosing compartment), 2 (two-compartment model,
+not including a depot dosing compartment), or 3 (three-compartment model,
+not including a depot dosing compartment).</p></dd>
 
 
 <dt id="arg-depot">depot<a class="anchor" aria-label="anchor" href="#arg-depot"></a></dt>
-<dd><p>logical indicating whether to add depot compartment</p></dd>
+<dd><p>logical indicating whether to add depot compartment.</p></dd>
 
 
 <dt id="arg-cmt">cmt<a class="anchor" aria-label="anchor" href="#arg-cmt"></a></dt>
-<dd><p>compartment names as comma-delimited character</p></dd>
+<dd><p>compartment names as comma-delimited character.</p></dd>
+
+
+<dt id="arg-advan">advan<a class="anchor" aria-label="anchor" href="#arg-advan"></a></dt>
+<dd><p>ADVAN subroutine number; can be 1, 2, 3, 4, 11, or 12; when
+specified, <code>ncmt</code> and <code>depot</code> are derived from the ADVAN number and the
+appropriate compartments are registered to the model unless specified
+elsewhere (see <strong>Details</strong>).</p></dd>
 
 
 <dt id="arg-trans">trans<a class="anchor" aria-label="anchor" href="#arg-trans"></a></dt>
-<dd><p>the parameterization for the PK model; must be 1, 2, 4, or 11</p></dd>
+<dd><p>the parameterization for the PK model; must be 1, 2, 4, or 11.</p></dd>
 
 
 <dt id="arg-env">env<a class="anchor" aria-label="anchor" href="#arg-env"></a></dt>
-<dd><p>parse environment</p></dd>
+<dd><p>parse environment.</p></dd>
 
 
 <dt id="arg-pos">pos<a class="anchor" aria-label="anchor" href="#arg-pos"></a></dt>
-<dd><p>block position number</p></dd>
+<dd><p>block position number.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>not used</p></dd>
+<dd><p>not used.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>When using <code>$PKMODEL</code>, certain symbols must be defined in the
 model specification depending on the value of <code>ncmt</code>, <code>depot</code>
-and <code>trans</code>.</p>
-<ul><li><p><code>ncmt</code> 1, <code>depot FALSE</code>, trans 2: <code>CL</code>, <code>V</code></p></li>
-<li><p><code>ncmt</code> 1, <code>depot TRUE</code> , trans 2: <code>CL</code>, <code>V</code>,
-<code>KA</code></p></li>
-<li><p><code>ncmt</code> 2, <code>depot FALSE</code>, trans 4: <code>CL</code>, <code>V1</code>,
-<code>Q</code>, <code>V2</code></p></li>
-<li><p><code>ncmt</code> 2, <code>depot TRUE</code> , trans 4: <code>CL</code>, <code>V2</code>,
-<code>Q</code>, <code>V3</code>, <code>KA</code></p></li>
+and <code>trans</code>.</p><ul><li><p><code>ncmt</code> 1, <code>depot FALSE</code>, trans 2: <code>CL</code>,  <code>V</code></p></li>
+<li><p><code>ncmt</code> 1, <code>depot TRUE</code> , trans 2: <code>CL</code>,  <code>V</code>, <code>KA</code></p></li>
+<li><p><code>ncmt</code> 2, <code>depot FALSE</code>, trans 4: <code>CL</code>, <code>V1</code>,  <code>Q</code>, <code>V2</code></p></li>
+<li><p><code>ncmt</code> 2, <code>depot TRUE</code> , trans 4: <code>CL</code>, <code>V2</code>,  <code>Q</code>, <code>V3</code>, <code>KA</code></p></li>
+<li><p><code>ncmt</code> 3, <code>depot FALSE</code>, trans 4: <code>CL</code>, <code>V1</code>, <code>Q2</code>, <code>V2</code>, <code>Q3</code>, <code>V3</code></p></li>
+<li><p><code>ncmt</code> 3, <code>depot TRUE</code> , trans 4: <code>CL</code>, <code>V2</code>, <code>Q3</code>, <code>V3</code>, <code>KA</code>, <code>Q4</code>,
+<code>V4</code></p></li>
 </ul><p>If <code>trans=11</code> is specified, use the symbols listed above for the
 <code>ncmt</code> / <code>depot</code> combination, but append <code>i</code> at the end
-(e.g. <code>CLi</code> or <code>Qi</code> or <code>KAi</code>).</p>
-<p>If <code>trans=1</code>, the user must utilize the following symbols:</p>
-<ul><li><p><code>pred_CL</code> for clearance</p></li>
-<li><p><code>pred_V</code>  or <code>pred_V2</code> for central compartment volume of
-distribution</p></li>
+(e.g. <code>CLi</code> or <code>Q2i</code> or <code>KAi</code>).</p>
+<p>If <code>trans=1</code>, the user must utilize the following symbols:</p><ul><li><p><code>pred_CL</code> for clearance</p></li>
+<li><p><code>pred_V</code>  or <code>pred_V2</code> for central compartment volume of distribution</p></li>
 <li><p><code>pred_Q</code>  for intercompartmental clearance</p></li>
-<li><p><code>pred_V3</code> for for peripheral compartment volume of distribution</p></li>
+<li><p><code>pred_V3</code> for peripheral compartment volume of distribution</p></li>
 <li><p><code>pred_KA</code> for absorption rate constant</p></li>
-</ul></div>
+<li><p><code>pred_Q2</code>  for second intercompartmental clearance (3-cmt)</p></li>
+<li><p><code>pred_VP2</code> or <code>pred_V4</code> for second peripheral compartment volume of
+distribution (3-cmt)</p></li>
+</ul><p>When <code>advan</code> is supplied by the user, default compartments are registered
+in the model unless specified elsewhere. Compartment names are <code>A1</code>, <code>A2</code>,
+etc. to the number of compartments for the specified <code>advan</code>. These
+compartments will <em>not</em> be added in case (1) the model contains a <code>$CMT</code>
+block (2) the model contains a <code>$INIT</code> block or (3) no compartments have
+been registered in the model at the time <code>$PKMODEL</code> is processed (for
+example, via <code>$YAML</code>).</p>
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="BLOCK_PARSE.html">BLOCK_PARSE</a></code></p></div>
+    <div class="dont-index"><p><a href="BLOCK_PARSE.html">BLOCK_PARSE</a></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">code</span> <span class="op">&lt;-</span> <span class="st">'</span></span></span>
+<span class="r-in"><span><span class="st">$PARAM CL = 1, V2 = 20, Q = 2, V3 = 10, KA = 1</span></span></span>
+<span class="r-in"><span><span class="st">$PKMODEL ncmt = 2, depot = TRUE, cmt = "GUT CENT PERIPH"</span></span></span>
+<span class="r-in"><span><span class="st">'</span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="mcode.html">mcode</a></span><span class="op">(</span><span class="st">"pk2-example"</span>, <span class="va">code</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">code</span> <span class="op">&lt;-</span> <span class="st">'</span></span></span>
+<span class="r-in"><span><span class="st">$PARAM CL = 1, V2 = 20, Q3 = 2, V3 = 10, Q4 = 0.5, V4 = 50, KA = 1</span></span></span>
+<span class="r-in"><span><span class="st">$PKMODEL advan = 12</span></span></span>
+<span class="r-in"><span><span class="st">'</span></span></span>
+<span class="r-in"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="mcode.html">mcode</a></span><span class="op">(</span><span class="st">"advan12-example"</span>, <span class="va">code</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

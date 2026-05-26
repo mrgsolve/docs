@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@
       <h1>Models without compartments</h1>
                         <h4 data-toc-skip class="author"></h4>
             
-            <h4 data-toc-skip class="date">2026-03-21</h4>
+            <h4 data-toc-skip class="date">2026-05-26</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/metrumresearchgroup/mrgsolve/blob/HEAD/vignettes/extra/dollar-pred.Rmd" class="external-link"><code>vignettes/extra/dollar-pred.Rmd</code></a></small>
       <div class="d-none name"><code>dollar-pred.Rmd</code></div>
@@ -128,7 +128,7 @@ it also finds <code>$MAIN</code>, <code>$TABLE</code>, or
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/mrgsim_variants.html">mrgsim_d</a></span><span class="op">(</span><span class="va">mod</span>, <span class="va">data</span>, carry_out <span class="op">=</span> <span class="st">"B"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">out</span>, <span class="va">Y</span><span class="op">~</span><span class="va">B</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../../reference/plot_mrgsims.html">plot</a></span><span class="op">(</span><span class="va">out</span>, <span class="va">Y</span><span class="op">~</span><span class="va">B</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dollar-pred_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="700"></p>
 <p>Like other models, we can simulate from a population</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -148,7 +148,7 @@ it also finds <code>$MAIN</code>, <code>$TABLE</code>, or
 <code class="sourceCode R"><span><span class="va">mod</span> <span class="op"><a href="../../reference/zchain.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="../../reference/data_set.html">data_set</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op"><a href="../../reference/zchain.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="../../reference/mrgsim.html">mrgsim</a></span><span class="op">(</span>carry_out <span class="op">=</span> <span class="st">"B"</span><span class="op">)</span> <span class="op"><a href="../../reference/zchain.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">B</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../../reference/plot_mrgsims.html">plot</a></span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">B</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dollar-pred_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="700"></p>
 </div>
 <div class="section level2">

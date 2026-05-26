@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,36 +53,32 @@
 
 
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>passed to update</p></dd>
+<dd><p>passed to update.</p></dd>
 
 </dl></div>
     <div class="section level2">
-    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>an object of class <code>packmod</code></p>
-    </div>
-    <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>See <code><a href="modlib_details.html">modlib_details</a></code> for more detailed descriptions of
-parameters and compartments.</p>
-<p>The <code>pk1cmt</code> model is parameterized in terms of <code>CL</code>, <code>VC</code>,
-<code>KA1</code> and <code>KA2</code> and uses compartments <code>EV1</code>,
-<code>EV2</code>, and <code>CENT</code>.  The <code>pk2cmt</code> model adds a <code>PERIPH</code>
-compartment and parameters <code>Q</code> and <code>VP</code> to that of the
-one-compartment model.  Likewise, the three-compartment model (<code>pk3cmt</code>)
-adds <code>PERIPH2</code> and parameters <code>Q2</code> and <code>VP2</code> to
-that of the two-compartment models.  All pk models also have parameters
-<code>VMAX</code> (defaulting to zero, no non-linear clearance) and <code>KM</code>.</p>
+    <p>See <a href="modlib_details.html">modlib_details</a> for more detailed descriptions of parameters and
+compartments.</p>
+<p>The <code>pk1cmt</code> model is parameterized in terms of <code>CL</code>, <code>V</code>, <code>KA</code> and
+<code>KA2</code> and uses compartments <code>EV</code>, <code>EV2</code>, and <code>CENT</code>. The <code>pk2cmt</code> model
+adds a <code>PERIPH</code> compartment and parameters <code>Q</code> and <code>V3</code> to that of the
+one-compartment model. Likewise, the three-compartment model (<code>pk3cmt</code>)
+adds <code>PERIPH2</code> and parameters <code>Q4</code> and <code>V4</code> to that of the
+two-compartment models. All pk models also have parameters <code>VMAX</code>
+(defaulting to zero, no non-linear clearance) and <code>KM</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="model-description">Model description<a class="anchor" aria-label="anchor" href="#model-description"></a></h2>
 
 
-<p>All pk models have two extravascular dosing compartments and potential
-for linear and nonlinear clearance.</p><ul><li><p><code>pk1cmt</code>: one compartment pk model using ODEs</p></li>
-<li><p><code>pk2cmt</code>: two compartment pk  model using ODEs</p></li>
+<p>All ODE-based pk models have two extravascular dosing compartments and
+potential for linear and nonlinear clearance.</p><ul><li><p><code>pk1cmt</code>: one compartment pk model using ODEs</p></li>
+<li><p><code>pk2cmt</code>: two compartment pk model using ODEs</p></li>
 <li><p><code>pk3cmt</code>: three compartment pk model using ODEs</p></li>
 <li><p><code>pk1</code>: one compartment pk model in closed-form</p></li>
 <li><p><code>pk2</code>: two compartment pk model in closed-form</p></li>
+<li><p><code>pk3</code>: three compartment pk model in closed-form</p></li>
 <li><p><code>popex</code>: a simple population pk model</p></li>
 </ul></div>
 

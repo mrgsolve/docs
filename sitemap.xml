@@ -1,5 +1,6 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://mrgsolve.org/docs/404.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/CLAUDE.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/LICENSE.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/articles/extra/dollar-pred.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/articles/extra/events.html</loc></url>
@@ -22,7 +23,6 @@
 <url><loc>https://mrgsolve.org/docs/reference/as_data_set.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/as_deslist.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/blocks.html</loc></url>
-<url><loc>https://mrgsolve.org/docs/reference/cama.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/carry_out.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/check_data_names.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/cmt_list-class.html</loc></url>
@@ -30,11 +30,15 @@
 <url><loc>https://mrgsolve.org/docs/reference/code.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/collapse_matrices.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/collapse_matrix.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/convert_fort_if_impl.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/convert_pow_impl.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/convert_semicolons_impl.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/custom_tol.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/cvec.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/data_set.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/design.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/details.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/dsl_preprocess.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/env_eval.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/env_get.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/env_ls.html</loc></url>
@@ -79,6 +83,7 @@
 <url><loc>https://mrgsolve.org/docs/reference/mod.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/modMATRIX.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/modelparse.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/modelsplit.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/modlib.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/modlib_details.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/modlib_pk.html</loc></url>
@@ -114,14 +119,12 @@
 <url><loc>https://mrgsolve.org/docs/reference/param.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/param_tags.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/parameter_list-class.html</loc></url>
-<url><loc>https://mrgsolve.org/docs/reference/plot_batch_mrgsims.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/plot_mrgsims.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/plot_sims.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/qsim.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/read_nmext.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/realize_addl.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/reexports.html</loc></url>
-<url><loc>https://mrgsolve.org/docs/reference/render.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/reserved.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/reset_tol.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/revar.html</loc></url>
@@ -145,6 +148,7 @@
 <url><loc>https://mrgsolve.org/docs/reference/use_custom_tol.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/valid_data_set.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/valid_idata_set.html</loc></url>
+<url><loc>https://mrgsolve.org/docs/reference/warn_int_div_impl.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/wf_sweep.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/within.html</loc></url>
 <url><loc>https://mrgsolve.org/docs/reference/zchain.html</loc></url>

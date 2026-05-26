@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -175,7 +175,7 @@
           <code><a href="data_set.html">data_set()</a></code>
 
         </dt>
-        <dd>Select and modify a data set for simulation</dd>
+        <dd>Select a data set for simulation</dd>
 
         <dt>
 
@@ -193,6 +193,13 @@
 
         <dt>
 
+          <code><a href="dsl_preprocess.html">convert_pow()</a></code> <code><a href="dsl_preprocess.html">warn_int_div()</a></code> <code><a href="dsl_preprocess.html">convert_fort_if()</a></code> <code><a href="dsl_preprocess.html">convert_semicolons()</a></code>
+
+        </dt>
+        <dd>DSL preprocessing functions</dd>
+
+        <dt>
+
           <code><a href="env_eval.html">env_eval()</a></code>
 
         </dt>
@@ -200,10 +207,10 @@
 
         <dt>
 
-          <code><a href="env_get.html">env_get()</a></code> <code><a href="env_get.html">env_get_env()</a></code>
+          <code><a href="env_get.html">env_get()</a></code> <code><a href="env_get.html">env_get_obj()</a></code> <code><a href="env_get.html">env_get_env()</a></code>
 
         </dt>
-        <dd>Return model environment</dd>
+        <dd>Return model environment or objects from the model environment</dd>
 
         <dt>
 
@@ -322,7 +329,7 @@
           <code><a href="idata_set.html">idata_set()</a></code>
 
         </dt>
-        <dd>Select and modify a idata set for simulation</dd>
+        <dd>Select a idata set for simulation</dd>
 
         <dt>
 
@@ -351,6 +358,13 @@
 
         </dt>
         <dd>Check if an object is mrgsims output</dd>
+
+        <dt>
+
+          <code><a href="knobs.html">knobs()</a></code>
+
+        </dt>
+        <dd>DEFUNCT: Run sensitivity analysis on model settings</dd>
 
         <dt>
 
@@ -592,13 +606,6 @@
 
         <dt>
 
-          <code><a href="plot_batch_mrgsims.html">plot(<i>&lt;batch_mrgsims&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> <code><a href="plot_batch_mrgsims.html">plot(<i>&lt;batch_mrgsims&gt;</i>,<i>&lt;formula&gt;</i>)</a></code>
-
-        </dt>
-        <dd>Plot method for mrgsims objects</dd>
-
-        <dt>
-
           <code><a href="plot_mrgsims.html">plot(<i>&lt;mrgsims&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> <code><a href="plot_mrgsims.html">plot(<i>&lt;mrgsims&gt;</i>,<i>&lt;formula&gt;</i>)</a></code> <code><a href="plot_mrgsims.html">plot(<i>&lt;mrgsims&gt;</i>,<i>&lt;character&gt;</i>)</a></code>
 
         </dt>
@@ -631,13 +638,6 @@
 
         </dt>
         <dd>Make addl doses explicit in an event object or data set</dd>
-
-        <dt>
-
-          <code><a href="render.html">render()</a></code> <code><a href="render.html">dorender()</a></code>
-
-        </dt>
-        <dd>Render a model to a document</dd>
 
         <dt>
 

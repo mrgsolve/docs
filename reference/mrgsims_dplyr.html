@@ -9,7 +9,7 @@ Contrast with the functions in mrgsims_modify."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mrgsolve</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@ Contrast with the functions in <a href="mrgsims_modify.html">mrgsims_modify</a>.
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'mrgsims'</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, add <span class="op">=</span> <span class="cn">FALSE</span>, .add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'mrgsims'</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .keep_all <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -68,7 +68,7 @@ Contrast with the functions in <a href="mrgsims_modify.html">mrgsims_modify</a>.
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'each'</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">funs</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'mrgsims'</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
@@ -95,31 +95,23 @@ Contrast with the functions in <a href="mrgsims_modify.html">mrgsims_modify</a>.
 
 
 <dl><dt id="arg--data">.data<a class="anchor" aria-label="anchor" href="#arg--data"></a></dt>
-<dd><p>an mrgsims object; passed to various <code>dplyr</code> functions</p></dd>
+<dd><p>an mrgsims object; passed to various <code>dplyr</code> functions.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>passed to other methods</p></dd>
-
-
-<dt id="arg-add">add<a class="anchor" aria-label="anchor" href="#arg-add"></a></dt>
-<dd><p>passed to <a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by</a> (for dplyr &lt; <code>1.0.0</code>)</p></dd>
+<dd><p>passed to other methods.</p></dd>
 
 
 <dt id="arg--add">.add<a class="anchor" aria-label="anchor" href="#arg--add"></a></dt>
-<dd><p>passed to <a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by</a> (for dplyr &gt;= <code>1.0.0</code>)</p></dd>
+<dd><p>passed to <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code>.</p></dd>
 
 
 <dt id="arg--keep-all">.keep_all<a class="anchor" aria-label="anchor" href="#arg--keep-all"></a></dt>
-<dd><p>passed to <a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">dplyr::distinct</a></p></dd>
-
-
-<dt id="arg-funs">funs<a class="anchor" aria-label="anchor" href="#arg-funs"></a></dt>
-<dd><p>passed to <a href="https://dplyr.tidyverse.org/reference/defunct-each.html" class="external-link">dplyr::summarise_each</a></p></dd>
+<dd><p>passed to <code><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">dplyr::distinct()</a></code>.</p></dd>
 
 
 <dt id="arg--dots">.dots<a class="anchor" aria-label="anchor" href="#arg--dots"></a></dt>
-<dd><p>passed to various <code>dplyr</code> functions</p></dd>
+<dd><p>passed to various <code>dplyr</code> functions.</p></dd>
 
 
 <dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
